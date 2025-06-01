@@ -26,3 +26,7 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./
+Create and activate main deploy workflow (buddhi-deploy.yml) for GitHub Pages publishing.
+- Replaces old buddhi-sync.yml
+- Sets up Node.js environment
+- Deploys root-level static HTML using GitHub Actions
