@@ -1,16 +1,32 @@
-# Getting Started with GitHub Copilot
+# 🌟 Sathyadarshana – Light of Truth
 
-<img src="https://octodex.github.com/images/Professortocat_v2.png" align="right" height="200px" />
-
-Hey @SathyadarshanaAI!
-
-Mona here. I'm done preparing your exercise. Hope you enjoy! 💚
-
-Remember, it's self-paced so feel free to take a break! ☕️
-
-[![](https://img.shields.io/badge/Go%20to%20Exercise-%E2%86%92-1f883d?style=for-the-badge&logo=github&labelColor=197935)](https://github.com/SathyadarshanaAI/satsathyadarshana-light-of--/issues/1)
+Welcome to **Sathyadarshana**, a sacred digital sanctuary that unites ancient wisdom and futuristic technology to illuminate the path of spiritual awakening.
 
 ---
 
-&copy; 2025 GitHub &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
+## ✨ Our Vision  
+**Enlightenment. Unity. Liberation.**  
+Through a universal spiritual vision, we aim to guide humanity toward wisdom, inner peace, and divine connection.
 
+---
+
+## 📚 What We Offer
+
+- 🔮 **Sacred Library** – Free access to spiritual scriptures (Tripitaka, Bible, Quran, Enoch, Bhagavad Gita, Kabbalah, etc.)
+- 🪐 **Astrology Service** – KP-based accurate life guidance with NASA data integration
+- 🤖 **AI Reading Assistant** – Multilingual wisdom in Sinhala, Tamil & English
+- 🕊️ **Daily Insights** – Soft spiritual reminders & daily planetary good/evil periods
+
+---
+
+## 🌍 Global & Equal  
+All users are equal. We do not favor language, race, or religion. Every soul deserves light.
+
+---
+
+## 🔐 Copyright & Protection  
+All content is © 2025 **Sathyadarshana.com** – Copying or extracting without permission is prohibited. This site is protected and monitored.
+
+> Built with Divine Inspiration ✨ – Maintained by Buddhi AI & Anuruddha Dilip
+
+---
