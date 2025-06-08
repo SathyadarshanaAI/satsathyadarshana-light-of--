@@ -1,3 +1,17 @@
+# ❌ Workflow disabled to avoid repeated build failure
+
+# name: Buddhi Sync
+# on:
+#   push:
+#     branches:
+#       - main
+# jobs:
+#   sync:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v2
+#       ...
 name: Build & Deploy
 
 on:
