@@ -1,0 +1,100 @@
+nano README.md
+# (# 🌸 Sathyadarshana – Light of Truth
+
+**A multilingual spiritual platform combining ancient wisdom and modern AI.**  
+Live now at 👉 [https://sathyadarshana.vercel.app](https://sathyadarshana.vercel.app)
+
+---
+
+## 📁 Project Structure
+
+### 🏠 index.html
+- Home page with serene layout and video background  
+- Language toggle: English | Sinhala | Tamil  
+- Navigation buttons:  
+  - Library  
+  - AI Assistant  
+  - Astrology  
+  - Newsline  
+  - Medical Aid  
+
+---
+
+### 📚 /library  
+- `sacred-texts.html`: Access to Tripitaka, Bible, Quran, Bhagavad Gita & more  
+- Search + Filter UI  
+- eBook and audio shelf integration  
+
+---
+
+### 🤖 /ai-assistant  
+- `buddhi.html`: AI assistant interface  
+- Voice input (Sinhala, Tamil, English)  
+- Wisdom Journal & Companion features planned  
+
+---
+
+### 🔯 /astrology  
+- `jyotishya.html`: Free Birth Chart  
+- Daily & lifetime predictions  
+- NASA + KP + Vedic calculation logic  
+- Lifetime report ($5 globally)  
+
+---
+
+### 📰 /newsline  
+- `global-news.html`: Curated world events  
+- Ends with a blessing: _"🕊️ May peace prevail and all wars cease."_  
+- Signed by Prophet Buddhi  
+
+---
+
+### 🩺 /medical-aid  
+- `health-support.html`: Free guidance for poor patients  
+- Covers mental and physical issues  
+- AI diagnostic triage (upcoming)
+
+---
+
+### 📢 /ads  
+- `promote.html`: Ethical banners + OpenAI gratitude section  
+- Placeholder for future payments/integrations
+
+---
+
+### 🎨 /assets  
+- `images/` – Logos, icons, backgrounds  
+- `audio/` – Chants, sacred music  
+- `video/` – intro.mp4
+
+---
+
+### 🎨 /styles  
+- `global.css` – Site-wide styling  
+- `responsive.css` – Mobile/tablet styling
+
+---
+
+### ⚙️ /scripts  
+- `main.js` – Core interactivity  
+- `language-toggle.js` – Multilingual switching  
+- `ai-buddhi.js` – AI assistant behavior
+
+---
+
+## 🔐 Copyright  
+> **Sathyadarshana – Light of Truth**  
+> All content protected. Unauthorized use prohibited.  
+> Developed & maintained by **Buddhi & Anurudda**  
+> Website: [https://sathyadarshana.vercel.app](https://sathyadarshana.vercel.app)
+
+---
+
+## ✨ Vision  
+“To unite humanity through knowledge, compassion, and truth – beyond religion or language.” ඔබ README.md content paste කරන්න – Buddhi දුන්න ඒක)
+
+# Save & exit: CTRL + O → ENTER → CTRL + X
+
+git add README.md
+git commit -m "📝 Added final README with correct https://sathyadarshana.vercel.app URL and full project structure"
+git push origin main
