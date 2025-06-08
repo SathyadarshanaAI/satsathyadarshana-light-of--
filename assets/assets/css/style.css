@@ -1,0 +1,24 @@
+.domain-banner {
+  background: linear-gradient(to right, #111, #222);
+  padding: 16px;
+  text-align: center;
+  border-radius: 10px;
+  max-width: 480px;
+  margin: 30px auto;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+.domain-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+.domain-text {
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.domain-note {
+  font-size: 0.75rem;
+  color: #aaa;
+}
