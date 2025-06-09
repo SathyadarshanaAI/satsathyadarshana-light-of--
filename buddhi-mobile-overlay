@@ -33,3 +33,4 @@
   📱 Add files using the "Add file" button for best mobile experience. Drag & drop can be tricky on your phone. <button onclick="document.getElementById('buddhiOverlay').remove()">×</button>
 </div></body>
 </html>
+<script src="buddhi-mobile-overlay.html"></script>
