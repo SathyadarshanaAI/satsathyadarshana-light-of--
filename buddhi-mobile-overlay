@@ -1,0 +1,35 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buddhi Mobile Overlay</title>
+  <style>
+    #buddhiOverlay {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #f2f2f2;
+      border-top: 2px solid #ccc;
+      padding: 15px;
+      text-align: center;
+      font-family: sans-serif;
+      font-size: 16px;
+      box-shadow: 0 -2px 8px rgba(0,0,0,0.2);
+      z-index: 9999;
+    }
+    #buddhiOverlay button {
+      background-color: #ff4b2b;
+      border: none;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 5px;
+      font-size: 14px;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body><div id="buddhiOverlay">
+  📱 Add files using the "Add file" button for best mobile experience. Drag & drop can be tricky on your phone. <button onclick="document.getElementById('buddhiOverlay').remove()">×</button>
+</div></body>
+</html>
