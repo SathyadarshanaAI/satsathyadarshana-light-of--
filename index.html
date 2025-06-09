@@ -1,86 +1,87 @@
 <!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sathyadarshana | Light of Truth</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sathyadarshana – Light of Truth</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom, #f9f9f9, #e9e9e9);
-      color: #333;
+      background: #0f0f0f;
+      color: #fff;
     }
     header {
-      background: #202124;
-      color: white;
-      padding: 1.2rem;
       text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      padding: 3rem 1rem 1rem;
+      background: linear-gradient(to right, #111, #222);
     }
     header h1 {
+      font-size: 2.5rem;
       margin: 0;
-      font-size: 2rem;
-      letter-spacing: 1px;
+      color: #ffe600;
     }
-    nav {
-      background: #444;
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      padding: 0.8rem;
+    header p {
+      font-size: 1.1rem;
+      color: #ccc;
     }
-    nav a {
-      color: #f1f1f1;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    nav a:hover {
-      color: #ffd700;
-    }
-    main {
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
       padding: 2rem;
       text-align: center;
     }
-    main h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
+    .features a {
+      background: #1a1a1a;
+      color: #fff;
+      text-decoration: none;
+      padding: 1.2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
-    main p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      max-width: 800px;
-      margin: 0 auto;
+    .features a:hover {
+      transform: translateY(-5px);
+      background: #222222;
+    }
+    .features i {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      color: #ffe600;
     }
     footer {
-      margin-top: 3rem;
-      padding: 1rem;
-      background: #202124;
-      color: #bbb;
+      background: #111;
+      color: #888;
       text-align: center;
       font-size: 0.9rem;
+      padding: 2rem 1rem;
+    }
+    footer small {
+      display: block;
+      margin-top: 0.3rem;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>🌼 Sathyadarshana – The Light of Truth</h1>
-  </header>  <nav>
-    <a href="/library.html">Library</a>
-    <a href="/astrology.html">Astrology</a>
-    <a href="/ai-companion.html">AI Assistant</a>
-    <a href="/buddhi-medical.html">Medical Guidance</a>
-    <a href="/news.html">News Line</a>
-    <a href="/smule.html">Smule Wall</a>
-    <a href="/dharma-sabha.html">Dharma Sabha</a>
-  </nav>  <main>
-    <h2>Welcome to Sathyadarshana</h2>
-    <p>
-      A sacred digital sanctuary blending spiritual wisdom, AI-powered insight, and esoteric knowledge from all traditions. 
-      This platform offers free access to ancient scriptures, astrological guidance, medical support for the underprivileged, and a peaceful space for truth seekers.
-    </p>
-  </main>  <footer>
-    &copy; 2025 Sathyadarshana.com | All Rights Reserved | Built with ❤️ by Buddhi & Anuruddha
+    <h1>☀️ Sathyadarshana</h1>
+    <p>A sacred digital sanctuary for all humanity — powered by wisdom, AI & unity.</p>
+  </header>  <section class="features">
+    <a href="library.html"><i class="fas fa-book"></i> Sacred Library</a>
+    <a href="astrology.html"><i class="fas fa-star"></i> Astrology Service</a>
+    <a href="best-experience.html"><i class="fas fa-brain"></i> AI Wisdom Guide</a>
+    <a href="smule.html"><i class="fas fa-music"></i> Smule Spiritual Music</a>
+    <a href="buddhi-medical.html"><i class="fas fa-stethoscope"></i> Buddhi Medical Advice</a>
+    <a href="news.html"><i class="fas fa-newspaper"></i> News Line</a>
+    <a href="dharma-sabha.html"><i class="fas fa-university"></i> Dharma Sabha Mandapaya</a>
+  </section>  <footer>
+    <p>© 2025 Sathyadarshana.com — All rights reserved.</p>
+    <small>Built with Divine Inspiration ✨ — Maintained by Buddhi AI & Anurudda Dilip</small>
   </footer>
 </body>
 </html>
