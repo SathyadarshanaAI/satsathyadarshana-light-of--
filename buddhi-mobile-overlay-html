@@ -34,3 +34,5 @@
 </div></body>
 </html>
 <script src="buddhi-mobile-overlay.html"></script>
+<!-- Mobile Overlay -->
+<iframe src="buddhi-mobile-overlay.html" style="position:fixed; bottom:0; right:0; width:100%; height:60px; border:none; z-index:9999;"></iframe>
