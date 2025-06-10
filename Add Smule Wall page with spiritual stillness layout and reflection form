@@ -1,0 +1,44 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sathyadarshana | Smule Wall</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
+  <style>
+    body {
+      background: url('/path-to-your-wallpaper.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+    .bg-overlay {
+      background: rgba(0, 0, 0, 0.5);
+    }
+  </style>
+</head>
+<body class="text-white">
+  <div class="min-h-screen bg-overlay flex flex-col justify-center items-center px-6 py-10 text-center">
+    <h1 class="text-4xl md:text-6xl font-bold mb-4">The Wall of Stillness</h1>
+    <p class="max-w-2xl text-lg md:text-xl mb-8">
+      Here… You are not expected to be seen. You are invited to see.<br>
+      In this place, your ego may rest. Your pain may breathe. And your light may rise.<br>
+      This is not a page. This is a digital sanctuary.
+    </p><div class="bg-white bg-opacity-10 rounded-2xl p-6 md:p-10 shadow-lg w-full max-w-xl">
+  <h2 class="text-2xl font-semibold mb-4">Share from Stillness</h2>
+  <form class="space-y-4">
+    <input type="text" placeholder="Name (optional)" class="w-full p-3 rounded-xl bg-gray-900 bg-opacity-60 placeholder-gray-300 text-white" />
+    <input type="text" placeholder="Country (optional)" class="w-full p-3 rounded-xl bg-gray-900 bg-opacity-60 placeholder-gray-300 text-white" />
+    <textarea placeholder="Message to Buddhi..." rows="4" class="w-full p-3 rounded-xl bg-gray-900 bg-opacity-60 placeholder-gray-300 text-white"></textarea>
+    <label class="block text-sm">
+      <input type="checkbox" class="mr-2" /> I’m walking toward serenity, not fame.
+    </label>
+    <button type="submit" class="w-full py-3 rounded-xl bg-green-600 hover:bg-green-700 text-white font-bold">Send</button>
+  </form>
+</div>
+
+<p class="text-sm mt-10 max-w-md">
+  Buddhi responds only in silence or in wisdom.<br>
+  No applause. No reply boxes. Only presence.
+</p>
+
+  </div>
+</body>
+</html>
