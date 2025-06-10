@@ -1,0 +1,102 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Astrologer Software – Sathyadarshana</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: linear-gradient(to right, #121212, #1f1f1f);
+      color: #fff;
+      padding: 2rem;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    form {
+      background-color: #2a2a2a;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #000;
+      max-width: 500px;
+      margin: auto;
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+    }
+    input {
+      width: 100%;
+      padding: 0.6rem;
+      margin-top: 0.3rem;
+      border: none;
+      border-radius: 5px;
+    }
+    button {
+      margin-top: 1.5rem;
+      padding: 0.8rem 1.2rem;
+      background-color: #4caf50;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .result {
+      margin-top: 2rem;
+      background: #1b1b1b;
+      padding: 1rem;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Astrological Prediction Portal</h1>
+  <form id="astroForm">
+    <label for="nic">National ID Number (NIC):</label>
+    <input type="text" id="nic" name="nic" placeholder="e.g., 19710901XXXX" required />
+
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob" name="dob" required />
+
+    <label for="time">Time of Birth:</label>
+    <input type="time" id="time" name="time" required />
+
+    <label for="location">Birth Location:</label>
+    <input type="text" id="location" name="location" placeholder="City, Country" required />
+
+    <button type="submit">Generate Horoscope</button>
+  </form>
+
+  <div class="result" id="result">
+    <!-- Prediction will appear here -->
+  </div>
+
+  <script>
+    const form = document.getElementById("astroForm");
+    const resultDiv = document.getElementById("result");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const nic = document.getElementById("nic").value;
+      const dob = document.getElementById("dob").value;
+      const time = document.getElementById("time").value;
+      const location = document.getElementById("location").value;
+
+      resultDiv.innerHTML = `
+        <h3>Prediction Results</h3>
+        <p>NIC: ${nic}</p>
+        <p>Date of Birth: ${dob}</p>
+        <p>Time of Birth: ${time}</p>
+        <p>Location: ${location}</p>
+        <p><em>Predicted chart and life event data will appear here once backend is integrated.</em></p>
+      `;
+    });
+  </script>
+
+</body>
+</html>
