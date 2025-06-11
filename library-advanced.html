@@ -1,0 +1,108 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sathyadarshana | Digital Sacred Library</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala&family=Noto+Sans+Tamil&display=swap">
+  <style>
+    body {
+      background-color: #0f0f0f;
+      color: #fff;
+      font-family: 'Segoe UI', 'Noto Sans Sinhala', 'Noto Sans Tamil', sans-serif;
+    }
+    header, footer {
+      background-color: #111;
+      padding: 2rem;
+      text-align: center;
+    }
+    .book-card {
+      background-color: #1c1c1c;
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    }
+    .book-card h4 {
+      color: #ffe600;
+    }
+    .btn-download {
+      background-color: #00d9ff;
+      border: none;
+      color: #000;
+    }
+    .btn-download:hover {
+      background-color: #09c;
+      color: #fff;
+    }
+    .language-toggle {
+      float: right;
+      margin-top: -2.5rem;
+      margin-right: 1rem;
+    }
+    .tts-button {
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>📚 Sathyadarshana Library</h1>
+    <p>Explore sacred wisdom across all traditions in your language.</p>
+    <div class="language-toggle">
+      <select id="langSelect" class="form-select form-select-sm" style="width:auto" onchange="switchLanguage()">
+        <option value="en">English</option>
+        <option value="si">සිංහල</option>
+        <option value="ta">தமிழ்</option>
+      </select>
+    </div>
+  </header>  <main class="container my-5">
+    <div class="row" id="bookList">
+      <!-- Book Cards Injected by JS -->
+    </div>
+  </main>  <div class="text-center">
+    <button onclick="readLibraryIntro()" class="btn btn-outline-light tts-button">📖 Listen to Introduction</button>
+  </div>  <footer>
+    <p>🔒 All rights reserved – © 2025 <strong>Sathyadarshana.com</strong> | Built with 🧠 Buddhi & ❤️ Anuruddha</p>
+  </footer>  <script>
+    const books = [
+      { title: "Tripitaka (Pali Canon)", desc: "Theravāda Buddhist scriptures.", lang: ["en", "si"], emoji: "🪷" },
+      { title: "Holy Bible", desc: "Old & New Testaments in multiple languages.", lang: ["en", "si"], emoji: "📖" },
+      { title: "Bhagavad Gita", desc: "Spiritual teachings from the Mahabharata.", lang: ["en", "si", "ta"], emoji: "🕉️" },
+      { title: "Quran", desc: "The Islamic holy book.", lang: ["en", "si"], emoji: "☪️" },
+      { title: "Book of Enoch", desc: "Visionary apocryphal text.", lang: ["en"], emoji: "🕊️" },
+      { title: "Mahavamsa", desc: "Ancient Sri Lankan Buddhist chronicle.", lang: ["en", "si"], emoji: "🦁" },
+      { title: "Kabbalah (Zohar)", desc: "Jewish mystical writings.", lang: ["en"], emoji: "📜" },
+      { title: "Tao Te Ching", desc: "Taoist classic by Laozi.", lang: ["en"], emoji: "☯️" }
+    ];
+
+    function switchLanguage() {
+      const lang = document.getElementById('langSelect').value;
+      alert("Language switch to: " + lang + " (translation system coming soon)");
+    }
+
+    function renderBooks() {
+      const list = document.getElementById('bookList');
+      list.innerHTML = '';
+      books.forEach(b => {
+        list.innerHTML += `
+          <div class="col-md-6">
+            <div class="book-card">
+              <h4>${b.emoji} ${b.title}</h4>
+              <p>${b.desc}</p>
+              <a href="#" class="btn btn-download btn-sm">Read / Download</a>
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    function readLibraryIntro() {
+      const msg = new SpeechSynthesisUtterance("Welcome to the Sathyadarshana Library. Explore the sacred books of all traditions with love and wisdom.");
+      msg.lang = 'en-US';
+      speechSynthesis.speak(msg);
+    }
+
+    renderBooks();
+  </script></body>
+</html>
