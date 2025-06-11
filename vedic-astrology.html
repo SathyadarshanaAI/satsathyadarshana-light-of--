@@ -28,12 +28,19 @@
     label {
       color: #ccc;
     }
+    .forecast-card, .solar-edu {
+      background-color: #1a1a1a;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 10px #000;
+    }
   </style>
 </head>
 <body>
   <header>
     <h1>🔭 Sathyadarshana Astrology</h1>
-    <p>KP-based Life Prediction • NASA Ephemeris • Daily Insights</p>
+    <p>KP + Western Astrology • NASA Data • Real-Time Alerts</p>
   </header>  <section class="container my-5">
     <h2 class="section-title text-center">Generate Your Birth Chart</h2>
     <div class="form-section">
@@ -63,14 +70,34 @@
     </div>
   </section>  <section class="container my-5">
     <h2 class="section-title text-center">Today’s Planetary Forecast</h2>
-    <div class="bg-dark p-4 rounded">
+    <div class="forecast-card">
       <p>🌞 <strong>Sun in Gemini</strong> – Focus on intellect and communication.</p>
       <p>🌕 <strong>Moon in Virgo</strong> – Great day for organization and mental clarity.</p>
       <p>🔴 <strong>Rahu Kalam:</strong> 1:30 PM – 3:00 PM</p>
       <p>🟢 <strong>Good Period:</strong> 9:00 AM – 11:00 AM</p>
     </div>
+  </section>  <section class="container my-5">
+    <h2 class="section-title text-center">🌍 Solar System Awareness</h2>
+    <div class="solar-edu">
+      <p>🌀 <strong>Sun Storm Alert:</strong> High solar flare activity. Avoid prolonged exposure.</p>
+      <p>🌘 <strong>Moon Shadow on Earth:</strong> Real-time NASA visualization of key Poya phases.</p>
+      <p>⚠️ <strong>Planetary Risk Tracker:</strong> Shows distance + potential environmental impacts.</p>
+      <p>🎓 <strong>For School Kids:</strong> Animated model of solar system motion + moon phases with narration.</p>
+    </div>
+  </section>  <section class="container my-5">
+    <h2 class="section-title text-center">📲 Daily Alert Service</h2>
+    <div class="form-section">
+      <p>Receive your daily prediction and solar alerts via WhatsApp or Email until our app launches.</p>
+      <form>
+        <div class="mb-3">
+          <label for="contact" class="form-label">Your WhatsApp Number or Email</label>
+          <input type="text" class="form-control" id="contact" placeholder="E.g., +9477xxxxxxx or user@example.com" />
+        </div>
+        <button type="submit" class="btn btn-outline-light">📩 Subscribe</button>
+      </form>
+    </div>
   </section>  <footer>
-    <p>🔒 Sathyadarshana Astrology is for spiritual and reflective use only.</p>
+    <p>🔒 Sathyadarshana Astrology is for spiritual and educational reflection only.</p>
     <p>© 2025 Sathyadarshana.com | Powered by Buddhi AI & Anurudda Dilip</p>
   </footer>
 </body>
