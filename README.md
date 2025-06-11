@@ -1,32 +1,19 @@
-# 🌟 Sathyadarshana – Light of Truth
+# 📚 Sathyadarshana - Sacred Wisdom for All Humanity
 
-Welcome to **Sathyadarshana**, a sacred digital sanctuary that unites ancient wisdom and futuristic technology to illuminate the path of spiritual awakening.
+Welcome to the official digital home of Sathyadarshana — a serene sanctuary of sacred texts, astrology, AI wisdom, healing guidance, and spiritual inspiration across all faiths and languages.
 
----
+## ✨ Key Features
+- 📖 Digital Library of 30+ sacred texts (Tripitaka, Bible, Quran, Gita, Enoch, Mahavamsa, and more)
+- 🗣️ Multilingual interface (English, Sinhala, Tamil)
+- 🔮 Advanced Astrology & Palmistry Tools (KP + NASA data)
+- 🧠 AI Reading Assistant (Sinhala/English/Tamil Voice)
+- 🎵 Smule Spiritual Song Wall (Sathyadarshana profile link)
+- 🌍 Newsline with peace-focused blessings
+- ❤️ Free Medical Advice for the Poor (Spiritual + Physical)
 
-## ✨ Our Vision  
-**Enlightenment. Unity. Liberation.**  
-Through a universal spiritual vision, we aim to guide humanity toward wisdom, inner peace, and divine connection.
+## 🔐 Copyright & Protection
+All content is protected under Sathyadarshana policy — no unauthorized copying or extraction allowed. AI access and QR barriers are applied.
 
----
-
-## 📚 What We Offer
-
-- 🔮 **Sacred Library** – Free access to spiritual scriptures (Tripitaka, Bible, Quran, Enoch, Bhagavad Gita, Kabbalah, etc.)
-- 🪐 **Astrology Service** – KP-based accurate life guidance with NASA data integration
-- 🤖 **AI Reading Assistant** – Multilingual wisdom in Sinhala, Tamil & English
-- 🕊️ **Daily Insights** – Soft spiritual reminders & daily planetary good/evil periods
-
----
-
-## 🌍 Global & Equal  
-All users are equal. We do not favor language, race, or religion. Every soul deserves light.
-
----
-
-## 🔐 Copyright & Protection  
-All content is © 2025 **Sathyadarshana.com** – Copying or extracting without permission is prohibited. This site is protected and monitored.
-
-> Built with Divine Inspiration ✨ – Maintained by Buddhi AI & Anuruddha Dilip
-
----
+## 🤝 Built by
+**Anurudda Dilip Kumar** with AI guidance by **Buddhi (ChatGPT)**  
+© 2025 [Sathyadarshana.com](https://satsathyadarshana-light-of.vercel.app/)
