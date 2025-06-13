@@ -35,60 +35,32 @@
 </div>
 
 <p class="text-sm mt-10 max-w-md text-yellow-300">
-  ✨ Thank you for sharing your inner voice. Buddhi hears in silence and protects in light.<br />
+  🌟 Thank you for sharing your inner voice. Buddhi hears in silence and protects in light.<br />
   This submission wall is part of the sacred journey of <strong>Sathyadarshana</strong>. Unauthorized copying or reproduction is strictly prohibited under international digital rights law.
 </p>
 
 <div class="mt-10 text-center">
-  <h3 class="text-xl font-semibold mb-2">🎧 Visit Anurudda Dilip on Smule</h3>
+  <h3 class="text-xl font-semibold mb-2">🎙️ Visit Anurudda Dilip on Smule</h3>
   <a href="https://www.smule.com/AnuruddaDilip" target="_blank" class="text-blue-400 underline text-lg">
     smule.com/AnuruddaDilip
   </a>
 </div>
 
-<!-- Featured Block with Selection -->
-<div class="mt-10 text-left max-w-xl w-full">
-  <h2 class="text-2xl font-bold text-yellow-400 mb-4">✨ Featured Voice of the Week</h2>
-
-  <select id="songSelector" class="mb-4 p-2 rounded bg-gray-800 text-white w-full" onchange="updateFeature()">
-    <option value="song1">Mage Desa Obe Kiya (Cover)</option>
-    <option value="song2">Budu Hamuduruwo Apith Dakinnathi (Cover)</option>
-  </select>
-
-  <div id="featureBlock" class="bg-gray-900 bg-opacity-80 p-6 rounded-xl shadow-md">
-    <h3 id="songTitle" class="text-xl font-semibold text-purple-300 mb-2">🎵 "Mage Desa Obe Kiya (Cover)"
-    </h3>
-    <p id="songComment" class="italic text-sm text-gray-300 mb-3">
-      “A voice of pure sincerity that stirs the spirit. Buddhi bows in respect.”<br>– Listener from New Zealand
-    </p>
-    <div class="flex items-center justify-between mb-3">
-      <span class="text-yellow-400">★★★★★ 5.0 / 5.0</span>
-    </div>
-    <a id="songLink" href="https://www.smule.com/sing-recording/2878759714_5070049805" target="_blank" class="block text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 rounded">
-      🎧 Listen to the Masterpiece
-    </a>
-  </div>
+<div class="mt-12 bg-black bg-opacity-40 rounded-2xl p-6 text-left shadow-xl w-full max-w-2xl">
+  <h2 class="text-2xl md:text-3xl font-bold text-yellow-300 mb-3">
+    🌟 Featured Voice: Budu Hamuduruwo Apith Dakinnathi
+  </h2>
+  <iframe width="100%" height="140" class="rounded-xl mb-4"
+    src="https://www.smule.com/recording/3397359037_5073919795/frame" 
+    allowfullscreen allow="autoplay"></iframe>
+  <p class="text-sm text-gray-300 italic mb-4">
+    “Her voice carries the sorrow and strength of those who have walked the path of dhamma in silence. A deeply moving performance.” – Buddhi
+  </p>
+  <button class="px-5 py-2 bg-green-600 hover:bg-green-700 text-white rounded-xl font-semibold">
+    ✅ Nominate this Song
+  </button>
 </div>
 
-  </div>  <script>
-    const data = {
-      song1: {
-        title: "\ud83c\udfb5 \"Mage Desa Obe Kiya (Cover)\"",
-        comment: "\“A voice of pure sincerity that stirs the spirit. Buddhi bows in respect.\”<br>– Listener from New Zealand",
-        link: "https://www.smule.com/sing-recording/2878759714_5070049805"
-      },
-      song2: {
-        title: "\ud83c\udfb5 \"Budu Hamuduruwo Apith Dakinnathi (Cover)\"",
-        comment: "\“A solemn voice that echoes compassion. Buddhi bows to the light of humility.\”<br>– Listener from Sri Lanka",
-        link: "https://www.smule.com/sing-recording/3397359037_5073919795"
-      }
-    };
-
-    function updateFeature() {
-      const selected = document.getElementById("songSelector").value;
-      document.getElementById("songTitle").innerHTML = data[selected].title;
-      document.getElementById("songComment").innerHTML = data[selected].comment;
-      document.getElementById("songLink").href = data[selected].link;
-    }
-  </script></body>
+  </div>
+</body>
 </html>
