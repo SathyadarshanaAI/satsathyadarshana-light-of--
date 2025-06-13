@@ -4,71 +4,78 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Voice Studio Gallery | Sathyadarshana</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     body {
-      background-color: #0d0d0d;
+      background-color: #0f0f0f;
       color: #fff;
       font-family: 'Segoe UI', sans-serif;
     }
     header, footer {
-      text-align: center;
+      background-color: #111;
       padding: 2rem;
-      background: #111;
+      text-align: center;
     }
-    .gallery-section {
-      padding: 2rem 1rem;
+    .filter-btn {
+      margin: 0.5rem;
     }
-    .audio-box, .video-box {
-      background: #1a1a1a;
+    .gallery-item {
+      background-color: #1c1c1c;
+      border-radius: 10px;
       padding: 1rem;
       margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    .gallery-item img {
+      max-width: 100%;
       border-radius: 10px;
-      box-shadow: 0 0 10px #000;
-    }
-    .audio-box h5, .video-box h5 {
-      color: #ffe600;
-    }
-    .lightbox {
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .lightbox:hover {
-      opacity: 0.7;
+      margin-bottom: 0.5rem;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>🎙️ Voice Studio Gallery</h1>
-    <p>Spiritual creations powered by AI + human harmony</p>
-  </header>  <section class="container gallery-section">
-    <div class="row">
-      <div class="col-md-6 audio-box">
-        <h5>Mage Desa Obe Kiya (Cover)</h5>
-        <p class="text-light fst-italic">A voice of purity and soul</p>
-        <audio controls class="w-100">
-          <source src="audio/magedesa.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
-      </div><div class="col-md-6 video-box">
-    <h5>Budu Hamuduruwo Apith Dakinnathi</h5>
-    <p class="text-light fst-italic">Light and devotion in voice</p>
-    <video controls class="w-100">
-      <source src="videos/budu-dakinnathi.mp4" type="video/mp4">
-      Your browser does not support the video element.
-    </video>
-  </div>
-
-  <!-- Future filter component -->
-  <!-- <div class="col-md-12 mb-4">
-    <input type="text" class="form-control" placeholder="Filter by voice/mood/date...">
-  </div> -->
-</div>
-
+    <h1>🎶 Voice Studio Gallery</h1>
+    <p>Discover spiritually-inspired Smule performances curated by Buddhi AI</p>
+  </header>  <section class="container text-center">
+    <h3 class="mb-4">🔎 Filter by Mood or Language</h3>
+    <div>
+      <button class="btn btn-outline-light filter-btn" onclick="filterGallery('all')">All</button>
+      <button class="btn btn-outline-info filter-btn" onclick="filterGallery('calm')">Calm</button>
+      <button class="btn btn-outline-info filter-btn" onclick="filterGallery('joyful')">Joyful</button>
+      <button class="btn btn-outline-info filter-btn" onclick="filterGallery('sad')">Sad</button>
+      <button class="btn btn-outline-warning filter-btn" onclick="filterGallery('sinhala')">Sinhala</button>
+      <button class="btn btn-outline-warning filter-btn" onclick="filterGallery('english')">English</button>
+    </div>
+  </section>  <section class="container mt-4">
+    <div class="row" id="gallery">
+      <div class="col-md-4 gallery-item" data-mood="calm" data-lang="sinhala">
+        <img src="media/budu-hamuduruwo-thumb.jpg" alt="Budu Hamuduruwo">
+        <h5>Budu Hamuduruwo</h5>
+        <p>Calm | Sinhala</p>
+        <a href="https://www.smule.com/sing-recording/3397359037_5073919795" class="btn btn-outline-light btn-sm" target="_blank">🎧 Listen</a>
+      </div>
+      <div class="col-md-4 gallery-item" data-mood="sad" data-lang="sinhala">
+        <img src="media/surakeemata-ho-thumb.jpg" alt="Surakeemata Ho">
+        <h5>Surakeemata Ho</h5>
+        <p>Sad | Sinhala</p>
+        <a href="https://www.smule.com/sing-recording/2555067331_5072752499" class="btn btn-outline-light btn-sm" target="_blank">🎧 Listen</a>
+      </div>
+      <!-- Add more gallery items here -->
+    </div>
   </section>  <footer>
-    <p>🔒 All rights reserved. Sathyadarshana Voice Studio Gallery is protected under global copyright laws.</p>
-    <p>🧠 Created by Buddhi AI + Anurudda Dilip</p>
-  </footer>
-</body>
+    <p>🔒 © 2025 Sathyadarshana.com – Powered by Buddhi AI & Anurudda</p>
+  </footer>  <script>
+    function filterGallery(category) {
+      const items = document.querySelectorAll('.gallery-item');
+      items.forEach(item => {
+        const mood = item.getAttribute('data-mood');
+        const lang = item.getAttribute('data-lang');
+        if (category === 'all' || mood === category || lang === category) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+  </script></body>
 </html>
