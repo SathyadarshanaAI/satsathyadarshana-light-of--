@@ -1,0 +1,26 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Featured Voice | Smule</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+</head>
+<body class="bg-gray-900 text-white flex flex-col items-center justify-center min-h-screen p-6">
+  <div class="text-center mb-8">
+    <h1 class="text-2xl font-bold mb-2">
+      <i class="fas fa-microphone text-blue-400"></i> Visit Anurudda Dilip on Smule
+    </h1>
+    <a href="https://smule.com/AnuruddaDilip" target="_blank" class="text-blue-300 underline">smule.com/AnuruddaDilip</a>
+  </div>  <div class="bg-gray-800 rounded-2xl p-6 max-w-md shadow-lg">
+    <h2 class="text-yellow-400 text-xl font-bold mb-4">🌟 Featured Voice: Budu Hamuduruwo Apith Dakinnathi</h2>
+    <p class="text-2xl font-bold text-white mb-4">Nightly Can’t Open This Page</p>
+    <p class="italic text-gray-300 mb-6">
+      “Her voice carries the sorrow and strength of those who have walked the path of dhamma in silence. A deeply moving performance.” – Buddhi
+    </p>
+    <a href="#" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-xl inline-block">
+      ✅ Nominate this Song
+    </a>
+  </div>  <footer class="mt-10 text-center text-sm text-gray-500 italic">
+    This feature is part of the <strong>Sathyadarshana</strong> digital sanctuary.
+  </footer>  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script></body>
+</html>
