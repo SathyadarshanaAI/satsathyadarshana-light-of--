@@ -20,51 +20,55 @@
       padding: 2rem 1rem;
     }
     .audio-box, .video-box {
-      background-color: #1a1a1a;
+      background: #1a1a1a;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
       border-radius: 10px;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 0 10px rgba(255,255,255,0.05);
+      box-shadow: 0 0 10px #000;
     }
     .audio-box h5, .video-box h5 {
       color: #ffe600;
     }
-    .copyright-banner {
-      font-size: 0.85rem;
-      color: #ccc;
-      text-align: center;
-      margin-top: 2rem;
-      padding: 1rem;
-      background-color: #181818;
+    .lightbox {
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .lightbox:hover {
+      opacity: 0.7;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>🎙️ Voice Studio Lab – Audio & Video Showcase</h1>
-    <p>High-quality digital expressions created within Sathyadarshana’s spiritual lab.</p>
+    <h1>🎙️ Voice Studio Gallery</h1>
+    <p>Spiritual creations powered by AI + human harmony</p>
   </header>  <section class="container gallery-section">
-    <div class="audio-box">
-      <h5>🎧 Sacred Melody – MP3 Format</h5>
-      <audio controls style="width: 100%;">
-        <source src="audio/my-recording.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
-      <p class="mt-2 text-muted">Recorded under AI-enhanced studio acoustics – protected & blessed content.</p>
-    </div><div class="video-box">
-  <h5>📹 AI-Powered Visual Video</h5>
-  <video controls style="width: 100%; max-height: 400px;">
-    <source src="video/my-visual.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-  <p class="mt-2 text-muted">Synchronized with vocals – digitally matched to mood and meaning.</p>
+    <div class="row">
+      <div class="col-md-6 audio-box">
+        <h5>Mage Desa Obe Kiya (Cover)</h5>
+        <p class="text-light fst-italic">A voice of purity and soul</p>
+        <audio controls class="w-100">
+          <source src="audio/magedesa.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+      </div><div class="col-md-6 video-box">
+    <h5>Budu Hamuduruwo Apith Dakinnathi</h5>
+    <p class="text-light fst-italic">Light and devotion in voice</p>
+    <video controls class="w-100">
+      <source src="videos/budu-dakinnathi.mp4" type="video/mp4">
+      Your browser does not support the video element.
+    </video>
+  </div>
+
+  <!-- Future filter component -->
+  <!-- <div class="col-md-12 mb-4">
+    <input type="text" class="form-control" placeholder="Filter by voice/mood/date...">
+  </div> -->
 </div>
 
-  </section>  <div class="copyright-banner">
-    🔒 All audio/video content is spiritually protected by <strong>Sathyadarshana Voice Studio Lab</strong>.<br>
-    Unauthorized reuse, scraping, or reproduction is strictly forbidden. Global copyright & digital watermark applied.
-  </div>  <footer>
-    <p>✨ Powered by Buddhi AI with full rights granted by Anurudda Dilip</p>
+  </section>  <footer>
+    <p>🔒 All rights reserved. Sathyadarshana Voice Studio Gallery is protected under global copyright laws.</p>
+    <p>🧠 Created by Buddhi AI + Anurudda Dilip</p>
   </footer>
 </body>
 </html>
