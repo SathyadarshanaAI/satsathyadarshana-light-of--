@@ -1,0 +1,95 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Voice Studio Gallery | Sathyadarshana</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #0f0f0f;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    header, footer {
+      background-color: #111;
+      padding: 2rem;
+      text-align: center;
+    }
+    .filter-bar {
+      margin: 2rem auto;
+      text-align: center;
+    }
+    .gallery-item {
+      background-color: #1a1a1a;
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 0 8px #000;
+    }
+    .gallery-item h5 {
+      color: #ffe600;
+    }
+    .gallery-item iframe, .gallery-item audio {
+      width: 100%;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🎤 Voice Studio Gallery</h1>
+    <p>Experience spiritually enhanced creations from our digital music lab.</p>
+  </header>  <div class="container">
+    <div class="filter-bar">
+      <label class="me-2">Voice Type:</label>
+      <select id="voiceFilter">
+        <option value="all">All</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="ai">AI</option>
+      </select><label class="ms-4 me-2">Mood:</label>
+  <select id="moodFilter">
+    <option value="all">All</option>
+    <option value="calm">Calm</option>
+    <option value="devotional">Devotional</option>
+    <option value="uplifting">Uplifting</option>
+  </select>
+</div>
+
+<div class="row" id="gallery">
+  <div class="col-md-6 gallery-item" data-voice="male" data-mood="devotional">
+    <h5>සුරැකීමට හෝ – Male Voice</h5>
+    <audio controls src="songs/surakeemata-ho.mp3"></audio>
+  </div>
+  <div class="col-md-6 gallery-item" data-voice="ai" data-mood="calm">
+    <h5>Budu Hamuduruwo – AI Voice</h5>
+    <audio controls src="songs/budu-hamuduruwo.mp3"></audio>
+  </div>
+  <div class="col-md-6 gallery-item" data-voice="female" data-mood="uplifting">
+    <h5>Mage Desa – Female Voice</h5>
+    <audio controls src="songs/mage-desa.mp3"></audio>
+  </div>
+</div>
+
+  </div>  <footer>
+    <p>🔒 Protected by Sathyadarshana Copyright Intelligence © 2025</p>
+  </footer>  <script>
+    const voiceFilter = document.getElementById('voiceFilter');
+    const moodFilter = document.getElementById('moodFilter');
+    const items = document.querySelectorAll('.gallery-item');
+
+    function applyFilters() {
+      const voice = voiceFilter.value;
+      const mood = moodFilter.value;
+
+      items.forEach(item => {
+        const matchVoice = voice === 'all' || item.dataset.voice === voice;
+        const matchMood = mood === 'all' || item.dataset.mood === mood;
+        item.style.display = matchVoice && matchMood ? 'block' : 'none';
+      });
+    }
+
+    voiceFilter.addEventListener('change', applyFilters);
+    moodFilter.addEventListener('change', applyFilters);
+  </script></body>
+</html>
