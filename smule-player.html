@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sathyadarshana | Smule Performance</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background: linear-gradient(to bottom, #0f172a, #1e293b);
+    }
+    .smule-frame {
+      width: 100%;
+      max-width: 640px;
+      height: 360px;
+      border: none;
+      border-radius: 1rem;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body class="text-white font-sans px-4 py-10">
+
+  <!-- Header -->
+  <div class="text-center mb-10">
+    <h1 class="text-4xl font-bold">🌟 Featured Smule Performance</h1>
+    <p class="text-gray-300 mt-2">A sacred voice offered through the Sathyadarshana sanctuary</p>
+  </div>
+
+  <!-- Smule Video Embed -->
+  <div class="flex justify-center mb-10">
+    <iframe class="smule-frame"
+      src="https://www.smule.com/recording/3397359037_5073919795/frame"
+      allowfullscreen allow="autoplay; clipboard-write"></iframe>
+  </div>
+
+  <!-- 🎧 Listen in App -->
+  <section class="mt-16 text-center">
+    <h2 class="text-3xl font-bold text-white mb-6">🎧 Listen to the Spiritual Voice</h2>
+    <p class="text-lg text-gray-300 mb-4">
+      Smule performances are best experienced in the official app. Click below to open it directly.
+    </p>
+
+    <!-- Open Smule App Button -->
+    <button id="openSmuleBtn"
+      class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-xl transition duration-300">
+      Open in Smule App
+    </button>
+
+    <div class="mt-6">
+      <p class="text-sm text-gray-400 italic">
+        This feature is part of the <strong>Sathyadarshana</strong> digital sanctuary.<br>
+        We value your spirit and your song.
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div class="text-center mt-16 text-sm text-yellow-300">
+    © 2025 Sathyadarshana | All spiritual media are protected under international digital rights law.
+  </div>
+
+  <script>
+    document.getElementById("openSmuleBtn").addEventListener("click", function () {
+      window.location.href = "smule://www.smule.com/sing-recording/3397359037_5073919795";
+    });
+  </script>
+
+</body>
+</html>
