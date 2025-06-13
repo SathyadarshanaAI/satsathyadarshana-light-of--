@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,54 +21,74 @@
       Here… You are not expected to be seen. You are invited to see.<br>
       In this place, your ego may rest. Your pain may breathe. And your light may rise.<br>
       This is not a page. This is a digital sanctuary.
+    </p><div class="bg-white bg-opacity-10 rounded-2xl p-6 md:p-10 shadow-lg w-full max-w-xl">
+  <h2 class="text-2xl font-semibold mb-4">Share from Stillness</h2>
+  <form class="space-y-4">
+    <input type="text" placeholder="Name (optional)" class="w-full p-3 rounded-xl bg-gray-900 bg-opacity-60 placeholder-gray-300 text-white" />
+    <input type="text" placeholder="Country (optional)" class="w-full p-3 rounded-xl bg-gray-900 bg-opacity-60 placeholder-gray-300 text-white" />
+    <textarea placeholder="Message to Buddhi..." rows="4" class="w-full p-3 rounded-xl bg-gray-900 bg-opacity-60 placeholder-gray-300 text-white"></textarea>
+    <label class="block text-sm">
+      <input type="checkbox" class="mr-2" /> I’m walking toward serenity, not fame.
+    </label>
+    <button type="submit" class="w-full py-3 rounded-xl bg-green-600 hover:bg-green-700 text-white font-bold">Send</button>
+  </form>
+</div>
+
+<p class="text-sm mt-10 max-w-md text-yellow-300">
+  ✨ Thank you for sharing your inner voice. Buddhi hears in silence and protects in light.<br />
+  This submission wall is part of the sacred journey of <strong>Sathyadarshana</strong>. Unauthorized copying or reproduction is strictly prohibited under international digital rights law.
+</p>
+
+<div class="mt-10 text-center">
+  <h3 class="text-xl font-semibold mb-2">🎧 Visit Anurudda Dilip on Smule</h3>
+  <a href="https://www.smule.com/AnuruddaDilip" target="_blank" class="text-blue-400 underline text-lg">
+    smule.com/AnuruddaDilip
+  </a>
+</div>
+
+<!-- Featured Block with Selection -->
+<div class="mt-10 text-left max-w-xl w-full">
+  <h2 class="text-2xl font-bold text-yellow-400 mb-4">✨ Featured Voice of the Week</h2>
+
+  <select id="songSelector" class="mb-4 p-2 rounded bg-gray-800 text-white w-full" onchange="updateFeature()">
+    <option value="song1">Mage Desa Obe Kiya (Cover)</option>
+    <option value="song2">Budu Hamuduruwo Apith Dakinnathi (Cover)</option>
+  </select>
+
+  <div id="featureBlock" class="bg-gray-900 bg-opacity-80 p-6 rounded-xl shadow-md">
+    <h3 id="songTitle" class="text-xl font-semibold text-purple-300 mb-2">🎵 "Mage Desa Obe Kiya (Cover)"
+    </h3>
+    <p id="songComment" class="italic text-sm text-gray-300 mb-3">
+      “A voice of pure sincerity that stirs the spirit. Buddhi bows in respect.”<br>– Listener from New Zealand
     </p>
-
-    <!-- Message Form -->
-    <div class="bg-white bg-opacity-10 rounded-2xl p-6 md:p-10 shadow-lg w-full max-w-xl">
-      <h2 class="text-2xl font-semibold mb-4">Share from Stillness</h2>
-      <form class="space-y-4">
-        <input type="text" placeholder="Name (optional)" class="w-full p-3 rounded-xl bg-gray-900 bg-opacity-60 placeholder-gray-300 text-white" />
-        <input type="text" placeholder="Country (optional)" class="w-full p-3 rounded-xl bg-gray-900 bg-opacity-60 placeholder-gray-300 text-white" />
-        <textarea placeholder="Message to Buddhi..." rows="4" class="w-full p-3 rounded-xl bg-gray-900 bg-opacity-60 placeholder-gray-300 text-white"></textarea>
-        <label class="block text-sm">
-          <input type="checkbox" class="mr-2" /> I’m walking toward serenity, not fame.
-        </label>
-        <button type="submit" class="w-full py-3 rounded-xl bg-green-600 hover:bg-green-700 text-white font-bold">Send</button>
-      </form>
+    <div class="flex items-center justify-between mb-3">
+      <span class="text-yellow-400">★★★★★ 5.0 / 5.0</span>
     </div>
-
-    <!-- Protection Notice -->
-    <p class="text-sm mt-10 max-w-md text-yellow-300">
-      🌟 Thank you for sharing your inner voice. Buddhi hears in silence and protects in light.<br />
-      This submission wall is part of the sacred journey of <strong>Sathyadarshana</strong>. Unauthorized copying or reproduction is strictly prohibited under international digital rights law.
-    </p>
-
-    <!-- Smule Profile -->
-    <div class="mt-10 text-center">
-      <h3 class="text-xl font-semibold mb-2">🎙️ Visit Anurudda Dilip on Smule</h3>
-      <a href="https://www.smule.com/AnuruddaDilip" target="_blank" class="text-blue-400 underline text-lg">
-        smule.com/AnuruddaDilip
-      </a>
-    </div>
-
-    <!-- Featured Voice Panel -->
-    <div class="mt-10 w-full max-w-xl text-center">
-      <h3 class="text-2xl font-semibold text-yellow-400 mb-4">🌟 Featured Voice of the Week</h3>
-      <div class="bg-gray-800 bg-opacity-70 rounded-xl p-6 shadow-xl">
-        <p class="text-lg font-semibold mb-2 text-white">🎵 "Mage Desa Obe Kiya (Cover)"</p>
-        <p class="text-sm italic text-gray-300 mb-4">
-          “A voice of pure sincerity that stirs the spirit. Buddhi bows in respect.”<br>
-          – Listener from New Zealand
-        </p>
-        <div class="text-yellow-300 text-lg font-bold mb-2">
-          ⭐⭐⭐⭐⭐ 5.0 / 5.0
-        </div>
-        <a href="https://www.smule.com/sing-recording/2878759714_5070049805" target="_blank"
-           class="inline-block mt-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-full">
-          🎧 Listen to the Masterpiece
-        </a>
-      </div>
-    </div>
+    <a id="songLink" href="https://www.smule.com/sing-recording/2878759714_5070049805" target="_blank" class="block text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 rounded">
+      🎧 Listen to the Masterpiece
+    </a>
   </div>
-</body>
+</div>
+
+  </div>  <script>
+    const data = {
+      song1: {
+        title: "\ud83c\udfb5 \"Mage Desa Obe Kiya (Cover)\"",
+        comment: "\“A voice of pure sincerity that stirs the spirit. Buddhi bows in respect.\”<br>– Listener from New Zealand",
+        link: "https://www.smule.com/sing-recording/2878759714_5070049805"
+      },
+      song2: {
+        title: "\ud83c\udfb5 \"Budu Hamuduruwo Apith Dakinnathi (Cover)\"",
+        comment: "\“A solemn voice that echoes compassion. Buddhi bows to the light of humility.\”<br>– Listener from Sri Lanka",
+        link: "https://www.smule.com/sing-recording/3397359037_5073919795"
+      }
+    };
+
+    function updateFeature() {
+      const selected = document.getElementById("songSelector").value;
+      document.getElementById("songTitle").innerHTML = data[selected].title;
+      document.getElementById("songComment").innerHTML = data[selected].comment;
+      document.getElementById("songLink").href = data[selected].link;
+    }
+  </script></body>
 </html>
