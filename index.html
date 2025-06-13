@@ -12,7 +12,7 @@
       color: #fff;
       font-family: 'Segoe UI', sans-serif;
     }
-    header {
+    header, footer {
       background-color: #111;
       padding: 2rem;
       text-align: center;
@@ -97,17 +97,14 @@
     </div>
   </section>
 
-  <!-- 🧠 Whisper Loader Script -->
+  <!-- Footer from separate HTML file -->
+  <div id="footer-section"></div>
   <script>
-    async function loadWhisper() {
-      const response = await fetch('whispers.csv');
-      const text = await response.text();
-      const lines = text.trim().split('\n').slice(1);
-      const whispers = lines.map(line => line.split(',').slice(1).join(','));
-      const random = whispers[Math.floor(Math.random() * whispers.length)];
-      document.getElementById('whisper-text').textContent = random;
-    }
-    window.onload = loadWhisper;
+    fetch("index-footer-script.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("footer-section").innerHTML = html;
+      });
   </script>
 
 </body>
