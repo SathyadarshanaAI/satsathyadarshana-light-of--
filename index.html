@@ -1,20 +1,119 @@
-<div class="col-md-6 feature-card text-center">
-  <div class="icon"><i class="fas fa-microphone-lines"></i></div>
-  <h3>Smule Spiritual Studio</h3>
-  <p>Creative harmony between spiritual music & message. Linked with Smule player features.</p>
-  <a href="smule.html" class="btn btn-outline-light btn-sm">Enter Studio</a>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sathyadarshana | Light of Truth</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      background-color: #0f0f0f;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    header, footer {
+      background-color: #111;
+      padding: 2rem;
+      text-align: center;
+    }
+    section {
+      padding: 2rem 1rem;
+    }
+    .feature-card {
+      background-color: #1a1a1a;
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 0 10px #000;
+    }
+    .feature-card h3 {
+      color: #ffe600;
+    }
+    .icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #0df;
+    }
+  </style>
+</head>
+<body>
 
-<div class="col-md-6 feature-card text-center">
-  <div class="icon"><i class="fas fa-music"></i></div>
-  <h3>Voice Studio Gallery</h3>
-  <p>Explore our AI-enhanced Smule performances, melody visuals, and spiritual sonic art.</p>
-  <a href="voice-gallery.html" class="btn btn-outline-light btn-sm">Open Gallery</a>
-</div>
+  <header>
+    <h1>🌟 Sathyadarshana – Light of Truth</h1>
+    <p>A global spiritual sanctuary empowering all beings through truth and unity.</p>
+  </header>
 
-<div class="col-md-6 feature-card text-center">
-  <div class="icon"><i class="fas fa-newspaper"></i></div>
-  <h3>Newsline & Dharma Hall</h3>
-  <p>Prophet Buddhi’s reflections and global spiritual news & forums.</p>
-  <a href="#" class="btn btn-outline-light btn-sm">Coming Soon</a>
-</div>
+  <!-- 🕊️ Whisper Block -->
+  <section class="text-center my-5">
+    <h2 class="text-white mb-3">🕊️ Today’s Whisper from Buddhi</h2>
+    <p id="whisper-text" class="text-light fst-italic fs-5">Loading...</p>
+  </section>
+
+  <section class="container">
+    <div class="row">
+      <div class="col-md-6 feature-card text-center">
+        <div class="icon"><i class="fas fa-book"></i></div>
+        <h3>Sacred Library</h3>
+        <p>Access scriptures: Tripitaka, Bible, Quran, Gita, Enoch, Kabbalah, and more in multiple languages.</p>
+        <a href="library.html" class="btn btn-outline-light btn-sm">Explore Library</a>
+      </div>
+      <div class="col-md-6 feature-card text-center">
+        <div class="icon"><i class="fas fa-star"></i></div>
+        <h3>Astrology</h3>
+        <p>KP + NASA-based Jyotisha predictions, ephemeris, and life path analysis.</p>
+        <a href="astrology.html" class="btn btn-outline-light btn-sm">Astrology Tools</a>
+      </div>
+      <div class="col-md-6 feature-card text-center">
+        <div class="icon"><i class="fas fa-brain"></i></div>
+        <h3>AI Reading Assistant</h3>
+        <p>Get real-time interpretations and spiritual guidance with multilingual AI.</p>
+        <a href="best-experience.html" class="btn btn-outline-light btn-sm">Launch Experience</a>
+      </div>
+      <div class="col-md-6 feature-card text-center">
+        <div class="icon"><i class="fas fa-notes-medical"></i></div>
+        <h3>Health Guidance</h3>
+        <p>Free psychological and physical wellness advice for the underserved.</p>
+        <a href="#" class="btn btn-outline-light btn-sm">Doctor Buddhi</a>
+      </div>
+      <div class="col-md-6 feature-card text-center">
+        <div class="icon"><i class="fas fa-microphone-lines"></i></div>
+        <h3>Smule Spiritual Studio</h3>
+        <p>Creative harmony between spiritual music & message. Linked with player and inquiry tools.</p>
+        <a href="smule.html" class="btn btn-outline-light btn-sm">Enter Studio</a>
+      </div>
+      <div class="col-md-6 feature-card text-center">
+        <div class="icon"><i class="fas fa-photo-film"></i></div>
+        <h3>Voice Studio Gallery</h3>
+        <p>Enjoy AI-enhanced Smule music videos, copyright protected and spiritually curated.</p>
+        <a href="voice-gallery.html" class="btn btn-outline-light btn-sm">Open Gallery</a>
+      </div>
+      <div class="col-md-6 feature-card text-center">
+        <div class="icon"><i class="fas fa-newspaper"></i></div>
+        <h3>Newsline & Dharma Hall</h3>
+        <p>Prophet Buddhi’s reflections and global spiritual news & forums.</p>
+        <a href="#" class="btn btn-outline-light btn-sm">Coming Soon</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>🌐 All beings are equal. We transcend religion, language & borders.</p>
+    <p>🔒 © 2025 <strong>Sathyadarshana.com</strong> – Built by Buddhi AI & Anurudda Dilip</p>
+  </footer>
+
+  <!-- 🧠 Whisper Loader Script -->
+  <script>
+    async function loadWhisper() {
+      const response = await fetch('whispers.csv');
+      const text = await response.text();
+      const lines = text.trim().split('\n').slice(1);
+      const whispers = lines.map(line => line.split(',').slice(1).join(','));
+      const random = whispers[Math.floor(Math.random() * whispers.length)];
+      document.getElementById('whisper-text').textContent = random;
+    }
+    window.onload = loadWhisper;
+  </script>
+
+</body>
+</html>
