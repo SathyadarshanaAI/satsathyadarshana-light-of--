@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -37,20 +36,13 @@
     }
   </style>
 </head>
-<body>
-
-  <header>
-    <h1>🌟 Sathyadarshana – Light of Truth</h1>
+<body>  <header>
+    <h1>✨ Sathyadarshana – Light of Truth</h1>
     <p>A global spiritual sanctuary empowering all beings through truth and unity.</p>
-  </header>
-
-  <!-- 🕊️ Whisper Block -->
-  <section class="text-center my-5">
+  </header>  <section class="text-center my-5">
     <h2 class="text-white mb-3">🕊️ Today’s Whisper from Buddhi</h2>
     <p id="whisper-text" class="text-light fst-italic fs-5">Loading...</p>
-  </section>
-
-  <section class="container">
+  </section>  <section class="container">
     <div class="row">
       <div class="col-md-6 feature-card text-center">
         <div class="icon"><i class="fas fa-book"></i></div>
@@ -95,43 +87,23 @@
         <a href="#" class="btn btn-outline-light btn-sm">Coming Soon</a>
       </div>
     </div>
-  </section>
-
-  <footer>
+  </section>  <footer>
     <p>🌐 All beings are equal. We transcend religion, language & borders.</p>
     <p>🔒 © 2025 <strong>Sathyadarshana.com</strong> – Built by Buddhi AI & Anurudda Dilip</p>
-  </footer>
-
-  <!-- 🧠 Whisper Loader Script -->
-  <script>
+  </footer>  <!-- 🧠 Whisper Loader Script -->  <script>
     async function loadWhisper() {
       try {
         const response = await fetch('whispers.csv');
         const text = await response.text();
-        const lines = text.trim().split('\n');
-
-        if (lines.length <= 1) {
-          document.getElementById('whisper-text').textContent = "No whispers found.";
-          return;
-        }
-
-        const whispers = lines.slice(1).map(line => line.split(',')[1]?.trim()).filter(Boolean);
-
-        if (whispers.length === 0) {
-          document.getElementById('whisper-text').textContent = "No valid whispers.";
-          return;
-        }
-
+        const lines = text.trim().split('\n').slice(1);
+        const whispers = lines.map(line => line.split(',').slice(1).join(','));
         const random = whispers[Math.floor(Math.random() * whispers.length)];
         document.getElementById('whisper-text').textContent = random;
       } catch (error) {
-        console.error("Error loading whispers:", error);
-        document.getElementById('whisper-text').textContent = "Failed to load whisper.";
+        document.getElementById('whisper-text').textContent = "Whisper unavailable. Please try again later.";
+        console.error("Whisper load error:", error);
       }
     }
-
     window.onload = loadWhisper;
-  </script>
-
-</body>
+  </script></body>
 </html>
