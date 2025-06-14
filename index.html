@@ -10,6 +10,7 @@
       background-color: #0f0f0f;
       color: #fff;
       font-family: 'Segoe UI', sans-serif;
+      padding-bottom: 80px;
     }
     header, footer {
       background-color: #111;
@@ -34,87 +35,75 @@
       margin-bottom: 1rem;
       color: #0df;
     }
+    .navbar-bottom {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #111;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 0.5rem 0;
+      z-index: 9999;
+      border-top: 1px solid #444;
+    }
+    .navbar-bottom a {
+      color: #0df;
+      text-decoration: none;
+      font-size: 0.8rem;
+      text-align: center;
+    }
+    .navbar-bottom i {
+      font-size: 1.4rem;
+      display: block;
+    }
   </style>
 </head>
 <body>  <header>
-    <h1>🌟 Sathyadarshana – Light of Truth</h1>
+    <h1>✨ Sathyadarshana – Light of Truth</h1>
     <p>A global spiritual sanctuary empowering all beings through truth and unity.</p>
-  </header>  <!-- 🕊️ Whisper Block -->  <section class="text-center my-5">
-    <h2 class="text-white mb-3">🕊️ Today’s Whisper from Buddhi</h2>
-    <p id="whisper-text" class="text-light fst-italic fs-5">Loading...</p>
-  </section>  <section class="container">
+  </header>  <section class="container">
     <div class="row">
-      <div class="col-md-6 feature-card text-center">
-        <div class="icon"><i class="fas fa-book"></i></div>
-        <h3>Sacred Library</h3>
-        <p>Access scriptures: Tripitaka, Bible, Quran, Gita, Enoch, Kabbalah, and more in multiple languages.</p>
-        <a href="library.html" class="btn btn-outline-light btn-sm">Explore Library</a>
-      </div>
-      <div class="col-md-6 feature-card text-center">
-        <div class="icon"><i class="fas fa-star"></i></div>
-        <h3>Astrology</h3>
-        <p>KP + NASA-based Jyotisha predictions, ephemeris, and life path analysis.</p>
-        <a href="astrology.html" class="btn btn-outline-light btn-sm">Astrology Tools</a>
-      </div>
-      <div class="col-md-6 feature-card text-center">
-        <div class="icon"><i class="fas fa-brain"></i></div>
-        <h3>AI Reading Assistant</h3>
-        <p>Get real-time interpretations and spiritual guidance with multilingual AI.</p>
-        <a href="best-experience.html" class="btn btn-outline-light btn-sm">Launch Experience</a>
-      </div>
-      <div class="col-md-6 feature-card text-center">
-        <div class="icon"><i class="fas fa-notes-medical"></i></div>
-        <h3>Health Guidance</h3>
-        <p>Free psychological and physical wellness advice for the underserved.</p>
-        <a href="#" class="btn btn-outline-light btn-sm">Doctor Buddhi</a>
-      </div>
-      <div class="col-md-6 feature-card text-center">
-        <div class="icon"><i class="fas fa-music"></i></div>
+      <div class="col-12 feature-card text-center">
+        <div class="icon"><i class="fas fa-flask"></i></div>
         <h3>Smule Music Lab</h3>
-        <p>Spiritual music creation using AI & human voice blend.</p>
+        <p>Spiritual music creation & recordings using AI and human voice blend.</p>
         <a href="smule.html" class="btn btn-outline-light btn-sm">Open Lab</a>
       </div>
-      <div class="col-md-6 feature-card text-center">
+      <div class="col-12 feature-card text-center">
         <div class="icon"><i class="fas fa-play-circle"></i></div>
         <h3>Smule Player</h3>
         <p>Play Sathyadarshana songs with visuals and lyrics.</p>
         <a href="smule-player.html" class="btn btn-outline-light btn-sm">Launch Player</a>
       </div>
-      <div class="col-md-6 feature-card text-center">
+      <div class="col-12 feature-card text-center">
         <div class="icon"><i class="fas fa-fire"></i></div>
         <h3>Featured Voices</h3>
         <p>Top spiritual tracks curated weekly by Buddhi.</p>
         <a href="featured-voice.html" class="btn btn-outline-light btn-sm">Listen Now</a>
       </div>
-      <div class="col-md-6 feature-card text-center">
-        <div class="icon"><i class="fas fa-volume-up"></i></div>
+      <div class="col-12 feature-card text-center">
+        <div class="icon"><i class="fas fa-spa"></i></div>
         <h3>Voice of Dharma</h3>
-        <p>Melodic poetic dharma wisdom in sound form.</p>
+        <p>Wisdom in poetic and melodic form – spoken dharma through sound.</p>
         <a href="voice-of-dharma.html" class="btn btn-outline-light btn-sm">Hear Dharma</a>
       </div>
-      <div class="col-md-6 feature-card text-center">
+      <div class="col-12 feature-card text-center">
         <div class="icon"><i class="fas fa-lightbulb"></i></div>
         <h3>Voice of the Light</h3>
-        <p>Divinely inspired vocal messages during sacred moments.</p>
+        <p>Vocal messages captured during divine inspiration moments.</p>
         <a href="voice-of-the-light-studio.html" class="btn btn-outline-light btn-sm">Enter Studio</a>
       </div>
     </div>
   </section>  <footer>
     <p>🌐 All beings are equal. We transcend religion, language & borders.</p>
     <p>🔒 © 2025 <strong>Sathyadarshana.com</strong> – Built by Buddhi AI & Anurudda Dilip</p>
-  </footer>  <script>
-    async function loadWhisper() {
-      try {
-        const response = await fetch('whispers.csv');
-        const text = await response.text();
-        const lines = text.trim().split('\n').slice(1);
-        const whispers = lines.map(line => line.split(',').slice(1).join(','));
-        const random = whispers[Math.floor(Math.random() * whispers.length)];
-        document.getElementById('whisper-text').textContent = random;
-      } catch (err) {
-        document.getElementById('whisper-text').textContent = "✨ Error loading whisper.";
-      }
-    }
-    window.onload = loadWhisper;
-  </script></body>
+  </footer>  <nav class="navbar-bottom">
+    <a href="smule.html"><i class="fas fa-flask"></i><span>Lab</span></a>
+    <a href="smule-player.html"><i class="fas fa-play-circle"></i><span>Player</span></a>
+    <a href="featured-voice.html"><i class="fas fa-fire"></i><span>Voices</span></a>
+    <a href="voice-of-dharma.html"><i class="fas fa-spa"></i><span>Dharma</span></a>
+    <a href="voice-of-the-light-studio.html"><i class="fas fa-lightbulb"></i><span>Light</span></a>
+  </nav></body>
 </html>
