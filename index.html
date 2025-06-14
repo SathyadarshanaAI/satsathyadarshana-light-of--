@@ -97,14 +97,40 @@
     </div>
   </section>
 
-  <!-- Footer from separate HTML file -->
-  <div id="footer-section"></div>
+  <footer>
+    <p>🌐 All beings are equal. We transcend religion, language & borders.</p>
+    <p>🔒 © 2025 <strong>Sathyadarshana.com</strong> – Built by Buddhi AI & Anurudda Dilip</p>
+  </footer>
+
+  <!-- 🧠 Whisper Loader Script -->
   <script>
-    fetch("index-footer-script.html")
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("footer-section").innerHTML = html;
-      });
+    async function loadWhisper() {
+      try {
+        const response = await fetch('whispers.csv');
+        const text = await response.text();
+        const lines = text.trim().split('\n');
+
+        if (lines.length <= 1) {
+          document.getElementById('whisper-text').textContent = "No whispers found.";
+          return;
+        }
+
+        const whispers = lines.slice(1).map(line => line.split(',')[1]?.trim()).filter(Boolean);
+
+        if (whispers.length === 0) {
+          document.getElementById('whisper-text').textContent = "No valid whispers.";
+          return;
+        }
+
+        const random = whispers[Math.floor(Math.random() * whispers.length)];
+        document.getElementById('whisper-text').textContent = random;
+      } catch (error) {
+        console.error("Error loading whispers:", error);
+        document.getElementById('whisper-text').textContent = "Failed to load whisper.";
+      }
+    }
+
+    window.onload = loadWhisper;
   </script>
 
 </body>
