@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Birthplace Finder • Sathyadarshana Astrology</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #f9fafb, #ffffff);
+      user-select: none;
+    }
+    input:focus {
+      outline: none;
+      border-color: #6366f1;
+      box-shadow: 0 0 0 1px #6366f1;
+    }
+  </style>
+</head>
+<body class="text-gray-800">
+  <div class="max-w-3xl mx-auto p-6">
+    <h1 class="text-2xl font-bold text-center text-indigo-700 mb-4">🌍 Birthplace Finder</h1>
+    <p class="text-center text-gray-600 mb-6">Enter your birth location manually without Google Maps.</p>
+
+    <form class="bg-white shadow-md rounded px-6 pt-6 pb-8 mb-6">
+      <div class="grid grid-cols-1 gap-4">
+        <input class="shadow border rounded w-full py-2 px-3 text-gray-700" type="text" placeholder="City / Village" required>
+        <input class="shadow border rounded w-full py-2 px-3 text-gray-700" type="text" placeholder="Province / District (Optional)">
+        <input class="shadow border rounded w-full py-2 px-3 text-gray-700" type="text" placeholder="Country" required>
+        <input class="shadow border rounded w-full py-2 px-3 text-gray-700" type="text" placeholder="Latitude (optional)">
+        <input class="shadow border rounded w-full py-2 px-3 text-gray-700" type="text" placeholder="Longitude (optional)">
+      </div>
+      <button class="mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded" type="submit">
+        Save Location
+      </button>
+    </form>
+
+    <p class="text-center text-xs text-gray-400 mt-4">
+      Sathyadarshana Astro Engine © 2025 • Location data will be used solely for Jyotisha insights.
+    </p>
+  </div>
+</body>
+</html>
