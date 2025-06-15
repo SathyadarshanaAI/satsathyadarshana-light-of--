@@ -3,43 +3,92 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>🌌 Cosmic Vision | Sathyadarshana</title>
+  <title>Cosmic Vision 🌌 | Sathyadarshana</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
     body {
-      background: linear-gradient(to bottom right, #eef2ff, #ffffff);
+      background: radial-gradient(circle, #fdf6e3, #fff);
     }
-    iframe {
-      border-radius: 1rem;
+    .planet {
+      border-radius: 50%;
+      position: absolute;
+      transition: transform 0.3s ease;
+    }
+    #sun {
+      background: radial-gradient(circle, #ffdd00, #ff9900);
+      width: 100px;
+      height: 100px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 5;
+    }
+    #earth {
+      background: radial-gradient(circle, #4fc3f7, #1976d2);
+      width: 30px;
+      height: 30px;
+    }
+    #moon {
+      background: radial-gradient(circle, #ccc, #666);
+      width: 15px;
+      height: 15px;
+    }
+    #orbit {
+      position: absolute;
+      border: 1px dashed #ddd;
+      border-radius: 50%;
+      width: 300px;
+      height: 300px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
   </style>
 </head>
 <body class="text-gray-800">
-  <div class="max-w-5xl mx-auto px-4 py-8">
-    <h1 class="text-4xl font-bold text-center text-indigo-700 mb-4">🌌 Cosmic Vision</h1>
-    <p class="text-center text-gray-600 mb-6">Real-time cosmic awareness — planetary positions, eclipses, and celestial wisdom</p>
+  <div class="max-w-5xl mx-auto p-6 text-center">
+    <h1 class="text-3xl font-bold text-indigo-700 mb-2">🌌 Cosmic Vision Module</h1>
+    <p class="text-gray-600 mb-6">Observe planetary alignment, sun & moon positions, and dynamic eclipse effects in real time.</p>
 
-    <!-- 3D Solar System Embed -->
-    <div class="mb-8">
-      <h2 class="text-2xl text-indigo-600 font-semibold mb-2">🪐 3D Solar System Position</h2>
-      <iframe src="https://eyes.nasa.gov/apps/orrery/#/" width="100%" height="480" allowfullscreen></iframe>
+    <div id="orbit">
+      <div id="sun" class="planet"></div>
+      <div id="earth" class="planet"></div>
+      <div id="moon" class="planet"></div>
     </div>
 
-    <!-- Eclipse Visualization -->
-    <div class="mb-8">
-      <h2 class="text-2xl text-indigo-600 font-semibold mb-2">🌑 Upcoming Eclipses</h2>
-      <iframe src="https://www.timeanddate.com/eclipse/map/2025-april-8" width="100%" height="400" allowfullscreen></iframe>
+    <div class="mt-8 text-sm text-gray-500">
+      Simulated 2D representation — for educational and spiritual insight. NASA data integration coming soon. 🌞🌑🌍
     </div>
-
-    <!-- Educational Note -->
-    <div class="bg-white p-4 rounded shadow mb-8">
-      <h3 class="text-lg font-medium text-indigo-700 mb-2">About This Module</h3>
-      <p class="text-gray-700">This section is powered by NASA Eyes and TimeAndDate eclipse API to provide accurate and visual planetary data. Ideal for astrology learners, students, and spiritual reflection.</p>
-    </div>
-
-    <footer class="text-center text-xs text-gray-400">
-      © 2025 Sathyadarshana – Cosmic Vision • Powered by Buddhi AI
-    </footer>
   </div>
+
+  <script>
+    function setPositions() {
+      const centerX = window.innerWidth / 2;
+      const centerY = window.innerHeight / 2;
+      const radius = 150;
+
+      const time = new Date().getTime() / 1000;
+      const earth = document.getElementById('earth');
+      const moon = document.getElementById('moon');
+
+      // Earth orbit
+      const earthX = centerX + radius * Math.cos(time / 10) - 15;
+      const earthY = centerY + radius * Math.sin(time / 10) - 15;
+
+      earth.style.left = `${earthX}px`;
+      earth.style.top = `${earthY}px`;
+
+      // Moon orbit around earth
+      const moonRadius = 40;
+      const moonX = earthX + moonRadius * Math.cos(time) + 7.5;
+      const moonY = earthY + moonRadius * Math.sin(time) + 7.5;
+
+      moon.style.left = `${moonX}px`;
+      moon.style.top = `${moonY}px`;
+
+      requestAnimationFrame(setPositions);
+    }
+    setPositions();
+  </script>
 </body>
 </html>
