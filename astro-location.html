@@ -71,6 +71,7 @@
   <!-- JS to fetch location suggestions -->
   <script>
     async function fetchLocationSuggestions(query) {
+      if (!query) return;
       const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}`);
       const results = await res.json();
 
