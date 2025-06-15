@@ -1,17 +1,68 @@
-<footer>
-  <p>🌐 All beings are equal. We transcend religion, language & borders.</p>
-  <p>🔒 © 2025 <strong>Sathyadarshana.com</strong> – Built by Buddhi AI & Anurudda Dilip</p>
-</footer>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sathyadarshana – Light of Truth</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #111827, #1f2937); /* Dark theme */
+      color: #e5e7eb;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .no-copy {
+      user-select: none;
+    }
+  </style>
+</head>
+<body class="no-copy min-h-screen flex flex-col justify-between">
 
-<!-- 🧠 Whisper Loader Script -->
-<script>
-  async function loadWhisper() {
-    const response = await fetch('whispers.csv');
-    const text = await response.text();
-    const lines = text.trim().split('\n').slice(1);
-    const whispers = lines.map(line => line.split(',').slice(1).join(','));
-    const random = whispers[Math.floor(Math.random() * whispers.length)];
-    document.getElementById('whisper-text').textContent = random;
-  }
-  window.onload = loadWhisper;
-</script>
+  <!-- Header -->
+  <header class="text-center py-8">
+    <h1 class="text-4xl font-bold text-indigo-400">🌏 Sathyadarshana</h1>
+    <p class="text-lg text-gray-300 mt-2">One Humanity • One Light • All Faiths Respected Equally</p>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="flex flex-wrap justify-center gap-4 mb-10">
+    <a href="/library.html" class="bg-indigo-800 hover:bg-indigo-600 text-white px-4 py-2 rounded-lg">📚 Library</a>
+    <a href="/astrology.html" class="bg-yellow-700 hover:bg-yellow-500 text-white px-4 py-2 rounded-lg">🔭 Astrology</a>
+    <a href="/studio.html" class="bg-pink-700 hover:bg-pink-500 text-white px-4 py-2 rounded-lg">🎶 Sathyadarshana Lab</a>
+    <a href="/news.html" class="bg-green-700 hover:bg-green-500 text-white px-4 py-2 rounded-lg">📰 News Line</a>
+    <a href="/buddhi.html" class="bg-purple-700 hover:bg-purple-500 text-white px-4 py-2 rounded-lg">🧘 Buddhi AI</a>
+  </nav>
+
+  <!-- Whisper of the Day -->
+  <main class="text-center px-6">
+    <div class="bg-gray-800 rounded-xl p-6 shadow-lg">
+      <h2 class="text-xl font-semibold text-indigo-300 mb-3">💫 Whisper of the Day</h2>
+      <p id="whisper-text" class="text-gray-100 italic">Loading wisdom...</p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center text-sm text-gray-500 mt-16 mb-6">
+    <p>🌐 All beings are equal. We transcend religion, language & borders.</p>
+    <p>🔒 © 2025 <strong>Sathyadarshana.com</strong> – Built by Buddhi AI & Anurudda Dilip</p>
+  </footer>
+
+  <!-- 🧠 Whisper Loader Script -->
+  <script>
+    async function loadWhisper() {
+      try {
+        const response = await fetch('whispers.csv');
+        const text = await response.text();
+        const lines = text.trim().split('\n').slice(1); // skip header
+        const whispers = lines.map(line => line.split(',').slice(1).join(','));
+        const random = whispers[Math.floor(Math.random() * whispers.length)];
+        document.getElementById('whisper-text').textContent = random;
+      } catch (error) {
+        document.getElementById('whisper-text').textContent = "✨ Unable to load wisdom today. Stay tuned!";
+      }
+    }
+    window.onload = loadWhisper;
+  </script>
+
+</body>
+</html>
