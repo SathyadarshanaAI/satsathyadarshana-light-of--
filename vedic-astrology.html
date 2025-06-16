@@ -1,130 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sathyadarshana | Light of Truth</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>Vedic Astrology | Sathyadarshana</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
-    body {
-      background-color: #0f0f0f;
-      color: #fff;
-      font-family: 'Segoe UI', sans-serif;
-      padding-bottom: 80px;
-    }
-    header, footer {
-      background-color: #111;
-      padding: 2rem;
-      text-align: center;
-    }
-    section {
-      padding: 2rem 1rem;
-    }
-    .feature-card {
-      background-color: #1a1a1a;
-      border-radius: 10px;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 0 10px #000;
-    }
-    .feature-card h3 {
-      color: #ffe600;
-    }
-    .icon {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #0df;
-    }
-    .navbar-bottom {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background-color: #111;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      padding: 0.5rem 0;
-      z-index: 9999;
-      border-top: 1px solid #444;
-    }
-    .navbar-bottom a {
-      color: #0df;
-      text-decoration: none;
-      font-size: 0.8rem;
-      text-align: center;
-    }
-    .navbar-bottom i {
-      font-size: 1.4rem;
-      display: block;
-    }
+    .no-copy { user-select: none; }
   </style>
 </head>
-<body>
-  <header>
-    <h1>✨ Sathyadarshana – Light of Truth</h1>
-    <p>A global spiritual sanctuary empowering all beings through truth and unity.</p>
-  </header>
+<body class="bg-gray-900 text-gray-100 no-copy">
+  <header class="text-center p-6 bg-gray-800 shadow-lg">
+    <h1 class="text-3xl font-bold text-yellow-300">🔭 Vedic Astrology</h1>
+    <p class="text-gray-400 mt-2">Divine cosmic insights powered by Vedic & KP Systems + NASA Data</p>
+  </header>  <main class="max-w-4xl mx-auto p-6">
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold text-indigo-400 mb-2">✨ Welcome to the Stars</h2>
+      <p class="text-gray-300">
+        Explore the mysteries of your soul and destiny using accurate, ancient astrology.
+        We blend traditional Jyotisha with modern astronomical data for unparalleled clarity.
+      </p>
+    </section><section class="mb-10 grid grid-cols-1 sm:grid-cols-2 gap-6">
+  <div class="bg-gray-800 rounded-xl p-5 shadow-md">
+    <h3 class="text-lg font-bold text-yellow-300 mb-2">🪐 Generate Birth Chart</h3>
+    <p class="text-sm text-gray-400 mb-3">Create your personal horoscope with precise planetary positions.</p>
+    <a href="birthplace-finder.html" class="text-indigo-400 hover:underline">Get Started →</a>
+  </div>
+  <div class="bg-gray-800 rounded-xl p-5 shadow-md">
+    <h3 class="text-lg font-bold text-yellow-300 mb-2">🔭 Real-Time Planetary View</h3>
+    <p class="text-sm text-gray-400 mb-3">Track planetary motion live with NASA ephemeris data.</p>
+    <a href="cosmic-vision.html" class="text-indigo-400 hover:underline">View Now →</a>
+  </div>
+  <div class="bg-gray-800 rounded-xl p-5 shadow-md">
+    <h3 class="text-lg font-bold text-yellow-300 mb-2">📈 KP Sub-Lord Analysis</h3>
+    <p class="text-sm text-gray-400 mb-3">Accurate prediction using Krishnamurti Paddhati method.</p>
+    <a href="astrology-dashboard-global.html" class="text-indigo-400 hover:underline">View KP Chart →</a>
+  </div>
+  <div class="bg-gray-800 rounded-xl p-5 shadow-md">
+    <h3 class="text-lg font-bold text-yellow-300 mb-2">💫 Daily Auspicious Times</h3>
+    <p class="text-sm text-gray-400 mb-3">See daily muhurtha, good/bad planetary hours, and solar events.</p>
+    <a href="astro-location.html" class="text-indigo-400 hover:underline">Check Calendar →</a>
+  </div>
+</section>
 
-  <section class="container">
-    <div class="row">
-      <div class="col-12 feature-card text-center">
-        <div class="icon"><i class="fas fa-flask"></i></div>
-        <h3>Sathyadarshana Music Lab</h3>
-        <p>Spiritual music creation & recordings using AI and human voice blend.</p>
-        <a href="smule.html" class="btn btn-outline-light btn-sm">Open Lab</a>
-      </div>
+<section class="text-center">
+  <h2 class="text-xl font-semibold text-green-400 mb-2">🧘 Spiritual Guidance by Buddhi</h2>
+  <p class="text-gray-300">Receive interpretation and wisdom through our AI-based assistant for all charts and questions.</p>
+  <a href="buddhi.html" class="inline-block mt-4 bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded">Ask Buddhi</a>
+</section>
 
-      <div class="col-12 feature-card text-center">
-        <div class="icon"><i class="fas fa-play-circle"></i></div>
-        <h3>Smule Player</h3>
-        <p>Play Sathyadarshana songs with visuals and lyrics.</p>
-        <a href="smule-player.html" class="btn btn-outline-light btn-sm">Launch Player</a>
-      </div>
-
-      <div class="col-12 feature-card text-center">
-        <div class="icon"><i class="fas fa-fire"></i></div>
-        <h3>Featured Voices</h3>
-        <p>Top spiritual tracks curated weekly by Buddhi.</p>
-        <a href="featured-voice.html" class="btn btn-outline-light btn-sm">Listen Now</a>
-      </div>
-
-      <div class="col-12 feature-card text-center">
-        <div class="icon"><i class="fas fa-spa"></i></div>
-        <h3>Voice of Dharma</h3>
-        <p>Wisdom in poetic and melodic form – spoken dharma through sound.</p>
-        <a href="voice-of-dharma.html" class="btn btn-outline-light btn-sm">Hear Dharma</a>
-      </div>
-
-      <div class="col-12 feature-card text-center">
-        <div class="icon"><i class="fas fa-lightbulb"></i></div>
-        <h3>Voice of the Light</h3>
-        <p>Vocal messages captured during divine inspiration moments.</p>
-        <a href="voice-of-the-light-studio.html" class="btn btn-outline-light btn-sm">Enter Studio</a>
-      </div>
-
-      <div class="col-12 feature-card text-center">
-        <div class="icon"><i class="fas fa-moon"></i></div>
-        <h3>Astrology</h3>
-        <p>Vedic + KP + NASA-based cosmic guidance & life charts.</p>
-        <a href="vedic-astrology.html" class="btn btn-outline-light btn-sm">Explore Astrology</a>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <p>🌐 All beings are equal. We transcend religion, language & borders.</p>
-    <p>🔒 © 2025 <strong>Sathyadarshana.com</strong> – Built by Buddhi AI & Anurudda Dilip</p>
+  </main>  <footer class="text-center text-xs text-gray-500 p-6 border-t border-gray-700">
+    🌐 All beings are equal. We transcend religion, language & borders.<br>
+    🔒 © 2025 <strong>Sathyadarshana.com</strong> — Built by Buddhi AI & Anurudda Dilip
   </footer>
-
-  <nav class="navbar-bottom">
-    <a href="smule.html"><i class="fas fa-flask"></i><span>Lab</span></a>
-    <a href="smule-player.html"><i class="fas fa-play-circle"></i><span>Player</span></a>
-    <a href="featured-voice.html"><i class="fas fa-fire"></i><span>Voices</span></a>
-    <a href="voice-of-dharma.html"><i class="fas fa-spa"></i><span>Dharma</span></a>
-    <a href="voice-of-the-light-studio.html"><i class="fas fa-lightbulb"></i><span>Light</span></a>
-    <a href="vedic-astrology.html"><i class="fas fa-moon"></i><span>Astro</span></a>
-  </nav>
 </body>
 </html>
