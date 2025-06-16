@@ -1,56 +1,84 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vedic Astrology | Sathyadarshana</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sathyadarshana | Vedic Astrology</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
   <style>
-    .no-copy { user-select: none; }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background: radial-gradient(circle, #000000, #1a1a1a);
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      padding-bottom: 5rem;
+    }
+    header {
+      padding: 3rem 1rem;
+      text-align: center;
+      background-color: #111;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      color: #00ffc8;
+    }
+    .section {
+      padding: 2rem 1rem;
+    }
+    .astro-box {
+      background-color: #222;
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 0 10px rgba(0, 255, 200, 0.3);
+    }
+    footer {
+      background-color: #0c0c0c;
+      text-align: center;
+      padding: 2rem;
+      color: #aaa;
+    }
+    .nasa-logo {
+      display: block;
+      margin: 2rem auto 1rem auto;
+      width: 150px;
+      filter: drop-shadow(0 0 10px #ffffffa0);
+    }
   </style>
 </head>
-<body class="bg-gray-900 text-gray-100 no-copy">
-  <header class="text-center p-6 bg-gray-800 shadow-lg">
-    <h1 class="text-3xl font-bold text-yellow-300">🔭 Vedic Astrology</h1>
-    <p class="text-gray-400 mt-2">Divine cosmic insights powered by Vedic & KP Systems + NASA Data</p>
-  </header>  <main class="max-w-4xl mx-auto p-6">
-    <section class="mb-8">
-      <h2 class="text-2xl font-semibold text-indigo-400 mb-2">✨ Welcome to the Stars</h2>
-      <p class="text-gray-300">
-        Explore the mysteries of your soul and destiny using accurate, ancient astrology.
-        We blend traditional Jyotisha with modern astronomical data for unparalleled clarity.
-      </p>
-    </section><section class="mb-10 grid grid-cols-1 sm:grid-cols-2 gap-6">
-  <div class="bg-gray-800 rounded-xl p-5 shadow-md">
-    <h3 class="text-lg font-bold text-yellow-300 mb-2">🪐 Generate Birth Chart</h3>
-    <p class="text-sm text-gray-400 mb-3">Create your personal horoscope with precise planetary positions.</p>
-    <a href="birthplace-finder.html" class="text-indigo-400 hover:underline">Get Started →</a>
-  </div>
-  <div class="bg-gray-800 rounded-xl p-5 shadow-md">
-    <h3 class="text-lg font-bold text-yellow-300 mb-2">🔭 Real-Time Planetary View</h3>
-    <p class="text-sm text-gray-400 mb-3">Track planetary motion live with NASA ephemeris data.</p>
-    <a href="cosmic-vision.html" class="text-indigo-400 hover:underline">View Now →</a>
-  </div>
-  <div class="bg-gray-800 rounded-xl p-5 shadow-md">
-    <h3 class="text-lg font-bold text-yellow-300 mb-2">📈 KP Sub-Lord Analysis</h3>
-    <p class="text-sm text-gray-400 mb-3">Accurate prediction using Krishnamurti Paddhati method.</p>
-    <a href="astrology-dashboard-global.html" class="text-indigo-400 hover:underline">View KP Chart →</a>
-  </div>
-  <div class="bg-gray-800 rounded-xl p-5 shadow-md">
-    <h3 class="text-lg font-bold text-yellow-300 mb-2">💫 Daily Auspicious Times</h3>
-    <p class="text-sm text-gray-400 mb-3">See daily muhurtha, good/bad planetary hours, and solar events.</p>
-    <a href="astro-location.html" class="text-indigo-400 hover:underline">Check Calendar →</a>
-  </div>
-</section>
+<body>
 
-<section class="text-center">
-  <h2 class="text-xl font-semibold text-green-400 mb-2">🧘 Spiritual Guidance by Buddhi</h2>
-  <p class="text-gray-300">Receive interpretation and wisdom through our AI-based assistant for all charts and questions.</p>
-  <a href="buddhi.html" class="inline-block mt-4 bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded">Ask Buddhi</a>
-</section>
+  <header>
+    <h1>🔭 Vedic Astrology</h1>
+    <p>Explore cosmic patterns and predictions powered by ancient wisdom and NASA precision.</p>
+  </header>
 
-  </main>  <footer class="text-center text-xs text-gray-500 p-6 border-t border-gray-700">
-    🌐 All beings are equal. We transcend religion, language & borders.<br>
-    🔒 © 2025 <strong>Sathyadarshana.com</strong> — Built by Buddhi AI & Anurudda Dilip
+  <main class="container">
+    <div class="astro-box">
+      <h3>🧘 Personal Horoscope</h3>
+      <p>Enter your birth details to receive your KP astrology chart and cosmic insights.</p>
+      <a href="#" class="btn btn-outline-info">Coming Soon</a>
+    </div>
+
+    <div class="astro-box">
+      <h3>🌙 Daily Planetary Movements</h3>
+      <p>Track how planets affect your moods, health, and success day by day.</p>
+      <a href="#" class="btn btn-outline-light">Coming Soon</a>
+    </div>
+
+    <!-- NASA Logo Section -->
+    <div class="text-center">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/NASA_logo.svg" 
+           alt="NASA Logo" class="nasa-logo">
+      <p style="color: #ccc;">Powered by NASA Ephemeris Data</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Sathyadarshana | Guided by Buddhi & Anurudda</p>
   </footer>
+
 </body>
 </html>
