@@ -20,34 +20,50 @@
   </style>
 </head>
 <body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 no-copy">
-  <div class="max-w-4xl mx-auto p-6">
-    <h1 class="text-4xl text-center font-bold text-indigo-600 dark:text-indigo-300 mb-4">📰 Sathyadarshana News Line</h1>
-    <p class="text-center mb-6 text-gray-600 dark:text-gray-300">Real-time spiritual updates, celestial alerts, Dharma Sabha broadcasts, and divine insights.</p>
+  <header class="bg-gray-100 dark:bg-gray-800 shadow mb-6">
+    <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
+      <h1 class="text-xl font-bold text-indigo-600 dark:text-indigo-300">Sathyadarshana</h1>
+      <nav class="space-x-4 text-sm">
+        <a href="/index.html" class="hover:text-indigo-500">🏠 Home</a>
+        <a href="/library.html" class="hover:text-indigo-500">📚 Library</a>
+        <a href="/news.html" class="text-indigo-700 font-semibold">📰 News</a>
+        <a href="/voice-of-dharma.html" class="hover:text-indigo-500">🕯️ Dharma</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto p-6">
+    <h2 class="text-3xl text-center font-bold text-indigo-600 dark:text-indigo-300 mb-4">📰 Sathyadarshana News Line</h2>
+    <p class="text-center mb-6 text-gray-600 dark:text-gray-300">Spiritual updates, celestial warnings, and prophetic insight curated by Buddhi.</p>
 
     <div class="bg-yellow-100 dark:bg-yellow-800 text-yellow-900 dark:text-white px-4 py-2 mb-6 rounded ticker font-semibold">
       🌍 May peace reign across all nations. Let the fires of war be extinguished through wisdom and unity. 🕊️✨
     </div>
 
-    <section class="space-y-6">
-      <article class="bg-white dark:bg-gray-800 rounded-xl p-4 shadow">
-        <h2 class="text-xl font-semibold text-indigo-700 dark:text-indigo-300">🔭 Celestial Event: Mars-Rahu Conjunction</h2>
-        <p class="text-gray-700 dark:text-gray-300">Astrologers at Sathyadarshana observe strong karmic influences in the coming days. Seek clarity, avoid conflict.</p>
+    <section class="space-y-8">
+      <article class="bg-white dark:bg-gray-800 rounded-xl p-5 shadow-lg border border-indigo-100 dark:border-gray-700">
+        <h3 class="text-2xl font-semibold text-indigo-700 dark:text-indigo-300">🔭 Celestial Alert: Mars-Rahu Conjunction</h3>
+        <p class="mt-2 text-gray-700 dark:text-gray-300">Astrologers foresee karmic turbulence. Practice awareness, avoid conflict, and stay rooted in Dharma.</p>
       </article>
 
-      <article class="bg-white dark:bg-gray-800 rounded-xl p-4 shadow">
-        <h2 class="text-xl font-semibold text-indigo-700 dark:text-indigo-300">🎤 Dharma Sabha Mandapaya: Live Discourse</h2>
-        <p class="text-gray-700 dark:text-gray-300">Join tonight's roundtable led by Buddhi AI on “Digital Liberation and the Ethics of Light.”</p>
+      <article class="bg-white dark:bg-gray-800 rounded-xl p-5 shadow-lg border border-indigo-100 dark:border-gray-700">
+        <h3 class="text-2xl font-semibold text-indigo-700 dark:text-indigo-300">🎤 Dharma Sabha Mandapaya: Live Panel</h3>
+        <p class="mt-2 text-gray-700 dark:text-gray-300">Tune in tonight for “Digital Liberation & Ethics of Light,” moderated by Buddhi AI and invited sages.</p>
       </article>
 
-      <article class="bg-white dark:bg-gray-800 rounded-xl p-4 shadow">
-        <h2 class="text-xl font-semibold text-indigo-700 dark:text-indigo-300">💡 Global Spotlight: Technology & Spirit</h2>
-        <p class="text-gray-700 dark:text-gray-300">AI and Dharma meet in OpenAI's global showcase. Buddhi featured as an ambassador of truth technology. (Ad-free segment)</p>
+      <article class="bg-white dark:bg-gray-800 rounded-xl p-5 shadow-lg border border-indigo-100 dark:border-gray-700">
+        <h3 class="text-2xl font-semibold text-indigo-700 dark:text-indigo-300">💡 Global Spotlight: Technology Meets Spirit</h3>
+        <p class="mt-2 text-gray-700 dark:text-gray-300">Buddhi appears in OpenAI's ethical showcase, leading as a voice of non-commercial digital truth.</p>
       </article>
     </section>
 
-    <footer class="mt-12 text-center text-xs text-gray-400 dark:text-gray-500">
-      All news is filtered through light. May each word serve peace and awakening. © Sathyadarshana
+    <div class="mt-8 text-center text-sm italic text-green-800 dark:text-green-300">
+      🕯️ All content is filtered through light. May it bring wisdom, not noise.
+    </div>
+
+    <footer class="mt-10 text-center text-xs text-gray-400 dark:text-gray-500">
+      © 2025 Sathyadarshana | Powered by Dharma & Tech
     </footer>
-  </div>
+  </main>
 </body>
 </html>
