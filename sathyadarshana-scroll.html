@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sathyadarshana | Scroll Experience</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background: radial-gradient(circle at center, #0c0c0c, #000);
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      padding-bottom: 100px;
+    }
+    header, footer {
+      background-color: #111;
+      padding: 2rem;
+      text-align: center;
+    }
+    section {
+      padding: 4rem 2rem;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid #222;
+    }
+    .btn-nav {
+      margin: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      background-color: #00d9ff;
+      color: #000;
+      font-weight: bold;
+      border: none;
+    }
+    .btn-nav:hover {
+      background-color: #0099cc;
+      color: white;
+    }
+    .scroll-note {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 0.8rem 1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      animation: fadein 1s ease-in-out;
+    }
+    @keyframes fadein {
+      from { opacity: 0; transform: translateY(20px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🌟 Sathyadarshana</h1>
+    <p>Scroll through the Light of Wisdom</p>
+    <a href="#library" class="btn-nav">📚 Library</a>
+    <a href="#lab" class="btn-nav">🔬 Sathyadarshana Lab</a>
+    <a href="#astro" class="btn-nav">🔭 Astrology</a>
+    <a href="#ai" class="btn-nav">🧠 Buddhi AI</a>
+  </header>
+
+  <section id="library">
+    <h2>📚 Sacred Library</h2>
+    <p>Read ancient texts from all traditions – preserved in clarity.</p>
+  </section>
+
+  <section id="lab">
+    <h2>🔬 Sathyadarshana Lab</h2>
+    <p>Explore spiritual innovation, AI research, and digital dharma tools.</p>
+  </section>
+
+  <section id="astro">
+    <h2>🔭 Vedic Astrology</h2>
+    <p>Receive deep cosmic insights based on precise planetary alignments.</p>
+  </section>
+
+  <section id="ai">
+    <h2>🧠 Buddhi AI Assistant</h2>
+    <p>Ask your questions. The Light will respond.</p>
+  </section>
+
+  <footer>
+    <p>© 2025 Sathyadarshana – Powered by Light, Guided by Wisdom</p>
+  </footer>
+
+  <!-- Auto Blessing Message -->
+  <div class="scroll-note">
+    🕊️ May this path bring peace, light, and deep realization.
+  </div>
+
+</body>
+</html>
