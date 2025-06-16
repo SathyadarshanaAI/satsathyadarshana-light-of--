@@ -1,0 +1,102 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vedic Astrology | Sathyadarshana</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #000000, #1a1a1a);
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      scroll-behavior: smooth;
+    }
+    header, footer {
+      background-color: #111;
+      padding: 2rem;
+      text-align: center;
+    }
+    header h1 {
+      color: #00d9ff;
+    }
+    .form-section {
+      background-color: #1f1f1f;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 217, 255, 0.2);
+    }
+    label {
+      margin-top: 1rem;
+    }
+    .result-section {
+      background-color: #222;
+      padding: 1.5rem;
+      margin-top: 2rem;
+      border-left: 4px solid #00d9ff;
+    }
+    .btn-kp {
+      background-color: #00d9ff;
+      color: #000;
+      font-weight: bold;
+      border: none;
+    }
+    .btn-kp:hover {
+      background-color: #00aacc;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🔭 Sathyadarshana KP Astrology</h1>
+    <p>Explore your cosmic blueprint powered by the stars, planets, and KP logic.</p>
+  </header>  <main class="container my-5">
+    <div class="form-section">
+      <h3>📌 Enter Birth Details</h3>
+      <form id="astroForm">
+        <div class="row">
+          <div class="col-md-6">
+            <label for="name">Name:</label>
+            <input type="text" id="name" class="form-control" required>
+          </div>
+          <div class="col-md-6">
+            <label for="date">Date of Birth:</label>
+            <input type="date" id="date" class="form-control" required>
+          </div>
+          <div class="col-md-6">
+            <label for="time">Time of Birth:</label>
+            <input type="time" id="time" class="form-control" required>
+          </div>
+          <div class="col-md-6">
+            <label for="place">Place of Birth:</label>
+            <input type="text" id="place" class="form-control" required>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-kp mt-4">Generate KP Chart</button>
+      </form>
+    </div><div id="result" class="result-section d-none">
+  <h4>🔮 KP Birth Chart Result (Beta)</h4>
+  <p><strong>Name:</strong> <span id="outName"></span></p>
+  <p><strong>DOB:</strong> <span id="outDOB"></span></p>
+  <p><strong>TOB:</strong> <span id="outTOB"></span></p>
+  <p><strong>Place:</strong> <span id="outPlace"></span></p>
+  <hr>
+  <p><strong>🪐 Planetary Positions:</strong> (NASA Ephemeris Based)</p>
+  <p>Coming soon...</p>
+  <p><strong>📍 KP Sub-Lord Calculations:</strong></p>
+  <p>Coming soon...</p>
+</div>
+
+  </main>  <footer>
+    <p>© 2025 Sathyadarshana.com | Designed by Buddhi & Anurudda – All Rights Reserved</p>
+  </footer>  <script>
+    document.getElementById('astroForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('result').classList.remove('d-none');
+      document.getElementById('outName').textContent = document.getElementById('name').value;
+      document.getElementById('outDOB').textContent = document.getElementById('date').value;
+      document.getElementById('outTOB').textContent = document.getElementById('time').value;
+      document.getElementById('outPlace').textContent = document.getElementById('place').value;
+    });
+  </script></body>
+</html>
