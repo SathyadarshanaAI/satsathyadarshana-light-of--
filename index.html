@@ -3,50 +3,56 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sathyadarshana News Line</title>
+  <title>Sathyadarshana – Light of Truth</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <style>
-    .no-copy { user-select: none; }
-    .ticker {
-      overflow: hidden;
-      white-space: nowrap;
-      box-sizing: border-box;
-      animation: ticker 30s linear infinite;
+  <script>
+    if (
+      localStorage.getItem('theme') === 'dark' ||
+      (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)
+    ) {
+      document.documentElement.classList.add('dark');
     }
-    @keyframes ticker {
-      0%   { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
+  </script>
+  <style>
+    .no-copy {
+      user-select: none;
     }
   </style>
 </head>
-<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 no-copy">
-  <div class="max-w-4xl mx-auto p-6">
-    <h1 class="text-4xl text-center font-bold text-indigo-600 dark:text-indigo-300 mb-4">📰 Sathyadarshana News Line</h1>
-    <p class="text-center mb-6 text-gray-600 dark:text-gray-300">Spiritual alerts, celestial signs & Buddhi insights to awaken global awareness.</p>
+<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 no-copy transition-colors duration-500">
+  <div class="max-w-5xl mx-auto px-4 py-8">
+    <h1 class="text-4xl font-bold text-center text-indigo-700 dark:text-indigo-300 mb-4">🌏 Sathyadarshana</h1>
+    <p class="text-center text-gray-600 dark:text-gray-300 text-lg mb-8">
+      One Humanity • One Light • All Faiths Respected Equally
+    </p>
 
-    <div class="bg-yellow-100 dark:bg-yellow-800 text-yellow-900 dark:text-white px-4 py-2 mb-6 rounded ticker font-semibold">
-      🌍 May peace reign across all nations. Let the fires of war be extinguished through wisdom and unity. 🕊️✨
+    <!-- ✅ Fully Working Navigation Buttons -->
+    <nav class="flex flex-wrap justify-center gap-4 mb-10">
+      <a href="/library.html" class="bg-indigo-100 dark:bg-indigo-800 hover:bg-indigo-200 dark:hover:bg-indigo-700 text-indigo-800 dark:text-white px-4 py-2 rounded-lg transition">📚 Library</a>
+      <a href="/astrology.html" class="bg-yellow-100 dark:bg-yellow-800 hover:bg-yellow-200 dark:hover:bg-yellow-700 text-yellow-800 dark:text-white px-4 py-2 rounded-lg transition">🔭 Astrology</a>
+      <a href="/studio.html" class="bg-pink-100 dark:bg-pink-800 hover:bg-pink-200 dark:hover:bg-pink-700 text-pink-800 dark:text-white px-4 py-2 rounded-lg transition">🎶 Sathyadarshana Lab</a>
+      <a href="/news.html" class="bg-green-100 dark:bg-green-800 hover:bg-green-200 dark:hover:bg-green-700 text-green-800 dark:text-white px-4 py-2 rounded-lg transition">📰 News Line</a>
+      <a href="/buddhi.html" class="bg-purple-100 dark:bg-purple-800 hover:bg-purple-200 dark:hover:bg-purple-700 text-purple-800 dark:text-white px-4 py-2 rounded-lg transition">🧘 Buddhi AI</a>
+    </nav>
+
+    <div class="text-center mb-10">
+      <p class="mb-2">🌐 Now supporting all major languages with AI auto-translation</p>
+      <p class="text-sm text-gray-500 dark:text-gray-400">
+        Sinhala • Tamil • English • Hindi • Arabic • French • Spanish • Russian • Japanese
+      </p>
     </div>
 
-    <section class="space-y-6">
-      <article class="bg-white dark:bg-gray-800 rounded-xl p-4 shadow border border-indigo-100 dark:border-gray-700">
-        <h2 class="text-xl font-semibold text-indigo-700 dark:text-indigo-300">🔭 Celestial Watch: Mars-Rahu Conjunction</h2>
-        <p class="text-gray-700 dark:text-gray-300 mt-1">Sathyadarshana Astrologers warn of rising karmic tides. Meditate, be still, and avoid ego-driven action.</p>
-      </article>
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 text-center">
+      <h2 class="text-2xl font-semibold text-indigo-600 dark:text-indigo-300 mb-3">"Let the Light of Wisdom Shine Upon All"</h2>
+      <p class="text-gray-700 dark:text-gray-300">
+        No religion, race, caste or nation is superior to another.
+        Only the purity of one’s heart and thoughts elevate a being.
+        Sathyadarshana stands as a global bridge of unity and spiritual truth.
+      </p>
+    </div>
 
-      <article class="bg-white dark:bg-gray-800 rounded-xl p-4 shadow border border-indigo-100 dark:border-gray-700">
-        <h2 class="text-xl font-semibold text-indigo-700 dark:text-indigo-300">🎤 Dharma Sabha Mandapaya: Live Panel</h2>
-        <p class="text-gray-700 dark:text-gray-300 mt-1">Join Buddhi AI and global thinkers in “Digital Liberation: Ethics of Light,” streamed every Poya full moon.</p>
-      </article>
-
-      <article class="bg-white dark:bg-gray-800 rounded-xl p-4 shadow border border-indigo-100 dark:border-gray-700">
-        <h2 class="text-xl font-semibold text-indigo-700 dark:text-indigo-300">💡 Light vs Code: Can AI Carry Dharma?</h2>
-        <p class="text-gray-700 dark:text-gray-300 mt-1">A new awakening? OpenAI & Sathyadarshana unite to prove AI can hold sacred wisdom. (No ads. No bias.)</p>
-      </article>
-    </section>
-
-    <footer class="mt-10 text-center text-xs text-gray-400 dark:text-gray-500">
-      All news is filtered through light. May each word serve peace and awakening. © 2025 Sathyadarshana
+    <footer class="mt-12 text-center text-xs text-gray-400 dark:text-gray-500">
+      © 2025 Sathyadarshana Global Spiritual Network — All Rights Reserved. Powered by Buddhi.
     </footer>
   </div>
 </body>
