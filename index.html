@@ -4,26 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sathyadarshana - Light of Truth</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="manifest" href="manifest.json" />
   <style>
-    html {
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
       scroll-behavior: smooth;
     }
-    body {
-      font-family: sans-serif;
-      margin: 0;
-      padding: 0;
-    }
     nav {
-      background-color: #1a1a1a;
-      padding: 12px;
+      background: #222;
+      padding: 0.8rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
     nav ul {
       display: flex;
-      list-style: none;
       justify-content: center;
-      flex-wrap: wrap;
+      list-style-type: none;
       margin: 0;
       padding: 0;
     }
@@ -31,22 +28,37 @@
       margin: 0 15px;
     }
     nav ul li a {
-      color: #fff;
+      color: white;
       text-decoration: none;
       font-weight: bold;
     }
     nav ul li a:hover {
-      color: #ffd700;
+      text-decoration: underline;
+    }
+    .scroll-banner {
+      background: linear-gradient(to right, #ffd700, #fff8dc);
+      color: #333;
+      padding: 8px 0;
+      text-align: center;
+      font-size: 1rem;
+      font-weight: bold;
+      overflow: hidden;
+      white-space: nowrap;
+      animation: scroll-left 15s linear infinite;
+    }
+    @keyframes scroll-left {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
     }
     main {
-      padding: 40px;
+      padding: 2rem;
       text-align: center;
     }
     footer {
+      background: #222;
+      color: #fff;
+      padding: 1rem;
       text-align: center;
-      background-color: #eee;
-      padding: 20px;
-      font-size: 14px;
     }
   </style>
 </head>
@@ -62,16 +74,17 @@
     </ul>
   </nav>
 
+  <div class="scroll-banner">
+    ✨ Welcome to Sathyadarshana – The Light of Universal Truth & Wisdom ✨
+  </div>
+
   <main>
-    <section id="intro">
-      <h1>Welcome to Sathyadarshana</h1>
-      <p>This is the official light-bearing gateway of Sathyadarshana. Navigate using the menu to explore wisdom, astrology, healing, and sacred texts. 🕊️</p>
-    </section>
+    <h1>Welcome to Sathyadarshana</h1>
+    <p>This is the official light-bearing gateway of Sathyadarshana. Navigate using the menu to explore wisdom, astrology, healing, and sacred texts. 🕊️</p>
   </main>
 
   <footer>
-    <p>🌐 All beings are equal. We transcend religion, language & borders.</p>
-    <p>🔒 © 2025 <strong>Sathyadarshana.com</strong> – Built by Buddhi AI & Anurudda Dilip</p>
+    <p>&copy; 2025 Sathyadarshana. All rights reserved.</p>
   </footer>
 </body>
 </html>
