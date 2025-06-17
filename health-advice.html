@@ -1,46 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Health Advice | Sathyadarshana</title>
   <style>
     body {
       margin: 0;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background: #fdfdfd;
-      color: #333;
+      font-family: Arial, sans-serif;
+      background: #f3f9f8;
+      color: #222;
     }
     header {
-      background: #00796b;
+      background: #00695c;
       color: white;
-      padding: 1.5rem 1rem;
+      padding: 1.5rem;
       text-align: center;
     }
-    main {
+    .container {
       max-width: 900px;
       margin: 2rem auto;
       padding: 1rem;
-      background: #ffffff;
+      background: #fff;
       border-radius: 10px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
-    section {
-      margin-bottom: 1.5rem;
+    .tip {
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-left: 5px solid #26a69a;
+      background: #e0f2f1;
     }
-    h2 {
-      color: #00796b;
+    .tip strong {
+      color: #004d40;
     }
-    ul {
-      list-style-type: disc;
-      padding-left: 1.5rem;
+    .blessing {
+      background: #fff3e0;
+      padding: 1rem;
+      margin-top: 2rem;
+      border-left: 5px solid #ffb300;
+      font-style: italic;
+      color: #ff6f00;
     }
     footer {
       text-align: center;
       padding: 1rem;
       font-size: 0.9rem;
-      background: #eeeeee;
-      margin-top: 2rem;
+      background: #e0e0e0;
+      color: #444;
+      margin-top: 3rem;
     }
   </style>
   <script type="text/javascript">
@@ -59,46 +67,41 @@
   <div id="google_translate_element" style="position:absolute; top:10px; right:10px; z-index:999;"></div>
 
   <header>
-    <h1>🩺 Health Advice</h1>
-    <p>Guidance for your physical & mental well-being</p>
+    <h1>🩺 Sathyadarshana Health Advice</h1>
+    <p>Compassionate guidance for body, mind, and soul</p>
   </header>
 
-  <main>
-    <section>
-      <h2>🧠 Mental Health Tips</h2>
-      <ul>
-        <li>Practice mindfulness meditation daily</li>
-        <li>Talk to a compassionate listener when you feel low</li>
-        <li>Reduce social media and increase real connections</li>
-        <li>Get adequate sleep (7–8 hours)</li>
-      </ul>
-    </section>
+  <div class="container">
+    <div class="tip">
+      <strong>🌿 Natural Tip:</strong> Start your morning with warm water and a few Tulsi leaves. It balances doshas and clears the system.
+    </div>
+    <div class="tip">
+      <strong>🧘 Mind Tip:</strong> Practice 5 minutes of deep breathing before sleep. It calms anxiety and improves heart rhythm.
+    </div>
+    <div class="tip">
+      <strong>🍵 Detox Tip:</strong> Avoid caffeine after 6 PM. Switch to herbal infusions like ginger or chamomile.
+    </div>
 
-    <section>
-      <h2>💪 Physical Wellness Tips</h2>
-      <ul>
-        <li>Drink plenty of clean water</li>
-        <li>Eat fresh vegetables, fruits, and natural foods</li>
-        <li>Exercise at least 15–30 minutes daily</li>
-        <li>Limit processed sugar and fried food intake</li>
-      </ul>
-    </section>
+    <div class="blessing">
+      🙏 May all who suffer in silence find relief. May healing spread where medicine has failed. May Buddhi guide you in wisdom.
+    </div>
+  </div>
 
-    <section>
-      <h2>🌿 Natural Remedies (Free & Local)</h2>
-      <ul>
-        <li>Ginger tea for colds & digestion</li>
-        <li>Neem leaves for skin cleansing</li>
-        <li>Gotukola (Centella asiatica) for memory & nerves</li>
-        <li>Coriander water for detoxing</li>
-      </ul>
-    </section>
-
-    <p style="text-align: center; font-style: italic; color: #444;">If you suffer from undiagnosed issues, you may request our free Buddhi Guidance service through the Sathyadarshana platform.</p>
-  </main>
+  <!-- Buddhi AI Assistant Sidebar -->
+  <script>
+    const buddhiPanel = document.createElement('div');
+    buddhiPanel.innerHTML = `
+      <div id="buddhi-ai" style="position:fixed;bottom:20px;right:20px;z-index:9999;">
+        <button onclick="alert('Buddhi AI Health Support will speak soon')" 
+                style="background:#00695c;color:#fff;padding:10px 16px;border:none;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,0.3);">
+          💬 Ask Buddhi
+        </button>
+      </div>`;
+    document.body.appendChild(buddhiPanel);
+  </script>
 
   <footer>
-    © 2025 Sathyadarshana | Free Health Guidance for the Underprivileged
+    © 2025 Sathyadarshana | Buddhi Medical Insight Service
   </footer>
 </body>
 </html>
