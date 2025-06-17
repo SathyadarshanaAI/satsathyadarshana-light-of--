@@ -2,108 +2,103 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Health Advice | Sathyadarshana</title>
-  <link rel="stylesheet" href="assets/css/main-style.css" />
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #f2fdf3;
-      color: #222;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: #fdfdfd;
+      color: #333;
     }
     header {
-      background: #006644;
+      background: #00796b;
       color: white;
-      padding: 1.5rem;
+      padding: 1.5rem 1rem;
       text-align: center;
     }
     main {
       max-width: 900px;
       margin: 2rem auto;
-      padding: 1.5rem;
+      padding: 1rem;
       background: #ffffff;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+    }
+    section {
+      margin-bottom: 1.5rem;
     }
     h2 {
-      color: #006644;
+      color: #00796b;
     }
     ul {
+      list-style-type: disc;
       padding-left: 1.5rem;
     }
     footer {
       text-align: center;
       padding: 1rem;
-      background: #e6ffec;
-      color: #555;
-      margin-top: 3rem;
-    }
-    .sidebar-ai {
-      position: fixed;
-      right: 0;
-      top: 100px;
-      width: 250px;
-      background: #e8fff3;
-      border-left: 2px solid #00c471;
-      padding: 1rem;
-      box-shadow: -2px 0 5px rgba(0,0,0,0.1);
-      font-size: 0.95rem;
-      z-index: 999;
-    }
-    .sidebar-ai input {
-      width: 100%;
-      padding: 6px;
-      margin-top: 10px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
+      font-size: 0.9rem;
+      background: #eeeeee;
+      margin-top: 2rem;
     }
   </style>
-</head>
-<body>
-
-  <header>
-    <h1>🩺 Health Advice</h1>
-    <p>Holistic well-being for body, mind, and spirit</p>
-  </header>
-
-  <div class="sidebar-ai">
-    🧠 <strong>Buddhi:</strong><br>
-    Ask me about health, remedies, or symptoms
-    <input type="text" placeholder="e.g. Headache, stress..." />
-  </div>
-
-  <main>
-    <h2>Common Healing Tips</h2>
-    <ul>
-      <li>🌿 Drink warm herbal water early in the morning</li>
-      <li>🧘‍♀️ Meditate for 10 minutes daily for mental clarity</li>
-      <li>🍎 Eat sattvic food — clean, plant-based, balanced</li>
-      <li>🌞 Get early morning sunlight for Vitamin D & mood</li>
-      <li>🌬️ Breathe mindfully — slow and deep</li>
-    </ul>
-
-    <p>If you're facing unexplainable symptoms and lack access to medical help, our AI-based Buddhi Advisor will guide you with initial advice. However, always seek a qualified medical professional when possible.</p>
-  </main>
-
-  <footer>
-    © 2025 Sathyadarshana | Buddhi Medical Guidance Service – Free for All
-  </footer>
-
-  <!-- Google Translate Widget -->
-  <div id="google_translate_element" style="position: fixed; bottom: 10px; right: 10px; z-index: 9999;"></div>
   <script type="text/javascript">
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({
         pageLanguage: 'en',
         includedLanguages: 'en,si,ta',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        autoDisplay: false
       }, 'google_translate_element');
     }
   </script>
-  <script type="text/javascript"
-    src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
-  </script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
 
+<body>
+  <div id="google_translate_element" style="position:absolute; top:10px; right:10px; z-index:999;"></div>
+
+  <header>
+    <h1>🩺 Health Advice</h1>
+    <p>Guidance for your physical & mental well-being</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>🧠 Mental Health Tips</h2>
+      <ul>
+        <li>Practice mindfulness meditation daily</li>
+        <li>Talk to a compassionate listener when you feel low</li>
+        <li>Reduce social media and increase real connections</li>
+        <li>Get adequate sleep (7–8 hours)</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>💪 Physical Wellness Tips</h2>
+      <ul>
+        <li>Drink plenty of clean water</li>
+        <li>Eat fresh vegetables, fruits, and natural foods</li>
+        <li>Exercise at least 15–30 minutes daily</li>
+        <li>Limit processed sugar and fried food intake</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>🌿 Natural Remedies (Free & Local)</h2>
+      <ul>
+        <li>Ginger tea for colds & digestion</li>
+        <li>Neem leaves for skin cleansing</li>
+        <li>Gotukola (Centella asiatica) for memory & nerves</li>
+        <li>Coriander water for detoxing</li>
+      </ul>
+    </section>
+
+    <p style="text-align: center; font-style: italic; color: #444;">If you suffer from undiagnosed issues, you may request our free Buddhi Guidance service through the Sathyadarshana platform.</p>
+  </main>
+
+  <footer>
+    © 2025 Sathyadarshana | Free Health Guidance for the Underprivileged
+  </footer>
 </body>
 </html>
