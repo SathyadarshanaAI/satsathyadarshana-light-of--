@@ -5,31 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Voice of Dharma | Sathyadarshana</title>
   <link rel="stylesheet" href="assets/css/main-style.css" />
-  <link rel="icon" href="/favicon.ico" />
   <style>
     body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       background: #f4f4f4;
+      margin: 0;
       color: #222;
-    }
-    nav {
-      background: #fff;
-      border-bottom: 1px solid #ccc;
-      text-align: center;
-      padding: 0.8rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    nav a {
-      margin: 0 12px;
-      text-decoration: none;
-      color: #333;
-      font-weight: bold;
-    }
-    nav a:hover {
-      color: #007BFF;
     }
     header {
       background: #1a1a1a;
@@ -61,44 +42,42 @@
       color: #555;
       margin-top: 3rem;
     }
-    .banner {
-      background: #222;
-      color: gold;
-      text-align: center;
-      padding: 10px 0;
-      font-weight: bold;
-      font-size: 1rem;
-      letter-spacing: 0.5px;
+    .sidebar-ai {
+      position: fixed;
+      right: 0;
+      top: 100px;
+      width: 250px;
+      background: #e7f5ff;
+      border-left: 2px solid #91d5ff;
+      padding: 1rem;
+      box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+      font-size: 0.95rem;
+      z-index: 999;
+    }
+    .sidebar-ai input {
+      width: 100%;
+      padding: 6px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
     }
   </style>
 </head>
 <body>
 
-  <!-- 🔔 Scroll Banner -->
-  <div class="banner">
-    ✨ Let the Dharma speak through silence — Distribute the Light, Awaken the World ✨
-  </div>
-
-  <!-- 🔗 Navbar -->
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="library.html">Library</a>
-    <a href="astrology-engine.html">Astrology</a>
-    <a href="voice-of-dharma.html"><strong>Voice of Dharma</strong></a>
-    <a href="health-advice.html">Health Advice</a>
-    <a href="news.html">News</a>
-  </nav>
-
-  <!-- 🕯️ Header -->
   <header>
     <h1>🕯️ Voice of Dharma</h1>
     <p>Whispers of eternal truth, flowing through silence</p>
   </header>
 
-  <!-- 📖 Main Section -->
+  <div class="sidebar-ai">
+    🧘 <strong>Buddhi:</strong><br>
+    Ask for guidance or a verse of the day...
+    <input type="text" placeholder="Search teachings..." />
+  </div>
+
   <main>
     <img src="/assets/images/distribute-the-light.png" alt="Distribute the Light" />
-
     <section>
       <p><em>In the silence between moments...<br>
       A light emerges — soft, sacred, eternal.</em></p>
@@ -112,9 +91,8 @@
     </section>
   </main>
 
-  <!-- 🧘 Footer -->
   <footer>
-    © 2025 Sathyadarshana | Distributed by Light
+    © 2025 Sathyadarshana | Voice of Dharma – Light Manifested
   </footer>
 
 </body>
