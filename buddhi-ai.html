@@ -5,9 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Buddhi AI Assistant | Sathyadarshana</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="icon" href="/favicon.ico" />
-
-  <!-- Google Translate Script -->
   <script type="text/javascript">
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({
@@ -18,7 +15,6 @@
     }
   </script>
   <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
   <style>
     .glass {
       backdrop-filter: blur(10px);
@@ -29,10 +25,23 @@
 </head>
 <body class="bg-gradient-to-br from-blue-100 to-purple-200 text-gray-800">
 
-  <!-- Google Translate Bar -->
+  <!-- Google Translate -->
   <div id="google_translate_element" class="p-2 text-sm text-right"></div>
 
-  <!-- Main Section -->
+  <!-- Sticky Navbar -->
+  <nav class="bg-white border-b border-yellow-400 sticky top-0 z-50 shadow-sm">
+    <ul class="flex justify-center flex-wrap">
+      <li><a href="index.html" class="px-4 py-2 font-semibold text-gray-700 hover:text-black hover:bg-yellow-100 block">Home</a></li>
+      <li><a href="library.html" class="px-4 py-2 font-semibold text-gray-700 hover:text-black hover:bg-yellow-100 block">Library</a></li>
+      <li><a href="astrology.html" class="px-4 py-2 font-semibold text-gray-700 hover:text-black hover:bg-yellow-100 block">Astrology</a></li>
+      <li><a href="voice-of-dharma.html" class="px-4 py-2 font-semibold text-gray-700 hover:text-black hover:bg-yellow-100 block">Voice of Dharma</a></li>
+      <li><a href="health-advice.html" class="px-4 py-2 font-semibold text-gray-700 hover:text-black hover:bg-yellow-100 block">Health Advice</a></li>
+      <li><a href="news.html" class="px-4 py-2 font-semibold text-gray-700 hover:text-black hover:bg-yellow-100 block">News</a></li>
+      <li><a href="buddhi-ai.html" class="px-4 py-2 font-semibold text-indigo-700 bg-yellow-100 block">Buddhi AI</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
   <section class="max-w-4xl mx-auto my-10 p-6 rounded-xl shadow-lg glass">
     <h1 class="text-3xl font-bold text-center text-indigo-700 mb-4">🤖 Meet Buddhi – Your Serenity Assistant</h1>
     <p class="text-center text-gray-700 mb-6">
@@ -67,5 +76,6 @@
   <footer class="text-center text-sm text-gray-500 my-6">
     © 2025 Sathyadarshana • Buddhi AI Assistant
   </footer>
+
 </body>
 </html>
