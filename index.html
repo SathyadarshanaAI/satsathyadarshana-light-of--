@@ -1,26 +1,26 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="en">
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Spiritual Welcome Page</title>
+  <title>Sathyadarshana – Light of Truth</title>
+  <link rel="stylesheet" href="assets/css/main-style.css">
   <style>
     body {
       margin: 0;
       font-family: sans-serif;
-      line-height: 1.6;
     }
-    /* Scrolling banner */
     .banner {
       overflow: hidden;
       white-space: nowrap;
-      background: #222;  /* Dark background for contrast */
+      background: #222;
       padding: 10px 0;
       position: relative;
     }
     .banner .scrolling-text {
       display: inline-block;
       padding-left: 100%;
-      animation: scroll-text 10s linear infinite;
+      animation: scroll-text 12s linear infinite;
       font-weight: bold;
       font-size: 1.1em;
       background: linear-gradient(45deg, #FFD700, #FFA500);
@@ -33,12 +33,11 @@
       0%   { transform: translateX(0); }
       100% { transform: translateX(-100%); }
     }
-    /* Sticky navigation bar */
     nav {
       position: sticky;
       top: 0;
       background: #fff;
-      border-bottom: 2px solid #e0ae00;  /* golden border for styling */
+      border-bottom: 2px solid #e0ae00;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       z-index: 1000;
     }
@@ -61,27 +60,13 @@
       font-weight: bold;
     }
     nav a:hover {
-      background: #ffe599;  /* light golden highlight on hover */
+      background: #ffe599;
       color: #000;
     }
-    /* Main content */
     main {
       padding: 20px;
-    }
-    main h1 {
-      font-size: 1.8em;
-      margin-top: 0;
-    }
-    main p {
-      margin-bottom: 1em;
-    }
-    .invocation {
       text-align: center;
-      font-size: 1.2em;
-      margin-top: 20px;
-      font-weight: bold;
     }
-    /* Footer */
     footer {
       background: #f5f5f5;
       text-align: center;
@@ -94,19 +79,47 @@
 </head>
 <body>
 
-  <!-- Scrolling banner with spiritual welcome text -->
+  <!-- Banner -->
   <div class="banner">
-    <div class="scrolling-text">Welcome to Our Spiritual Website – May Peace and Blessings Be With You</div>
+    <div class="scrolling-text">Welcome to Sathyadarshana – May Wisdom Illuminate Your Path</div>
   </div>
 
-  <!-- Sticky navigation bar -->
+  <!-- Navigation -->
   <nav>
     <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Library</a></li>
-      <li><a href="#">Astrology</a></li>
-      <li><a href="#">Voice of Dharma</a></li>
-      <li><a href="#">Health Advice</a></li>
-      <li><a href="#">News</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="library.html">Library</a></li>
+      <li><a href="astrology.html">Astrology</a></li>
+      <li><a href="voice-of-dharma.html">Voice of Dharma</a></li>
+      <li><a href="health-advice.html">Health Advice</a></li>
+      <li><a href="news.html">News</a></li>
     </ul>
   </nav>
+
+  <!-- Main Content -->
+  <main>
+    <h1>Welcome to Sathyadarshana</h1>
+    <p>This is the spiritual gateway to sacred texts, astrology, healing, and truth.</p>
+    <p>Explore wisdom, embrace serenity, and awaken light in your heart.</p>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Sathyadarshana Global Spiritual Network – All Rights Reserved
+  </footer>
+
+  <!-- 🌐 Auto Translate Script -->
+  <script>
+    const userLang = navigator.language || navigator.userLanguage;
+    const supportedLangs = ['si', 'ta'];
+
+    if (supportedLangs.includes(userLang.slice(0, 2))) {
+      const lang = userLang.slice(0, 2);
+      if (!window.location.href.includes('translate.google.com')) {
+        window.location.href = `https://translate.google.com/translate?sl=en&tl=${lang}&u=${encodeURIComponent(window.location.href)}`;
+      }
+    }
+  </script>
+
+</body>
+</html>
