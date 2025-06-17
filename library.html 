@@ -1,71 +1,89 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Library | Sathyadarshana</title>
-  <link rel="stylesheet" href="assets/css/main-style.css">
+  <link rel="stylesheet" href="assets/css/main-style.css" />
   <style>
     body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f8f9fa;
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f9f9f9;
-      color: #222;
+      padding: 0;
+      color: #333;
     }
     header {
-      background: #002b36;
-      color: white;
-      padding: 1.5rem 1rem;
+      background: #222;
+      color: #fff;
+      padding: 1rem;
       text-align: center;
     }
     main {
+      padding: 2rem;
       max-width: 900px;
-      margin: 2rem auto;
-      padding: 1rem;
-      background: #ffffff;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      margin: auto;
     }
     footer {
-      text-align: center;
+      background: #eee;
       padding: 1rem;
-      background: #eaeaea;
+      text-align: center;
+      font-size: 0.9rem;
       color: #555;
       margin-top: 3rem;
     }
-    #buddhi-assistant {
+    .sidebar-ai {
       position: fixed;
       right: 0;
-      bottom: 0;
-      width: 320px;
-      height: 100%;
-      background: #fffbe6;
-      border-left: 2px solid #e0ae00;
-      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-      z-index: 9999;
-      padding: 10px;
-      overflow-y: auto;
-      font-family: sans-serif;
+      top: 100px;
+      width: 250px;
+      background: #fff8dc;
+      border-left: 2px solid #ffd700;
+      padding: 1rem;
+      box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+      font-size: 0.95rem;
+      z-index: 999;
     }
-    #buddhi-assistant input {
+    .sidebar-ai input {
       width: 100%;
-      padding: 8px;
+      padding: 6px;
+      margin-top: 10px;
       border: 1px solid #ccc;
       border-radius: 4px;
     }
   </style>
 </head>
 <body>
+
   <header>
     <h1>📚 Sathyadarshana Library</h1>
-    <p>Explore sacred knowledge and wisdom</p>
-  </header>  <main>
-    <p>Welcome to the sacred library of light. You will find spiritual texts, insights, and timeless truths preserved here for seekers around the world. Start your journey through the Dhamma, scriptures, astrology, philosophy and more...</p>
-  </main>  <!-- Buddhi AI Assistant Sidebar -->  <div id="buddhi-assistant">
-    <h3 style="color:#222; font-weight:bold;">🧠 Buddhi Assistant</h3>
-    <p>Hello! I’m here to guide you with wisdom, astrology, health & light. How may I assist you now?</p>
-    <input type="text" placeholder="Ask me anything...">
-  </div>  <footer>
-    &copy; 2025 Sathyadarshana | Library of Light
+    <p>Gateway to Sacred Wisdom</p>
+  </header>
+
+  <div class="sidebar-ai">
+    🤖 <strong>Buddhi:</strong><br>
+    How may I guide your reading journey today?
+    <input type="text" placeholder="Ask me anything..." />
+  </div>
+
+  <main>
+    <section>
+      <p>Welcome to the Sathyadarshana Library — a sacred collection of scriptures, epics, meditative texts, and spiritual teachings from every great tradition.</p>
+      <ul>
+        <li>📘 Tripitaka (Theravāda Canon)</li>
+        <li>📗 Bhagavad Gita (with commentary)</li>
+        <li>📙 Book of Enoch (Apocrypha)</li>
+        <li>📕 Quran (English, Sinhala & Tamil)</li>
+        <li>📓 Ravana Samhitha, Mahavamsa</li>
+        <li>📔 Secrets of the Kabbalah, Key of Solomon</li>
+      </ul>
+      <p>More volumes will be added soon. Stay connected with the Light.</p>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Sathyadarshana Library | Enlightenment Through Knowledge
   </footer>
+
 </body>
 </html>
