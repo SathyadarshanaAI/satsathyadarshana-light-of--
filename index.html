@@ -3,25 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Spiritual Welcome Page</title>
+  <title>Sathyadarshana – Light of Truth</title>
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       margin: 0;
-      font-family: sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       line-height: 1.6;
+      background: #fffef9;
     }
-    /* Scrolling banner */
+
+    /* Scrolling Banner */
     .banner {
       overflow: hidden;
       white-space: nowrap;
-      background: #222;  /* Dark background for contrast */
+      background: #222;
       padding: 10px 0;
       position: relative;
     }
     .banner .scrolling-text {
       display: inline-block;
       padding-left: 100%;
-      animation: scroll-text 10s linear infinite;
+      animation: scroll-text 12s linear infinite;
       font-weight: bold;
       font-size: 1.1em;
       background: linear-gradient(45deg, #FFD700, #FFA500);
@@ -34,13 +39,14 @@
       0%   { transform: translateX(0); }
       100% { transform: translateX(-100%); }
     }
-    /* Sticky navigation bar */
+
+    /* Sticky Navbar */
     nav {
       position: sticky;
       top: 0;
       background: #fff;
-      border-bottom: 2px solid #e0ae00;  /* golden border for styling */
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      border-bottom: 2px solid #e0ae00;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.08);
       z-index: 1000;
     }
     nav ul {
@@ -56,73 +62,80 @@
     }
     nav a {
       display: block;
-      padding: 10px 15px;
+      padding: 12px 18px;
       text-decoration: none;
-      color: #555;
+      color: #444;
       font-weight: bold;
+      transition: background 0.3s ease, color 0.3s ease;
     }
     nav a:hover {
-      background: #ffe599;  /* light golden highlight on hover */
+      background: #ffe599;
       color: #000;
     }
-    /* Main content */
+
+    /* Main Content */
     main {
-      padding: 20px;
+      padding: 30px 20px;
+      max-width: 900px;
+      margin: auto;
     }
     main h1 {
-      font-size: 1.8em;
+      font-size: 2em;
       margin-top: 0;
+      color: #333;
     }
     main p {
-      margin-bottom: 1em;
+      margin-bottom: 1.2em;
     }
     .invocation {
       text-align: center;
-      font-size: 1.2em;
-      margin-top: 20px;
+      font-size: 1.3em;
+      margin-top: 30px;
       font-weight: bold;
+      color: #555;
     }
+
     /* Footer */
     footer {
-      background: #f5f5f5;
+      background: #f2f2f2;
       text-align: center;
-      padding: 10px;
+      padding: 12px;
       font-size: 0.9em;
-      color: #555;
-      margin-top: 20px;
+      color: #666;
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
 
-  <!-- Scrolling banner with spiritual welcome text -->
+  <!-- Scrolling Banner -->
   <div class="banner">
-    <div class="scrolling-text">Welcome to Our Spiritual Website – May Peace and Blessings Be With You</div>
+    <div class="scrolling-text">Welcome to Sathyadarshana – Light of Truth | May Peace, Wisdom and Blessings Be With You</div>
   </div>
 
-  <!-- Sticky navigation bar -->
+  <!-- Navigation -->
   <nav>
     <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Library</a></li>
-      <li><a href="#">Astrology</a></li>
-      <li><a href="#">Voice of Dharma</a></li>
-      <li><a href="#">Health Advice</a></li>
-      <li><a href="#">News</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="library.html">Library</a></li>
+      <li><a href="astrology.html">Astrology</a></li>
+      <li><a href="voice-of-dharma.html">Voice of Dharma</a></li>
+      <li><a href="health-advice.html">Health Advice</a></li>
+      <li><a href="news.html">News</a></li>
     </ul>
   </nav>
 
-  <!-- Main content area with introduction text -->
+  <!-- Main Content -->
   <main>
     <h1>Welcome</h1>
-    <p>Welcome to our spiritual community website. Here you will find a wealth of knowledge in our Library, insights into Astrology, and the inspiring <em>Voice of Dharma</em>. We also offer Health Advice rooted in ancient wisdom and keep you updated with the latest News and events.</p>
-    <p>Our mission is to provide guidance, inspiration, and a sense of peace to all who visit. We hope this space helps you on your journey towards enlightenment and well-being. Feel free to explore each section and discover the wisdom that awaits.</p>
+    <p>Welcome to <strong>Sathyadarshana</strong>, a sacred platform of spiritual wisdom. Dive into our Library of texts, explore cosmic insights through Astrology, listen to the Voice of Dharma, and find holistic Health Advice. Stay connected with truth-centered News from around the world.</p>
+    <p>We are devoted to sharing timeless knowledge, inner peace, and radiant truth. May every visitor feel uplifted, enlightened, and united under the light of compassion and wisdom.</p>
     <p class="invocation">☸️ නමෝ බුද්ධාය</p>
   </main>
 
-  <!-- Footer section -->
+  <!-- Footer -->
   <footer>
-    &copy; 2025 Spiritual Website. All rights reserved.
+    &copy; 2025 Sathyadarshana.com – All rights reserved.
   </footer>
 
 </body>
