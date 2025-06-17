@@ -1,89 +1,72 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Library | Sathyadarshana</title>
-  <link rel="stylesheet" href="assets/css/main-style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sathyadarshana Library</title>
+  <link rel="stylesheet" href="assets/css/main-style.css">
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f8f9fa;
       margin: 0;
-      padding: 0;
-      color: #333;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f4f4;
+      color: #222;
     }
     header {
-      background: #222;
-      color: #fff;
-      padding: 1rem;
+      background: #1a1a1a;
+      color: white;
+      padding: 1.5rem 1rem;
       text-align: center;
     }
     main {
-      padding: 2rem;
-      max-width: 900px;
-      margin: auto;
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+    section {
+      line-height: 1.8;
+      font-size: 1.05rem;
+    }
+    ul li {
+      margin-bottom: 10px;
     }
     footer {
-      background: #eee;
-      padding: 1rem;
       text-align: center;
-      font-size: 0.9rem;
+      padding: 1rem;
+      background: #eaeaea;
       color: #555;
       margin-top: 3rem;
-    }
-    .sidebar-ai {
-      position: fixed;
-      right: 0;
-      top: 100px;
-      width: 250px;
-      background: #fff8dc;
-      border-left: 2px solid #ffd700;
-      padding: 1rem;
-      box-shadow: -2px 0 5px rgba(0,0,0,0.1);
-      font-size: 0.95rem;
-      z-index: 999;
-    }
-    .sidebar-ai input {
-      width: 100%;
-      padding: 6px;
-      margin-top: 10px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
     }
   </style>
 </head>
 <body>
-
   <header>
     <h1>📚 Sathyadarshana Library</h1>
-    <p>Gateway to Sacred Wisdom</p>
-  </header>
-
-  <div class="sidebar-ai">
-    🤖 <strong>Buddhi:</strong><br>
-    How may I guide your reading journey today?
-    <input type="text" placeholder="Ask me anything..." />
-  </div>
-
-  <main>
+    <p>Explore sacred texts from around the world</p>
+  </header>  <main>
     <section>
-      <p>Welcome to the Sathyadarshana Library — a sacred collection of scriptures, epics, meditative texts, and spiritual teachings from every great tradition.</p>
+      <h2>Featured Scriptures</h2>
       <ul>
-        <li>📘 Tripitaka (Theravāda Canon)</li>
-        <li>📗 Bhagavad Gita (with commentary)</li>
-        <li>📙 Book of Enoch (Apocrypha)</li>
-        <li>📕 Quran (English, Sinhala & Tamil)</li>
-        <li>📓 Ravana Samhitha, Mahavamsa</li>
-        <li>📔 Secrets of the Kabbalah, Key of Solomon</li>
+        <li><strong>Tripitaka</strong> – The core Buddhist teachings</li>
+        <li><strong>Bhagavad Gita</strong> – Hindu wisdom dialogue</li>
+        <li><strong>Book of Enoch</strong> – Hidden Christian apocalyptic texts</li>
+        <li><strong>Qur'an</strong> – Divine revelation in Islam</li>
+        <li><strong>Mahavamsa</strong> – Sri Lankan Buddhist Chronicle</li>
+        <li><strong>Gospel of Thomas</strong> – Early Christian sayings</li>
       </ul>
-      <p>More volumes will be added soon. Stay connected with the Light.</p>
     </section>
-  </main>
-
-  <footer>
-    © 2025 Sathyadarshana Library | Enlightenment Through Knowledge
-  </footer>
-
-</body>
+  </main>  <footer>
+    © 2025 Sathyadarshana Library. All rights reserved.
+  </footer>  <script>
+    const userLang = navigator.language || navigator.userLanguage;
+    const supportedLangs = ['si', 'ta'];
+    if (supportedLangs.includes(userLang.slice(0, 2))) {
+      const lang = userLang.slice(0, 2);
+      if (!window.location.href.includes('translate.google.com')) {
+        window.location.href = `https://translate.google.com/translate?sl=en&tl=${lang}&u=${encodeURIComponent(window.location.href)}`;
+      }
+    }
+  </script></body>
 </html>
