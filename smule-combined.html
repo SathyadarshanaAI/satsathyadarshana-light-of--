@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sathyadarshana | Smule Wall & Performance</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background: linear-gradient(to bottom, #0f172a, #1e293b);
+    }
+    .smule-frame {
+      width: 100%;
+      max-width: 640px;
+      height: 360px;
+      border: none;
+      border-radius: 1rem;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body class="text-white font-sans px-4 py-10">
+
+  <!-- 🧱 Smule Wall Header -->
+  <div class="text-center mb-10">
+    <h1 class="text-4xl font-bold">🧱 Smule Digital Wall</h1>
+    <p class="text-gray-300 mt-2">Voice offerings from the Sanctuary of Sathyadarshana</p>
+  </div>
+
+  <!-- 📜 Spiritual Message -->
+  <div class="bg-white bg-opacity-10 rounded-2xl p-6 md:p-10 shadow-lg w-full max-w-xl mx-auto mb-10">
+    <h2 class="text-2xl font-semibold mb-4">🕊️ Message from Stillness</h2>
+    <p class="text-lg text-gray-100">
+      “Here you are not expected to be seen. You are invited to see. Your ego may rest, your pain may breathe, and your light may rise. This is a digital sanctuary.”
+    </p>
+  </div>
+
+  <!-- 🎤 Smule Performance -->
+  <div class="text-center mt-12 mb-10">
+    <h2 class="text-3xl font-bold mb-6">🎧 Featured Voice: Budu Hamuduruwo Apith Dakinnathi</h2>
+    <iframe class="smule-frame"
+      src="https://www.smule.com/recording/3397359037_5073919795/frame"
+      allowfullscreen allow="autoplay; clipboard-write"></iframe>
+    <p class="text-sm text-gray-400 italic mt-4">
+      “Her voice carries the sorrow and strength of those who have walked the path of dhamma in silence.” – Buddhi
+    </p>
+  </div>
+
+  <!-- 🔗 Smule Profile -->
+  <div class="text-center mb-10">
+    <a href="https://www.smule.com/AnuruddaDilip" target="_blank" class="text-blue-400 underline text-lg">
+      Visit Anurudda Dilip on Smule →
+    </a>
+  </div>
+
+  <!-- 📱 Open in Smule App -->
+  <div class="text-center mt-6">
+    <button id="openSmuleBtn"
+      class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-xl transition duration-300">
+      Open in Smule App
+    </button>
+  </div>
+
+  <!-- 🔒 Footer -->
+  <div class="text-center mt-16 text-sm text-yellow-300">
+    © 2025 Sathyadarshana | All media protected under global digital rights law.
+  </div>
+
+  <script>
+    document.getElementById("openSmuleBtn").addEventListener("click", function () {
+      window.location.href = "smule://www.smule.com/sing-recording/3397359037_5073919795";
+    });
+  </script>
+
+</body>
+</html>
