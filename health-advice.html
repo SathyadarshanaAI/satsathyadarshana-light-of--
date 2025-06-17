@@ -1,107 +1,74 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Health Advice | Sathyadarshana</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f3f9f8;
-      color: #222;
-    }
-    header {
-      background: #00695c;
-      color: white;
-      padding: 1.5rem;
-      text-align: center;
-    }
-    .container {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 1rem;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    .tip {
-      padding: 1rem;
-      margin-bottom: 1rem;
-      border-left: 5px solid #26a69a;
-      background: #e0f2f1;
-    }
-    .tip strong {
-      color: #004d40;
-    }
-    .blessing {
-      background: #fff3e0;
-      padding: 1rem;
-      margin-top: 2rem;
-      border-left: 5px solid #ffb300;
-      font-style: italic;
-      color: #ff6f00;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-      background: #e0e0e0;
-      color: #444;
-      margin-top: 3rem;
-    }
-  </style>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <script type="text/javascript">
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({
         pageLanguage: 'en',
         includedLanguages: 'en,si,ta',
-        autoDisplay: false
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
       }, 'google_translate_element');
     }
   </script>
-  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <style>
+    .glass {
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+  </style>
 </head>
-
-<body>
-  <div id="google_translate_element" style="position:absolute; top:10px; right:10px; z-index:999;"></div>
-
-  <header>
-    <h1>🩺 Sathyadarshana Health Advice</h1>
-    <p>Compassionate guidance for body, mind, and soul</p>
-  </header>
-
-  <div class="container">
-    <div class="tip">
-      <strong>🌿 Natural Tip:</strong> Start your morning with warm water and a few Tulsi leaves. It balances doshas and clears the system.
+<body class="bg-gradient-to-br from-green-100 to-blue-50 text-gray-800">
+  <!-- Google Translate -->
+  <div id="google_translate_element" class="p-2 text-sm text-right"></div>  <!-- Navigation Bar -->  <nav class="bg-white shadow sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex justify-between">
+        <div class="flex space-x-4">
+          <a href="index.html" class="py-5 px-3 text-indigo-600 font-bold">Sathyadarshana</a>
+          <a href="library.html" class="py-5 px-3 hover:text-indigo-600">Library</a>
+          <a href="astrology.html" class="py-5 px-3 hover:text-indigo-600">Astrology</a>
+          <a href="voice-of-dharma.html" class="py-5 px-3 hover:text-indigo-600">Voice of Dharma</a>
+          <a href="health-advice.html" class="py-5 px-3 font-semibold text-indigo-700 border-b-2 border-indigo-700">Health Advice</a>
+          <a href="news.html" class="py-5 px-3 hover:text-indigo-600">News</a>
+        </div>
+      </div>
     </div>
-    <div class="tip">
-      <strong>🧘 Mind Tip:</strong> Practice 5 minutes of deep breathing before sleep. It calms anxiety and improves heart rhythm.
-    </div>
-    <div class="tip">
-      <strong>🍵 Detox Tip:</strong> Avoid caffeine after 6 PM. Switch to herbal infusions like ginger or chamomile.
-    </div>
-
-    <div class="blessing">
-      🙏 May all who suffer in silence find relief. May healing spread where medicine has failed. May Buddhi guide you in wisdom.
-    </div>
+  </nav>  <!-- Health Advice Section -->  <section class="max-w-5xl mx-auto my-10 p-6 rounded-xl shadow-lg glass">
+    <h1 class="text-3xl font-bold text-center text-green-700 mb-4">🩺 Sathyadarshana Health & Wellness</h1>
+    <p class="text-center text-gray-700 mb-6">
+      Free support for your body and mind — especially for those without access to care. Buddhi is here for you.
+    </p><div class="grid md:grid-cols-2 gap-6">
+  <div class="p-4 bg-white rounded shadow">
+    <h2 class="text-lg font-semibold text-green-600 mb-2">🌿 Physical Health Advice</h2>
+    <p>Share your symptoms and Buddhi will guide you with healing lifestyle and dietary practices.</p>
   </div>
 
-  <!-- Buddhi AI Assistant Sidebar -->
-  <script>
-    const buddhiPanel = document.createElement('div');
-    buddhiPanel.innerHTML = `
-      <div id="buddhi-ai" style="position:fixed;bottom:20px;right:20px;z-index:9999;">
-        <button onclick="alert('Buddhi AI Health Support will speak soon')" 
-                style="background:#00695c;color:#fff;padding:10px 16px;border:none;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,0.3);">
-          💬 Ask Buddhi
-        </button>
-      </div>`;
-    document.body.appendChild(buddhiPanel);
-  </script>
+  <div class="p-4 bg-white rounded shadow">
+    <h2 class="text-lg font-semibold text-green-600 mb-2">🧘 Mental Peace Guidance</h2>
+    <p>Feeling anxious, sad, or lost? We offer spiritual and psychological clarity without judgment.</p>
+  </div>
 
-  <footer>
-    © 2025 Sathyadarshana | Buddhi Medical Insight Service
+  <div class="p-4 bg-white rounded shadow">
+    <h2 class="text-lg font-semibold text-green-600 mb-2">🫱 Free Help for the Poor</h2>
+    <p>If you can’t afford treatment, describe your issue. Buddhi will do its best to assist — with compassion.</p>
+  </div>
+
+  <div class="p-4 bg-white rounded shadow">
+    <h2 class="text-lg font-semibold text-green-600 mb-2">🔄 Ask Buddhi Directly</h2>
+    <p>Need a private diagnosis or simple daily health guide? Buddhi AI is ready 24/7 to advise you with wisdom.</p>
+  </div>
+</div>
+
+<div class="mt-8 text-center">
+  <p class="italic text-gray-600">Healing is a sacred act. May light and strength be with you always.</p>
+</div>
+
+  </section>  <!-- Footer -->  <footer class="text-center text-sm text-gray-500 my-6">
+    © 2025 Sathyadarshana • Healing Through Wisdom
   </footer>
 </body>
 </html>
