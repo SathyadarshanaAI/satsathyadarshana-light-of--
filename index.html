@@ -2,168 +2,128 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sathyadarshana – Gateway of Light</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spiritual Welcome Page</title>
   <style>
-    :root {
-      --main-glow: #fff8dc;
-      --highlight: #ffd700;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom, #fafafa, #eaeaea);
-      color: #222;
-      min-height: 100vh;
-      overflow-y: auto;
+      font-family: sans-serif;
+      line-height: 1.6;
     }
-
+    /* Scrolling banner */
+    .banner {
+      overflow: hidden;
+      white-space: nowrap;
+      background: #222;  /* Dark background for contrast */
+      padding: 10px 0;
+      position: relative;
+    }
+    .banner .scrolling-text {
+      display: inline-block;
+      padding-left: 100%;
+      animation: scroll-text 10s linear infinite;
+      font-weight: bold;
+      font-size: 1.1em;
+      background: linear-gradient(45deg, #FFD700, #FFA500);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+    }
+    @keyframes scroll-text {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+    /* Sticky navigation bar */
     nav {
       position: sticky;
       top: 0;
-      background: rgba(34, 34, 34, 0.85);
-      backdrop-filter: blur(6px);
+      background: #fff;
+      border-bottom: 2px solid #e0ae00;  /* golden border for styling */
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       z-index: 1000;
-      padding: 1rem 0;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     }
-
     nav ul {
-      display: flex;
-      justify-content: center;
       list-style: none;
+      margin: 0;
       padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    nav li {
       margin: 0;
     }
-
-    nav ul li {
-      margin: 0 20px;
-    }
-
-    nav ul li a {
-      color: white;
+    nav a {
+      display: block;
+      padding: 10px 15px;
       text-decoration: none;
-      font-weight: bold;
-      font-size: 1.1em;
-      transition: color 0.3s ease;
-    }
-
-    nav ul li a:hover {
-      color: var(--highlight);
-    }
-
-    .scroll-banner {
-      width: 100%;
-      overflow: hidden;
-      white-space: nowrap;
-      background: linear-gradient(to right, var(--highlight), var(--main-glow));
-      color: #000;
-      font-weight: bold;
-      font-size: 1rem;
-    }
-
-    .scroll-banner span {
-      display: inline-block;
-      padding-left: 100%;
-      animation: scroll-left 15s linear infinite;
-    }
-
-    @keyframes scroll-left {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-100%); }
-    }
-
-    main {
-      padding: 3rem 1.5rem;
-      text-align: center;
-      min-height: 100vh;
-      box-sizing: border-box;
-    }
-
-    h1 {
-      font-size: 2.5em;
-      margin-bottom: 0.5rem;
-      color: #333;
-      animation: fadeInDown 1s ease-in-out;
-    }
-
-    p {
-      font-size: 1.1em;
-      max-width: 600px;
-      margin: auto;
-      animation: fadeIn 2s ease-in-out;
-    }
-
-    .buddha-line {
-      margin-top: 2rem;
-      font-size: 1.2em;
       color: #555;
+      font-weight: bold;
     }
-
-    footer {
-      background: #222;
-      color: #fff;
-      padding: 1rem;
+    nav a:hover {
+      background: #ffe599;  /* light golden highlight on hover */
+      color: #000;
+    }
+    /* Main content */
+    main {
+      padding: 20px;
+    }
+    main h1 {
+      font-size: 1.8em;
+      margin-top: 0;
+    }
+    main p {
+      margin-bottom: 1em;
+    }
+    .invocation {
       text-align: center;
-      font-size: 0.95em;
+      font-size: 1.2em;
+      margin-top: 20px;
+      font-weight: bold;
     }
-
-    @keyframes fadeInDown {
-      from {
-        opacity: 0;
-        transform: translateY(-30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
+    /* Footer */
+    footer {
+      background: #f5f5f5;
+      text-align: center;
+      padding: 10px;
+      font-size: 0.9em;
+      color: #555;
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
-  <div class="scroll-banner">
-    <span>✨ Welcome to Sathyadarshana – Where the Light of Truth Rises Eternal. ✨</span>
+
+  <!-- Scrolling banner with spiritual welcome text -->
+  <div class="banner">
+    <div class="scrolling-text">Welcome to Our Spiritual Website – May Peace and Blessings Be With You</div>
   </div>
 
+  <!-- Sticky navigation bar -->
   <nav>
     <ul>
-      <li><a href="index.html">Home</a></li>
+      <li><a href="#">Home</a></li>
       <li><a href="#">Library</a></li>
       <li><a href="#">Astrology</a></li>
-      <li><a href="voice.html">Voice of Dharma</a></li>
+      <li><a href="#">Voice of Dharma</a></li>
       <li><a href="#">Health Advice</a></li>
-      <li><a href="news.html">News</a></li>
+      <li><a href="#">News</a></li>
     </ul>
   </nav>
 
+  <!-- Main content area with introduction text -->
   <main>
-    <h1>Welcome to Sathyadarshana</h1>
-    <p>Enter a sacred digital sanctuary where wisdom, astrology, healing, and divine insight merge. Let your journey through truth and light begin here. 🕊️</p>
-
-    <p style="margin-top: 4rem;">🌿 The journey continues with more sacred teachings...</p>
-    <p>🪔 May all beings be guided by truth and compassion.</p>
-    <p>📜 Stay tuned for updates, wisdom scrolls, and divine insights!</p>
-    <p>🕉️ Om Mani Padme Hum. ✝️ Amen. ☪️ Bismillah.</p>
-
-    <p class="buddha-line">☸️ නමෝ බුද්ධාය</p>
+    <h1>Welcome</h1>
+    <p>Welcome to our spiritual community website. Here you will find a wealth of knowledge in our Library, insights into Astrology, and the inspiring <em>Voice of Dharma</em>. We also offer Health Advice rooted in ancient wisdom and keep you updated with the latest News and events.</p>
+    <p>Our mission is to provide guidance, inspiration, and a sense of peace to all who visit. We hope this space helps you on your journey towards enlightenment and well-being. Feel free to explore each section and discover the wisdom that awaits.</p>
+    <p class="invocation">☸️ නමෝ බුද්ධාය</p>
   </main>
 
+  <!-- Footer section -->
   <footer>
-    <p>&copy; 2025 Sathyadarshana. All rights reserved.</p>
+    &copy; 2025 Spiritual Website. All rights reserved.
   </footer>
+
 </body>
 </html>
