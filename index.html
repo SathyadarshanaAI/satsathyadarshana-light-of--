@@ -1,52 +1,112 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sathyadarshana – Light of Truth</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <title>Spiritual Welcome Page</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      line-height: 1.6;
+    }
+    /* Scrolling banner */
+    .banner {
+      overflow: hidden;
+      white-space: nowrap;
+      background: #222;  /* Dark background for contrast */
+      padding: 10px 0;
+      position: relative;
+    }
+    .banner .scrolling-text {
+      display: inline-block;
+      padding-left: 100%;
+      animation: scroll-text 10s linear infinite;
+      font-weight: bold;
+      font-size: 1.1em;
+      background: linear-gradient(45deg, #FFD700, #FFA500);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+    }
+    @keyframes scroll-text {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+    /* Sticky navigation bar */
+    nav {
+      position: sticky;
+      top: 0;
+      background: #fff;
+      border-bottom: 2px solid #e0ae00;  /* golden border for styling */
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    nav li {
+      margin: 0;
+    }
+    nav a {
+      display: block;
+      padding: 10px 15px;
+      text-decoration: none;
+      color: #555;
+      font-weight: bold;
+    }
+    nav a:hover {
+      background: #ffe599;  /* light golden highlight on hover */
+      color: #000;
+    }
+    /* Main content */
+    main {
+      padding: 20px;
+    }
+    main h1 {
+      font-size: 1.8em;
+      margin-top: 0;
+    }
+    main p {
+      margin-bottom: 1em;
+    }
+    .invocation {
+      text-align: center;
+      font-size: 1.2em;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    /* Footer */
+    footer {
+      background: #f5f5f5;
+      text-align: center;
+      padding: 10px;
+      font-size: 0.9em;
+      color: #555;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Scrolling Banner -->
+  <!-- Scrolling banner with spiritual welcome text -->
   <div class="banner">
-    <div class="scrolling-text">
-      Welcome to Sathyadarshana – Light of Truth | May Peace, Wisdom and Blessings Be With You
-    </div>
+    <div class="scrolling-text">Welcome to Our Spiritual Website – May Peace and Blessings Be With You</div>
   </div>
 
-  <!-- Navigation -->
+  <!-- Sticky navigation bar -->
   <nav>
     <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="library.html">Library</a></li>
-      <li><a href="astrology.html">Astrology</a></li>
-      <li><a href="voice-of-dharma.html">Voice of Dharma</a></li>
-      <li><a href="health-advice.html">Health Advice</a></li>
-      <li><a href="news.html">News</a></li>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Library</a></li>
+      <li><a href="#">Astrology</a></li>
+      <li><a href="#">Voice of Dharma</a></li>
+      <li><a href="#">Health Advice</a></li>
+      <li><a href="#">News</a></li>
     </ul>
   </nav>
-
-  <!-- Main Content -->
-  <main>
-    <h1>Welcome</h1>
-    <p>
-      Welcome to <strong>Sathyadarshana</strong>, a sacred platform of spiritual wisdom. 
-      Dive into our Library of texts, explore cosmic insights through Astrology, 
-      listen to the Voice of Dharma, and find holistic Health Advice. 
-      Stay connected with truth-centered News from around the world.
-    </p>
-    <p>
-      We are devoted to sharing timeless knowledge, inner peace, and radiant truth. 
-      May every visitor feel uplifted, enlightened, and united under the light of compassion and wisdom.
-    </p>
-    <p class="invocation">☸️ නමෝ බුද්ධාය</p>
-  </main>
-
-  <!-- Footer -->
-  <footer>
-    &copy; 2025 Sathyadarshana.com – All rights reserved.
-  </footer>
-
-</body>
-</html>
