@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sathyadarshana | Home</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/fullpage.js/dist/fullpage.min.css" />
+
+  <!-- Google Translate -->
   <script type="text/javascript">
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({
@@ -15,18 +18,24 @@
     }
   </script>
   <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <style>
+    #fullpage {
+      font-family: sans-serif;
+    }
+  </style>
 </head>
-<body class="bg-gradient-to-br from-gray-100 to-white text-gray-800">
+<body class="bg-gray-100 text-gray-800">
 
   <!-- Google Translate -->
-  <div id="google_translate_element" class="p-2 text-sm text-right"></div>
+  <div id="google_translate_element" class="p-2 text-sm text-right z-50 relative"></div>
 
   <!-- Navbar -->
   <nav class="bg-gray-900 text-white sticky top-0 z-50 shadow">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between h-16 items-center">
+      <div class="flex justify-between h-16 items-center overflow-x-auto">
         <div class="flex items-center space-x-4">
-          <a href="index.html" class="text-xl font-bold hover:text-yellow-400">Sathyadarshana</a>
+          <a href="#section1" class="text-xl font-bold hover:text-yellow-400">Sathyadarshana</a>
           <a href="sathyadarshana-lab.html" class="hover:text-yellow-300">Lab</a>
           <a href="voice-of-dharma.html" class="hover:text-yellow-300">Voice of Dharma</a>
           <a href="news-of-the-light.html" class="hover:text-yellow-300">News</a>
@@ -39,17 +48,44 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="max-w-4xl mx-auto my-12 p-6 bg-white rounded-xl shadow-md">
-    <h1 class="text-4xl font-bold text-center text-indigo-700 mb-4">🌞 Welcome to Sathyadarshana</h1>
-    <p class="text-center text-gray-700 text-lg">
-      Your sanctuary of wisdom, light, and spiritual harmony. Guided by AI-powered compassion and ancient knowledge.
-    </p>
-  </section>
+  <!-- FullPage Sections -->
+  <div id="fullpage">
 
-  <!-- Footer -->
-  <footer class="text-center text-sm text-gray-500 my-6">
-    © 2025 Sathyadarshana • Powered by Buddhi
-  </footer>
+    <!-- Section 1 -->
+    <div class="section flex flex-col justify-center items-center bg-white px-6">
+      <h1 class="text-4xl font-bold text-indigo-700 mb-4 text-center">🌞 Welcome to Sathyadarshana</h1>
+      <p class="text-center text-lg text-gray-700 max-w-2xl">
+        Your sanctuary of wisdom, light, and spiritual harmony. Guided by AI-powered compassion and ancient knowledge.
+      </p>
+    </div>
+
+    <!-- Section 2 -->
+    <div class="section bg-indigo-100 flex flex-col justify-center items-center px-6">
+      <h2 class="text-2xl text-indigo-800 font-semibold mb-2 text-center">🌼 Discover the Light Within</h2>
+      <p class="text-center text-gray-700 max-w-xl text-base mb-6">
+        Explore sacred texts, divine teachings, and celestial insights through the Sathyadarshana path.
+      </p>
+      <a href="#section1" class="text-blue-600 underline">⬆ Back to Top</a>
+    </div>
+
+    <!-- Section 3 (Footer) -->
+    <div class="section bg-gray-200 flex flex-col justify-center items-center">
+      <footer class="text-sm text-gray-600 text-center">
+        © 2025 Sathyadarshana • Powered by Buddhi
+      </footer>
+    </div>
+
+  </div>
+
+  <!-- JS Scripts -->
+  <script src="https://unpkg.com/fullpage.js/dist/fullpage.min.js"></script>
+  <script>
+    new fullpage('#fullpage', {
+      autoScrolling: true,
+      scrollHorizontally: true,
+      navigation: true,
+      responsiveWidth: 768
+    });
+  </script>
 </body>
 </html>
