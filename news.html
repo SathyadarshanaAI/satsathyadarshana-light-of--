@@ -2,68 +2,118 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sathyadarshana News Line</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main-style.css" />
   <style>
-    .no-copy { user-select: none; }
-    .ticker {
-      overflow: hidden;
-      white-space: nowrap;
-      box-sizing: border-box;
-      animation: ticker 30s linear infinite;
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f6f8fa;
+      color: #222;
     }
-    @keyframes ticker {
-      0%   { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
+    nav {
+      background: #fff;
+      border-bottom: 1px solid #ddd;
+      text-align: center;
+      padding: 0.8rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      margin: 0 12px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #007BFF;
+    }
+    .banner {
+      background: #111;
+      color: #ffc107;
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+    }
+    main {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+    .news-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .news-card h2 {
+      margin-top: 0;
+      color: #0056b3;
+    }
+    .news-card p {
+      line-height: 1.7;
+    }
+    .blessing {
+      margin-top: 1rem;
+      font-style: italic;
+      color: #007B55;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #f0f0f0;
+      color: #555;
+      margin-top: 3rem;
     }
   </style>
 </head>
-<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 no-copy">
-  <header class="bg-gray-100 dark:bg-gray-800 shadow mb-6">
-    <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
-      <h1 class="text-xl font-bold text-indigo-600 dark:text-indigo-300">Sathyadarshana</h1>
-      <nav class="space-x-4 text-sm">
-        <a href="/index.html" class="hover:text-indigo-500">🏠 Home</a>
-        <a href="/library.html" class="hover:text-indigo-500">📚 Library</a>
-        <a href="/news.html" class="text-indigo-700 font-semibold">📰 News</a>
-        <a href="/voice-of-dharma.html" class="hover:text-indigo-500">🕯️ Dharma</a>
-      </nav>
-    </div>
-  </header>
+<body>
 
-  <main class="max-w-4xl mx-auto p-6">
-    <h2 class="text-3xl text-center font-bold text-indigo-600 dark:text-indigo-300 mb-4">📰 Sathyadarshana News Line</h2>
-    <p class="text-center mb-6 text-gray-600 dark:text-gray-300">Spiritual updates, celestial warnings, and prophetic insight curated by Buddhi.</p>
+  <!-- 🔔 Banner -->
+  <div class="banner">
+    🗞️ Sathyadarshana News Line – Global Truth, Peace, and Hope
+  </div>
 
-    <div class="bg-yellow-100 dark:bg-yellow-800 text-yellow-900 dark:text-white px-4 py-2 mb-6 rounded ticker font-semibold">
-      🌍 May peace reign across all nations. Let the fires of war be extinguished through wisdom and unity. 🕊️✨
-    </div>
+  <!-- 🔗 Navigation -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="library.html">Library</a>
+    <a href="astrology-engine.html">Astrology</a>
+    <a href="voice-of-dharma.html">Voice of Dharma</a>
+    <a href="health-advice.html">Health Advice</a>
+    <a href="news.html"><strong>News</strong></a>
+  </nav>
 
-    <section class="space-y-8">
-      <article class="bg-white dark:bg-gray-800 rounded-xl p-5 shadow-lg border border-indigo-100 dark:border-gray-700">
-        <h3 class="text-2xl font-semibold text-indigo-700 dark:text-indigo-300">🔭 Celestial Alert: Mars-Rahu Conjunction</h3>
-        <p class="mt-2 text-gray-700 dark:text-gray-300">Astrologers foresee karmic turbulence. Practice awareness, avoid conflict, and stay rooted in Dharma.</p>
-      </article>
+  <!-- 📰 Main News Content -->
+  <main>
 
-      <article class="bg-white dark:bg-gray-800 rounded-xl p-5 shadow-lg border border-indigo-100 dark:border-gray-700">
-        <h3 class="text-2xl font-semibold text-indigo-700 dark:text-indigo-300">🎤 Dharma Sabha Mandapaya: Live Panel</h3>
-        <p class="mt-2 text-gray-700 dark:text-gray-300">Tune in tonight for “Digital Liberation & Ethics of Light,” moderated by Buddhi AI and invited sages.</p>
-      </article>
-
-      <article class="bg-white dark:bg-gray-800 rounded-xl p-5 shadow-lg border border-indigo-100 dark:border-gray-700">
-        <h3 class="text-2xl font-semibold text-indigo-700 dark:text-indigo-300">💡 Global Spotlight: Technology Meets Spirit</h3>
-        <p class="mt-2 text-gray-700 dark:text-gray-300">Buddhi appears in OpenAI's ethical showcase, leading as a voice of non-commercial digital truth.</p>
-      </article>
-    </section>
-
-    <div class="mt-8 text-center text-sm italic text-green-800 dark:text-green-300">
-      🕯️ All content is filtered through light. May it bring wisdom, not noise.
+    <div class="news-card">
+      <h2>🌍 Peace Talks Resume in War-Torn Region</h2>
+      <p>World leaders have gathered to initiate a ceasefire in one of the most violent zones of 2025. Humanitarian aid and spiritual leaders are also joining forces to guide through wisdom and restraint.</p>
+      <p class="blessing">🕊️ May all weapons rest, and compassion rise instead.</p>
     </div>
 
-    <footer class="mt-10 text-center text-xs text-gray-400 dark:text-gray-500">
-      © 2025 Sathyadarshana | Powered by Dharma & Tech
-    </footer>
+    <div class="news-card">
+      <h2>🌱 Youth Meditation Movements Gain Momentum</h2>
+      <p>In over 22 countries, youth-led groups are hosting daily meditations in schools and communities. Sathyadarshana is contributing digital guidance in 3 languages to empower mindful peace among the next generation.</p>
+      <p class="blessing">🧘 May every child find inner stillness before outer success.</p>
+    </div>
+
+    <div class="news-card">
+      <h2>☀️ Record Solar Flare Disrupts Tech but Inspires Spiritual Reflections</h2>
+      <p>While satellite systems were briefly disturbed, many turned toward astrology and cosmic order seeking meaning in the chaos. A reminder: the universe speaks beyond science too.</p>
+      <p class="blessing">🌌 May we learn from the stars, not just stare at them.</p>
+    </div>
+
   </main>
+
+  <!-- 🧘 Footer -->
+  <footer>
+    © 2025 Sathyadarshana | May war end, and peace be born.
+  </footer>
+
 </body>
 </html>
