@@ -10,7 +10,9 @@
 
   <!-- Banner -->
   <div class="banner">
-    <div class="scrolling-text">Welcome to the Sacred Library of Light – Read, Reflect, Realize 📚</div>
+    <div class="scrolling-text">
+      📚 Welcome to Sathyadarshana Library – Sacred Wisdom for All Beings 🌟
+    </div>
   </div>
 
   <!-- Navigation -->
@@ -27,22 +29,23 @@
 
   <!-- Main Content -->
   <main>
-    <h1>📚 Sathyadarshana Library</h1>
-    <p>This is a divine collection of sacred texts across all traditions. Click on any book to begin reading.</p>
+    <h1>📖 Sathyadarshana Digital Library</h1>
+    <p>Explore sacred scriptures and timeless spiritual texts from around the world.</p>
 
     <section>
-      <h2>Available Texts</h2>
+      <h2>Available Sacred Texts:</h2>
       <ul>
-        <li><a href="#">Tripitaka – Theravāda Buddhism</a></li>
-        <li><a href="#">Bhagavad Gita – Hindu Wisdom</a></li>
-        <li><a href="#">Quran – Islam (Translation)</a></li>
-        <li><a href="#">Book of Enoch – Apocryphal Mystery</a></li>
-        <li><a href="#">Mahavamsa – Sri Lankan History</a></li>
-        <li><a href="#">Ravana Samhita – Ancient Astrology</a></li>
+        <li><a href="#">📘 Tripitaka (Theravāda Buddhism)</a></li>
+        <li><a href="#">📗 Bhagavad Gita (Hinduism)</a></li>
+        <li><a href="#">📕 Quran (Islam – Translation)</a></li>
+        <li><a href="#">📙 Book of Enoch (Apocrypha)</a></li>
+        <li><a href="#">📔 Mahavamsa (Sri Lankan Chronicles)</a></li>
+        <li><a href="#">📒 Ravana Samhita (Jyotisha & Mantras)</a></li>
+        <li><a href="#">📓 Kabbalah (Jewish Mysticism)</a></li>
       </ul>
     </section>
 
-    <p class="invocation">🌼 සත්‍යය කියවන්න, සෙරිනිටි සෙවන්න 📖</p>
+    <p class="invocation">☸️ නමෝ තස්ස භගවතො අරහතො සම්මා සම්බුද්ධස්ස</p>
   </main>
 
   <!-- Footer -->
