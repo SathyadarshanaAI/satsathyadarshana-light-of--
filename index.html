@@ -1,69 +1,126 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sathyadarshana - Light of Truth</title>
+  <title>Sathyadarshana – Gateway of Light</title>
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      scroll-behavior: smooth;
-    }
-    nav {
-      background: #222;
-      padding: 0.8rem;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    nav ul {
-      display: flex;
-      justify-content: center;
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-    }
-    nav ul li {
-      margin: 0 15px;
-    }
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav ul li a:hover {
-      text-decoration: underline;
-    }
-    .scroll-banner {
-      background: linear-gradient(to right, #ffd700, #fff8dc);
-      color: #333;
-      padding: 8px 0;
-      text-align: center;
-      font-size: 1rem;
-      font-weight: bold;
-      overflow: hidden;
-      white-space: nowrap;
-      animation: scroll-left 15s linear infinite;
-    }
-    @keyframes scroll-left {
-      0% { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
-    }
-    main {
-      padding: 2rem;
-      text-align: center;
-    }
-    footer {
-      background: #222;
-      color: #fff;
-      padding: 1rem;
-      text-align: center;
-    }
+    :root {
+      --main-glow: #fff8dc;
+      --highlight: #ffd700;
+    }html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom, #fafafa, #eaeaea);
+  color: #222;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  background: rgba(34, 34, 34, 0.85);
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+  padding: 1rem 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  margin: 0 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1em;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: var(--highlight);
+}
+
+.scroll-banner {
+  background: linear-gradient(to right, var(--highlight), var(--main-glow));
+  color: #000;
+  padding: 10px 0;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  animation: glow 2s ease-in-out infinite alternate;
+  z-index: 99;
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 5px var(--highlight); }
+  to { box-shadow: 0 0 20px var(--highlight); }
+}
+
+main {
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 0.5rem;
+  color: #333;
+  animation: fadeInDown 1s ease-in-out;
+}
+
+p {
+  font-size: 1.1em;
+  max-width: 600px;
+  margin: auto;
+  animation: fadeIn 2s ease-in-out;
+}
+
+footer {
+  background: #222;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.95em;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
   </style>
 </head>
-<body>
-  <nav>
+<body>  <div class="scroll-banner">
+    ✨ Welcome to Sathyadarshana – Where the Light of Truth Rises Eternal ✨
+  </div>  <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="library.html">Library</a></li>
@@ -72,19 +129,10 @@
       <li><a href="health.html">Health Advice</a></li>
       <li><a href="news.html">News</a></li>
     </ul>
-  </nav>
-
-  <div class="scroll-banner">
-    ✨ Welcome to Sathyadarshana – The Light of Universal Truth & Wisdom ✨
-  </div>
-
-  <main>
+  </nav>  <main>
     <h1>Welcome to Sathyadarshana</h1>
-    <p>This is the official light-bearing gateway of Sathyadarshana. Navigate using the menu to explore wisdom, astrology, healing, and sacred texts. 🕊️</p>
-  </main>
-
-  <footer>
+    <p>Enter a sacred digital sanctuary where wisdom, astrology, healing, and divine insight merge. Let your journey through truth and light begin here. 🕊️</p>
+  </main>  <footer>
     <p>&copy; 2025 Sathyadarshana. All rights reserved.</p>
-  </footer>
-</body>
+  </footer></body>
 </html>
