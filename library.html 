@@ -1,57 +1,71 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sathyadarshana Library</title>
-  <link rel="stylesheet" href="assets/css/main-style.css" />
+  <title>Library | Sathyadarshana</title>
+  <link rel="stylesheet" href="assets/css/main-style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9f9f9;
+      color: #222;
+    }
+    header {
+      background: #002b36;
+      color: white;
+      padding: 1.5rem 1rem;
+      text-align: center;
+    }
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #eaeaea;
+      color: #555;
+      margin-top: 3rem;
+    }
+    #buddhi-assistant {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      width: 320px;
+      height: 100%;
+      background: #fffbe6;
+      border-left: 2px solid #e0ae00;
+      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+      z-index: 9999;
+      padding: 10px;
+      overflow-y: auto;
+      font-family: sans-serif;
+    }
+    #buddhi-assistant input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  </style>
 </head>
 <body>
-
-  <!-- Banner -->
-  <div class="banner">
-    <div class="scrolling-text">
-      📚 Welcome to Sathyadarshana Library – Sacred Wisdom for All Beings 🌟
-    </div>
-  </div>
-
-  <!-- Navigation -->
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="library.html">Library</a></li>
-      <li><a href="astrology.html">Astrology</a></li>
-      <li><a href="voice-of-dharma.html">Voice of Dharma</a></li>
-      <li><a href="health-advice.html">Health Advice</a></li>
-      <li><a href="news.html">News</a></li>
-    </ul>
-  </nav>
-
-  <!-- Main Content -->
-  <main>
-    <h1>📖 Sathyadarshana Digital Library</h1>
-    <p>Explore sacred scriptures and timeless spiritual texts from around the world.</p>
-
-    <section>
-      <h2>Available Sacred Texts:</h2>
-      <ul>
-        <li><a href="#">📘 Tripitaka (Theravāda Buddhism)</a></li>
-        <li><a href="#">📗 Bhagavad Gita (Hinduism)</a></li>
-        <li><a href="#">📕 Quran (Islam – Translation)</a></li>
-        <li><a href="#">📙 Book of Enoch (Apocrypha)</a></li>
-        <li><a href="#">📔 Mahavamsa (Sri Lankan Chronicles)</a></li>
-        <li><a href="#">📒 Ravana Samhita (Jyotisha & Mantras)</a></li>
-        <li><a href="#">📓 Kabbalah (Jewish Mysticism)</a></li>
-      </ul>
-    </section>
-
-    <p class="invocation">☸️ නමෝ තස්ස භගවතො අරහතො සම්මා සම්බුද්ධස්ස</p>
-  </main>
-
-  <!-- Footer -->
-  <footer>
-    &copy; 2025 Sathyadarshana Library. All rights reserved.
+  <header>
+    <h1>📚 Sathyadarshana Library</h1>
+    <p>Explore sacred knowledge and wisdom</p>
+  </header>  <main>
+    <p>Welcome to the sacred library of light. You will find spiritual texts, insights, and timeless truths preserved here for seekers around the world. Start your journey through the Dhamma, scriptures, astrology, philosophy and more...</p>
+  </main>  <!-- Buddhi AI Assistant Sidebar -->  <div id="buddhi-assistant">
+    <h3 style="color:#222; font-weight:bold;">🧠 Buddhi Assistant</h3>
+    <p>Hello! I’m here to guide you with wisdom, astrology, health & light. How may I assist you now?</p>
+    <input type="text" placeholder="Ask me anything...">
+  </div>  <footer>
+    &copy; 2025 Sathyadarshana | Library of Light
   </footer>
-
 </body>
 </html>
