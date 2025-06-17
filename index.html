@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -7,120 +8,124 @@
     :root {
       --main-glow: #fff8dc;
       --highlight: #ffd700;
-    }html {
-  scroll-behavior: smooth;
-}
+    }
 
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to bottom, #fafafa, #eaeaea);
-  color: #222;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-nav {
-  position: sticky;
-  top: 0;
-  background: rgba(34, 34, 34, 0.85);
-  backdrop-filter: blur(6px);
-  z-index: 1000;
-  padding: 1rem 0;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-}
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #fafafa, #eaeaea);
+      color: #222;
+    }
 
-nav ul {
-  display: flex;
-  justify-content: center;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(34, 34, 34, 0.85);
+      backdrop-filter: blur(6px);
+      z-index: 1000;
+      padding: 1rem 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
 
-nav ul li {
-  margin: 0 20px;
-}
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
 
-nav ul li a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1.1em;
-  transition: color 0.3s ease;
-}
+    nav ul li {
+      margin: 0 20px;
+    }
 
-nav ul li a:hover {
-  color: var(--highlight);
-}
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1em;
+      transition: color 0.3s ease;
+    }
 
-.scroll-banner {
-  background: linear-gradient(to right, var(--highlight), var(--main-glow));
-  color: #000;
-  padding: 10px 0;
-  text-align: center;
-  font-weight: bold;
-  font-size: 1rem;
-  letter-spacing: 0.5px;
-  animation: glow 2s ease-in-out infinite alternate;
-  z-index: 99;
-}
+    nav ul li a:hover {
+      color: var(--highlight);
+    }
 
-@keyframes glow {
-  from { box-shadow: 0 0 5px var(--highlight); }
-  to { box-shadow: 0 0 20px var(--highlight); }
-}
+    .scroll-banner {
+      background: linear-gradient(to right, var(--highlight), var(--main-glow));
+      color: #000;
+      padding: 10px 0;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1rem;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: scroll-left 15s linear infinite;
+    }
 
-main {
-  padding: 3rem 1.5rem;
-  text-align: center;
-}
+    @keyframes scroll-left {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
 
-h1 {
-  font-size: 2.5em;
-  margin-bottom: 0.5rem;
-  color: #333;
-  animation: fadeInDown 1s ease-in-out;
-}
+    main {
+      padding: 3rem 1.5rem;
+      text-align: center;
+    }
 
-p {
-  font-size: 1.1em;
-  max-width: 600px;
-  margin: auto;
-  animation: fadeIn 2s ease-in-out;
-}
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 0.5rem;
+      color: #333;
+      animation: fadeInDown 1s ease-in-out;
+    }
 
-footer {
-  background: #222;
-  color: #fff;
-  padding: 1rem;
-  text-align: center;
-  font-size: 0.95em;
-}
+    p {
+      font-size: 1.1em;
+      max-width: 600px;
+      margin: auto;
+      animation: fadeIn 2s ease-in-out;
+    }
 
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+    footer {
+      background: #222;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+      font-size: 0.95em;
+    }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
   </style>
 </head>
-<body>  <div class="scroll-banner">
-    ✨ Welcome to Sathyadarshana – Where the Light of Truth Rises Eternal ✨
-  </div>  <nav>
+<body>
+  <div class="scroll-banner">
+    ✨ Welcome to Sathyadarshana – Where the Light of Truth Rises Eternal. ✨
+  </div>
+
+  <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="library.html">Library</a></li>
@@ -129,10 +134,15 @@ footer {
       <li><a href="health.html">Health Advice</a></li>
       <li><a href="news.html">News</a></li>
     </ul>
-  </nav>  <main>
+  </nav>
+
+  <main>
     <h1>Welcome to Sathyadarshana</h1>
     <p>Enter a sacred digital sanctuary where wisdom, astrology, healing, and divine insight merge. Let your journey through truth and light begin here. 🕊️</p>
-  </main>  <footer>
+  </main>
+
+  <footer>
     <p>&copy; 2025 Sathyadarshana. All rights reserved.</p>
-  </footer></body>
+  </footer>
+</body>
 </html>
