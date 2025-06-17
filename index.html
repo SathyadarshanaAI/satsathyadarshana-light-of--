@@ -8,14 +8,27 @@
   <link rel="stylesheet" href="https://unpkg.com/fullpage.js/dist/fullpage.min.css" />
 
   <style>
-    #fullpage {
-      font-family: sans-serif;
+    html, body {
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+    .goog-te-banner-frame.skiptranslate,
+    .goog-te-gadget,
+    .goog-logo-link,
+    .goog-te-gadget-icon,
+    iframe {
+      display: none !important;
+      height: 0 !important;
+    }
+    body {
+      top: 0px !important;
     }
     #lang-toggle {
       position: fixed;
       bottom: 1rem;
       right: 1rem;
-      z-index: 1000;
+      z-index: 9999;
       background: white;
       border: 1px solid #ccc;
       border-radius: 9999px;
@@ -23,18 +36,13 @@
       font-size: 0.875rem;
       cursor: pointer;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-    .goog-te-banner-frame.skiptranslate {
-      display: none !important;
-    }
-    body {
-      top: 0px !important;
+      transition: all 0.3s ease;
     }
   </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
 
-  <!-- Language Toggle -->
+  <!-- Language Toggle Button -->
   <div id="lang-toggle">🌐 Sinhala</div>
 
   <!-- Navbar -->
@@ -55,8 +63,9 @@
     </div>
   </nav>
 
-  <!-- FullPage Sections -->
+  <!-- Full Page Content -->
   <div id="fullpage">
+
     <!-- Section 1 -->
     <div class="section flex flex-col justify-center items-center bg-white px-6">
       <h1 class="text-4xl font-bold text-indigo-700 mb-4 text-center">🌞 Welcome to Sathyadarshana</h1>
@@ -80,11 +89,13 @@
         © 2025 Sathyadarshana • Powered by Buddhi
       </footer>
     </div>
+
   </div>
 
-  <!-- Google Translate -->
+  <!-- Google Translate Placeholder -->
   <div id="google_translate_element" style="display:none;"></div>
-  <script type="text/javascript">
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script>
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({
         pageLanguage: 'en',
@@ -92,10 +103,15 @@
         layout: google.translate.TranslateElement.InlineLayout.SIMPLE
       }, 'google_translate_element');
     }
-  </script>
-  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-  <!-- fullPage JS -->
+    // Hide Google translate bar forcibly
+    setInterval(() => {
+      const frame = document.querySelector('.goog-te-banner-frame');
+      if (frame) frame.remove();
+    }, 1000);
+  </script>
+
+  <!-- FullPage.js -->
   <script src="https://unpkg.com/fullpage.js/dist/fullpage.min.js"></script>
   <script>
     new fullpage('#fullpage', {
@@ -104,30 +120,36 @@
       scrollHorizontally: true,
       navigation: true,
       responsiveWidth: 768,
-      scrollOverflow: true
+      scrollOverflow: true,
+      scrollingSpeed: 800,
+      easingcss3: 'ease-in-out'
     });
   </script>
 
-  <!-- Language Toggle Script -->
+  <!-- Language Toggle -->
   <script>
     const langBtn = document.getElementById("lang-toggle");
-    let browserLang = navigator.language || navigator.userLanguage;
+    const browserLang = navigator.language || navigator.userLanguage;
 
-    // Default toggle label
-    if (browserLang.startsWith("si")) {
-      langBtn.textContent = "🌐 English";
-    } else {
-      langBtn.textContent = "🌐 Sinhala";
-    }
+    // Default button label
+    langBtn.textContent = browserLang.startsWith("si") ? "🌐 English" : "🌐 Sinhala";
 
     langBtn.addEventListener("click", () => {
       const targetLang = langBtn.textContent.includes("English") ? "en" : "si";
-      const select = document.querySelector("select.goog-te-combo");
-      if (select) {
-        select.value = targetLang;
-        select.dispatchEvent(new Event("change"));
-        langBtn.textContent = targetLang === "en" ? "🌐 Sinhala" : "🌐 English";
+      const iframe = document.querySelector('iframe');
+
+      if (!iframe) {
+        googleTranslateElementInit();
       }
+
+      setTimeout(() => {
+        const select = document.querySelector("select.goog-te-combo");
+        if (select) {
+          select.value = targetLang;
+          select.dispatchEvent(new Event("change"));
+          langBtn.textContent = targetLang === "en" ? "🌐 Sinhala" : "🌐 English";
+        }
+      }, 800);
     });
   </script>
 </body>
