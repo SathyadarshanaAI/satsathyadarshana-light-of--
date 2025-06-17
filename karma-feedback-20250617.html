@@ -1,0 +1,103 @@
+<!-- karma-feedback-20250617.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sathyadarshana - Service Feedback</title>
+  <style>
+    body {
+      background: #0c0c0c;
+      font-family: 'Segoe UI', sans-serif;
+      color: #e0e0e0;
+      padding: 2rem;
+    }
+    .feedback-box {
+      background: linear-gradient(to right, #222, #111);
+      padding: 2rem;
+      border-radius: 12px;
+      border: 1px solid #00ffcc;
+      box-shadow: 0 0 15px #00ffcc88;
+      max-width: 600px;
+      margin: auto;
+    }
+    label {
+      display: block;
+      margin: 1rem 0 0.25rem;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 6px;
+      border: none;
+      margin-bottom: 1rem;
+      background: #1a1a1a;
+      color: #fff;
+    }
+    button {
+      background-color: #00ffcc;
+      color: #000;
+      padding: 0.75rem 2rem;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="feedback-box">
+    <h2>🌟 Service Feedback Form - Sathyadarshana</h2>
+    <form>
+      <label for="service">1. What service did you use?</label>
+      <select id="service" name="service">
+        <option value="astrology">Vedic/KP Astrology</option>
+        <option value="palmistry">Palmistry (Hand Reading)</option>
+        <option value="numerology">Numerology</option>
+        <option value="aiChat">AI Assistant - Buddhi</option>
+        <option value="medical">Buddhi Medical Guidance</option>
+      </select>
+
+      <label for="intensity">2. Did you use the service enthusiastically?</label>
+      <select id="intensity" name="intensity">
+        <option value="yes">Yes, very much</option>
+        <option value="neutral">Neutral</option>
+        <option value="no">Not really</option>
+      </select>
+
+      <label for="rating">3. Overall Satisfaction (1 = Poor, 5 = Excellent)</label>
+      <select id="rating" name="rating">
+        <option value="5">⭐⭐⭐⭐⭐</option>
+        <option value="4">⭐⭐⭐⭐</option>
+        <option value="3">⭐⭐⭐</option>
+        <option value="2">⭐⭐</option>
+        <option value="1">⭐</option>
+      </select>
+
+      <label for="payment">4. Preferred Payment Method (Optional)</label>
+      <select id="payment" name="payment">
+        <option value="paypal">PayPal</option>
+        <option value="card">Credit/Debit Card</option>
+        <option value="bank">Bank Transfer</option>
+        <option value="crypto">Crypto (Optional Future)</option>
+        <option value="none">No payment (Free)</option>
+      </select>
+
+      <label for="willingness">5. Are you willing to donate if satisfied?</label>
+      <select id="willingness" name="willingness">
+        <option value="yes">Yes, I’d love to</option>
+        <option value="maybe">Maybe, in future</option>
+        <option value="no">No</option>
+      </select>
+
+      <label for="improve">6. What should we improve?</label>
+      <textarea id="improve" name="improve" rows="3" placeholder="Write suggestions..."></textarea>
+
+      <label for="remarks">7. Any personal experience, planetary moment, or special feedback:</label>
+      <textarea id="remarks" name="remarks" rows="3" placeholder="Optional..."></textarea>
+
+      <button type="submit">Submit Feedback</button>
+    </form>
+  </div>
+</body>
+</html>
