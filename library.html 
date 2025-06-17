@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sathyadarshana Library</title>
+  <link rel="stylesheet" href="assets/css/main-style.css" />
+</head>
+<body>
+
+  <!-- Banner -->
+  <div class="banner">
+    <div class="scrolling-text">Welcome to the Sacred Library of Light – Read, Reflect, Realize 📚</div>
+  </div>
+
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="library.html">Library</a></li>
+      <li><a href="astrology.html">Astrology</a></li>
+      <li><a href="voice-of-dharma.html">Voice of Dharma</a></li>
+      <li><a href="health-advice.html">Health Advice</a></li>
+      <li><a href="news.html">News</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <h1>📚 Sathyadarshana Library</h1>
+    <p>This is a divine collection of sacred texts across all traditions. Click on any book to begin reading.</p>
+
+    <section>
+      <h2>Available Texts</h2>
+      <ul>
+        <li><a href="#">Tripitaka – Theravāda Buddhism</a></li>
+        <li><a href="#">Bhagavad Gita – Hindu Wisdom</a></li>
+        <li><a href="#">Quran – Islam (Translation)</a></li>
+        <li><a href="#">Book of Enoch – Apocryphal Mystery</a></li>
+        <li><a href="#">Mahavamsa – Sri Lankan History</a></li>
+        <li><a href="#">Ravana Samhita – Ancient Astrology</a></li>
+      </ul>
+    </section>
+
+    <p class="invocation">🌼 සත්‍යය කියවන්න, සෙරිනිටි සෙවන්න 📖</p>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Sathyadarshana Library. All rights reserved.
+  </footer>
+
+</body>
+</html>
