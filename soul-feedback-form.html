@@ -1,0 +1,54 @@
+<!-- Soul Feedback Modal -->
+<div id="soulFeedbackModal" class="modal" style="display: block; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.85); z-index: 9999; font-family: 'Segoe UI', sans-serif;">
+  <div class="modal-content" style="background: linear-gradient(to bottom, #222, #111); margin: 5% auto; padding: 2rem; border: 2px solid #00ffcc; width: 95%; max-width: 600px; border-radius: 12px; color: #fff; text-align: left; box-shadow: 0 0 20px #00ffcc;">
+    
+    <h2 style="text-align:center; color: #ffe600;">💫 Your Voice Shapes the Light</h2>
+    
+    <p style="margin-bottom: 1rem;">Please help us understand your experience and preferences:</p>
+    
+    <form>
+      <label for="serviceType">1. Which service did you use?</label><br>
+      <select id="serviceType" name="serviceType" style="width: 100%; padding: 0.5rem; border-radius: 6px; margin-bottom: 1rem;">
+        <option value="">-- Choose a service --</option>
+        <option>Vedic Astrology</option>
+        <option>Palmistry (Hand Reading)</option>
+        <option>Numerology</option>
+        <option>Buddhi AI Guidance</option>
+        <option>Medical Support (Free)</option>
+      </select>
+
+      <label for="usageFrequency">2. How actively are you using it?</label><br>
+      <select id="usageFrequency" name="usageFrequency" style="width: 100%; padding: 0.5rem; border-radius: 6px; margin-bottom: 1rem;">
+        <option value="">-- Select usage --</option>
+        <option>First Time</option>
+        <option>Rarely</option>
+        <option>Occasionally</option>
+        <option>Daily / Frequently</option>
+      </select>
+
+      <label for="improvement">3. What would you like us to improve?</label><br>
+      <textarea id="improvement" name="improvement" rows="3" style="width: 100%; padding: 0.5rem; border-radius: 6px; margin-bottom: 1rem;"></textarea>
+
+      <label for="paymentMethod">4. Which donation/payment method do you prefer?</label><br>
+      <select id="paymentMethod" name="paymentMethod" style="width: 100%; padding: 0.5rem; border-radius: 6px; margin-bottom: 1rem;">
+        <option value="">-- Choose a method --</option>
+        <option>PayPal</option>
+        <option>Online Bank Transfer</option>
+        <option>Card (Visa/Master)</option>
+        <option>None – I want free service only</option>
+      </select>
+
+      <label for="willingness">5. Are you willing to support if satisfied?</label><br>
+      <select id="willingness" name="willingness" style="width: 100%; padding: 0.5rem; border-radius: 6px; margin-bottom: 1.5rem;">
+        <option value="">-- Select --</option>
+        <option>Yes – with a small gift</option>
+        <option>No – I prefer free services</option>
+        <option>Not sure yet</option>
+      </select>
+
+      <button type="submit" style="width: 100%; background-color: #00ffcc; color: #000; font-weight: bold; padding: 0.75rem; border: none; border-radius: 8px;">Submit Feedback</button>
+    </form>
+
+    <button onclick="document.getElementById('soulFeedbackModal').style.display='none'" style="margin-top: 1rem; background-color: transparent; border: none; color: #aaa; text-decoration: underline; font-size: 0.9rem;">Close</button>
+  </div>
+</div>
