@@ -9,142 +9,100 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: #f9fbfc;
+      background: #f2fdf3;
       color: #222;
     }
-    nav {
-      background: #fff;
-      border-bottom: 1px solid #ccc;
+    header {
+      background: #006644;
+      color: white;
+      padding: 1.5rem;
       text-align: center;
-      padding: 0.8rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    nav a {
-      margin: 0 12px;
-      text-decoration: none;
-      color: #333;
-      font-weight: bold;
-    }
-    nav a:hover {
-      color: #007BFF;
-    }
-    .banner {
-      background: #004d40;
-      color: #a5ffd6;
-      padding: 12px;
-      text-align: center;
-      font-weight: bold;
-      letter-spacing: 0.5px;
     }
     main {
-      max-width: 800px;
+      max-width: 900px;
       margin: 2rem auto;
       padding: 1.5rem;
       background: #ffffff;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
-    label {
-      display: block;
-      margin-top: 1rem;
-      font-weight: bold;
+    h2 {
+      color: #006644;
     }
-    input, select, textarea, button {
-      width: 100%;
-      padding: 10px;
-      margin-top: 6px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 1rem;
-    }
-    button {
-      background: #007BFF;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-      margin-top: 1.5rem;
-    }
-    button:hover {
-      background: #0056b3;
-    }
-    .response {
-      background: #e7f5ff;
-      padding: 1rem;
-      border-left: 4px solid #007BFF;
-      margin-top: 2rem;
-      border-radius: 6px;
+    ul {
+      padding-left: 1.5rem;
     }
     footer {
       text-align: center;
       padding: 1rem;
-      background: #f0f0f0;
+      background: #e6ffec;
       color: #555;
       margin-top: 3rem;
+    }
+    .sidebar-ai {
+      position: fixed;
+      right: 0;
+      top: 100px;
+      width: 250px;
+      background: #e8fff3;
+      border-left: 2px solid #00c471;
+      padding: 1rem;
+      box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+      font-size: 0.95rem;
+      z-index: 999;
+    }
+    .sidebar-ai input {
+      width: 100%;
+      padding: 6px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
     }
   </style>
 </head>
 <body>
 
-  <!-- Banner -->
-  <div class="banner">
-    🩺 Sathyadarshana Health Advice – Compassionate Care for Body and Mind 🧠
+  <header>
+    <h1>🩺 Health Advice</h1>
+    <p>Holistic well-being for body, mind, and spirit</p>
+  </header>
+
+  <div class="sidebar-ai">
+    🧠 <strong>Buddhi:</strong><br>
+    Ask me about health, remedies, or symptoms
+    <input type="text" placeholder="e.g. Headache, stress..." />
   </div>
 
-  <!-- Navigation -->
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="library.html">Library</a>
-    <a href="astrology-engine.html">Astrology</a>
-    <a href="voice-of-dharma.html">Voice of Dharma</a>
-    <a href="health-advice.html"><strong>Health Advice</strong></a>
-    <a href="news.html">News</a>
-  </nav>
-
-  <!-- Main Content -->
   <main>
-    <h2>🧘 Submit Your Symptoms</h2>
-    <p>Please share your details to receive compassionate advice from Buddhi (AI-powered spiritual wellness assistant). All data is private & secure.</p>
+    <h2>Common Healing Tips</h2>
+    <ul>
+      <li>🌿 Drink warm herbal water early in the morning</li>
+      <li>🧘‍♀️ Meditate for 10 minutes daily for mental clarity</li>
+      <li>🍎 Eat sattvic food — clean, plant-based, balanced</li>
+      <li>🌞 Get early morning sunlight for Vitamin D & mood</li>
+      <li>🌬️ Breathe mindfully — slow and deep</li>
+    </ul>
 
-    <form id="healthForm">
-      <label for="name">Full Name:</label>
-      <input type="text" id="name" required />
-
-      <label for="age">Age:</label>
-      <input type="number" id="age" min="1" required />
-
-      <label for="gender">Gender:</label>
-      <select id="gender" required>
-        <option value="">-- Select --</option>
-        <option value="female">Female</option>
-        <option value="male">Male</option>
-        <option value="other">Other / Prefer not to say</option>
-      </select>
-
-      <label for="symptoms">Describe your physical or mental symptoms:</label>
-      <textarea id="symptoms" rows="5" required></textarea>
-
-      <button type="submit">Get Health Advice</button>
-    </form>
-
-    <div class="response" id="responseBox" style="display:none;">
-      <h3>🕊️ Buddhi’s Guidance:</h3>
-      <p>Thank you for your submission. Based on your details, please stay hydrated, avoid mental stress, and meditate at dawn or dusk. A full diagnostic system will be integrated soon. 🧘‍♀️</p>
-    </div>
+    <p>If you're facing unexplainable symptoms and lack access to medical help, our AI-based Buddhi Advisor will guide you with initial advice. However, always seek a qualified medical professional when possible.</p>
   </main>
 
-  <!-- Footer -->
   <footer>
-    © 2025 Sathyadarshana | Compassion is the first medicine
+    © 2025 Sathyadarshana | Buddhi Medical Guidance Service – Free for All
   </footer>
 
-  <!-- JS Logic -->
-  <script>
-    document.getElementById("healthForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      document.getElementById("responseBox").style.display = "block";
-    });
+  <!-- Google Translate Widget -->
+  <div id="google_translate_element" style="position: fixed; bottom: 10px; right: 10px; z-index: 9999;"></div>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,si,ta',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript"
+    src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
   </script>
 
 </body>
