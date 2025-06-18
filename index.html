@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -46,10 +47,14 @@
   <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 <body class="text-gray-800">
+  <!-- Google Translate Widget (MUST be present for translation to work) -->
+  <div id="google_translate_element" style="display:none"></div>
+
   <!-- Language Switcher -->
   <div id="language-switcher" class="fixed bottom-4 right-4 z-50">
     <button onclick="toggleLanguage()" class="neon-button">🌐 Sinhala</button>
-  </div>  <script>
+  </div>
+  <script>
     function getLang() {
       return document.cookie.replace(/(?:(?:^|.*;\s*)googtrans\s*=\s*([^;]*).*$)|^.*$/, "$1") || "/en/en";
     }
@@ -70,7 +75,9 @@
       }
     }
     autoSetLanguage();
-  </script>  <!-- Navbar -->  <nav class="bg-black text-white sticky top-0 z-50 shadow overflow-x-auto whitespace-nowrap px-2 py-1">
+  </script>
+  <!-- Navbar -->
+  <nav class="bg-black text-white sticky top-0 z-50 shadow overflow-x-auto whitespace-nowrap px-2 py-1">
     <a href="index.html" class="neon-button m-1">Home</a>
     <a href="sathyadarshana-lab.html" class="neon-button m-1">Lab</a>
     <a href="voice-of-dharma.html" class="neon-button m-1">Voice of Dharma</a>
@@ -79,12 +86,16 @@
     <a href="library.html" class="neon-button m-1">Library</a>
     <a href="astrology.html" class="neon-button m-1">Astrology</a>
     <a href="dharma-sabha.html" class="neon-button m-1">Mandapaya</a>
-  </nav>  <!-- Hero Section -->  <section class="flex flex-col justify-center items-center text-center p-12">
+  </nav>
+  <!-- Hero Section -->
+  <section class="flex flex-col justify-center items-center text-center p-12">
     <h1 class="text-4xl font-bold text-indigo-700 mb-2">🌞 Welcome to Sathyadarshana</h1>
     <p class="text-gray-700 text-lg max-w-xl">
       Your sanctuary of wisdom, light, and spiritual harmony. Guided by AI-powered compassion and ancient knowledge.
     </p>
-  </section>  <!-- Footer -->  <footer class="text-center text-sm text-gray-500 py-6">
+  </section>
+  <!-- Footer -->
+  <footer class="text-center text-sm text-gray-500 py-6">
     © 2025 Sathyadarshana • Powered by Buddhi
   </footer>
 </body>
