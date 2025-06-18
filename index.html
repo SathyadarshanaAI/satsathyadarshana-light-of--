@@ -1,102 +1,72 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sathyadarshana | Scroll Lock</title>
+  <title>Sathyadarshana | Home</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://unpkg.com/fullpage.js/dist/fullpage.min.css" />
-
   <style>
-    html, body {
-      margin: 0;
-      padding: 0;
+    .animate-glow:active {
+      box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.8);
+      transition: box-shadow 0.4s ease-in-out;
     }
-    .section {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 2rem;
-      font-weight: bold;
-      text-align: center;
+    .ticker {
+      animation: scroll-left 15s linear infinite;
     }
-    #nav-grid button, #lock-btn {
-      background: white;
-      border: 1px solid #ccc;
-      border-radius: 9999px;
-      padding: 0.5rem 0.8rem;
-      font-size: 1.2rem;
-      margin: 0.2rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      cursor: pointer;
-    }
-    #nav-grid {
-      position: fixed;
-      bottom: 1rem;
-      right: 1rem;
-      z-index: 999;
-      text-align: center;
-    }
-    #lock-btn {
-      position: fixed;
-      bottom: 6rem;
-      right: 1rem;
-      z-index: 999;
+    @keyframes scroll-left {
+      0% { transform: translateX(100%) }
+      100% { transform: translateX(-100%) }
     }
   </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
-
-  <!-- FullPage Layout -->
-  <div id="fullpage">
-    <div class="section bg-yellow-100">🌞 Top Section (Heaven)</div>
-    <div class="section">
-      <div class="slide bg-blue-100">⬅️ Left Section (Wisdom)</div>
-      <div class="slide bg-white">💠 Center Section (Sathyadarshana)</div>
-      <div class="slide bg-pink-100">➡️ Right Section (Voice)</div>
-    </div>
-    <div class="section bg-green-100">🌍 Bottom Section (World)</div>
+<body class="bg-gray-100 text-gray-800">  <!-- Navbar with 4-petal logo -->  <nav class="bg-gray-900 text-white sticky top-0 z-50 shadow p-4 flex items-center space-x-4">
+    <a href="#" class="flex items-center space-x-2 group">
+      <div class="relative w-10 h-10 flex items-center justify-center">
+        <svg class="w-full h-full text-indigo-600 group-hover:text-yellow-400 transition-colors duration-500" fill="none" stroke="currentColor" stroke-width="6" viewBox="0 0 100 100">
+          <line x1="50" y1="10" x2="50" y2="90" />
+          <line x1="10" y1="50" x2="90" y2="50" />
+        </svg>
+        <div class="absolute w-4 h-4 bg-indigo-600 rounded-full shadow-md group-hover:bg-yellow-400 group-hover:shadow-yellow-300 transition-all duration-500"></div>
+      </div>
+      <span class="text-2xl font-bold text-white group-hover:text-yellow-400">Sathyadarshana</span>
+    </a>
+  </nav>  <!-- fullPage Scroll Sections -->  <div id="fullpage"><!-- Voice of Dharma Section -->
+<div class="section relative overflow-hidden">
+  <img src="https://example.com/voice-of-dharma.jpg" alt="Voice of Dharma" class="absolute inset-0 w-full h-full object-cover opacity-80 scale-110 blur-sm" />
+  <div class="relative z-10 text-white text-center max-w-2xl mx-auto p-6">
+    <h2 class="text-3xl font-bold mb-4 drop-shadow-lg">🪔 Voice of Dharma</h2>
+    <p class="text-lg mb-6 italic drop-shadow-md">
+      “සෙරිනිටි කියන්නේ ශබ්ද රහිත දහම් ගිණි පවුරකි. අසා නොමැතිවත් පණිවිඩය විහිදෙයි.”
+    </p>
+    <a href="voice-of-dharma.html" class="bg-white text-indigo-700 px-4 py-2 rounded-full shadow hover:bg-indigo-50 animate-glow">➡️ Read More</a>
   </div>
+</div>
 
-  <!-- Scroll Navigation Switch -->
-  <div id="nav-grid">
-    <div><button onclick="fullpage_api.moveSectionUp()">⬆️</button></div>
-    <div>
-      <button onclick="fullpage_api.moveSlideLeft()">⬅️</button>
-      <button onclick="fullpage_api.moveSlideRight()">➡️</button>
-    </div>
-    <div><button onclick="fullpage_api.moveSectionDown()">⬇️</button></div>
+<!-- Astrology Section -->
+<div class="section relative overflow-hidden">
+  <img src="https://example.com/astrology.jpg" alt="Astrology" class="absolute inset-0 w-full h-full object-cover opacity-80 scale-110 blur-sm" />
+  <div class="relative z-10 text-white text-center max-w-2xl mx-auto p-6">
+    <h2 class="text-3xl font-bold mb-4 drop-shadow-lg">🔮 Astrology & Stars</h2>
+    <p class="text-lg mb-6 italic drop-shadow-md">
+      “ඔබේ තාරකා ඔබේ පසුබැසීමකි. නමුත් ඔබේ අනාගතය ඔබේ පරිවර්තනයයි.”
+    </p>
+    <a href="astrology.html" class="bg-white text-indigo-700 px-4 py-2 rounded-full shadow hover:bg-indigo-50 animate-glow">➡️ View Horoscope</a>
   </div>
+</div>
 
-  <!-- Scroll Lock Toggle -->
-  <div id="lock-btn">🔒 Lock</div>
-
-  <!-- Scripts -->
-  <script src="https://unpkg.com/fullpage.js/dist/fullpage.min.js"></script>
-  <script>
+  </div>  <!-- Ticker Bar -->  <div class="fixed bottom-0 w-full bg-black text-white text-sm overflow-hidden">
+    <div class="ticker whitespace-nowrap py-2 px-4">
+      🔔 1/2 — Discover the eternal wisdom through the voice of Dharma...
+    </div>
+  </div>  <!-- Scripts -->  <script src="https://unpkg.com/fullpage.js/dist/fullpage.min.js"></script>  <script>
     new fullpage('#fullpage', {
       autoScrolling: true,
       scrollHorizontally: true,
-      navigation: true,
-      controlArrows: true,
+      fitToSection: true,
       scrollingSpeed: 800,
       easingcss3: 'ease-in-out',
       responsiveWidth: 768,
-      scrollOverflow: true,
-      keyboardScrolling: false,   // Initially disabled
-      allowScrolling: false       // Locked on load
+      scrollOverflow: true
     });
-
-    // Scroll Lock Toggle Logic
-    let locked = true;
-    const lockBtn = document.getElementById("lock-btn");
-
-    lockBtn.addEventListener("click", () => {
-      locked = !locked;
-      fullpage_api.setAllowScrolling(!locked);
-      fullpage_api.setKeyboardScrolling(!locked);
-      lockBtn.textContent = locked ? "🔒 Lock" : "🔓 Unlock";
-    });
-  </script>
-</body>
+  </script></body>
 </html>
