@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sathyadarshana Astrology Service (KP)</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+  <style>
+    body { background: linear-gradient(to bottom, #0f172a, #1e293b); color: #f1f5f9; }
+    .glow-btn { transition: all 0.3s ease-in-out; }
+    .glow-btn:hover { box-shadow: 0 0 20px #38bdf8; background-color: #38bdf8; color: black; }
+    .prediction-box { background: #0e1829; border-radius: 1rem; padding: 1.5rem; margin-top: 1.5rem; box-shadow: 0 0 20px #0ea5e9 inset; }
+    .section-title { color: #22d3ee; font-weight: 700; margin-bottom: 0.5rem; }
+    .key-point { color: #a5f3fc; margin-bottom: 0.25rem; }
+    .lang-label { margin-right: 6px; }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center px-4">
+  <header class="text-center mb-10">
+    <h1 class="text-4xl font-bold mb-4">🪐 Sathyadarshana Astrology Service</h1>
+    <p class="text-lg text-gray-300">KP (Krishnamurti Paddhati) Vedic Birth Chart & Predictions</p>
+  </header>
+  <section class="w-full max-w-xl bg-white text-gray-800 rounded-xl shadow-lg p-6">
+    <form id="birthChartForm" class="space-y-4">
+      <div>
+        <label for="name" class="block font-semibold">Full Name</label>
+        <input type="text" id="name" name="name" class="w-full mt-1 p-2 rounded-md border border-gray-300" required>
+      </div>
+      <div>
+        <label for="birthDate" class="block font-semibold">Date of Birth</label>
+        <input type="date" id="birthDate" name="birthDate" class="w-full mt-1 p-2 rounded-md border border-gray-300" required>
+      </div>
+      <div>
+        <label for="birthTime" class="block font-semibold">Time of Birth</label>
+        <input type="time" id="birthTime" name="birthTime" class="w-full mt-1 p-2 rounded-md border border-gray-300" required>
+      </div>
+      <div>
+        <label for="birthPlace" class="block font-semibold">Place of Birth</label>
+        <input type="text" id="birthPlace" name="birthPlace" class="w-full mt-1 p-2 rounded-md border border-gray-300" required>
+      </div>
+      <div>
+        <label for="langSelect" class="font-semibold lang-label">Language / භාෂාව / மொழி:</label>
+        <select id="langSelect" class="ml-2 p-1 rounded">
+          <option value="en">English</option>
+          <option value="si">සිංහල</option>
+          <option value="ta">தமிழ்</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded-md glow-btn">Generate KP Birth Chart & Prediction</button>
+    </form>
+    <div id="result" class="mt-8 hidden"></div>
+  </section>
+  <footer class="mt-10">
+    <a href="index.html" class="text-blue-400 underline">← Back to Home</a>
+  </footer>
+  <script>
+    // KP Astrology Demo Data & Multi-language prediction templates
+    const predictions = {
+      en: {
+        chart: {
+          sun: "Aries",
+          moon: "Taurus",
+          asc: "Gemini",
+          kp: [
+            { house: "1", sign: "Gemini", sublord: "Saturn" },
+            { house: "2", sign: "Cancer", sublord: "Venus" },
+            { house: "3", sign: "Leo", sublord: "Jupiter" }
+          ]
+        },
+        long: `
+          <ul>
+            <li><b>Career:</b> New opportunities for growth, especially around August. Collaborate for best results.</li>
+            <li><b>Finance:</b> Savings will increase. Avoid major investments in April.</li>
+            <li><b>Relationships:</b> Harmony improves. Good time for commitments.</li>
+            <li><b>Health:</b> Mindful eating and exercise will bring positive changes.</li>
+            <li><b>KP Insight:</b> According to KP, your 10th house sublord (Saturn) brings steady progress.</li>
+          </ul>`
+      },
+      si: {
+        chart: {
+          sun: "මෙෂ (Aries)",
+          moon: "වෘෂභ (Taurus)",
+          asc: "මිථුන (Gemini)",
+          kp: [
+            { house: "1", sign: "මිථුන", sublord: "ශනි (Saturn)" },
+            { house: "2", sign: "කටක", sublord: "ශුක්‍ර (Venus)" },
+            { house: "3", sign: "සිංහ", sublord: "බ්‍රහස්පති (Jupiter)" }
+          ]
+        },
+        long: `
+          <ul>
+            <li><b>රැකියා:</b> නව වර්ධන අවස්ථා ඇතිවේ. අගෝස්තු මාසයේදී විශේෂයෙන්ම.</li>
+            <li><b>මුදල්:</b> ඉතිරි කිරීම වැඩිවේ. අප්‍රේල් මාසයේදී විශාල ආයෝජන වලක්වා ගන්න.</li>
+            <li><b>සම්බන්ධතා:</b> යහපත් බව වැඩිවේ. වගකීම් ගැන හොඳ කාලයක්.</li>
+            <li><b>සෞඛ්‍යය:</b> ආහාර හා ව්‍යායාමයට අවධානය යොමු කරන්න.</li>
+            <li><b>KP චක්‍ර විශ්ලේෂණය:</b> KP අනුව, ඔබේ 10වන ගෙදර උපභාරක ශනි නිසා ස්ථාවර ප්‍රගති ඇත.</li>
+          </ul>`
+      },
+      ta: {
+        chart: {
+          sun: "மேஷம் (Aries)",
+          moon: "ரிஷபம் (Taurus)",
+          asc: "மிதுனம் (Gemini)",
+          kp: [
+            { house: "1", sign: "மிதுனம்", sublord: "சனி (Saturn)" },
+            { house: "2", sign: "கடகம்", sublord: "வெள்ளி (Venus)" },
+            { house: "3", sign: "சிம்மம்", sublord: "குரு (Jupiter)" }
+          ]
+        },
+        long: `
+          <ul>
+            <li><b>வேலை:</b> புதிய வளர்ச்சி வாய்ப்புகள். ஆகஸ்டில் சிறப்பு வாய்ப்பு.</li>
+            <li><b>பணம்:</b> சேமிப்பு அதிகரிக்கும். ஏப்ரலில் பெரிய முதலீடுகளை தவிர்க்கவும்.</li>
+            <li><b>உறவுகள்:</b> ஒற்றுமை மேம்படும். உறுதியான உறவுகளுக்கு நல்ல காலம்.</li>
+            <li><b>ஆரோக்கியம்:</b> சீரான உணவு மற்றும் உடற்பயிற்சி அவசியம்.</li>
+            <li><b>KP பார்வை:</b> KP படி, உங்கள் 10வது வீட்டில் சனி இருப்பதால் நிலையான முன்னேற்றம்.</li>
+          </ul>`
+      },
+      other: {
+        chart: {
+          sun: "-",
+          moon: "-",
+          asc: "-",
+          kp: []
+        },
+        long: `<p>Please contact us for a custom language prediction.</p>`
+      }
+    };
+
+    document.getElementById('birthChartForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const birthDate = document.getElementById('birthDate').value;
+      const birthTime = document.getElementById('birthTime').value;
+      const birthPlace = document.getElementById('birthPlace').value;
+      const lang = document.getElementById('langSelect').value;
+      const p = predictions[lang];
+      let kpTable = '';
+      if (p.chart.kp && p.chart.kp.length > 0) {
+        kpTable = `
+          <div class="overflow-x-auto">
+            <table class="mt-3 w-full text-sm bg-gray-900 rounded">
+              <thead>
+                <tr class="text-cyan-300">
+                  <th class="p-2">KP House</th>
+                  <th class="p-2">Sign</th>
+                  <th class="p-2">Sublord</th>
+                </tr>
+              </thead>
+              <tbody>
+              ${p.chart.kp.map(row => `
+                <tr>
+                  <td class="p-2 text-center">${row.house}</td>
+                  <td class="p-2 text-center">${row.sign}</td>
+                  <td class="p-2 text-center">${row.sublord}</td>
+                </tr>`).join('')}
+              </tbody>
+            </table>
+          </div>
+        `;
+      }
+      document.getElementById('result').classList.remove('hidden');
+      document.getElementById('result').innerHTML = `
+        <div class="prediction-box">
+          <div class="mb-4">
+            <h2 class="text-2xl font-bold mb-1 section-title">🔭 KP Birth Chart Overview</h2>
+            <div><b>Name:</b> ${name}</div>
+            <div><b>Date:</b> ${birthDate}</div>
+            <div><b>Time:</b> ${birthTime}</div>
+            <div><b>Place:</b> ${birthPlace}</div>
+            <div class="mt-2"><span class="key-point">🌞 Sun: ${p.chart.sun}</span> | <span class="key-point">🌙 Moon: ${p.chart.moon}</span> | <span class="key-point">↑ Ascendant: ${p.chart.asc}</span></div>
+            ${kpTable}
+          </div>
+          <div class="mb-4">
+            <h3 class="text-xl font-semibold section-title">📜 Long Prediction</h3>
+            ${p.long}
+            <p class="text-yellow-200 mt-3 italic">* This is a demo. In the full system, KP chart & prediction will be generated by real calculations.</p>
+          </div>
+        </div>
+      `;
+      document.getElementById('result').scrollIntoView({behavior: "smooth"});
+    });
+  </script>
+</body>
+</html>
