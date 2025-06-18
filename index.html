@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sathyadarshana | 4-Way Scroll</title>
+  <title>Sathyadarshana | Scroll Lock</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://unpkg.com/fullpage.js/dist/fullpage.min.css" />
 
@@ -11,7 +11,6 @@
     html, body {
       margin: 0;
       padding: 0;
-      scroll-behavior: smooth;
     }
     .section {
       display: flex;
@@ -21,18 +20,28 @@
       font-weight: bold;
       text-align: center;
     }
-    .nav-btn {
-      @apply bg-white text-gray-800 rounded-full shadow px-3 py-2 hover:bg-indigo-100;
+    #nav-grid button, #lock-btn {
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 9999px;
+      padding: 0.5rem 0.8rem;
+      font-size: 1.2rem;
+      margin: 0.2rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      cursor: pointer;
     }
     #nav-grid {
       position: fixed;
       bottom: 1rem;
       right: 1rem;
-      z-index: 1000;
+      z-index: 999;
+      text-align: center;
     }
-    #nav-grid button {
-      font-size: 1.25rem;
-      margin: 0.25rem;
+    #lock-btn {
+      position: fixed;
+      bottom: 6rem;
+      right: 1rem;
+      z-index: 999;
     }
   </style>
 </head>
@@ -40,43 +49,53 @@
 
   <!-- FullPage Layout -->
   <div id="fullpage">
-    <div class="section bg-yellow-100" data-anchor="top">🌞 Top Section (Heaven)</div>
+    <div class="section bg-yellow-100">🌞 Top Section (Heaven)</div>
     <div class="section">
-      <div class="slide bg-blue-100" data-anchor="left">⬅️ Left Section (Wisdom)</div>
-      <div class="slide bg-white" data-anchor="center">💠 Center Section (Sathyadarshana)</div>
-      <div class="slide bg-pink-100" data-anchor="right">➡️ Right Section (Voice)</div>
+      <div class="slide bg-blue-100">⬅️ Left Section (Wisdom)</div>
+      <div class="slide bg-white">💠 Center Section (Sathyadarshana)</div>
+      <div class="slide bg-pink-100">➡️ Right Section (Voice)</div>
     </div>
-    <div class="section bg-green-100" data-anchor="bottom">🌍 Bottom Section (World)</div>
+    <div class="section bg-green-100">🌍 Bottom Section (World)</div>
   </div>
 
-  <!-- 4-Way Nav Switch -->
-  <div id="nav-grid" class="text-center space-y-1">
+  <!-- Scroll Navigation Switch -->
+  <div id="nav-grid">
+    <div><button onclick="fullpage_api.moveSectionUp()">⬆️</button></div>
     <div>
-      <button onclick="fullpage_api.moveSectionUp()" class="nav-btn">⬆️</button>
+      <button onclick="fullpage_api.moveSlideLeft()">⬅️</button>
+      <button onclick="fullpage_api.moveSlideRight()">➡️</button>
     </div>
-    <div>
-      <button onclick="fullpage_api.moveSlideLeft()" class="nav-btn">⬅️</button>
-      <button onclick="fullpage_api.moveSlideRight()" class="nav-btn">➡️</button>
-    </div>
-    <div>
-      <button onclick="fullpage_api.moveSectionDown()" class="nav-btn">⬇️</button>
-    </div>
+    <div><button onclick="fullpage_api.moveSectionDown()">⬇️</button></div>
   </div>
+
+  <!-- Scroll Lock Toggle -->
+  <div id="lock-btn">🔒 Lock</div>
 
   <!-- Scripts -->
   <script src="https://unpkg.com/fullpage.js/dist/fullpage.min.js"></script>
   <script>
     new fullpage('#fullpage', {
-      anchors: ['top', 'middle', 'bottom'],
-      sectionsColor: ['#fef9c3', '#f1f5f9', '#bbf7d0'],
+      autoScrolling: true,
       scrollHorizontally: true,
-      controlArrows: true,
       navigation: true,
-      scrollingSpeed: 700,
+      controlArrows: true,
+      scrollingSpeed: 800,
       easingcss3: 'ease-in-out',
       responsiveWidth: 768,
-      keyboardScrolling: true,
       scrollOverflow: true,
+      keyboardScrolling: false,   // Initially disabled
+      allowScrolling: false       // Locked on load
+    });
+
+    // Scroll Lock Toggle Logic
+    let locked = true;
+    const lockBtn = document.getElementById("lock-btn");
+
+    lockBtn.addEventListener("click", () => {
+      locked = !locked;
+      fullpage_api.setAllowScrolling(!locked);
+      fullpage_api.setKeyboardScrolling(!locked);
+      lockBtn.textContent = locked ? "🔒 Lock" : "🔓 Unlock";
     });
   </script>
 </body>
