@@ -1,28 +1,39 @@
-<!DOCTYPE html><html lang="en">
+    <!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sathyadarshana | Home</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
     .neon-button {
       position: relative;
       display: inline-block;
-      padding: 0.75rem 1.5rem;
+      padding: 0.6rem 1.2rem;
       border: 2px solid #00f0ff;
-      color: #ffffff;
+      color: #00f0ff;
       background-color: transparent;
       border-radius: 0.5rem;
       font-weight: bold;
       text-shadow: 0 0 5px #00f0ff;
-      transition: 0.3s ease;
-      box-shadow: 0 0 0 transparent;
+      transition: all 0.3s ease;
     }
     .neon-button:hover, .neon-button:focus {
       color: #ffffff;
-      box-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff, 0 0 30px #00f0ff;
+      background-color: #00f0ff;
+      box-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff;
       transform: scale(1.05);
+      text-shadow: 0 0 10px #ffffff;
     }
+    .goog-te-banner-frame.skiptranslate, .goog-te-gadget, .goog-logo-link, iframe {
+      display: none !important;
+      height: 0 !important;
+    }
+    body { top: 0px !important; }
   </style>
   <script type="text/javascript">
     function googleTranslateElementInit() {
@@ -35,7 +46,30 @@
   </script>
   <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
-<body class="bg-gradient-to-br from-gray-100 to-white text-gray-800">  <!-- Google Translate -->  <div id="google_translate_element" class="p-2 text-sm text-right"></div>  <!-- Navbar -->  <nav class="bg-gray-900 text-white sticky top-0 z-50 shadow">
+<body class="bg-gradient-to-br from-gray-100 to-white text-gray-800">  <!-- Language Switcher -->  <div id="language-switcher" class="fixed bottom-4 right-4 z-50">
+    <button onclick="toggleLanguage()" class="neon-button">🌐 Sinhala</button>
+  </div>  <script>
+    function getLang() {
+      return document.cookie.replace(/(?:(?:^|.*;\s*)googtrans\s*=\s*([^;]*).*$)|^.*$/, "$1") || "/en/en";
+    }
+    function toggleLanguage() {
+      const current = getLang();
+      const target = current.includes("/en/si") ? "/en/en" : "/en/si";
+      document.cookie = "googtrans=" + target + ";path=/;";
+      location.reload();
+    }
+    function autoSetLanguage() {
+      const userLang = navigator.language || navigator.userLanguage;
+      if (userLang.startsWith("si")) {
+        document.cookie = "googtrans=/en/si;path=/;";
+      } else if (userLang.startsWith("ta")) {
+        document.cookie = "googtrans=/en/ta;path=/;";
+      } else {
+        document.cookie = "googtrans=/en/en;path=/;";
+      }
+    }
+    autoSetLanguage();
+  </script>  <!-- Navbar -->  <nav class="bg-gray-900 text-white sticky top-0 z-50 shadow">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between h-16 items-center">
         <div class="flex items-center space-x-4">
@@ -59,4 +93,4 @@
     © 2025 Sathyadarshana • Powered by Buddhi
   </footer>
 </body>
-</html>
+</html>  
