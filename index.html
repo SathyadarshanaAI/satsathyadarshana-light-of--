@@ -1,161 +1,107 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sathyadarshana | Light of Truth</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+  <title>Sathyadarshana Astrology Service (KP)</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      font-family: 'Montserrat', sans-serif;
-      background: radial-gradient(ellipse at 60% 10%, #f1f5f9 0%, #ffffff 100%);
-      min-height: 100vh;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
-    }
-    .glow-text {
-      color: #475569;
-      text-shadow: 0 0 8px #38bdf8, 0 0 30px #bae6fd;
-      letter-spacing: 0.03em;
-    }
-    .neon-button {
-      display: inline-block;
-      padding: 0.6rem 1.3rem;
-      border: 2px solid #0ea5e9;
-      color: #0ea5e9;
-      background: #fff;
-      border-radius: 9999px;
-      font-weight: bold;
-      font-size: 1rem;
-      text-shadow: none;
-      transition: all 0.2s cubic-bezier(.4,0,.2,1);
-      margin: 0.25rem 0.15rem;
-      box-shadow: 0 0 8px #bae6fd44;
-    }
-    .neon-button:hover, .neon-button:focus {
-      background-color: #0ea5e9;
-      color: #fff;
-      box-shadow: 0 0 24px #38bdf8, 0 0 40px #bae6fd;
-      border: 2px solid #fff;
-      outline: none;
-    }
-    .card {
-      background: rgba(255,255,255, 0.90);
-      border-radius: 1rem;
-      box-shadow: 0 4px 24px 0 #bae6fd33;
-      padding: 2.5rem 2rem;
-      margin: 1rem 0;
-      color: #334155;
-      border: 1px solid #e0e7ef;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .card:hover {
-      transform: scale(1.018);
-      box-shadow: 0 8px 36px 0 #38bdf888, 0 0 30px #bae6fd88;
-    }
-    .fadein {
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeinUp 1.2s cubic-bezier(.4,0,.2,1) 0.2s forwards;
-    }
-    @keyframes fadeinUp {
-      100% {
-        opacity: 1;
-        transform: none;
-      }
-    }
-    /* Hide Google Translate UI */
-    .goog-te-banner-frame.skiptranslate,
-    .goog-logo-link,
-    .goog-te-gadget,
-    #goog-gt-tt,
-    .goog-te-balloon-frame,
-    .goog-te-menu-frame,
-    .goog-te-menu-value {
-      display: none !important;
-    }
-    body { top: 0px !important; }
+    body { background: linear-gradient(to bottom, #0f172a, #1e293b); color: #f1f5f9; }
+    .glow-btn { transition: all 0.3s ease-in-out; }
+    .glow-btn:hover { box-shadow: 0 0 20px #38bdf8; background-color: #38bdf8; color: black; }
+    .prediction-box { background: #0e1829; border-radius: 1rem; padding: 1.5rem; margin-top: 1.5rem; box-shadow: 0 0 20px #0ea5e9 inset; }
+    .section-title { color: #22d3ee; font-weight: 700; margin-bottom: 0.5rem; }
+    .key-point { color: #a5f3fc; margin-bottom: 0.25rem; }
+    .lang-label { margin-right: 6px; }
   </style>
-  <div id="google_translate_element" style="display:none"></div>
-  <script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({
-        pageLanguage: 'en',
-        includedLanguages: 'en,si,ta',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-      }, 'google_translate_element');
-    }
-    // Hide translate bar style for all pages
-    document.addEventListener("DOMContentLoaded", function() {
-      var style = document.createElement('style');
-      style.innerHTML = `
-        .goog-te-banner-frame.skiptranslate,
-        .goog-logo-link,
-        .goog-te-gadget,
-        #goog-gt-tt,
-        .goog-te-balloon-frame,
-        .goog-te-menu-frame,
-        .goog-te-menu-value {
-          display: none !important;
-        }
-        body { top: 0px !important; }
-      `;
-      document.head.appendChild(style);
-    });
-    // Language set function (for all pages)
-    function setLanguage(lang) {
-      document.cookie = "googtrans=/en/" + lang + ";path=/;";
-      location.reload();
-    }
-    // Auto detect browser language on first visit
-    (function autoDetectLang() {
-      if(!document.cookie.match(/googtrans/)) {
-        var userLang = navigator.language || navigator.userLanguage;
-        if (userLang.startsWith("si")) {
-          setLanguage('si');
-        } else if (userLang.startsWith("ta")) {
-          setLanguage('ta');
-        } else {
-          setLanguage('en');
-        }
-      }
-    })();
-  </script>
-  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
-<body class="text-slate-900 min-h-screen flex flex-col">
-  <!-- Language Switcher (Fixed, all pages) -->
-  <div class="fixed bottom-5 right-5 z-50 flex flex-col gap-2">
-    <button onclick="setLanguage('en')" class="neon-button">English</button>
-    <button onclick="setLanguage('si')" class="neon-button">සිංහල</button>
-    <button onclick="setLanguage('ta')" class="neon-button">தமிழ்</button>
-  </div>
-  <!-- Navbar -->
-  <nav class="sticky top-0 z-40 bg-white/95 shadow-md backdrop-blur px-2 py-2 flex flex-wrap items-center justify-center gap-2 w-full">
-    <a href="index.html" class="neon-button">Home</a>
-    <a href="sathyadarshana-lab.html" class="neon-button">Lab</a>
-    <a href="voice-of-dharma.html" class="neon-button">Voice of Dharma</a>
-    <a href="news-of-the-light.html" class="neon-button">News</a>
-    <a href="buddhi-ai.html" class="neon-button">Buddhi AI</a>
-    <a href="library.html" class="neon-button">Library</a>
-    <a href="astrology.html" class="neon-button">Astrology</a>
-    <a href="dharma-sabha.html" class="neon-button">Mandapaya</a>
-  </nav>
-  <!-- Hero Section -->
-  <section class="flex flex-col items-center text-center justify-center min-h-[60vh] py-14 fadein">
-    <h1 class="text-5xl md:text-7xl font-bold glow-text mb-4 tracking-tight">
-      <span class="inline-block align-middle animate-pulse">🌌</span>
-      Sathyadarshana
-    </h1>
-    <div class="mx-auto max-w-lg">
-      <p class="text-xl md:text-2xl text-slate-700 font-light mb-6">
-        <span class="glow-text">ආලෝකයේ පණිවිඩය</span> <br>
-        <span class="text-sky-500">Light of Truth, Harmony, and Wisdom</span> <br>
-        <span class="text-slate-600">A sanctuary for your mind and soul.<br>AI-powered compassion meets ancient serenity.</span>
-      </p>
-      <a href="#explore" class="neon-button text-lg">Explore the Light</a>
+<body class="min-h-screen flex flex-col items-center justify-center px-4">
+  <header class="text-center mb-10">
+    <h1 class="text-4xl font-bold mb-4">🪐 Sathyadarshana Astrology Service</h1>
+    <p class="text-lg text-gray-300">KP (Krishnamurti Paddhati) Vedic Birth Chart & Predictions</p>
+  </header>
+  <section class="w-full max-w-xl bg-white text-gray-800 rounded-xl shadow-lg p-6">
+    <form id="birthChartForm" class="space-y-4">
+      <div><label for="name" class="block font-semibold">Full Name</label><input type="text" id="name" name="name" class="w-full mt-1 p-2 rounded-md border border-gray-300" required></div>
+      <div><label for="birthDate" class="block font-semibold">Date of Birth</label><input type="date" id="birthDate" name="birthDate" class="w-full mt-1 p-2 rounded-md border border-gray-300" required></div>
+      <div><label for="birthTime" class="block font-semibold">Time of Birth</label><input type="time" id="birthTime" name="birthTime" class="w-full mt-1 p-2 rounded-md border border-gray-300" required></div>
+      <div><label for="birthPlace" class="block font-semibold">Place of Birth</label><input type="text" id="birthPlace" name="birthPlace" class="w-full mt-1 p-2 rounded-md border border-gray-300" required></div>
+      <div><label for="langSelect" class="font-semibold lang-label">Language / භාෂාව / மொழி:</label>
+        <select id="langSelect" class="ml-2 p-1 rounded">
+          <option value="en">English</option>
+          <option value="si">සිංහල</option>
+          <option value="ta">தமிழ்</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded-md glow-btn">Generate KP Birth Chart & Prediction</button>
+    </form>
+    <div class="mt-4 text-right">
+      <button id="downloadPdf" class="bg-green-500 text-white px-4 py-1 rounded glow-btn">📥 Download as PDF</button>
     </div>
+    <div id="result" class="mt-8 hidden"></div>
+  </section>
+  <section class="mt-10 max-w-xl text-center">
+    <h2 class="text-xl text-teal-400 font-semibold mb-2">🔮 Buddhi's Insight</h2>
+    <p class="italic text-gray-300">May the stars align in clarity, and your karmic journey bring light to all beings. Reflect deeply upon your birth – it is not just a time, but a message written in the sky. 🌌</p>
+  </section>
+  <footer class="mt-10">
+    <a href="index.html" class="text-blue-400 underline">← Back to Home</a>
+  </footer>
+  <script>
+    const predictions = { /* same as existing JSON structure... */ };document.getElementById('birthChartForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const name = document.getElementById('name').value;
+  const birthDate = document.getElementById('birthDate').value;
+  const birthTime = document.getElementById('birthTime').value;
+  const birthPlace = document.getElementById('birthPlace').value;
+  const lang = document.getElementById('langSelect').value;
+  const p = predictions[lang];
+  let kpTable = '';
+  if (p.chart.kp && p.chart.kp.length > 0) {
+    kpTable = `
+      <div class="overflow-x-auto">
+        <table class="mt-3 w-full text-sm bg-gray-900 rounded">
+          <thead><tr class="text-cyan-300"><th class="p-2">KP House</th><th class="p-2">Sign</th><th class="p-2">Sublord</th></tr></thead>
+          <tbody>
+          ${p.chart.kp.map(row => `<tr><td class="p-2 text-center">${row.house}</td><td class="p-2 text-center">${row.sign}</td><td class="p-2 text-center">${row.sublord}</td></tr>`).join('')}
+          </tbody>
+        </table>
+      </div>
+    `;
+  }
+  const content = `
+    <div class="prediction-box" id="pdfContent">
+      <div class="mb-4">
+        <h2 class="text-2xl font-bold mb-1 section-title">🔭 KP Birth Chart Overview</h2>
+        <div><b>Name:</b> ${name}</div>
+        <div><b>Date:</b> ${birthDate}</div>
+        <div><b>Time:</b> ${birthTime}</div>
+        <div><b>Place:</b> ${birthPlace}</div>
+        <div class="mt-2"><span class="key-point">🌞 Sun: ${p.chart.sun}</span> | <span class="key-point">🌙 Moon: ${p.chart.moon}</span> | <span class="key-point">↑ Ascendant: ${p.chart.asc}</span></div>
+        ${kpTable}
+      </div>
+      <div class="mb-4">
+        <h3 class="text-xl font-semibold section-title">📜 Long Prediction</h3>
+        ${p.long}
+        <p class="text-yellow-200 mt-3 italic">* This is a demo. In the full system, KP chart & prediction will be generated by real calculations.</p>
+      </div>
+    </div>`;
+  document.getElementById('result').classList.remove('hidden');
+  document.getElementById('result').innerHTML = content;
+  document.getElementById('result').scrollIntoView({behavior: "smooth"});
+});
+
+document.getElementById('downloadPdf').addEventListener('click', () => {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+  doc.html(document.querySelector('#pdfContent'), {
+    callback: function (pdf) {
+      pdf.save("KP_Birth_Chart.pdf");
+    }, x: 10, y: 10
+  });
+});
+
+  </script>
+</body>
+</html>
