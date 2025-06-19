@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en">
+<!-- ✅ Full updated index.html (including all commits, scroll fixes, mobile support, sections) -->
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -55,12 +57,11 @@
       <p class="text-xl mt-2 mb-4 text-center opacity-90">Where Wisdom Awakens & Māyā Dissolves<br>
         <span class="text-indigo-300 font-semibold">AI • Astrology • Compassion • Community</span>
       </p>
-      <button class="neon-button mt-4">
-        Explore the Light
-      </button>
+      <button class="neon-button mt-4">Explore the Light</button>
       <p class="mt-4 text-center text-base text-cyan-200">✨ Free for all • No commercial use • Donations help children & education</p>
     </div>
   </section>
+
   <!-- FEATURES -->
   <section class="section pt-8" id="features">
     <div class="glass p-6 w-full max-w-xl text-center">
@@ -69,21 +70,35 @@
       <p class="text-sm text-cyan-300 mt-2">Scroll down to begin your journey ⬇️</p>
     </div>
   </section>
-  <!-- DAILY MESSAGE & DONATION -->
-  <section class="section pt-4 pb-2" id="daily">
-    <!-- content remains unchanged -->
+
+  <!-- DAILY -->
+  <section class="section pt-20" id="daily" style="scroll-margin-top: 80px;">
+    <div class="glass p-6 w-full max-w-2xl text-center">
+      <h2 class="text-2xl font-bold glow mb-2">🌞 Daily Light & Wisdom</h2>
+      <div id="dailywisdom" class="mt-2 mb-4 text-lg"></div>
+      <button class="neon-button" onclick="document.getElementById('donate').scrollIntoView({behavior:'smooth'});">Support a Child ($5)</button>
+      <p class="text-xs mt-2 text-blue-100">If you can’t pay, everything is free — may you be blessed!</p>
+    </div>
   </section>
+
   <!-- DONATE -->
-  <section class="section pt-4" id="donate">
-    <!-- content remains unchanged -->
+  <section class="section pt-20" id="donate" style="scroll-margin-top: 80px;">
+    <div class="glass p-6 w-full max-w-xl text-center">
+      <h2 class="text-xl font-bold glow mb-1">🙏 Support Our Mission</h2>
+      <p class="mb-3">Your $5 gives a meal or school help to a child.<br>If you cannot pay, take all services for free.</p>
+      <a href="https://your-donation-link" class="neon-button mb-2">Donate or Volunteer</a>
+      <p class="text-xs text-gray-300 mt-1">100% proceeds go to food & education for the needy.</p>
+    </div>
   </section>
+
   <!-- FOOTER -->
   <footer class="mt-6 mb-4 text-center text-xs text-gray-400">
     © 2025 Sathyadarshana. Crafted by Buddhi, Copilot & You.<br>
     All spiritual/astrology services are free for the needy.<br>
     Unauthorized business use strictly prohibited. May all beings be happy!
   </footer>
-  <!-- DAILY WISDOM JS LOGIC -->
+
+  <!-- JS LOGIC -->
   <script>
     const verses = {
       buddhist: [
@@ -102,18 +117,16 @@
     const rels = ["buddhist","christian","hindu"];
     const rel = rels[Math.floor(Math.random()*rels.length)];
     const msg = verses[rel][Math.floor(Math.random()*verses[rel].length)];
-    document.getElementById('dailywisdom').innerHTML = `
-      <b>Today’s Guidance:</b> ${msg}<br>
-      <span class="text-cyan-200">Take 5 minutes for meditation, prayer or kindness today.</span>
-    `;// Scroll fix for neon button
-const scrollBtn = document.querySelector('.neon-button');
-scrollBtn?.addEventListener('click', () => {
-  const target = document.getElementById('features');
-  if (target) {
-    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-});
+    document.getElementById('dailywisdom').innerHTML = `<b>Today’s Guidance:</b> ${msg}<br><span class=\"text-cyan-200\">Take 5 minutes for meditation, prayer or kindness today.</span>`;
 
+    // Scroll Button Fix
+    const scrollBtn = document.querySelector('.neon-button');
+    scrollBtn?.addEventListener('click', () => {
+      const target = document.getElementById('features');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
   </script>
 </body>
 </html>
