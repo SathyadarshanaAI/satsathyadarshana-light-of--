@@ -1,132 +1,110 @@
-<!-- ✅ Full updated index.html (including all commits, scroll fixes, mobile support, sections) -->
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sathyadarshana | Light for the World</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+  <title>Sathyadarshana | Homepage</title>
   <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      scroll-behavior: smooth;
+    }
     body {
-      font-family: 'Segoe UI', 'Noto Sans Sinhala', sans-serif;
+      height: 100vh;
+      overflow-y: scroll;
+      scroll-snap-type: y mandatory;
       background: linear-gradient(120deg, #10172a 0%, #334155 100%);
       color: #f1f5f9;
-      margin: 0;
     }
-    .glow {
-      text-shadow: 0 2px 12px #38bdf8cc, 0 0 20px #0ea5e988;
+    section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      scroll-snap-align: start;
+      box-sizing: border-box;
+      padding: 0;
     }
-    .glass {
-      background: rgba(17,23,39,0.7);
-      backdrop-filter: blur(6px);
-      border-radius: 2rem;
-      border: 1.5px solid #38bdf840;
-      box-shadow: 0 8px 30px #0ea5e930;
+    .nav {
+      position: fixed;
+      top: 0; left: 0; width: 100vw;
+      background: rgba(16,23,42,0.95);
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      padding: 0.7rem 0 0.3rem 0;
     }
-    .neon-button {
-      padding: 0.75rem 2rem;
+    .neon-btn {
       border: none;
       border-radius: 9999px;
       background: linear-gradient(90deg, #38bdf8 60%, #0ea5e9 100%);
       color: #fff;
-      font-size: 1.15rem;
       font-weight: bold;
-      text-shadow: 0 0 7px #0ea5e9bb;
+      padding: 0.5rem 1.2rem;
+      margin: 0 0.2rem;
+      text-decoration: none;
+      font-size: 1rem;
+      box-shadow: 0 0 7px #38bdf8aa;
       transition: filter 0.2s;
-      box-shadow: 0 0 12px #38bdf8aa;
+      cursor: pointer;
       outline: none;
+      display: inline-block;
     }
-    .neon-button:hover, .neon-button:focus {
-      filter: brightness(1.15) drop-shadow(0 0 12px #38bdf8);
+    .neon-btn:hover, .neon-btn:focus {
+      filter: brightness(1.18);
     }
-    html { scroll-behavior: smooth; }
-    .section { min-height: 100vh; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1.5rem; }
-    .section img { max-height: 40vh; border-radius: 1rem; box-shadow: 0 4px 24px #0ea5e920; }
-    @media (max-width: 600px) {
-      .section img { max-height: 24vh; }
-      .glass { padding: 1rem !important; }
+    section { scroll-margin-top: 60px; }
+    @media (max-width:600px) {
+      .nav { font-size: 0.95rem; }
+    }
+    h1, h2 {
+      text-shadow: 0 0 5px #fff, 0 0 15px #38bdf8, 0 0 25px #0ea5e9;
     }
   </style>
 </head>
 <body>
-  <!-- HERO -->
-  <section class="section" id="home">
-    <div class="glass p-12 flex flex-col items-center w-full max-w-xl">
-      <img src="https://cdn.jsdelivr.net/gh/feathericons/feather/icons/sun.svg" alt="Sathyadarshana Logo" class="mb-2 w-16 glow"/>
-      <h1 class="text-4xl md:text-6xl font-bold glow text-center">Welcome to Sathyadarshana</h1>
-      <p class="text-xl mt-2 mb-4 text-center opacity-90">Where Wisdom Awakens & Māyā Dissolves<br>
-        <span class="text-indigo-300 font-semibold">AI • Astrology • Compassion • Community</span>
-      </p>
-      <button class="neon-button mt-4">Explore the Light</button>
-      <p class="mt-4 text-center text-base text-cyan-200">✨ Free for all • No commercial use • Donations help children & education</p>
-    </div>
-  </section>
-
-  <!-- FEATURES -->
-  <section class="section pt-8" id="features">
-    <div class="glass p-6 w-full max-w-xl text-center">
-      <h2 class="text-3xl glow font-bold mb-4">🌟 Core Features</h2>
-      <p class="text-lg">Sacred Library • Astrology • Buddhi AI • News • Voice of the Light</p>
-      <p class="text-sm text-cyan-300 mt-2">Scroll down to begin your journey ⬇️</p>
-    </div>
-  </section>
-
-  <!-- DAILY -->
-  <section class="section pt-20" id="daily" style="scroll-margin-top: 80px;">
-    <div class="glass p-6 w-full max-w-2xl text-center">
-      <h2 class="text-2xl font-bold glow mb-2">🌞 Daily Light & Wisdom</h2>
-      <div id="dailywisdom" class="mt-2 mb-4 text-lg"></div>
-      <button class="neon-button" onclick="document.getElementById('donate').scrollIntoView({behavior:'smooth'});">Support a Child ($5)</button>
-      <p class="text-xs mt-2 text-blue-100">If you can’t pay, everything is free — may you be blessed!</p>
-    </div>
-  </section>
-
-  <!-- DONATE -->
-  <section class="section pt-20" id="donate" style="scroll-margin-top: 80px;">
-    <div class="glass p-6 w-full max-w-xl text-center">
-      <h2 class="text-xl font-bold glow mb-1">🙏 Support Our Mission</h2>
-      <p class="mb-3">Your $5 gives a meal or school help to a child.<br>If you cannot pay, take all services for free.</p>
-      <a href="https://your-donation-link" class="neon-button mb-2">Donate or Volunteer</a>
-      <p class="text-xs text-gray-300 mt-1">100% proceeds go to food & education for the needy.</p>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="mt-6 mb-4 text-center text-xs text-gray-400">
+  <nav class="nav">
+    <a class="neon-btn" href="#home">Home</a>
+    <a class="neon-btn" href="#library">Library</a>
+    <a class="neon-btn" href="#astrology">Astrology</a>
+    <a class="neon-btn" href="#ai">Buddhi AI</a>
+    <a class="neon-btn" href="#news">News</a>
+    <a class="neon-btn" href="#voice">Voice</a>
+  </nav>  <section id="home">
+    <h1>Welcome to Sathyadarshana</h1>
+    <p>Where Wisdom Awakens & Māyā Dissolves</p>
+    <a href="#library" class="neon-btn">Explore the Light</a>
+  </section>  <section id="library">
+    <h2>Sacred Library</h2>
+    <p>Read Dhammapada, Bible, Gita and more...</p>
+  </section>  <section id="astrology">
+    <h2>Cosmic Insight</h2>
+    <p>Vedic, KP, Numerology, Palmistry and more...</p>
+  </section>  <section id="ai">
+    <h2>Buddhi AI</h2>
+    <p>Real-time spiritual, daily, health & life guidance.</p>
+  </section>  <section id="news">
+    <h2>News Line</h2>
+    <p>Truthful global reporting with blessings.</p>
+  </section>  <section id="voice">
+    <h2>Voice of the Light</h2>
+    <p>Spiritual songs & Smule talent. Share your voice!</p>
+  </section>  <footer class="text-center text-xs text-gray-400 p-4">
     © 2025 Sathyadarshana. Crafted by Buddhi, Copilot & You.<br>
-    All spiritual/astrology services are free for the needy.<br>
-    Unauthorized business use strictly prohibited. May all beings be happy!
-  </footer>
-
-  <!-- JS LOGIC -->
-  <script>
-    const verses = {
-      buddhist: [
-        "අපි සිතපාලනය කරමු – Dhammapada 35",
-        "යහපත් සිතිවිලි වලින් ජයගනිමු – Dhammapada 223"
-      ],
-      christian: [
-        "Let all that you do be done in love. – 1 Corinthians 16:14",
-        "I can do all things through Christ who strengthens me. – Philippians 4:13"
-      ],
-      hindu: [
-        "You have the right to work, but not to the fruits. – Gita 2:47",
-        "A person is made by their belief. – Gita 17:3"
-      ]
-    };
-    const rels = ["buddhist","christian","hindu"];
-    const rel = rels[Math.floor(Math.random()*rels.length)];
-    const msg = verses[rel][Math.floor(Math.random()*verses[rel].length)];
-    document.getElementById('dailywisdom').innerHTML = `<b>Today’s Guidance:</b> ${msg}<br><span class=\"text-cyan-200\">Take 5 minutes for meditation, prayer or kindness today.</span>`;
-
-    // Scroll Button Fix
-    const scrollBtn = document.querySelector('.neon-button');
-    scrollBtn?.addEventListener('click', () => {
-      const target = document.getElementById('features');
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+    May all beings be happy. Unauthorized business use prohibited.
+  </footer>  <script>
+    document.querySelectorAll('.nav a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const id = this.getAttribute('href').replace('#','');
+        const target = document.getElementById(id);
+        if(target) {
+          setTimeout(() => {
+            target.scrollIntoView({behavior:'smooth', block:'start'});
+          }, 10);
+        }
+      });
     });
-  </script>
-</body>
+  </script></body>
 </html>
