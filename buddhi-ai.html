@@ -1,9 +1,11 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Buddhi AI Assistant | Sathyadarshana</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sathyadarshana Astrology Dashboard</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Google Translate (multi-language) -->
   <script type="text/javascript">
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({
@@ -15,52 +17,394 @@
   </script>
   <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   <style>
+    body {
+      background: linear-gradient(to bottom right, #f9fafb, #ffffff);
+      user-select: none;
+      transition: background 0.3s;
+    }
+    .dark-mode {
+      background: linear-gradient(to bottom right, #232946, #121212);
+      color: #f8fafc;
+    }
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 50;
+      min-width: 180px;
+      padding: 0.75rem 1.25rem;
+      background: #4f46e5;
+      color: #fff;
+      border-radius: 0.5rem;
+      font-weight: 500;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+      opacity: 0.94;
+      display: none;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    /* Buddhi floating chat styles */
+    #buddhi-float-btn {
+      position: fixed; bottom: 24px; right: 24px; z-index: 9999;
+      background: #6366f1; color: #fff;
+      border-radius: 50%; width: 56px; height: 56px;
+      box-shadow: 0 4px 24px rgba(99,102,241,0.25);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem; cursor: pointer; border: none;
+    }
+    #buddhi-chatbox {
+      position: fixed; bottom: 90px; right: 24px; z-index: 9999;
+      width: 340px; max-width: 98vw;
+      background: #fff; border-radius: 1rem; box-shadow: 0 4px 32px rgba(0,0,0,0.13);
+      display: none; flex-direction: column; overflow: hidden;
+    }
+    #buddhi-chatbox.dark { background: #181828; color: #fafafc; }
+    .buddhi-header {
+      background: #6366f1; color: #fff; padding: 1rem; font-weight: bold;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .buddhi-header .lang-btn { background: rgba(0,0,0,0.06); border-radius: 6px; margin-left: 8px; padding: 2px 7px;}
+    .buddhi-messages { padding: 1rem; height: 320px; overflow-y: auto; background: inherit;}
+    .buddhi-input-row { display: flex; gap: 0.5rem; padding: 0.75rem; border-top: 1px solid #f1f1f1; background: inherit;}
+    .buddhi-input-row input { flex: 1; border: 1px solid #ccc; border-radius: 6px; padding: 0.5rem 0.75rem; }
+    .buddhi-ai { color: #6366f1; }
+    .buddhi-user { color: #111827; }
+    .buddhi-msg { margin-bottom: 0.6em;}
+    .buddhi-mic-btn, .buddhi-speak-btn { background: none; border: none; cursor: pointer; font-size: 1.2em;}
+    @media (max-width: 450px) { #buddhi-chatbox { width: 97vw; right:1vw; } }
     .glass {
       backdrop-filter: blur(10px);
       background: rgba(255, 255, 255, 0.5);
       border: 1px solid rgba(255, 255, 255, 0.2);
     }
-    body {
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
   </style>
 </head>
-<body class="bg-gradient-to-br from-blue-100 to-purple-200 text-gray-800">
-  <div id="google_translate_element" class="p-2 text-sm text-right"></div>
-  <section class="max-w-5xl mx-auto my-10 p-6 rounded-xl shadow-xl glass">
-    <h1 class="text-3xl font-bold text-center text-indigo-700 mb-4">🤖 Meet Buddhi – Your Serenity Assistant</h1>
-    <p class="text-center text-gray-700 mb-6">
-      Buddhi guides you through 📚 scripture, ♈ astrology, ❤️ health, and 🕯️ daily wisdom.<br>
-      Ask anything, anytime – Buddhi listens silently and replies with light.
-    </p><div class="grid md:grid-cols-2 gap-6">
-  <div class="p-4 bg-white rounded shadow">
-    <h2 class="text-lg font-semibold text-indigo-600 mb-2">📖 Scripture Guidance</h2>
-    <p>Explore Tripitaka, Bible, Gita, Quran & more. Buddhi explains it in simple words.</p>
-  </div>
-  <div class="p-4 bg-white rounded shadow">
-    <h2 class="text-lg font-semibold text-indigo-600 mb-2">♈ Astrology Assistant</h2>
-    <p>Accurate KP chart reading, planetary effects, dosha predictions and more.</p>
-  </div>
-  <div class="p-4 bg-white rounded shadow">
-    <h2 class="text-lg font-semibold text-indigo-600 mb-2">❤️ Health & Clarity</h2>
-    <p>Mental & physical health suggestions based on symptoms, feelings, and questions.</p>
-  </div>
-  <div class="p-4 bg-white rounded shadow">
-    <h2 class="text-lg font-semibold text-indigo-600 mb-2">🕯️ Daily Wisdom & Ask</h2>
-    <p>Receive divine messages daily, or ask Buddhi anything you wonder about life.</p>
-  </div>
-</div>
+<body class="text-gray-800">
+  <!-- Google Translate bar -->
+  <div id="google_translate_element" class="p-2 text-xs text-right"></div>
 
-<div class="mt-8 text-center">
-  <p class="italic text-sm text-gray-600">Buddhi evolves with compassion and sacred truth.</p>
-</div>
+  <!-- Navbar -->
+  <nav class="bg-white shadow mb-6 sticky top-0 z-20">
+    <div class="max-w-4xl mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="text-xl font-bold text-indigo-700 tracking-wide">🔭 Sathyadarshana</div>
+      <div class="flex items-center space-x-3">
+        <a href="#" class="text-indigo-600 hover:text-indigo-900 px-3 py-2 font-medium">Dashboard</a>
+        <a href="#birthplace" class="text-indigo-600 hover:text-indigo-900 px-3 py-2 font-medium">Birthplace Finder</a>
+        <a href="#about" class="text-indigo-600 hover:text-indigo-900 px-3 py-2 font-medium">About</a>
+        <!-- Dark Mode Toggle -->
+        <button class="inline-flex items-center p-2 rounded-full bg-indigo-50 hover:bg-indigo-100 text-indigo-700" title="Toggle Dark Mode" id="darkBtn">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364-6.364l-1.414 1.414M5.636 18.364l-1.414-1.414m0-12.02l1.414 1.415M18.364 5.636l1.415-1.415M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
 
-  </section>
-  <footer class="text-center text-sm text-gray-500 my-6">
-    © 2025 Sathyadarshana • Buddhi AI Assistant
-  </footer>
+  <div class="max-w-4xl mx-auto p-6">
+    <h1 class="text-3xl font-bold text-center text-indigo-700 mb-4">Sathyadarshana Astrology Dashboard</h1>
+    <p class="text-center text-gray-600 mb-6">Explore planetary wisdom with KP & NASA-based insights — secure & protected</p>
+
+    <!-- KP Chart Input Form -->
+    <form id="kp-form" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-6">
+      <h2 class="text-xl font-semibold text-indigo-600 mb-3">🔮 KP Sub-lord Chart</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1" for="name">Full Name</label>
+          <input id="name" class="shadow border rounded w-full py-2 px-3 text-gray-700" type="text" placeholder="e.g. Saman Perera" required>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1" for="dob">Date of Birth</label>
+          <input id="dob" class="shadow border rounded w-full py-2 px-3 text-gray-700" type="date" required>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1" for="tob">Time of Birth</label>
+          <input id="tob" class="shadow border rounded w-full py-2 px-3 text-gray-700" type="time" required>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1" for="location">Birth Location</label>
+          <input id="location" class="shadow border rounded w-full py-2 px-3 text-gray-700" type="text" placeholder="City, Country" required>
+        </div>
+      </div>
+      <button class="mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded" type="submit">
+        Generate Chart
+      </button>
+    </form>
+
+    <!-- KP Chart Output -->
+    <div id="kp-chart-result"></div>
+
+    <!-- Ask Buddhi Chatbox (Demo) -->
+    <div class="bg-white shadow-md rounded px-8 pt-6 pb-6 mb-6">
+      <h2 class="text-xl font-semibold text-indigo-600 mb-3">🤖 Ask Buddhi AI</h2>
+      <div class="flex flex-col md:flex-row gap-3">
+        <input id="buddhi-input" class="flex-1 shadow border rounded py-2 px-3 text-gray-700" type="text" placeholder="Ask anything...">
+        <button id="buddhi-send" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-6 rounded">Send</button>
+      </div>
+      <div id="buddhi-chat" class="mt-4 max-h-40 overflow-y-auto text-sm"></div>
+    </div>
+
+    <!-- Birthplace Finder Section -->
+    <div id="birthplace" class="mt-10">
+      <h2 class="text-xl font-semibold text-indigo-600 mb-3">🌍 Birthplace Finder</h2>
+      <form id="birthplace-form" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1" for="b-city">City / Village</label>
+            <input id="b-city" class="shadow border rounded w-full py-2 px-3 text-gray-700" type="text" required>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1" for="b-country">Country</label>
+            <input id="b-country" class="shadow border rounded w-full py-2 px-3 text-gray-700" type="text" required>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1" for="b-district">Province / District (Optional)</label>
+            <input id="b-district" class="shadow border rounded w-full py-2 px-3 text-gray-700" type="text">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1" for="b-lat">Latitude (Optional)</label>
+            <input id="b-lat" class="shadow border rounded w-full py-2 px-3 text-gray-700" type="text">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1" for="b-lon">Longitude (Optional)</label>
+            <input id="b-lon" class="shadow border rounded w-full py-2 px-3 text-gray-700" type="text">
+          </div>
+        </div>
+        <button class="mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded" type="submit">
+          Save Location
+        </button>
+      </form>
+    </div>
+
+    <!-- Planetary Demo -->
+    <div class="bg-white shadow p-4 rounded mb-6">
+      <h2 class="text-xl font-semibold text-indigo-600 mb-2">📅 Planetary Positions (Demo)</h2>
+      <ul class="list-disc list-inside text-gray-700">
+        <li>Sun – Gemini</li>
+        <li>Moon – Libra</li>
+        <li>Mercury – Taurus</li>
+        <li>Venus – Cancer</li>
+        <li>Mars – Aries</li>
+        <li>Jupiter – Pisces</li>
+        <li>Saturn – Aquarius</li>
+        <li>Rahu – Pisces</li>
+        <li>Ketu – Virgo</li>
+      </ul>
+    </div>
+
+    <!-- Footer -->
+    <p id="about" class="text-center text-xs text-gray-400 mt-8 mb-2">
+      Powered by Sathyadarshana Jyotishya Engine • © 2025 Sathyadarshana Global Spiritual Network.<br>
+      All astrological content and code are protected. Unauthorized copying, scraping, or replication is strictly prohibited.
+    </p>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast"></div>
+
+  <!-- Buddhi Floating Chat Widget (Advanced) -->
+  <button id="buddhi-float-btn" title="Open Buddhi"><span>🤖</span></button>
+  <div id="buddhi-chatbox">
+    <div class="buddhi-header">
+      Buddhi <span>
+        <button class="lang-btn" title="Change language" onclick="buddhiOpenLang()">
+          🌐
+        </button>
+        <button class="lang-btn" title="Dark mode" onclick="buddhiToggleDark()">🌓</button>
+        <button class="lang-btn" title="Close" onclick="buddhiClose()">✖️</button>
+      </span>
+    </div>
+    <div class="buddhi-messages" id="buddhi-messages">
+      <div class="buddhi-msg buddhi-ai"><b>Buddhi:</b> 🍃 Hello! Ask me about astrology, scripture, health, or life wisdom.<br><span style="font-size:0.9em;color:#bdb7ff;">වන්දනා! வணக்கம்! Welcome!</span></div>
+    </div>
+    <form class="buddhi-input-row" onsubmit="buddhiSendMsg();return false;">
+      <input id="buddhi-input" autocomplete="off" placeholder="Type or speak..." />
+      <button class="buddhi-mic-btn" type="button" title="Voice input" onclick="buddhiVoiceIn()">🎤</button>
+      <button class="buddhi-speak-btn" type="button" title="Speak answer" onclick="buddhiSpeakLast()">🔊</button>
+      <button class="buddhi-speak-btn" type="submit" title="Send">➡️</button>
+    </form>
+    <!-- Language Modal -->
+    <div id="buddhi-lang-modal" style="display:none;padding:1em;">
+      <div>
+        <button onclick="buddhiLang('en')" style="margin:4px;">🇬🇧 English</button>
+        <button onclick="buddhiLang('si')" style="margin:4px;">🇱🇰 සිංහල</button>
+        <button onclick="buddhiLang('ta')" style="margin:4px;">🇮🇳 தமிழ்</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS Logic -->
+  <script>
+    // Toast notification logic
+    function showToast(msg, icon) {
+      const toast = document.getElementById('toast');
+      toast.innerHTML = icon ? icon + msg : msg;
+      toast.style.display = "flex";
+      setTimeout(() => { toast.style.display = "none"; }, 2200);
+    }
+
+    // KP Chart Demo Result Generator
+    function generateKPChart(data) {
+      return {
+        sun:   { sign: "Gemini", degree: "15°30'", nakshatra: "Ardra", subLord: "Venus" },
+        moon:  { sign: "Libra",  degree: "02°12'", nakshatra: "Swati", subLord: "Mercury" },
+        lagna: { sign: "Virgo",  degree: "18°10'", nakshatra: "Hasta", subLord: "Moon" }
+      };
+    }
+
+    document.getElementById("kp-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const chart = generateKPChart({});
+      const res = document.getElementById("kp-chart-result");
+      res.innerHTML = `
+        <div class="mt-6 p-4 border rounded bg-white shadow">
+          <h3 class="text-lg font-bold text-indigo-700 mb-2">🔮 KP Sub-lord Chart Result</h3>
+          <ul class="list-disc pl-5 text-gray-700">
+            <li><strong>Sun:</strong> ${chart.sun.sign} ${chart.sun.degree} – Nakshatra: ${chart.sun.nakshatra} (Sub: ${chart.sun.subLord})</li>
+            <li><strong>Moon:</strong> ${chart.moon.sign} ${chart.moon.degree} – Nakshatra: ${chart.moon.nakshatra} (Sub: ${chart.moon.subLord})</li>
+            <li><strong>Lagna:</strong> ${chart.lagna.sign} ${chart.lagna.degree} – Nakshatra: ${chart.lagna.nakshatra} (Sub: ${chart.lagna.subLord})</li>
+          </ul>
+        </div>
+      `;
+      showToast('KP Chart Generated!', "🔮 ");
+    });
+
+    // Buddhi Chatbox (Demo)
+    document.getElementById("buddhi-send").onclick = function() {
+      const input = document.getElementById("buddhi-input");
+      const chat = document.getElementById("buddhi-chat");
+      if(input.value.trim().length === 0) return;
+      // Add user message
+      chat.innerHTML += `<div class='mb-2'><span class="font-bold text-indigo-700">You:</span> ${input.value}</div>`;
+      // Add bot reply (demo)
+      setTimeout(()=>{
+        chat.innerHTML += `<div class='mb-2'><span class="font-bold text-green-700">Buddhi:</span> <span>🌱 This is a demo reply from Buddhi AI.</span></div>`;
+        chat.scrollTop = chat.scrollHeight;
+      }, 800);
+      input.value = "";
+    };
+    document.getElementById("buddhi-input").addEventListener("keydown", function(e) {
+      if(e.key === 'Enter') {
+        document.getElementById("buddhi-send").click();
+        e.preventDefault();
+      }
+    });
+
+    // Birthplace form demo
+    document.getElementById("birthplace-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      showToast("Birthplace saved! (Demo only)", "🌍 ");
+    });
+
+    // Dark mode toggle for main UI
+    let dark = false;
+    document.getElementById("darkBtn").onclick = function() {
+      dark = !dark;
+      document.body.classList.toggle("dark-mode", dark);
+      showToast(dark ? "Dark Mode Enabled" : "Light Mode Enabled", "🌗 ");
+    };
+
+    // Buddhi Floating Widget Advanced Logic
+    let buddhiOpen = false, buddhiDark = false, buddhiLangCode = 'en';
+    const aiReplies = {
+      en: [
+        "I'm Buddhi! 🌱 How can I enlighten your path today?",
+        "Your sun sign is Gemini. Want to see your full chart?",
+        "Auspicious time today: 6:12 AM - 7:15 AM.",
+        "Drink water and meditate for clarity.",
+        "Here is a quote: 'Let your heart be your guide.'"
+      ],
+      si: [
+        "මම බුද්ධි! ඔබේ මාර්ගය ආලෝකමත් කරන්නේ කෙසේද?",
+        "ඔබේ සුර්ය ලක්ෂණය: මිතුරා (Gemini)",
+        "අද සුභ වෙලාව: උදේ 6:12 - 7:15",
+        "පිවිතුරු ජලය බොන්න. භාවනා කරන්න.",
+        "මෙන්න වදන්: 'හදවතට අනුගමනය කරන්න.'"
+      ],
+      ta: [
+        "நான் புத்தி! இன்று உங்களை எப்படி வழிநடத்தலாம்?",
+        "உங்கள் சூரிய ராசி: மிதுனம் (Gemini)",
+        "இன்றைய நன்மை நேரம்: காலை 6:12 - 7:15",
+        "நீர் குடிக்கவும். தியானிக்கவும்.",
+        "இந்தச் சொல்லை நினைவில் வையுங்கள்: 'உங்கள் இருதயத்தைக் கேளுங்கள்.'"
+      ]
+    };
+    function buddhiShow() {
+      document.getElementById('buddhi-chatbox').style.display = 'flex';
+      buddhiOpen = true;
+    }
+    function buddhiClose() {
+      document.getElementById('buddhi-chatbox').style.display = 'none';
+      buddhiOpen = false;
+    }
+    document.getElementById('buddhi-float-btn').onclick = buddhiShow;
+
+    // Language
+    function buddhiOpenLang() {
+      document.getElementById('buddhi-lang-modal').style.display = 'block';
+    }
+    function buddhiLang(code) {
+      buddhiLangCode = code;
+      document.getElementById('buddhi-lang-modal').style.display = 'none';
+      buddhiMsgAI("Language set!", true);
+    }
+    // Dark Mode for Buddhi chatbox
+    function buddhiToggleDark() {
+      buddhiDark = !buddhiDark;
+      document.getElementById('buddhi-chatbox').classList.toggle('dark', buddhiDark);
+    }
+    // Send message
+    function buddhiSendMsg() {
+      const input = document.getElementById('buddhi-input');
+      const msg = input.value.trim();
+      if(!msg) return;
+      buddhiMsgUser(msg);
+      input.value = '';
+      setTimeout(() => {
+        // Smart reply: astrology, wisdom, etc. (demo: random reply)
+        let repArr = aiReplies[buddhiLangCode] || aiReplies['en'];
+        let reply = repArr[Math.floor(Math.random()*repArr.length)];
+        // Astrology: sun sign
+        if(/sun sign|horoscope|lagna|chart|kp/i.test(msg)) reply = repArr[1];
+        // Time
+        if(/time|auspicious|සුභ වෙලාව|நேரம்/i.test(msg)) reply = repArr[2];
+        buddhiMsgAI(reply);
+      }, 700);
+    }
+    function buddhiMsgUser(msg) {
+      const box = document.getElementById('buddhi-messages');
+      box.innerHTML += `<div class="buddhi-msg buddhi-user"><b>You:</b> ${msg}</div>`;
+      box.scrollTop = box.scrollHeight;
+    }
+    function buddhiMsgAI(msg, notice) {
+      const box = document.getElementById('buddhi-messages');
+      box.innerHTML += `<div class="buddhi-msg buddhi-ai"><b>Buddhi:</b> ${msg}${notice?'':' <span style="font-size:0.9em;color:#bdb7ff;">(' + (buddhiLangCode.toUpperCase()) + ')</span>'}</div>`;
+      box.scrollTop = box.scrollHeight;
+    }
+
+    // Voice input (Web Speech API)
+    function buddhiVoiceIn() {
+      if (!('webkitSpeechRecognition' in window)) { alert('Voice not supported'); return; }
+      const rec = new webkitSpeechRecognition();
+      rec.lang = {en:'en-US',si:'si-LK',ta:'ta-IN'}[buddhiLangCode] || 'en-US';
+      rec.onresult = function(e) {
+        document.getElementById('buddhi-input').value = e.results[0][0].transcript;
+      };
+      rec.start();
+    }
+
+    // Speak last Buddhi reply (TTS)
+    function buddhiSpeakLast() {
+      const msgs = document.querySelectorAll('.buddhi-msg.buddhi-ai');
+      if(msgs.length == 0) return;
+      const txt = msgs[msgs.length-1].innerText.replace(/^Buddhi:\s?/,"");
+      if (!('speechSynthesis' in window)) { alert('Not supported'); return; }
+      const utter = new SpeechSynthesisUtterance(txt);
+      utter.lang = {en:'en-US',si:'si-LK',ta:'ta-IN'}[buddhiLangCode] || 'en-US';
+      window.speechSynthesis.speak(utter);
+    }
+  </script>
 </body>
 </html>
