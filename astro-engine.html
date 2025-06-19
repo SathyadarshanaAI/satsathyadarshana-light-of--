@@ -1,31 +1,65 @@
 // astro-engine.js
+// (c) 2025 Sathyadarshana Global Spiritual Network. All rights reserved.
+// Placeholder for KP-based calculation engine
+// In future, integrate NASA ephemeris or Swiss Ephemeris
 
-// Placeholder for KP-based calculation engine // In future, integrate NASA ephemeris or Swiss Ephemeris
+/**
+ * Generate simulated KP chart data.
+ * @param {Object} data - User data (name, dob, tob, location)
+ * @returns {Object} chartData
+ */
+function generateKPChart(data) {
+  // In the future, replace this with real logic
+  return {
+    sun:   { sign: "Gemini", degree: "15°30'", nakshatra: "Ardra",   subLord: "Venus"   },
+    moon:  { sign: "Libra",  degree: "02°12'", nakshatra: "Swati",   subLord: "Mercury" },
+    lagna: { sign: "Virgo",  degree: "18°10'", nakshatra: "Hasta",   subLord: "Moon"    }
+  };
+}
 
-function generateKPChart(data) { const { name, dob, tob, location } = data;
+/**
+ * Bind form submit event for KP chart generation.
+ */
+function setupForm() {
+  const form = document.querySelector("form");
+  if (!form) return;
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const inputs = form.querySelectorAll("input");
+    const data = {
+      name:     inputs[0].value,
+      dob:      inputs[1].value,
+      tob:      inputs[2].value,
+      location: inputs[3].value
+    };
+    const chart = generateKPChart(data);
+    displayChart(chart);
+  });
+}
 
-// Simulated output - replace with real logic later const chartData = { sun: { sign: "Gemini", degree: "15°30'", nakshatra: "Ardra", subLord: "Venus" }, moon: { sign: "Libra", degree: "02°12'", nakshatra: "Swati", subLord: "Mercury" }, lagna: { sign: "Virgo", degree: "18°10'", nakshatra: "Hasta", subLord: "Moon" } };
+/**
+ * Display the simulated KP chart result in the UI.
+ * @param {Object} chart
+ */
+function displayChart(chart) {
+  // Remove previous results if any
+  const prev = document.getElementById('kp-chart-result');
+  if (prev) prev.remove();
 
-return chartData; }
+  const container = document.createElement("div");
+  container.id = "kp-chart-result";
+  container.className = "mt-6 p-4 border rounded bg-white shadow";
 
-// Event binding function setupForm() { const form = document.querySelector("form"); form.addEventListener("submit", function (e) { e.preventDefault();
+  container.innerHTML = `
+    <h3 class="text-lg font-bold text-indigo-700 mb-2">🔮 KP Sub-lord Chart Result</h3>
+    <ul class="list-disc pl-5 text-gray-700">
+      <li><strong>Sun:</strong> ${chart.sun.sign} ${chart.sun.degree} – Nakshatra: ${chart.sun.nakshatra} (Sub: ${chart.sun.subLord})</li>
+      <li><strong>Moon:</strong> ${chart.moon.sign} ${chart.moon.degree} – Nakshatra: ${chart.moon.nakshatra} (Sub: ${chart.moon.subLord})</li>
+      <li><strong>Lagna:</strong> ${chart.lagna.sign} ${chart.lagna.degree} – Nakshatra: ${chart.lagna.nakshatra} (Sub: ${chart.lagna.subLord})</li>
+    </ul>
+  `;
+  document.querySelector(".max-w-4xl").appendChild(container);
+}
 
-const inputs = form.querySelectorAll("input");
-const data = {
-  name: inputs[0].value,
-  dob: inputs[1].value,
-  tob: inputs[2].value,
-  location: inputs[3].value
-};
-
-const chart = generateKPChart(data);
-displayChart(chart);
-
-}); }
-
-// Display results function displayChart(chart) { const container = document.createElement("div"); container.className = "mt-6 p-4 border rounded bg-white shadow"; container.innerHTML = <h3 class="text-lg font-bold text-indigo-700 mb-2">🔮 KP Sub-lord Chart Result</h3> <ul class="list-disc pl-5 text-gray-700"> <li><strong>Sun:</strong> ${chart.sun.sign} ${chart.sun.degree} – Nakshatra: ${chart.sun.nakshatra} (Sub: ${chart.sun.subLord})</li> <li><strong>Moon:</strong> ${chart.moon.sign} ${chart.moon.degree} – Nakshatra: ${chart.moon.nakshatra} (Sub: ${chart.moon.subLord})</li> <li><strong>Lagna:</strong> ${chart.lagna.sign} ${chart.lagna.degree} – Nakshatra: ${chart.lagna.nakshatra} (Sub: ${chart.lagna.subLord})</li> </ul>;
-
-document.querySelector(".max-w-4xl").appendChild(container); }
-
-// Initialize setupForm();
-
+// Initialize on load
+setupForm();
