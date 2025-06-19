@@ -3,119 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sathyadarshana Astrology Service (KP)</title>
+  <title>Sathyadarshana | Light of Truth</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <style>
     body { background: linear-gradient(to bottom, #0f172a, #1e293b); color: #f1f5f9; }
     .glow-btn { transition: all 0.3s ease-in-out; }
     .glow-btn:hover { box-shadow: 0 0 20px #38bdf8; background-color: #38bdf8; color: black; }
-    .prediction-box { background: #0e1829; border-radius: 1rem; padding: 1.5rem; margin-top: 1.5rem; box-shadow: 0 0 20px #0ea5e9 inset; }
-    .section-title { color: #22d3ee; font-weight: 700; margin-bottom: 0.5rem; }
-    .key-point { color: #a5f3fc; margin-bottom: 0.25rem; }
-    .lang-label { margin-right: 6px; }
   </style>
 </head>
 <body class="min-h-screen flex flex-col items-center justify-center px-4">
-  <header class="text-center mb-10">
-    <h1 class="text-4xl font-bold mb-4">🪐 Sathyadarshana Astrology Service</h1>
-    <p class="text-lg text-gray-300">KP (Krishnamurti Paddhati) Vedic Birth Chart & Predictions</p>
+  <header class="text-center mb-8">
+    <h1 class="text-4xl font-bold mb-4">🌌 Sathyadarshana</h1>
+    <p class="text-lg text-gray-300">Welcome! Select a service below.</p>
   </header>
-
-  <section class="w-full max-w-xl bg-white text-gray-800 rounded-xl shadow-lg p-6">
-    <form id="birthChartForm" class="space-y-4">
-      <div><label for="name" class="block font-semibold">Full Name</label><input type="text" id="name" name="name" class="w-full mt-1 p-2 rounded-md border border-gray-300" required></div>
-      <div><label for="birthDate" class="block font-semibold">Date of Birth</label><input type="date" id="birthDate" name="birthDate" class="w-full mt-1 p-2 rounded-md border border-gray-300" required></div>
-      <div><label for="birthTime" class="block font-semibold">Time of Birth</label><input type="time" id="birthTime" name="birthTime" class="w-full mt-1 p-2 rounded-md border border-gray-300" required></div>
-      <div><label for="birthPlace" class="block font-semibold">Place of Birth</label><input type="text" id="birthPlace" name="birthPlace" class="w-full mt-1 p-2 rounded-md border border-gray-300" required></div>
-      <div><label for="langSelect" class="font-semibold lang-label">Language / භාෂාව / மொழி:</label>
-        <select id="langSelect" class="ml-2 p-1 rounded">
-          <option value="en">English</option>
-          <option value="si">සිංහල</option>
-          <option value="ta">தமிழ்</option>
-          <option value="other">Other</option>
-        </select>
-      </div>
-      <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded-md glow-btn">Generate KP Birth Chart & Prediction</button>
-    </form>
-    <div class="mt-4 text-right">
-      <button id="downloadPdf" class="bg-blue-400 text-black px-4 py-1 rounded glow-btn">🔥 Download as PDF</button>
-    </div>
-    <div id="result" class="mt-8 hidden"></div>
-  </section>
-
-  <section class="mt-10 max-w-xl text-center">
-    <h2 class="text-xl text-purple-300 font-semibold mb-2">🔮 Buddhi's Insight</h2>
-    <p class="italic text-gray-300">May the stars align in clarity, and your karmic journey bring light to all beings. Reflect deeply upon your birth – it is not just a time, but a message written in the sky. 🌌</p>
-  </section>
-
-  <footer class="mt-10 pb-6 text-center">
-    <a href="index.html" class="text-blue-400 underline">← Back to Home</a>
+  <main class="flex flex-col items-center space-y-4">
+    <a href="astrologe.html" class="w-64 bg-blue-500 text-white p-4 rounded-md text-center text-lg font-semibold glow-btn">
+      🔮 Astrology Service
+    </a>
+    <a href="library.html" class="w-64 bg-teal-500 text-white p-4 rounded-md text-center text-lg font-semibold glow-btn">
+      📚 Library of Light
+    </a>
+    <!-- තවත් පිටු අවශ්‍ය නම් මෙහි link එකක් එකතු කරන්න -->
+  </main>
+  <footer class="mt-12 text-gray-400 text-sm">
+    &copy; 2025 Sathyadarshana
   </footer>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const predictions = {
-        en: {
-          chart: { sun: "Aries", moon: "Taurus", asc: "Gemini", kp: [{ house: "1", sign: "Gemini", sublord: "Saturn" }] },
-          long: `<ul><li><b>Career:</b> New growth around August.</li></ul>`
-        },
-        si: {
-          chart: { sun: "මෙෂ", moon: "වෘෂභ", asc: "මිථුන", kp: [{ house: "1", sign: "මිථුන", sublord: "ශනි" }] },
-          long: `<ul><li><b>රැකියා:</b> නව වර්ධන අවස්ථා.</li></ul>`
-        },
-        ta: {
-          chart: { sun: "மேஷம்", moon: "ரிஷபம்", asc: "மிதுனம்", kp: [{ house: "1", sign: "மிதுனம்", sublord: "சனி" }] },
-          long: `<ul><li><b>வேலை:</b> புதிய வளர்ச்சி வாய்ப்புகள்.</li></ul>`
-        },
-        other: {
-          chart: { sun: "-", moon: "-", asc: "-", kp: [] },
-          long: `<p>Please contact us for a custom language prediction.</p>`
-        }
-      };
-
-      document.getElementById('birthChartForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const name = document.getElementById('name').value;
-        const birthDate = document.getElementById('birthDate').value;
-        const birthTime = document.getElementById('birthTime').value;
-        const birthPlace = document.getElementById('birthPlace').value;
-        const lang = document.getElementById('langSelect').value;
-        const p = predictions[lang];
-
-        const kpTable = p.chart.kp.map(row => `<tr><td class='p-2 text-center'>${row.house}</td><td class='p-2 text-center'>${row.sign}</td><td class='p-2 text-center'>${row.sublord}</td></tr>`).join('');
-
-        const resultHtml = `
-          <div class="prediction-box" id="pdfContent">
-            <h2 class="text-2xl font-bold mb-1 section-title">🔭 KP Birth Chart Overview</h2>
-            <div><b>Name:</b> ${name}</div>
-            <div><b>Date:</b> ${birthDate}</div>
-            <div><b>Time:</b> ${birthTime}</div>
-            <div><b>Place:</b> ${birthPlace}</div>
-            <div class="mt-2"><span class="key-point">🌞 Sun: ${p.chart.sun}</span> | <span class="key-point">🌙 Moon: ${p.chart.moon}</span> | <span class="key-point">↑ Ascendant: ${p.chart.asc}</span></div>
-            <table class="mt-3 w-full text-sm bg-gray-900 rounded text-white">
-              <thead><tr class="text-cyan-300"><th class="p-2">KP House</th><th class="p-2">Sign</th><th class="p-2">Sublord</th></tr></thead>
-              <tbody>${kpTable}</tbody>
-            </table>
-            <h3 class="text-xl font-semibold section-title mt-6">📜 Long Prediction</h3>
-            ${p.long}
-          </div>`;
-        
-        document.getElementById('result').classList.remove('hidden');
-        document.getElementById('result').innerHTML = resultHtml;
-        document.getElementById('result').scrollIntoView({behavior: "smooth"});
-      });
-
-      document.getElementById('downloadPdf').addEventListener('click', () => {
-        const { jsPDF } = window.jspdf;
-        const doc = new jsPDF();
-        doc.html(document.querySelector('#pdfContent'), {
-          callback: function (pdf) {
-            pdf.save("KP_Birth_Chart.pdf");
-          }, x: 10, y: 10
-        });
-      });
-    });
-  </script>
 </body>
 </html>
