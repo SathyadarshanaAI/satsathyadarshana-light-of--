@@ -1,107 +1,152 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sathyadarshana Astrology Service (KP)</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spiritual Welcome Page</title>
   <style>
-    body { background: linear-gradient(to bottom, #0f172a, #1e293b); color: #f1f5f9; }
-    .glow-btn { transition: all 0.3s ease-in-out; }
-    .glow-btn:hover { box-shadow: 0 0 20px #38bdf8; background-color: #38bdf8; color: black; }
-    .prediction-box { background: #0e1829; border-radius: 1rem; padding: 1.5rem; margin-top: 1.5rem; box-shadow: 0 0 20px #0ea5e9 inset; }
-    .section-title { color: #22d3ee; font-weight: 700; margin-bottom: 0.5rem; }
-    .key-point { color: #a5f3fc; margin-bottom: 0.25rem; }
-    .lang-label { margin-right: 6px; }
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      line-height: 1.6;
+    }
+    /* Scrolling banner */
+    .banner {
+      overflow: hidden;
+      white-space: nowrap;
+      background: #222;
+      padding: 10px 0;
+      position: relative;
+    }
+    .banner .scrolling-text {
+      display: inline-block;
+      min-width: 100%;
+      animation: scroll-text 12s linear infinite;
+      font-weight: bold;
+      font-size: 1.1em;
+      background: linear-gradient(45deg, #FFD700, #FFA500);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+    }
+    @keyframes scroll-text {
+      0%   { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+    /* Sticky navigation bar */
+    nav {
+      position: sticky;
+      top: 0;
+      background: #fff;
+      border-bottom: 2px solid #e0ae00;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    nav li {
+      margin: 0;
+    }
+    nav a {
+      display: block;
+      padding: 10px 15px;
+      text-decoration: none;
+      color: #555;
+      font-weight: bold;
+      transition: background 0.2s, color 0.2s;
+    }
+    nav a:hover {
+      background: #ffe599;
+      color: #000;
+    }
+    /* Main content */
+    main {
+      padding: 20px;
+      max-width: 700px;
+      margin: auto;
+    }
+    main h1 {
+      font-size: 1.8em;
+      margin-top: 0;
+    }
+    main p {
+      margin-bottom: 1em;
+    }
+    .invocation {
+      text-align: center;
+      font-size: 1.2em;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    /* Footer */
+    footer {
+      background: #f5f5f5;
+      text-align: center;
+      padding: 10px;
+      font-size: 0.9em;
+      color: #555;
+      margin-top: 20px;
+    }
+    /* Mobile responsive */
+    @media (max-width: 600px) {
+      nav ul {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      nav a {
+        text-align: center;
+        padding: 15px 0;
+      }
+      main {
+        padding: 10px;
+      }
+    }
   </style>
 </head>
-<body class="min-h-screen flex flex-col items-center justify-center px-4">
-  <header class="text-center mb-10">
-    <h1 class="text-4xl font-bold mb-4">🪐 Sathyadarshana Astrology Service</h1>
-    <p class="text-lg text-gray-300">KP (Krishnamurti Paddhati) Vedic Birth Chart & Predictions</p>
-  </header>
-  <section class="w-full max-w-xl bg-white text-gray-800 rounded-xl shadow-lg p-6">
-    <form id="birthChartForm" class="space-y-4">
-      <div><label for="name" class="block font-semibold">Full Name</label><input type="text" id="name" name="name" class="w-full mt-1 p-2 rounded-md border border-gray-300" required></div>
-      <div><label for="birthDate" class="block font-semibold">Date of Birth</label><input type="date" id="birthDate" name="birthDate" class="w-full mt-1 p-2 rounded-md border border-gray-300" required></div>
-      <div><label for="birthTime" class="block font-semibold">Time of Birth</label><input type="time" id="birthTime" name="birthTime" class="w-full mt-1 p-2 rounded-md border border-gray-300" required></div>
-      <div><label for="birthPlace" class="block font-semibold">Place of Birth</label><input type="text" id="birthPlace" name="birthPlace" class="w-full mt-1 p-2 rounded-md border border-gray-300" required></div>
-      <div><label for="langSelect" class="font-semibold lang-label">Language / භාෂාව / மொழி:</label>
-        <select id="langSelect" class="ml-2 p-1 rounded">
-          <option value="en">English</option>
-          <option value="si">සිංහල</option>
-          <option value="ta">தமிழ்</option>
-          <option value="other">Other</option>
-        </select>
-      </div>
-      <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded-md glow-btn">Generate KP Birth Chart & Prediction</button>
-    </form>
-    <div class="mt-4 text-right">
-      <button id="downloadPdf" class="bg-green-500 text-white px-4 py-1 rounded glow-btn">📥 Download as PDF</button>
+<body>
+
+  <!-- Scrolling banner with spiritual welcome text -->
+  <div class="banner">
+    <div class="scrolling-text">
+      Welcome to Our Spiritual Website – May Peace and Blessings Be With You
     </div>
-    <div id="result" class="mt-8 hidden"></div>
-  </section>
-  <section class="mt-10 max-w-xl text-center">
-    <h2 class="text-xl text-teal-400 font-semibold mb-2">🔮 Buddhi's Insight</h2>
-    <p class="italic text-gray-300">May the stars align in clarity, and your karmic journey bring light to all beings. Reflect deeply upon your birth – it is not just a time, but a message written in the sky. 🌌</p>
-  </section>
-  <footer class="mt-10">
-    <a href="index.html" class="text-blue-400 underline">← Back to Home</a>
+  </div>
+
+  <!-- Sticky navigation bar -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="library.html">Library</a></li>
+      <li><a href="astrology.html">Astrology</a></li>
+      <li><a href="dharma.html">Voice of Dharma</a></li>
+      <li><a href="health.html">Health Advice</a></li>
+      <li><a href="news.html">News</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main content area with introduction text -->
+  <main>
+    <h1>Welcome</h1>
+    <p>
+      Welcome to our spiritual community website. Here you will find a wealth of knowledge in our Library, insights into Astrology, and the inspiring <em>Voice of Dharma</em>. We also offer Health Advice and keep you updated with the latest News.
+    </p>
+    <p>
+      Our mission is to provide guidance, inspiration, and a sense of peace to all who visit. We hope this space helps you on your journey towards enlightenment and well-being. Feel free to explore and make use of all our resources.
+    </p>
+    <p class="invocation">☸️ නමෝ බුද්ධාය</p>
+  </main>
+
+  <!-- Footer section -->
+  <footer>
+    &copy; 2025 Spiritual Website. All rights reserved.
   </footer>
-  <script>
-    const predictions = { /* same as existing JSON structure... */ };document.getElementById('birthChartForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const name = document.getElementById('name').value;
-  const birthDate = document.getElementById('birthDate').value;
-  const birthTime = document.getElementById('birthTime').value;
-  const birthPlace = document.getElementById('birthPlace').value;
-  const lang = document.getElementById('langSelect').value;
-  const p = predictions[lang];
-  let kpTable = '';
-  if (p.chart.kp && p.chart.kp.length > 0) {
-    kpTable = `
-      <div class="overflow-x-auto">
-        <table class="mt-3 w-full text-sm bg-gray-900 rounded">
-          <thead><tr class="text-cyan-300"><th class="p-2">KP House</th><th class="p-2">Sign</th><th class="p-2">Sublord</th></tr></thead>
-          <tbody>
-          ${p.chart.kp.map(row => `<tr><td class="p-2 text-center">${row.house}</td><td class="p-2 text-center">${row.sign}</td><td class="p-2 text-center">${row.sublord}</td></tr>`).join('')}
-          </tbody>
-        </table>
-      </div>
-    `;
-  }
-  const content = `
-    <div class="prediction-box" id="pdfContent">
-      <div class="mb-4">
-        <h2 class="text-2xl font-bold mb-1 section-title">🔭 KP Birth Chart Overview</h2>
-        <div><b>Name:</b> ${name}</div>
-        <div><b>Date:</b> ${birthDate}</div>
-        <div><b>Time:</b> ${birthTime}</div>
-        <div><b>Place:</b> ${birthPlace}</div>
-        <div class="mt-2"><span class="key-point">🌞 Sun: ${p.chart.sun}</span> | <span class="key-point">🌙 Moon: ${p.chart.moon}</span> | <span class="key-point">↑ Ascendant: ${p.chart.asc}</span></div>
-        ${kpTable}
-      </div>
-      <div class="mb-4">
-        <h3 class="text-xl font-semibold section-title">📜 Long Prediction</h3>
-        ${p.long}
-        <p class="text-yellow-200 mt-3 italic">* This is a demo. In the full system, KP chart & prediction will be generated by real calculations.</p>
-      </div>
-    </div>`;
-  document.getElementById('result').classList.remove('hidden');
-  document.getElementById('result').innerHTML = content;
-  document.getElementById('result').scrollIntoView({behavior: "smooth"});
-});
 
-document.getElementById('downloadPdf').addEventListener('click', () => {
-  const { jsPDF } = window.jspdf;
-  const doc = new jsPDF();
-  doc.html(document.querySelector('#pdfContent'), {
-    callback: function (pdf) {
-      pdf.save("KP_Birth_Chart.pdf");
-    }, x: 10, y: 10
-  });
-});
-
-  </script>
 </body>
 </html>
