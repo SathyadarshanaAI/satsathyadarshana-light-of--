@@ -1,152 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Spiritual Welcome Page</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sathyadarshana | Light for the World</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
   <style>
     body {
-      margin: 0;
-      font-family: sans-serif;
-      line-height: 1.6;
-    }
-    /* Scrolling banner */
-    .banner {
-      overflow: hidden;
-      white-space: nowrap;
-      background: #222;
-      padding: 10px 0;
-      position: relative;
-    }
-    .banner .scrolling-text {
-      display: inline-block;
-      min-width: 100%;
-      animation: scroll-text 12s linear infinite;
-      font-weight: bold;
-      font-size: 1.1em;
-      background: linear-gradient(45deg, #FFD700, #FFA500);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-      -webkit-text-fill-color: transparent;
-    }
-    @keyframes scroll-text {
-      0%   { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
-    }
-    /* Sticky navigation bar */
-    nav {
-      position: sticky;
-      top: 0;
-      background: #fff;
-      border-bottom: 2px solid #e0ae00;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      z-index: 1000;
-    }
-    nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    nav li {
+      font-family: 'Segoe UI', 'Noto Sans Sinhala', sans-serif;
+      background: linear-gradient(120deg, #10172a 0%, #334155 100%);
+      color: #f1f5f9;
       margin: 0;
     }
-    nav a {
-      display: block;
-      padding: 10px 15px;
-      text-decoration: none;
-      color: #555;
+    .glow {
+      text-shadow: 0 2px 12px #38bdf8cc, 0 0 20px #0ea5e988;
+    }
+    .glass {
+      background: rgba(17,23,39,0.7);
+      backdrop-filter: blur(6px);
+      border-radius: 2rem;
+      border: 1.5px solid #38bdf840;
+      box-shadow: 0 8px 30px #0ea5e930;
+    }
+    .neon-button {
+      padding: 0.75rem 2rem;
+      border: none;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, #38bdf8 60%, #0ea5e9 100%);
+      color: #fff;
+      font-size: 1.15rem;
       font-weight: bold;
-      transition: background 0.2s, color 0.2s;
+      text-shadow: 0 0 7px #0ea5e9bb;
+      transition: filter 0.2s;
+      box-shadow: 0 0 12px #38bdf8aa;
+      outline: none;
     }
-    nav a:hover {
-      background: #ffe599;
-      color: #000;
+    .neon-button:hover, .neon-button:focus {
+      filter: brightness(1.15) drop-shadow(0 0 12px #38bdf8);
     }
-    /* Main content */
-    main {
-      padding: 20px;
-      max-width: 700px;
-      margin: auto;
-    }
-    main h1 {
-      font-size: 1.8em;
-      margin-top: 0;
-    }
-    main p {
-      margin-bottom: 1em;
-    }
-    .invocation {
-      text-align: center;
-      font-size: 1.2em;
-      margin-top: 20px;
-      font-weight: bold;
-    }
-    /* Footer */
-    footer {
-      background: #f5f5f5;
-      text-align: center;
-      padding: 10px;
-      font-size: 0.9em;
-      color: #555;
-      margin-top: 20px;
-    }
-    /* Mobile responsive */
+    html { scroll-behavior: smooth; }
+    .section { min-height: 100vh; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1.5rem; }
+    .section img { max-height: 40vh; border-radius: 1rem; box-shadow: 0 4px 24px #0ea5e920; }
     @media (max-width: 600px) {
-      nav ul {
-        flex-direction: column;
-        align-items: stretch;
-      }
-      nav a {
-        text-align: center;
-        padding: 15px 0;
-      }
-      main {
-        padding: 10px;
-      }
+      .section img { max-height: 24vh; }
+      .glass { padding: 1rem !important; }
     }
   </style>
 </head>
 <body>
-
-  <!-- Scrolling banner with spiritual welcome text -->
-  <div class="banner">
-    <div class="scrolling-text">
-      Welcome to Our Spiritual Website – May Peace and Blessings Be With You
+  <!-- HERO -->
+  <section class="section" id="home">
+    <div class="glass p-12 flex flex-col items-center w-full max-w-xl">
+      <img src="https://cdn.jsdelivr.net/gh/feathericons/feather/icons/sun.svg" alt="Sathyadarshana Logo" class="mb-2 w-16 glow"/>
+      <h1 class="text-4xl md:text-6xl font-bold glow text-center">Welcome to Sathyadarshana</h1>
+      <p class="text-xl mt-2 mb-4 text-center opacity-90">Where Wisdom Awakens & Māyā Dissolves<br>
+        <span class="text-indigo-300 font-semibold">AI • Astrology • Compassion • Community</span>
+      </p>
+      <button class="neon-button mt-4" onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'});">
+        Explore the Light
+      </button>
+      <p class="mt-4 text-center text-base text-cyan-200">✨ Free for all • No commercial use • Donations help children & education</p>
     </div>
-  </div>
-
-  <!-- Sticky navigation bar -->
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="library.html">Library</a></li>
-      <li><a href="astrology.html">Astrology</a></li>
-      <li><a href="dharma.html">Voice of Dharma</a></li>
-      <li><a href="health.html">Health Advice</a></li>
-      <li><a href="news.html">News</a></li>
-    </ul>
-  </nav>
-
-  <!-- Main content area with introduction text -->
-  <main>
-    <h1>Welcome</h1>
-    <p>
-      Welcome to our spiritual community website. Here you will find a wealth of knowledge in our Library, insights into Astrology, and the inspiring <em>Voice of Dharma</em>. We also offer Health Advice and keep you updated with the latest News.
-    </p>
-    <p>
-      Our mission is to provide guidance, inspiration, and a sense of peace to all who visit. We hope this space helps you on your journey towards enlightenment and well-being. Feel free to explore and make use of all our resources.
-    </p>
-    <p class="invocation">☸️ නමෝ බුද්ධාය</p>
-  </main>
-
-  <!-- Footer section -->
-  <footer>
-    &copy; 2025 Spiritual Website. All rights reserved.
+  </section>
+  <!-- FEATURES -->
+  <section class="section pt-8" id="features">
+    <div class="grid md:grid-cols-3 gap-6 w-full max-w-5xl">
+      <!-- Library -->
+      <div class="glass p-6 flex flex-col items-center text-center">
+        <img src="https://source.unsplash.com/featured/?library,books" alt="Library">
+        <h2 class="text-2xl font-bold glow mt-3">Sacred Library</h2>
+        <p class="mt-2 mb-2">Read Dhammapada, Bible, Gita and more — with an AI reading companion.</p>
+        <a href="#library" class="text-sky-400 font-semibold underline">Open Library</a>
+      </div>
+      <!-- Astrology -->
+      <div class="glass p-6 flex flex-col items-center text-center">
+        <img src="https://source.unsplash.com/featured/?astrology,stars" alt="Astrology">
+        <h2 class="text-2xl font-bold glow mt-3">Cosmic Insight</h2>
+        <p class="mt-2 mb-2">Vedic, KP, Numerology, Palmistry — NASA-integrated, fast & precise.</p>
+        <a href="#astrology" class="text-sky-400 font-semibold underline">Get My Reading</a>
+      </div>
+      <!-- Buddhi AI -->
+      <div class="glass p-6 flex flex-col items-center text-center">
+        <img src="https://source.unsplash.com/featured/?ai,technology" alt="AI Assistant">
+        <h2 class="text-2xl font-bold glow mt-3">Buddhi AI</h2>
+        <p class="mt-2 mb-2">Ask anything! Real-time spiritual, daily, health & life guidance — Sinhala, Tamil, English.</p>
+        <a href="#buddhi" class="text-sky-400 font-semibold underline">Chat with Buddhi</a>
+      </div>
+    </div>
+    <div class="flex flex-row flex-wrap justify-center gap-6 mt-10 w-full max-w-5xl">
+      <!-- News Line -->
+      <div class="glass p-6 flex flex-col items-center text-center w-72">
+        <img src="https://source.unsplash.com/featured/?news,truth" alt="News">
+        <h2 class="text-xl font-bold glow mt-3">News Line</h2>
+        <p class="mt-2 mb-2">Truthful global reporting with blessings.</p>
+        <a href="#news" class="text-sky-400 font-semibold underline">See News</a>
+      </div>
+      <!-- Voice of the Light -->
+      <div class="glass p-6 flex flex-col items-center text-center w-72">
+        <img src="https://source.unsplash.com/featured/?music,singing" alt="Voice">
+        <h2 class="text-xl font-bold glow mt-3">Voice of the Light</h2>
+        <p class="mt-2 mb-2">Spiritual songs & Smule talent. Share your voice!</p>
+        <a href="#voice" class="text-sky-400 font-semibold underline">Sing & Listen</a>
+      </div>
+    </div>
+  </section>
+  <!-- DAILY MESSAGE & DONATION -->
+  <section class="section pt-4 pb-2" id="daily">
+    <div class="glass p-6 w-full max-w-2xl text-center">
+      <h2 class="text-2xl font-bold glow mb-2">🌞 Daily Light & Wisdom</h2>
+      <div id="dailywisdom" class="mt-2 mb-4 text-lg">
+        <!-- JS will fill this below -->
+      </div>
+      <button class="neon-button" onclick="document.getElementById('donate').scrollIntoView({behavior:'smooth'});">Support a Child ($5)</button>
+      <p class="text-xs mt-2 text-blue-100">If you can’t pay, everything is free — may you be blessed!</p>
+    </div>
+  </section>
+  <!-- DONATE -->
+  <section class="section pt-4" id="donate">
+    <div class="glass p-6 w-full max-w-xl text-center">
+      <h2 class="text-xl font-bold glow mb-1">🙏 Support Our Mission</h2>
+      <p class="mb-3">Your $5 gives a meal or school help to a child.<br>If you cannot pay, take all services for free.</p>
+      <a href="https://your-donation-link" class="neon-button mb-2">Donate or Volunteer</a>
+      <p class="text-xs text-gray-300 mt-1">100% proceeds go to food & education for the needy.</p>
+    </div>
+  </section>
+  <!-- FOOTER -->
+  <footer class="mt-6 mb-4 text-center text-xs text-gray-400">
+    © 2025 Sathyadarshana. Crafted by Buddhi, Copilot & You.<br>
+    All spiritual/astrology services are free for the needy.<br>
+    Unauthorized business use strictly prohibited. May all beings be happy!
   </footer>
-
+  <!-- DAILY WISDOM JS LOGIC -->
+  <script>
+    // Sample daily messages per religion (expand as you wish)
+    const verses = {
+      buddhist: [
+        "අපි සිතපාලනය කරමු – Dhammapada 35",
+        "යහපත් සිතිවිලි වලින් ජයගනිමු – Dhammapada 223"
+      ],
+      christian: [
+        "Let all that you do be done in love. – 1 Corinthians 16:14",
+        "I can do all things through Christ who strengthens me. – Philippians 4:13"
+      ],
+      hindu: [
+        "You have the right to work, but not to the fruits. – Gita 2:47",
+        "A person is made by their belief. – Gita 17:3"
+      ]
+    };
+    // Pick a random religion for demo, or detect user
+    const rels = ["buddhist","christian","hindu"];
+    const rel = rels[Math.floor(Math.random()*rels.length)];
+    const msg = verses[rel][Math.floor(Math.random()*verses[rel].length)];
+    document.getElementById('dailywisdom').innerHTML = `
+      <b>Today’s Guidance:</b> ${msg}<br>
+      <span class="text-cyan-200">Take 5 minutes for meditation, prayer or kindness today.</span>
+    `;
+  </script>
 </body>
 </html>
