@@ -12,19 +12,17 @@
     body {
       height: 100vh;
       overflow-y: scroll;
-      scroll-snap-type: y mandatory;
+      scroll-snap-type: y proximity;
       background: linear-gradient(120deg, #10172a 0%, #334155 100%);
       color: #f1f5f9;
     }
     section {
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      display: block;
       scroll-snap-align: start;
+      scroll-margin-top: 70px;
       box-sizing: border-box;
-      padding: 0;
+      padding: 5rem 1rem;
     }
     .nav {
       position: fixed;
@@ -55,7 +53,6 @@
     .neon-btn:hover, .neon-btn:focus {
       filter: brightness(1.18);
     }
-    section { scroll-margin-top: 60px; }
     @media (max-width:600px) {
       .nav { font-size: 0.95rem; }
     }
@@ -79,18 +76,23 @@
   </section>  <section id="library">
     <h2>Sacred Library</h2>
     <p>Read Dhammapada, Bible, Gita and more...</p>
+    <a class="neon-btn" href="#astrology">Open Library</a>
   </section>  <section id="astrology">
     <h2>Cosmic Insight</h2>
     <p>Vedic, KP, Numerology, Palmistry and more...</p>
+    <button class="neon-btn" onclick="alert('Astrology Engine Coming Soon!')">Get My Reading</button>
   </section>  <section id="ai">
     <h2>Buddhi AI</h2>
     <p>Real-time spiritual, daily, health & life guidance.</p>
+    <button class="neon-btn" onclick="alert('Launching Buddhi AI...')">Talk to Buddhi</button>
   </section>  <section id="news">
     <h2>News Line</h2>
     <p>Truthful global reporting with blessings.</p>
+    <a class="neon-btn" href="#voice">See Today's News</a>
   </section>  <section id="voice">
     <h2>Voice of the Light</h2>
     <p>Spiritual songs & Smule talent. Share your voice!</p>
+    <button class="neon-btn" onclick="alert('Smule Studio Coming Soon!')">Enter Studio</button>
   </section>  <footer class="text-center text-xs text-gray-400 p-4">
     © 2025 Sathyadarshana. Crafted by Buddhi, Copilot & You.<br>
     May all beings be happy. Unauthorized business use prohibited.
