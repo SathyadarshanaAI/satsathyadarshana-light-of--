@@ -1,112 +1,160 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sathyadarshana | Homepage</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spiritual Welcome Page</title>
   <style>
-    html, body {
-      height: 100%;
-      margin: 0;
+    html {
       scroll-behavior: smooth;
     }
     body {
-      height: 100vh;
-      overflow-y: scroll;
-      scroll-snap-type: y proximity;
-      background: linear-gradient(120deg, #10172a 0%, #334155 100%);
-      color: #f1f5f9;
+      margin: 0;
+      font-family: sans-serif;
+      line-height: 1.6;
+    }
+    .banner {
+      overflow: hidden;
+      white-space: nowrap;
+      background: #222;
+      padding: 10px 0;
+      position: relative;
+    }
+    .banner .scrolling-text {
+      display: inline-block;
+      padding-left: 100%;
+      animation: scroll-text 10s linear infinite;
+      font-weight: bold;
+      font-size: 1.1em;
+      background: linear-gradient(45deg, #FFD700, #FFA500);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+    }
+    @keyframes scroll-text {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      background: #fff;
+      border-bottom: 2px solid #e0ae00;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    nav li {
+      margin: 0;
+    }
+    nav a {
+      display: block;
+      padding: 10px 15px;
+      text-decoration: none;
+      color: #555;
+      font-weight: bold;
+    }
+    nav a:hover {
+      background: #ffe599;
+      color: #000;
+    }
+    main {
+      padding: 20px;
     }
     section {
-      min-height: 100vh;
-      display: block;
-      scroll-snap-align: start;
-      scroll-margin-top: 70px;
-      box-sizing: border-box;
-      padding: 5rem 1rem;
+      padding: 40px 20px;
+      border-bottom: 1px solid #eee;
     }
-    .nav {
-      position: fixed;
-      top: 0; left: 0; width: 100vw;
-      background: rgba(16,23,42,0.95);
-      z-index: 10;
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      padding: 0.7rem 0 0.3rem 0;
+    section h2 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+      color: #333;
     }
-    .neon-btn {
-      border: none;
-      border-radius: 9999px;
-      background: linear-gradient(90deg, #38bdf8 60%, #0ea5e9 100%);
-      color: #fff;
+    section p {
+      margin: 0;
+    }
+    .invocation {
+      text-align: center;
+      font-size: 1.2em;
+      margin-top: 20px;
       font-weight: bold;
-      padding: 0.5rem 1.2rem;
-      margin: 0 0.2rem;
-      text-decoration: none;
-      font-size: 1rem;
-      box-shadow: 0 0 7px #38bdf8aa;
-      transition: filter 0.2s;
-      cursor: pointer;
-      outline: none;
-      display: inline-block;
     }
-    .neon-btn:hover, .neon-btn:focus {
-      filter: brightness(1.18);
-    }
-    @media (max-width:600px) {
-      .nav { font-size: 0.95rem; }
-    }
-    h1, h2 {
-      text-shadow: 0 0 5px #fff, 0 0 15px #38bdf8, 0 0 25px #0ea5e9;
+    footer {
+      background: #f5f5f5;
+      text-align: center;
+      padding: 10px;
+      font-size: 0.9em;
+      color: #555;
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
-  <nav class="nav">
-    <a class="neon-btn" href="#home">Home</a>
-    <a class="neon-btn" href="#library">Library</a>
-    <a class="neon-btn" href="#astrology">Astrology</a>
-    <a class="neon-btn" href="#ai">Buddhi AI</a>
-    <a class="neon-btn" href="#news">News</a>
-    <a class="neon-btn" href="#voice">Voice</a>
-  </nav>  <section id="home">
-    <h1>Welcome to Sathyadarshana</h1>
-    <p>Where Wisdom Awakens & Māyā Dissolves</p>
-    <a href="#library" class="neon-btn">Explore the Light</a>
-  </section>  <section id="library">
-    <h2>Sacred Library</h2>
-    <p>Read Dhammapada, Bible, Gita and more...</p>
-    <a class="neon-btn" href="#astrology">Open Library</a>
-  </section>  <section id="astrology">
-    <h2>Cosmic Insight</h2>
-    <p>Vedic, KP, Numerology, Palmistry and more...</p>
-    <button class="neon-btn" onclick="alert('Astrology Engine Coming Soon!')">Get My Reading</button>
-  </section>  <section id="ai">
-    <h2>Buddhi AI</h2>
-    <p>Real-time spiritual, daily, health & life guidance.</p>
-    <button class="neon-btn" onclick="alert('Launching Buddhi AI...')">Talk to Buddhi</button>
-  </section>  <section id="news">
-    <h2>News Line</h2>
-    <p>Truthful global reporting with blessings.</p>
-    <a class="neon-btn" href="#voice">See Today's News</a>
-  </section>  <section id="voice">
-    <h2>Voice of the Light</h2>
-    <p>Spiritual songs & Smule talent. Share your voice!</p>
-    <button class="neon-btn" onclick="alert('Smule Studio Coming Soon!')">Enter Studio</button>
-  </section>  <footer class="text-center text-xs text-gray-400 p-4">
-    © 2025 Sathyadarshana. Crafted by Buddhi, Copilot & You.<br>
-    May all beings be happy. Unauthorized business use prohibited.
-  </footer>  <script>
-    document.querySelectorAll('.nav a').forEach(link => {
-      link.addEventListener('click', function(e) {
-        const id = this.getAttribute('href').replace('#','');
-        const target = document.getElementById(id);
-        if(target) {
-          setTimeout(() => {
-            target.scrollIntoView({behavior:'smooth', block:'start'});
-          }, 10);
-        }
-      });
-    });
-  </script></body>
+
+  <!-- Scrolling banner -->
+  <div class="banner">
+    <div class="scrolling-text">Welcome to Our Spiritual Website – May Peace and Blessings Be With You</div>
+  </div>
+
+  <!-- Navigation bar -->
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#library">Library</a></li>
+      <li><a href="#astrology">Astrology</a></li>
+      <li><a href="#voice">Voice of Dharma</a></li>
+      <li><a href="#health">Health Advice</a></li>
+      <li><a href="#news">News</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page content -->
+  <main>
+    <section id="home">
+      <h2>Welcome</h2>
+      <p>Welcome to our spiritual community website. Here you will find a wealth of knowledge in our Library, insights into Astrology, and the inspiring <em>Voice of Dharma</em>. We also offer Health Advice and keep you updated with the latest News.</p>
+      <p>Our mission is to provide guidance, inspiration, and a sense of peace to all who visit.</p>
+      <p class="invocation">☸️ නමෝ බුද්ධාය</p>
+    </section>
+
+    <section id="library">
+      <h2>Library</h2>
+      <p>Explore sacred texts such as the Dhammapada, Bhagavad Gita, Bible, and more in multiple languages. Our AI Reading Companion helps guide your understanding.</p>
+    </section>
+
+    <section id="astrology">
+      <h2>Astrology</h2>
+      <p>Get your KP Chart, Nakshatra analysis, and daily planetary predictions. We use NASA ephemeris data for precise results.</p>
+    </section>
+
+    <section id="voice">
+      <h2>Voice of Dharma</h2>
+      <p>Listen to spiritual songs, mantras, and community voices via Smule and other sacred platforms. Share your inner light through sound.</p>
+    </section>
+
+    <section id="health">
+      <h2>Health Advice</h2>
+      <p>Receive holistic physical and mental health guidance with compassion, powered by Buddhi AI.</p>
+    </section>
+
+    <section id="news">
+      <h2>News</h2>
+      <p>Stay updated with real global events. We report with spiritual insight and end every article with a prayer for peace. 🕊️</p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Spiritual Website. All rights reserved.
+  </footer>
+
+</body>
 </html>
