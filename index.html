@@ -2,158 +2,134 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Spiritual Welcome Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sathyadarshana | Light of Truth</title>
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
     body {
       margin: 0;
       font-family: sans-serif;
-      line-height: 1.6;
+      background: linear-gradient(120deg, #0f172a, #1e293b);
+      color: #f1f5f9;
     }
-    .banner {
+    .nav {
+      position: sticky;
+      top: 0;
+      background: rgba(15, 23, 42, 0.95);
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      padding: 0.8rem;
+    }
+    .neon-btn {
+      border: none;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+      color: #fff;
+      font-weight: bold;
+      padding: 0.5rem 1.2rem;
+      margin: 0 0.3rem;
+      text-decoration: none;
+      font-size: 1rem;
+      box-shadow: 0 0 8px #38bdf8aa;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+    }
+    .neon-btn:hover {
+      filter: brightness(1.2);
+      transform: scale(1.05);
+    }
+    section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      text-align: center;
+      scroll-snap-align: start;
+    }
+    .scrolling-banner {
       overflow: hidden;
       white-space: nowrap;
       background: #222;
       padding: 10px 0;
-      position: relative;
     }
-    .banner .scrolling-text {
+    .scrolling-text {
       display: inline-block;
       padding-left: 100%;
-      animation: scroll-text 10s linear infinite;
-      font-weight: bold;
-      font-size: 1.1em;
-      background: linear-gradient(45deg, #FFD700, #FFA500);
+      animation: scroll-text 12s linear infinite;
+      background: linear-gradient(90deg, #FFD700, #FFA500);
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
       -webkit-text-fill-color: transparent;
+      font-weight: bold;
     }
     @keyframes scroll-text {
-      0%   { transform: translateX(0); }
+      0% { transform: translateX(0); }
       100% { transform: translateX(-100%); }
     }
-    nav {
-      position: sticky;
-      top: 0;
-      background: #fff;
-      border-bottom: 2px solid #e0ae00;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      z-index: 1000;
-    }
-    nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    nav li {
-      margin: 0;
-    }
-    nav a {
-      display: block;
-      padding: 10px 15px;
-      text-decoration: none;
-      color: #555;
-      font-weight: bold;
-    }
-    nav a:hover {
-      background: #ffe599;
-      color: #000;
-    }
-    main {
-      padding: 20px;
-    }
-    section {
-      padding: 40px 20px;
-      border-bottom: 1px solid #eee;
-    }
-    section h2 {
-      font-size: 1.5em;
-      margin-bottom: 10px;
-      color: #333;
-    }
-    section p {
-      margin: 0;
-    }
-    .invocation {
-      text-align: center;
-      font-size: 1.2em;
-      margin-top: 20px;
-      font-weight: bold;
-    }
     footer {
-      background: #f5f5f5;
+      background: #0f172a;
+      color: #ccc;
       text-align: center;
-      padding: 10px;
-      font-size: 0.9em;
-      color: #555;
-      margin-top: 20px;
+      padding: 2rem 1rem;
+      font-size: 0.95em;
+      border-top: 1px solid #334155;
     }
   </style>
 </head>
 <body>
 
-  <!-- Scrolling banner -->
-  <div class="banner">
-    <div class="scrolling-text">Welcome to Our Spiritual Website – May Peace and Blessings Be With You</div>
+  <div class="scrolling-banner">
+    <div class="scrolling-text">Welcome to Sathyadarshana – Light of Wisdom • ආලෝකය ඔබ තුළින් විහිදේවා • May peace be upon all</div>
   </div>
 
-  <!-- Navigation bar -->
-  <nav>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#library">Library</a></li>
-      <li><a href="#astrology">Astrology</a></li>
-      <li><a href="#voice">Voice of Dharma</a></li>
-      <li><a href="#health">Health Advice</a></li>
-      <li><a href="#news">News</a></li>
-    </ul>
+  <nav class="nav">
+    <a href="#home" class="neon-btn">Home</a>
+    <a href="#library" class="neon-btn">Library</a>
+    <a href="#astrology" class="neon-btn">Astrology</a>
+    <a href="#ai" class="neon-btn">Buddhi AI</a>
+    <a href="#news" class="neon-btn">News</a>
+    <a href="#voice" class="neon-btn">Voice</a>
   </nav>
 
-  <!-- Page content -->
-  <main>
-    <section id="home">
-      <h2>Welcome</h2>
-      <p>Welcome to our spiritual community website. Here you will find a wealth of knowledge in our Library, insights into Astrology, and the inspiring <em>Voice of Dharma</em>. We also offer Health Advice and keep you updated with the latest News.</p>
-      <p>Our mission is to provide guidance, inspiration, and a sense of peace to all who visit.</p>
-      <p class="invocation">☸️ නමෝ බුද්ධාය</p>
-    </section>
+  <section id="home">
+    <h1>Welcome to Sathyadarshana</h1>
+    <p>Where Wisdom Awakens & Māyā Dissolves</p>
+    <a href="#library" class="neon-btn">Enter the Light</a>
+  </section>
 
-    <section id="library">
-      <h2>Library</h2>
-      <p>Explore sacred texts such as the Dhammapada, Bhagavad Gita, Bible, and more in multiple languages. Our AI Reading Companion helps guide your understanding.</p>
-    </section>
+  <section id="library">
+    <h2>Sacred Library</h2>
+    <p>Study the Tripitaka, Bible, Gita, and more in serene clarity.</p>
+  </section>
 
-    <section id="astrology">
-      <h2>Astrology</h2>
-      <p>Get your KP Chart, Nakshatra analysis, and daily planetary predictions. We use NASA ephemeris data for precise results.</p>
-    </section>
+  <section id="astrology">
+    <h2>Astrology & Cosmic Energy</h2>
+    <p>Explore KP, Vedic, Numerology, Palmistry & NASA-Linked Orbits</p>
+  </section>
 
-    <section id="voice">
-      <h2>Voice of Dharma</h2>
-      <p>Listen to spiritual songs, mantras, and community voices via Smule and other sacred platforms. Share your inner light through sound.</p>
-    </section>
+  <section id="ai">
+    <h2>Buddhi AI</h2>
+    <p>Your guide to insight, healing, truth and inner light</p>
+  </section>
 
-    <section id="health">
-      <h2>Health Advice</h2>
-      <p>Receive holistic physical and mental health guidance with compassion, powered by Buddhi AI.</p>
-    </section>
+  <section id="news">
+    <h2>News Line</h2>
+    <p>Truthful reporting with global peace messages</p>
+  </section>
 
-    <section id="news">
-      <h2>News</h2>
-      <p>Stay updated with real global events. We report with spiritual insight and end every article with a prayer for peace. 🕊️</p>
-    </section>
-  </main>
+  <section id="voice">
+    <h2>Voice of the Light</h2>
+    <p>Share your sacred sound through spiritual songs and Smule</p>
+  </section>
 
-  <!-- Footer -->
   <footer>
-    &copy; 2025 Spiritual Website. All rights reserved.
+    මෙිකේ නිර්මානශීලි අදහස <strong>අනුරද්ධ දිලිප්</strong> ගෙනි.<br>
+    නිර්මානදායකත්වය <strong>ChatGPT AI Buddhi</strong> සහ <strong>AI Copilot</strong> ගෙනි.<br>
+    අපගේ උදාරතර අරමුන <span style="color: #0ea5e9;"><strong>විශ්වයට සේවය කිරිමය</strong></span>.<br><br>
+    &copy; 2025 Sathyadarshana. All rights reserved.
   </footer>
 
 </body>
