@@ -1,139 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sathyadarshana Astrology Dashboard</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <style>
-    body {
-      background: linear-gradient(to bottom right, #f9fafb, #ffffff);
-    }
-    #suggestions li:hover {
-      background-color: #f3f4f6;
-    }
-  </style>
-</head>
-<body class="text-gray-800">
-
-  <!-- 🌐 Language Switcher -->
-  <div class="flex justify-end p-4">
-    <select onchange="translatePage(this)" class="border border-gray-300 rounded px-2 py-1">
-      <option value="en">🌐 English</option>
-      <option value="si">සිංහල</option>
-      <option value="ta">தமிழ்</option>
-      <option value="hi">हिंदी</option>
-      <option value="zh">中文</option>
-      <option value="ar">العربية</option>
-    </select>
-  </div>
-  <script>
-    function translatePage(sel) {
-      const lang = sel.value;
-      const url = `https://translate.google.com/translate?sl=auto&tl=${lang}&u=${window.location.href}`;
-      window.open(url, '_blank');
-    }
-  </script>
-
-  <!-- 🌟 Navbar -->
-  <nav class="flex flex-wrap justify-center space-x-4 mb-6">
-    <a href="index.html" class="text-indigo-700 hover:underline font-semibold px-3 py-2 rounded hover:bg-indigo-50 transition">Home</a>
-    <a href="astrologe.html" class="text-indigo-700 hover:underline font-semibold px-3 py-2 rounded hover:bg-indigo-50 transition">Astrology</a>
-    <a href="library.html" class="text-indigo-700 hover:underline font-semibold px-3 py-2 rounded hover:bg-indigo-50 transition">Library</a>
-  </nav>
-
-  <div class="max-w-4xl mx-auto p-6">
-    <h1 class="text-3xl font-bold text-center text-indigo-700 mb-4">🔭 Sathyadarshana Astrology Dashboard</h1>
-    <p class="text-center text-gray-600 mb-6">Explore planetary wisdom with KP & NASA-based insights — protected and encrypted.</p>
-
-    <!-- 🌍 Birth Details Form -->
-    <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-6" onsubmit="event.preventDefault(); alert('This is a demo! Chart generation not implemented.');">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
-          <label for="fullname" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-          <input id="fullname" class="shadow border rounded w-full py-2 px-3 text-gray-700" type="text" placeholder="Full Name" required>
-        </div>
-        <div>
-          <label for="dob" class="block text-sm font-medium text-gray-700 mb-1">Date of Birth</label>
-          <input id="dob" class="shadow border rounded w-full py-2 px-3 text-gray-700" type="date" required>
-        </div>
-        <div>
-          <label for="tob" class="block text-sm font-medium text-gray-700 mb-1">Time of Birth</label>
-          <input id="tob" class="shadow border rounded w-full py-2 px-3 text-gray-700" type="time" required>
-        </div>
-        <div class="relative">
-          <label for="location" class="block text-sm font-medium text-gray-700 mb-1">Location (City, Country)</label>
-          <input id="location" class="shadow border rounded w-full py-2 px-3 text-gray-700" type="text" placeholder="Colombo, Sri Lanka" oninput="fetchLocationSuggestions(this.value)" autocomplete="off" required>
-          <ul id="suggestions" class="absolute z-10 bg-white border mt-1 w-full rounded shadow max-h-40 overflow-y-auto"></ul>
-        </div>
-        <div>
-          <label for="nid" class="block text-sm font-medium text-gray-700 mb-1">National ID or Passport No.</label>
-          <input id="nid" class="shadow border rounded w-full py-2 px-3 text-gray-700" type="text" placeholder="National ID or Passport No." required>
-        </div>
-        <input type="hidden" id="latitude" name="latitude">
-        <input type="hidden" id="longitude" name="longitude">
-      </div>
-      <button class="mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded" type="submit">
-        Generate Chart
-      </button>
-    </form>
-
-    <!-- 🔮 Insight of the Day -->
-    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-4 rounded">
-      <p class="text-yellow-700 font-medium">Today's Insight:</p>
-      <p class="text-gray-700">Jupiter’s energy favors wisdom. Avoid impulsive actions. Choose inner stillness.</p>
+<!-- 🌍 Birth Details Form -->
+<form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-6" onsubmit="event.preventDefault(); alert('This is a demo! Chart generation not implemented.');">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div>
+      <label for="fullname" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+      <input id="fullname" class="shadow border rounded w-full py-2 px-3 text-gray-700" type="text" placeholder="Full Name" required>
     </div>
-
-    <!-- 📅 Planetary Display -->
-    <div class="bg-white shadow p-4 rounded">
-      <h2 class="text-xl font-semibold text-indigo-600 mb-2">📅 Planetary Positions (Demo)</h2>
-      <ul class="list-disc list-inside text-gray-700">
-        <li>Sun – Gemini</li>
-        <li>Moon – Libra</li>
-        <li>Mercury – Taurus</li>
-        <li>Venus – Cancer</li>
-        <li>Mars – Aries</li>
-        <li>Jupiter – Pisces</li>
-        <li>Saturn – Aquarius</li>
-        <li>Rahu – Pisces</li>
-        <li>Ketu – Virgo</li>
-      </ul>
+    <div>
+      <label for="dob" class="block text-sm font-medium text-gray-700 mb-1">Date of Birth</label>
+      <input id="dob" class="shadow border rounded w-full py-2 px-3 text-gray-700" type="date" required>
     </div>
-
-    <p class="text-center text-xs text-gray-400 mt-6">
-      Secured & Powered by Buddhi • Sathyadarshana Jyotishya Engine <br>
-      All astrological code & data are protected under © 2025 Sathyadarshana Global Spiritual Network.
-    </p>
+    <div>
+      <label for="tob" class="block text-sm font-medium text-gray-700 mb-1">Time of Birth</label>
+      <input id="tob" class="shadow border rounded w-full py-2 px-3 text-gray-700" type="time" required>
+    </div>
+    <div class="relative">
+      <label for="location" class="block text-sm font-medium text-gray-700 mb-1">Location (City, Country)</label>
+      <input id="location" class="shadow border rounded w-full py-2 px-3 text-gray-700" type="text" placeholder="Colombo, Sri Lanka" oninput="fetchLocationSuggestions(this.value)" autocomplete="off" required>
+      <ul id="suggestions" class="absolute z-10 bg-white border mt-1 w-full rounded shadow max-h-40 overflow-y-auto"></ul>
+    </div>
+    <div>
+      <label for="nid" class="block text-sm font-medium text-gray-700 mb-1">National ID or Passport No.</label>
+      <input id="nid" class="shadow border rounded w-full py-2 px-3 text-gray-700" type="text" placeholder="National ID or Passport No." required>
+    </div>
+    <input type="hidden" id="latitude" name="latitude">
+    <input type="hidden" id="longitude" name="longitude">
   </div>
+  <button class="mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded" type="submit">
+    Generate Chart
+  </button>
+</form>
 
-  <footer class="mt-12 text-gray-400 text-sm text-center">
-    &copy; 2025 Sathyadarshana
-  </footer>
+<!-- 🔮 Insight of the Day -->
+<div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-4 rounded">
+  <p class="text-yellow-700 font-medium">Today's Insight:</p>
+  <p class="text-gray-700">Jupiter’s energy favors wisdom. Avoid impulsive actions. Choose inner stillness.</p>
+</div>
 
-  <script>
-    async function fetchLocationSuggestions(query) {
-      const list = document.getElementById('suggestions');
-      list.innerHTML = '';
-      if (!query) return;
-      try {
-        const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}`);
-        const results = await res.json();
-        results.forEach(place => {
-          const li = document.createElement('li');
-          li.textContent = place.display_name;
-          li.className = 'p-2 text-sm cursor-pointer hover:bg-indigo-100';
-          li.onclick = () => {
-            document.getElementById('location').value = place.display_name;
-            document.getElementById('latitude').value = place.lat;
-            document.getElementById('longitude').value = place.lon;
-            list.innerHTML = '';
-          };
-          list.appendChild(li);
-        });
-      } catch (e) {
-        // fail silent
-      }
-    }
-  </script>
-</body>
-</html>
+<!-- 📅 Planetary Display -->
+<div class="bg-white shadow p-4 rounded">
+  <h2 class="text-xl font-semibold text-indigo-600 mb-2">📅 Planetary Positions (Demo)</h2>
+  <ul class="list-disc list-inside text-gray-700">
+    <li>Sun – Gemini</li>
+    <li>Moon – Libra</li>
+    <li>Mercury – Taurus</li>
+    <li>Venus – Cancer</li>
+    <li>Mars – Aries</li>
+    <li>Jupiter – Pisces</li>
+    <li>Saturn – Aquarius</li>
+    <li>Rahu – Pisces</li>
+    <li>Ketu – Virgo</li>
+  </ul>
+</div>
+
+<p class="text-center text-xs text-gray-400 mt-6">
+  Secured & Powered by Buddhi • Sathyadarshana Jyotishya Engine <br>
+  All astrological code & data are protected under © 2025 Sathyadarshana Global Spiritual Network.
+</p>
