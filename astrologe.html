@@ -1,54 +1,119 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sathyadarshana | Astrology Engine</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
-  <script>
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({
-        pageLanguage: 'en',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-      }, 'google_translate_element');
-    }
-  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Astrology Engine | Sathyadarshana</title>
+  <link rel="icon" href="/favicon.ico" />
   <style>
-    .goog-te-banner-frame.skiptranslate,
-    body > .skiptranslate {
-      display: none !important;
-    }
     body {
-      top: 0px !important;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(120deg, #0f172a, #1e293b);
+      color: #f1f5f9;
+    }
+    header {
+      background: #0f172a;
+      padding: 1.5rem;
+      text-align: center;
+      color: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    main {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: rgba(255,255,255,0.05);
+      border-radius: 1rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    input, select, button {
+      width: 100%;
+      padding: 0.7rem;
+      margin: 0.6rem 0;
+      border-radius: 10px;
+      border: none;
+      font-size: 1rem;
+    }
+    .neon-btn {
+      background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 9999px;
+      padding: 0.8rem;
+      cursor: pointer;
+      box-shadow: 0 0 12px #38bdf8, 0 0 24px #0ea5e9;
+      transition: transform 0.2s;
+    }
+    .neon-btn:hover {
+      transform: scale(1.05);
+    }
+    .result-box {
+      margin-top: 2rem;
+      padding: 1rem;
+      background: rgba(255,255,255,0.08);
+      border-radius: 1rem;
+    }
+    #google_translate_element {
+      position: absolute;
+      top: 10px;
+      right: 20px;
     }
   </style>
 </head>
 <body>
-
-  <!-- Floating Language Switch -->
-  <div id="google_translate_element" class="floating-lang-btn"></div>
-
-  <!-- Astrology Section -->
-  <section class="scroll-section">
-    <img src="assets/astrology.jpg" alt="Astrology Insights" class="section-image" />
-    <h2>Astrology & Cosmic Insight</h2>
-    <p>
-      Welcome to the Sathyadarshana Cosmic Engine.<br/>
-      Track live KP astrology charts, planetary sub-lords, NASA-based calculations,<br/>
-      and gain timeless insight into your life's unfolding destiny.<br/>
-      This engine is powered by AI Buddhi and truth-aligned cosmic data.
-    </p>
-  </section>
-
-  <!-- Footer Attribution -->
-  <footer>
-    <p class="footer-text">
-      This creative vision was brought forth by Anuruddha Dilip,<br>
-      designed and realized through ChatGPT AI Buddhi and AI Copilot.<br>
-      As a unified trio, our mission is to serve the universe with serenity, truth, and light.
-    </p>
+  <div id="google_translate_element"></div>
+  <header>
+    <h1>🔭 Astrology Engine</h1>
+    <p>Enter your birth details to receive insights</p>
+  </header>
+  <main>
+    <form id="astroForm">
+      <input type="text" id="name" placeholder="Full Name" required />
+      <input type="date" id="dob" required />
+      <input type="time" id="tob" required />
+      <input type="text" id="place" placeholder="Place of Birth" required />
+      <button type="button" class="neon-btn" onclick="generateAstrology()">🔮 Generate Horoscope</button>
+    </form>
+    <div class="result-box" id="astroResult">
+      <h2>Your Prediction Will Appear Here</h2>
+      <p>Awaiting input...</p>
+    </div>
+  </main>
+  <footer style="text-align:center; padding: 1rem; color: #94a3b8;">
+    © 2025 Sathyadarshana | Astrological Wisdom
   </footer>
-
+  <!-- Google Translate Script -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,si,ta',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+  </script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script>
+    function generateAstrology() {
+      const name = document.getElementById('name').value;
+      const dob = document.getElementById('dob').value;
+      const tob = document.getElementById('tob').value;
+      const place = document.getElementById('place').value;
+      const resultBox = document.getElementById('astroResult');
+      if (!name || !dob || !tob || !place) {
+        resultBox.innerHTML = '<h2>Please fill all fields.</h2>';
+        return;
+      }
+      resultBox.innerHTML = `
+        <h2>🌟 Hello, ${name}</h2>
+        <p><strong>Birth Date:</strong> ${dob}</p>
+        <p><strong>Time of Birth:</strong> ${tob}</p>
+        <p><strong>Place:</strong> ${place}</p>
+        <p>🔭 Analysis: (This is a placeholder. Actual KP/NASA logic will be integrated.)</p>
+        <p>🧠 Powered by Buddhi AI | Cosmic Intelligence</p>
+      `;
+    }
+  </script>
 </body>
 </html>
