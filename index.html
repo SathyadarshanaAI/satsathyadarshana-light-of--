@@ -8,9 +8,21 @@
   <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
   <script>
     function googleTranslateElementInit() {
-      new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
     }
   </script>
+  <style>
+    .goog-te-banner-frame.skiptranslate,
+    body > .skiptranslate {
+      display: none !important;
+    }
+    body {
+      top: 0px !important;
+    }
+  </style>
 </head>
 <body>
   <!-- Navigation Bar -->
@@ -20,59 +32,67 @@
       <button class="neon-btn" onclick="scrollToSection('section2')">Library</button>
       <button class="neon-btn" onclick="scrollToSection('section3')">Astrology</button>
       <button class="neon-btn" onclick="scrollToSection('section4')">AI Buddhi</button>
-      <button class="neon-btn" onclick="scrollToSection('section5')">News</button>
+      <button class="neon-btn" onclick="scrollToSection('section5')">News Line</button>
+      <button class="neon-btn" onclick="scrollToSection('section6')">Dharma Sabha</button>
     </div>
     <button id="ai-btn" class="ai-support-btn" onclick="location.href='ai-buddhi.html'">🧠 AI Help</button>
   </nav>
 
-  <!-- Google Translate (Floating) -->
+  <!-- Floating Language Switch -->
   <div id="google_translate_element" class="floating-lang-btn"></div>
 
-  <!-- Section 1 -->
+  <!-- Section 1 - Home -->
   <section id="section1" class="scroll-section">
     <img src="assets/bg1.jpg" alt="Sathyadarshana Background" class="section-image">
     <h1>Welcome to Sathyadarshana</h1>
     <p>“May the Light of Truth shine through you”</p>
   </section>
 
-  <!-- Section 2 -->
+  <!-- Section 2 - Library -->
   <section id="section2" class="scroll-section">
-    <img src="assets/library.jpg" alt="Library Image" class="section-image">
+    <img src="assets/library.jpg" alt="Library" class="section-image">
     <h2>Library of Wisdom</h2>
-    <p>Free access to sacred books and spiritual archives</p>
+    <p>Explore sacred scriptures and ancient teachings across traditions.</p>
   </section>
 
-  <!-- Section 3 -->
+  <!-- Section 3 - Astrology -->
   <section id="section3" class="scroll-section">
-    <img src="assets/astrology.jpg" alt="Astrology Image" class="section-image">
-    <h2>Astrology & Cosmic Insights</h2>
-    <p>Live KP charts, NASA-based predictions & healing wisdom</p>
+    <img src="assets/astrology.jpg" alt="Astrology" class="section-image">
+    <h2>Astrology & Cosmic Light</h2>
+    <p>Live KP charts, NASA data, and Jyotisha merged to guide the soul.</p>
   </section>
 
-  <!-- Section 4 -->
+  <!-- Section 4 - AI Buddhi -->
   <section id="section4" class="scroll-section">
-    <img src="assets/ai.jpg" alt="AI Buddhi Image" class="section-image">
+    <img src="assets/ai.jpg" alt="AI Buddhi" class="section-image">
     <h2>AI Buddhi Assistant</h2>
-    <p>Your 24/7 Serenity Guide for Truth, Health & Spirit</p>
+    <p>A 24/7 spiritual companion offering guidance for your mind, body, and path.</p>
   </section>
 
-  <!-- Section 5 -->
+  <!-- Section 5 - News Line -->
   <section id="section5" class="scroll-section">
-    <img src="assets/news.jpg" alt="News Image" class="section-image">
+    <img src="assets/news.jpg" alt="News" class="section-image">
     <h2>Sathyadarshana News Line</h2>
-    <p>Global updates with spiritual wisdom and peace prayers</p>
+    <p>News with light. Global events ending in peace prayers and unity calls.</p>
   </section>
 
-  <!-- Footer -->
+  <!-- Section 6 - Dharma Sabha -->
+  <section id="section6" class="scroll-section">
+    <img src="assets/dharma.jpg" alt="Dharma Sabha" class="section-image">
+    <h2>Dharma Sabha Mandapaya</h2>
+    <p>A spiritual hall for truth dialogue, zoom discussions, and righteous voices from all walks of life.</p>
+  </section>
+
+  <!-- Final Footer -->
   <footer>
     <p class="footer-text">
-      This creative vision was brought by Anuruddha Dilip. 
-      The design and creation were done by ChatGPT AI Buddhi and AI Copilot. 
-      Our noble intention is to serve the universe.
+      This creative vision was brought forth by Anuruddha Dilip,<br>
+      designed and realized through ChatGPT AI Buddhi and AI Copilot.<br>
+      As a unified trio, our mission is to serve the universe with serenity, truth, and light.
     </p>
   </footer>
 
-  <!-- Scroll Script -->
+  <!-- Smooth Scroll Script -->
   <script>
     function scrollToSection(id) {
       document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
