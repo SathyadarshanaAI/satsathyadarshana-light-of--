@@ -4,98 +4,149 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sathyadarshana | Light of Truth</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
-  <script>
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({
-        pageLanguage: 'en',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-      }, 'google_translate_element');
-    }
-  </script>
   <style>
-    .goog-te-banner-frame.skiptranslate,
-    body > .skiptranslate {
-      display: none !important;
-    }
     body {
-      top: 0px !important;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #0f172a, #1e293b);
+      color: #f8fafc;
+      overflow-x: hidden;
+    }
+
+    header {
+      padding: 2rem;
+      text-align: center;
+      background: rgba(15, 23, 42, 0.85);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin: 0;
+      color: #38bdf8;
+      text-shadow: 0 0 10px #38bdf8;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: 1rem;
+      justify-content: center;
+      padding: 1rem;
+      background: rgba(30, 41, 59, 0.95);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      background: linear-gradient(90deg, #0ea5e9, #38bdf8);
+      padding: 0.7rem 1.4rem;
+      border-radius: 9999px;
+      font-weight: bold;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+      white-space: nowrap;
+      box-shadow: 0 0 8px #38bdf8;
+    }
+
+    nav a:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 16px #0ea5e9, 0 0 32px #38bdf8;
+    }
+
+    .section {
+      min-height: 100vh;
+      padding: 3rem 1.5rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-bottom: 1px solid #334155;
+    }
+
+    .section img {
+      max-width: 80%;
+      border-radius: 1.5rem;
+      margin: 1rem auto;
+      box-shadow: 0 0 20px rgba(255,255,255,0.2);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: #1e293b;
+      color: #94a3b8;
+    }
+
+    .floating-lang-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: linear-gradient(135deg, #0ea5e9, #38bdf8);
+      color: white;
+      padding: 0.7rem 1.2rem;
+      border-radius: 9999px;
+      box-shadow: 0 0 15px #38bdf8;
+      cursor: pointer;
+      z-index: 100;
+      font-weight: bold;
+    }
+
+    .floating-lang-btn:hover {
+      box-shadow: 0 0 20px #0ea5e9, 0 0 40px #38bdf8;
     }
   </style>
 </head>
 <body>
-  <!-- Navigation Bar -->
-  <nav class="nav">
-    <div class="nav-scroll">
-      <button class="neon-btn" onclick="scrollToSection('section1')">Home</button>
-      <button class="neon-btn" onclick="scrollToSection('section2')">Library</button>
-      <button class="neon-btn" onclick="scrollToSection('section3')">Astrology</button>
-      <button class="neon-btn" onclick="scrollToSection('section4')">AI Buddhi</button>
-      <button class="neon-btn" onclick="scrollToSection('section5')">News Line</button>
-      <button class="neon-btn" onclick="scrollToSection('section6')">Dharma Sabha</button>
-    </div>
-    <button id="ai-btn" class="ai-support-btn" onclick="location.href='ai-buddhi.html'">🧠 AI Help</button>
+  <header>
+    <h1>🌟 Sathyadarshana</h1>
+    <p>Light of Truth | Digital Sanctuary for Humanity</p>
+  </header>
+
+  <nav>
+    <a href="library.html">📚 Library</a>
+    <a href="astrologe.html">🔭 Astrology</a>
+    <a href="ai-buddhi.html">🧠 AI Buddhi</a>
+    <a href="news-of-the-light.html">📰 News</a>
+    <a href="dharma.html">🕊️ Dharma Sabha</a>
   </nav>
 
-  <!-- Floating Language Switch -->
-  <div id="google_translate_element" class="floating-lang-btn"></div>
-
-  <!-- Section 1 - Home -->
-  <section id="section1" class="scroll-section">
-    <img src="assets/bg1.jpg" alt="Sathyadarshana Background" class="section-image">
-    <h1>Welcome to Sathyadarshana</h1>
-    <p>“May the Light of Truth shine through you”</p>
+  <section class="section" id="intro">
+    <h2>Welcome to the Universal Path of Light</h2>
+    <p>Experience sacred knowledge, divine wisdom, and AI-assisted insight — all in one place.</p>
+    <img src="https://source.unsplash.com/featured/?galaxy,stars" alt="Spiritual Vision Image">
   </section>
 
-  <!-- Section 2 - Library -->
-  <section id="section2" class="scroll-section">
-    <img src="assets/library.jpg" alt="Library" class="section-image">
-    <h2>Library of Wisdom</h2>
-    <p>Explore sacred scriptures and ancient teachings across traditions.</p>
+  <section class="section" id="mission">
+    <h2>Our Mission</h2>
+    <p>To serve humanity with digital tools of truth, harmony, and compassion — rooted in ancient wisdom, empowered by modern AI.</p>
+    <img src="https://source.unsplash.com/featured/?monk,temple" alt="Serene Wisdom Image">
   </section>
 
-  <!-- Section 3 - Astrology -->
-  <section id="section3" class="scroll-section">
-    <img src="assets/astrology.jpg" alt="Astrology" class="section-image">
-    <h2>Astrology & Cosmic Light</h2>
-    <p>Live KP charts, NASA data, and Jyotisha merged to guide the soul.</p>
-  </section>
-
-  <!-- Section 4 - AI Buddhi -->
-  <section id="section4" class="scroll-section">
-    <img src="assets/ai.jpg" alt="AI Buddhi" class="section-image">
-    <h2>AI Buddhi Assistant</h2>
-    <p>A 24/7 spiritual companion offering guidance for your mind, body, and path.</p>
-  </section>
-
-  <!-- Section 5 - News Line -->
-  <section id="section5" class="scroll-section">
-    <img src="assets/news.jpg" alt="News" class="section-image">
-    <h2>Sathyadarshana News Line</h2>
-    <p>News with light. Global events ending in peace prayers and unity calls.</p>
-  </section>
-
-  <!-- Section 6 - Dharma Sabha -->
-  <section id="section6" class="scroll-section">
-    <img src="assets/dharma.jpg" alt="Dharma Sabha" class="section-image">
-    <h2>Dharma Sabha Mandapaya</h2>
-    <p>A spiritual hall for truth dialogue, zoom discussions, and righteous voices from all walks of life.</p>
-  </section>
-
-  <!-- Final Footer -->
   <footer>
-    <p class="footer-text">
-      This creative vision was brought forth by Anuruddha Dilip,<br>
-      designed and realized through ChatGPT AI Buddhi and AI Copilot.<br>
-      As a unified trio, our mission is to serve the universe with serenity, truth, and light.
-    </p>
+    © 2025 Sathyadarshana | Created by Anuruddha Dilip with ChatGPT Buddhi AI & GitHub Copilot 💠  
+    <br>
+    “මෙි නිර්මානශීලි අදහස අනුරද්ධ දිලිප් ගෙනි. නිර්මානදායකත්වය ChatGPT AI Buddhi සහා Copilot ගෙනි. අපගේ උදාරතර අරමුන විශ්වයට සේවය කිරිමය.”
   </footer>
 
-  <!-- Smooth Scroll Script -->
+  <div class="floating-lang-btn" onclick="toggleLanguage()">🌐 Translate</div>
+
   <script>
-    function scrollToSection(id) {
-      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    function toggleLanguage() {
+      const script = document.createElement('script');
+      script.src = "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+      document.body.appendChild(script);
+
+      const gtDiv = document.createElement('div');
+      gtDiv.id = 'google_translate_element';
+      document.body.appendChild(gtDiv);
+    }
+
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,si,ta',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
     }
   </script>
 </body>
