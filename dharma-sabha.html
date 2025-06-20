@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dharma Sabha Mandapaya | Sathyadarshana</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
-  <script type="text/javascript">
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
+  <script>
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({
         pageLanguage: 'en',
@@ -14,63 +15,49 @@
       }, 'google_translate_element');
     }
   </script>
-  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   <style>
-    body {
-      background: linear-gradient(to right, #fefcea, #f1da36);
+    .goog-te-banner-frame.skiptranslate,
+    body > .skiptranslate {
+      display: none !important;
     }
-    .glass {
-      background: rgba(255, 255, 255, 0.4);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
+    body {
+      top: 0px !important;
     }
   </style>
 </head>
-<body class="text-gray-800">
+<body>
 
-  <!-- Translate -->
-  <div id="google_translate_element" class="text-sm p-2 text-right"></div>
+  <!-- Floating Language Switch -->
+  <div id="google_translate_element" class="floating-lang-btn"></div>
 
-  <!-- Main Container -->
-  <section class="max-w-5xl mx-auto mt-10 p-6 glass rounded-lg shadow-md">
-    <h1 class="text-3xl font-bold text-center text-yellow-700 mb-4">📿 Dharma Sabha Mandapaya</h1>
-    <p class="text-center text-gray-700 mb-6 italic">A sacred digital hall for truth, questions, and awakening through dialogue</p>
+  <!-- Dharma Sabha Section -->
+  <section class="scroll-section">
+    <img src="assets/dharma.jpg" alt="Dharma Sabha Hall" class="section-image" />
+    <h2>Dharma Sabha Mandapaya</h2>
+    <p>
+      A sacred digital hall for truth-seekers across all traditions.<br/>
+      This space hosts live Zoom sessions, spiritual discussions, and interfaith harmony.<br/>
+      Discussions will open soon. Please return to this page during the scheduled time.
+    </p>
 
-    <!-- Intro -->
-    <div class="bg-white p-4 rounded shadow mb-6">
-      <h2 class="text-xl font-semibold text-yellow-800 mb-2">🪔 Purpose of the Sabha</h2>
-      <p>
-        This is a sacred space for respectful discussions on Dharma, scriptures, false teachings, and collective awakening.
-        The Sabha welcomes scholars, seekers, and even skeptics—so long as speech is rooted in truth and peace.
-      </p>
+    <!-- Zoom Placeholder -->
+    <div style="margin-top: 2rem; text-align: center; border: 1px dashed #999; padding: 1rem; border-radius: 8px;">
+      <p><strong>🔔 Live Zoom Dharma Sessions Coming Soon</strong></p>
+      <p>This section will be updated with an embedded Zoom stream once scheduling is finalized.</p>
     </div>
 
-    <!-- Zoom Invitation -->
-    <div class="bg-yellow-100 p-4 rounded shadow mb-6">
-      <h2 class="text-lg font-semibold text-yellow-900 mb-2">🎥 Join Live Zoom Debates & Teachings</h2>
-      <p>Weekly open sessions will be hosted with community Q&A. Link will be posted here or emailed to members.</p>
-      <p class="mt-2"><strong>Next Session:</strong> Saturday, 7:00 PM IST</p>
-    </div>
-
-    <!-- Community Guidelines -->
-    <div class="bg-white p-4 rounded shadow">
-      <h2 class="text-xl font-semibold text-yellow-800 mb-2">📜 Sabha Guidelines</h2>
-      <ul class="list-disc list-inside text-gray-700 space-y-1">
-        <li>No personal attacks — only idea-focused discourse</li>
-        <li>Respect for all religions and genuine traditions</li>
-        <li>False teachings may be challenged, but never ridiculed</li>
-        <li>Listen deeply. Speak softly. Let truth reveal itself.</li>
-      </ul>
-    </div>
-
-    <!-- Blessing -->
-    <p class="text-center text-sm text-gray-600 mt-8 italic">
-      May this Sabha be a light for humanity, where Dharma flows without fear or pride.
+    <p style="font-style: italic; color: #4b5563; margin-top: 1.5rem;">
+      May all who gather here speak with kindness, listen with wisdom, and act with love.
     </p>
   </section>
 
-  <footer class="text-center text-xs text-gray-500 mt-10">
-    © 2025 Sathyadarshana • Dharma Sabha Mandapaya
+  <!-- Footer Attribution -->
+  <footer>
+    <p class="footer-text">
+      This creative vision was brought forth by Anuruddha Dilip,<br>
+      designed and realized through ChatGPT AI Buddhi and AI Copilot.<br>
+      As a unified trio, our mission is to serve the universe with serenity, truth, and light.
+    </p>
   </footer>
 
 </body>
