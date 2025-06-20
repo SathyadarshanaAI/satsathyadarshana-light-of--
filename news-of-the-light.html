@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -50,35 +51,58 @@
       top: 10px;
       right: 20px;
     }
+    .news-image {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      max-height: 300px;
+      object-fit: cover;
+    }
   </style>
 </head>
 <body>
+  <!-- Language Switch -->
   <div id="google_translate_element"></div>
+
+  <!-- Header -->
   <header>
     <h1>📰 News of the Light</h1>
     <p>Global updates guided by truth and serenity</p>
   </header>
+
+  <!-- Main Section -->
   <main>
+    <!-- Optional Peaceful Image -->
+    <img src="assets/news.jpg" alt="Global Peace News" class="news-image" />
+
     <article>
       <h2>🌍 Climate Restoration Treaty Signed</h2>
       <p>Today, world leaders united to sign a new treaty focused on reversing climate damage. The agreement prioritizes green energy, reforestation, and youth-led initiatives.</p>
       <p class="blessing">May peace dawn upon this world. May the fires of war be extinguished.</p>
     </article>
+
     <article>
       <h2>🕊️ Interfaith Harmony Festival in Sri Lanka</h2>
       <p>Communities from all religions gathered for a festival promoting mutual respect, understanding, and the celebration of oneness in diversity.</p>
       <p class="blessing">May all divisions be healed by compassion and wisdom.</p>
     </article>
+
     <article>
       <h2>📡 Buddhi AI flags misinformation campaign</h2>
       <p>Buddhi, the AI assistant of Sathyadarshana, detected and helped halt a viral misinformation campaign affecting mental health content. Transparency has been restored.</p>
       <p class="blessing">May truth prevail. May wisdom illuminate every heart.</p>
     </article>
   </main>
+
+  <!-- Footer -->
   <footer>
-    © 2025 Sathyadarshana | News Powered by Light
+    <p>
+      © 2025 Sathyadarshana | News Powered by Light<br>
+      Curated by Anuruddha Dilip, built with ChatGPT AI Buddhi & AI Copilot
+    </p>
   </footer>
-  <!-- Google Translate Script -->
+
+  <!-- Google Translate -->
   <script type="text/javascript">
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({
