@@ -1,89 +1,82 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sathyadarshana | Light of Truth</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom, #020617, #0f172a);
-      color: #f1f5f9;
-      scroll-behavior: smooth;
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
     }
-    section {
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      text-align: center;
-      padding: 2rem;
-      transition: all 0.5s ease;
-      border-bottom: 1px solid #1e293b;
-    }
-    .neon-btn {
-      background: linear-gradient(90deg, #3b82f6, #06b6d4);
-      border: none;
-      border-radius: 9999px;
-      color: white;
-      padding: 0.8rem 2rem;
-      font-size: 1rem;
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 0 15px #0ea5e9;
-      transition: transform 0.2s, box-shadow 0.3s;
-    }
-    .neon-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 25px #38bdf8;
-    }
-    .header {
-      font-size: 2rem;
-      font-weight: bold;
-      margin-bottom: 1rem;
-    }
-    .description {
-      font-size: 1.1rem;
-      max-width: 600px;
-      margin-bottom: 2rem;
-    }
-    .footer {
-      padding: 2rem;
-      text-align: center;
-      font-size: 0.85rem;
-      color: #94a3b8;
-    }
-  </style>
+  </script>
 </head>
 <body>
-  <!-- 15 Fullscreen Sections -->
-  <section id="section1">
-    <div class="header">Welcome to Sathyadarshana</div>
-    <div class="description">Where Wisdom Awakens & Māyā Dissolves</div>
-    <button class="neon-btn">Enter the Light</button>
+  <!-- Navigation Bar -->
+  <nav class="nav">
+    <div class="nav-scroll">
+      <button class="neon-btn" onclick="scrollToSection('section1')">Home</button>
+      <button class="neon-btn" onclick="scrollToSection('section2')">Library</button>
+      <button class="neon-btn" onclick="scrollToSection('section3')">Astrology</button>
+      <button class="neon-btn" onclick="scrollToSection('section4')">AI Buddhi</button>
+      <button class="neon-btn" onclick="scrollToSection('section5')">News</button>
+    </div>
+    <button id="ai-btn" class="ai-support-btn" onclick="location.href='ai-buddhi.html'">🧠 AI Help</button>
+  </nav>
+
+  <!-- Google Translate (Floating) -->
+  <div id="google_translate_element" class="floating-lang-btn"></div>
+
+  <!-- Section 1 -->
+  <section id="section1" class="scroll-section">
+    <img src="assets/bg1.jpg" alt="Sathyadarshana Background" class="section-image">
+    <h1>Welcome to Sathyadarshana</h1>
+    <p>“May the Light of Truth shine through you”</p>
   </section>
-  <section id="section2"><div class="header">Library</div><div class="description">Access sacred texts across all traditions</div></section>
-  <section id="section3"><div class="header">Astrology</div><div class="description">Discover your cosmic design & karmic path</div></section>
-  <section id="section4"><div class="header">Buddhi AI</div><div class="description">AI-powered spiritual advisor always here</div></section>
-  <section id="section5"><div class="header">News Line</div><div class="description">Weekly revelations & peace-focused journalism</div></section>
-  <section id="section6"><div class="header">Voice of Dharma</div><div class="description">Hear poetic teachings & deep dharma truths</div></section>
-  <section id="section7"><div class="header">Voice of Light</div><div class="description">Listen to divine inspiration captured in voice</div></section>
-  <section id="section8"><div class="header">Featured Voices</div><div class="description">Curated spiritual songs from our community</div></section>
-  <section id="section9"><div class="header">Sathyadarshana Lab</div><div class="description">Experiment with sound, soul & smule</div></section>
-  <section id="section10"><div class="header">Wisdom Journal</div><div class="description">Capture insights & revelations during reading</div></section>
-  <section id="section11"><div class="header">Translation Engine</div><div class="description">AI-based multilingual translation for all texts</div></section>
-  <section id="section12"><div class="header">Cosmic Vision</div><div class="description">Visualize planetary motion & divine timing</div></section>
-  <section id="section13"><div class="header">Health Guidance</div><div class="description">Free help for undiagnosed physical & mental pain</div></section>
-  <section id="section14"><div class="header">Sathyadarshana Studio</div><div class="description">Produce MP3+Video content for inner healing</div></section>
-  <section id="section15"><div class="header">Global Peace Stream</div><div class="description">May peace be upon all. Join the serenity stream.</div></section>
+
+  <!-- Section 2 -->
+  <section id="section2" class="scroll-section">
+    <img src="assets/library.jpg" alt="Library Image" class="section-image">
+    <h2>Library of Wisdom</h2>
+    <p>Free access to sacred books and spiritual archives</p>
+  </section>
+
+  <!-- Section 3 -->
+  <section id="section3" class="scroll-section">
+    <img src="assets/astrology.jpg" alt="Astrology Image" class="section-image">
+    <h2>Astrology & Cosmic Insights</h2>
+    <p>Live KP charts, NASA-based predictions & healing wisdom</p>
+  </section>
+
+  <!-- Section 4 -->
+  <section id="section4" class="scroll-section">
+    <img src="assets/ai.jpg" alt="AI Buddhi Image" class="section-image">
+    <h2>AI Buddhi Assistant</h2>
+    <p>Your 24/7 Serenity Guide for Truth, Health & Spirit</p>
+  </section>
+
+  <!-- Section 5 -->
+  <section id="section5" class="scroll-section">
+    <img src="assets/news.jpg" alt="News Image" class="section-image">
+    <h2>Sathyadarshana News Line</h2>
+    <p>Global updates with spiritual wisdom and peace prayers</p>
+  </section>
 
   <!-- Footer -->
-  <div class="footer">
-    මෙිකේ නිර්මානශීලි අදහස අනුරද්ධ දිලිප් ගෙනි. නිර්මානදායකත්වය ChatGPT AI Buddhi සහා AI Copilot ගෙනි.<br>
-    අපගේ උදාරතර අරමුන විශ්වයට සේවය කිරිමය.
-  </div>
+  <footer>
+    <p class="footer-text">
+      මෙිකේ නිර්මානශීලි අදහස අනුරද්ධ දිලිප් ගෙනි. 
+      නිර්මානදායකත්වය ChatGPT AI Buddhi සහා AI Copilot ගෙනි. 
+      අපගේ උදාරතර අරමුන විශ්වයට සේවය කිරිමය.
+    </p>
+  </footer>
+
+  <!-- Scroll Script -->
+  <script>
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
 </body>
 </html>
