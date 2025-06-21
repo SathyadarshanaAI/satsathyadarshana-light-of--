@@ -1,50 +1,141 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sathyadarshana Astrology Entry</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Birth Finder | Sathyadarshana Astrology Lab</title>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom, #0f172a, #1e293b);
+      background: linear-gradient(to bottom, #020617, #0f172a);
       color: #f1f5f9;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
+      padding: 1rem;
+    }
+    h1, h2, h3 {
+      text-align: center;
+      color: #60a5fa;
+    }
+    #map {
+      height: 400px;
+      margin: 1rem auto;
+      border-radius: 1rem;
+      max-width: 800px;
+    }
+    .form-group {
+      max-width: 500px;
+      margin: auto;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 0.6rem;
+      margin-top: 0.5rem;
+      border-radius: 0.6rem;
+      border: none;
+    }
+    button {
+      background: #1e40af;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    #summaryBox {
+      margin-top: 2rem;
+      background: #1e293b;
+      padding: 1rem;
+      border-radius: 1rem;
+      display: none;
+    }
+    .coords {
+      text-align: center;
+      margin-top: 1rem;
     }
   </style>
-  <script>
-    // Disable right-click
-    document.addEventListener('contextmenu', e => e.preventDefault());// Disable keyboard shortcuts (Ctrl+S, Ctrl+U, Ctrl+Shift+I, F12)
-document.onkeydown = function(e) {
-  if (e.ctrlKey && (e.key === 's' || e.key === 'u' || e.key === 'c' || e.key === 'x' || e.key === 'v')) {
-    return false;
-  }
-  if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && ['I', 'J'].includes(e.key))) {
-    return false;
-  }
-};
-
-// Disable text selection
-document.addEventListener('selectstart', e => e.preventDefault());
-document.addEventListener('copy', e => {
-  e.preventDefault();
-  alert("🚫 Copy not allowed. Protected by AI Buddhi.");
-});
-
-  </script>
 </head>
 <body>
-  <h1 style="text-align: center; padding: 2rem;">🔭 Explore Your Cosmic Path</h1>
-  <div style="max-width: 800px; margin: auto; padding: 1rem; text-align: center;">
-    <img src="assets/images/astrology-banner.jpg" alt="Astrology Illustration" style="width: 100%; border-radius: 12px;">
-    <p style="margin-top: 1rem; font-size: 1.2rem;">
-      Discover your celestial chart and decode your life's planetary story through our advanced astrology tools.<br/>
-      Powered by NASA data, KP & Vedic astrology methods.
-    </p>
-    <a href="index.html" style="display: inline-block; margin-top: 1rem; background: #0ea5e9; color: white; padding: 0.6rem 1.2rem; border-radius: 8px; text-decoration: none; font-weight: bold;">← Back to Home</a>
+  <h1>🔭 Birth Place Finder</h1>
+  <p style="text-align:center;">Click on the map to select your birth location.</p>
+  <div id="map"></div>
+  <div class="coords">
+    <strong>Latitude:</strong> <span id="lat">Not selected</span> |
+    <strong>Longitude:</strong> <span id="lng">Not selected</span>
   </div>
+
+  <hr style="margin: 2rem 0; border-color: #1e3a8a;" />
+  <h2>⏳ Enter Birth Details</h2>
+
+  <div class="form-group">
+    <label>Full Name:</label>
+    <input type="text" id="fullName" placeholder="e.g., John Doe"/>
+
+    <label>Birth Date:</label>
+    <input type="date" id="birthDate"/>
+
+    <label>Birth Time:</label>
+    <input type="time" id="birthTime"/>
+
+    <label>Country:</label>
+    <select id="birthCountry">
+      <option value="">Select Country</option>
+      <option value="Sri Lanka">Sri Lanka</option>
+      <option value="India">India</option>
+      <option value="USA">USA</option>
+      <option value="UK">UK</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <button onclick="showSummary()">🔮 Generate Summary</button>
+
+    <div id="summaryBox">
+      <h3>🧾 Your Input Summary</h3>
+      <p id="summaryText"></p>
+    </div>
+  </div>
+
+  <script>
+    let map;
+    function initMap() {
+      map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: 7.8731, lng: 80.7718 },
+        zoom: 5,
+      });
+
+      map.addListener("click", (e) => {
+        const lat = e.latLng.lat().toFixed(5);
+        const lng = e.latLng.lng().toFixed(5);
+        document.getElementById("lat").textContent = lat;
+        document.getElementById("lng").textContent = lng;
+      });
+    }
+
+    function showSummary() {
+      const name = document.getElementById("fullName").value;
+      const date = document.getElementById("birthDate").value;
+      const time = document.getElementById("birthTime").value;
+      const country = document.getElementById("birthCountry").value;
+      const lat = document.getElementById("lat").textContent;
+      const lng = document.getElementById("lng").textContent;
+
+      if (!name || !date || !time || !country || lat === "Not selected") {
+        alert("Please complete all fields and select a location on the map.");
+        return;
+      }
+
+      const summary = `
+        👤 Name: ${name}<br>
+        📅 Date of Birth: ${date}<br>
+        ⏰ Time of Birth: ${time}<br>
+        🌍 Country: ${country}<br>
+        🌐 Coordinates: Lat ${lat}, Lng ${lng}
+      `;
+      document.getElementById("summaryText").innerHTML = summary;
+      document.getElementById("summaryBox").style.display = "block";
+    }
+  </script>
+
+  <!-- Google Maps API -->
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap">
+  </script>
 </body>
 </html>
