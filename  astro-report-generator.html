@@ -1,0 +1,87 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generate Astrological Report | Sathyadarshana</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #0f172a, #1e293b);
+      color: #f8fafc;
+      padding: 2rem;
+    }
+    .form-container {
+      background-color: #1e293b;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 15px rgba(0,255,255,0.2);
+      max-width: 600px;
+      margin: auto;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+    input, select {
+      width: 100%;
+      padding: 0.7rem;
+      margin-bottom: 1.2rem;
+      border-radius: 0.5rem;
+      border: none;
+    }
+    button {
+      background: #0ea5e9;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 9999px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 10px #38bdf8;
+    }
+    .warning {
+      font-size: 0.9rem;
+      color: #facc15;
+      margin-top: -1rem;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>🔮 Generate Your Astrological Report</h2>
+    <form id="reportForm">
+      <label for="fullName">Full Name:</label>
+      <input type="text" id="fullName" name="fullName" required><label for="idNumber">NIC / Passport / D.L Number:</label>
+  <input type="text" id="idNumber" name="idNumber" required placeholder="Enter valid official ID">
+  <div class="warning">* Required for identity verification. Encrypted for your safety.</div>
+
+  <label for="birthDate">Birth Date:</label>
+  <input type="date" id="birthDate" name="birthDate" required>
+
+  <label for="birthTime">Birth Time:</label>
+  <input type="time" id="birthTime" name="birthTime" required>
+
+  <label for="birthPlace">Birth Place:</label>
+  <input type="text" id="birthPlace" name="birthPlace" required>
+
+  <label for="gender">Gender:</label>
+  <select id="gender" name="gender">
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+    <option value="other">Other</option>
+  </select>
+
+  <button type="submit">Generate Report</button>
+</form>
+
+  </div>  <script>
+    document.getElementById("reportForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      alert("🧠 Generating secure report...\n\n🔒 Identity encrypted\n🔭 Chart calculation initiated\n📄 PDF + Voice summary coming soon...");
+      // TO DO: integrate backend API, PDF generator, KP logic, encryption
+    });
+  </script></body>
+</html>
