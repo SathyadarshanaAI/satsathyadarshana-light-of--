@@ -1,108 +1,73 @@
-<!DOCTYPE html><html lang="en">
+ <!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sathyadarshana | Light of Truth</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <style>
     body {
-      margin: 0;
+      background: linear-gradient(to bottom, #0f172a, #1e293b);
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom, #020617, #0f172a);
-      color: #f1f5f9;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
-      user-select: none;
+      color: #f8fafc;
     }
-    .navbar {
-      display: flex;
-      overflow-x: auto;
-      white-space: nowrap;
-      background-color: rgba(15, 23, 42, 0.95);
-      padding: 10px;
-      gap: 12px;
-      scrollbar-width: none;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
-    .navbar::-webkit-scrollbar {
-      display: none;
-    }
-    .neon-btn {
-      background: linear-gradient(90deg, #0ea5e9, #38bdf8);
-      color: white;
-      font-weight: bold;
-      padding: 10px 25px;
-      border-radius: 30px;
-      text-decoration: none;
-      box-shadow: 0 0 12px #38bdf8;
-      transition: 0.3s ease;
-      flex-shrink: 0;
-    }
-    .neon-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px #0ea5e9, 0 0 40px #38bdf8;
-    }
-    .section {
-      padding: 3rem 1rem;
-      text-align: center;
-    }
-    .glass-box {
+    .container {
+      max-width: 700px;
+      margin: 3rem auto;
       background: rgba(255, 255, 255, 0.05);
+      padding: 2rem;
       border-radius: 1rem;
       backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      box-shadow: 0 0 15px rgba(14, 165, 233, 0.3);
-      padding: 2rem;
-      margin: 2rem auto;
-      max-width: 700px;
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
     }
-    .logo-title {
-      text-align: center;
-      font-size: 1.8rem;
-      margin-top: 2rem;
-      padding: 1rem 1.5rem;
-      color: gold;
-      font-weight: bold;
-      text-shadow: 0 0 8px #facc15, 0 0 16px #facc15;
-      border: 2px solid gold;
-      border-radius: 2rem;
-      max-width: 90%;
-      margin-left: auto;
-      margin-right: auto;
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(6px);
-      box-shadow: 0 0 20px rgba(234, 179, 8, 0.3);
+    input, select {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border-radius: 0.5rem;
+      border: none;
+      background: #1e293b;
+      color: white;
     }
-    .copyright {
-      text-align: center;
-      margin-top: 40px;
-      font-size: 0.9rem;
-      color: #38bdf8;
+    .btn {
+      background: linear-gradient(90deg, #0ea5e9, #38bdf8);
+      color: white;
+      padding: 0.75rem;
+      width: 100%;
       font-weight: bold;
-      padding-top: 1rem;
-      border-top: 1px solid #334155;
+      border-radius: 9999px;
+      box-shadow: 0 0 10px #38bdf8;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      box-shadow: 0 0 20px #0ea5e9, 0 0 40px #38bdf8;
     }
   </style>
-  <script>
-    document.addEventListener('contextmenu', event => event.preventDefault());
-  </script>
 </head>
-<body>  <div class="logo-title">
-    ✨ Welcome to <strong>SATHYADARSHANA.COM</strong> ✨
-  </div>  <div class="navbar">
-    <a href="index.html" class="neon-btn">🏠 Home</a>
-    <a href="astrologe.html" class="neon-btn">🔮 Astrology</a>
-    <a href="library.html" class="neon-btn">📚 Library</a>
-    <a href="ai-buddhi.html" class="neon-btn">🧠 AI Buddhi</a>
-    <a href="news.html" class="neon-btn">📰 News</a>
-    <a href="dharma-sabha.html" class="neon-btn">⚗️ Dharma Sabha</a>
-  </div>  <section class="section">
-    <h1 style="font-size: 2.5rem; color: #38bdf8;">A Light of Truth Begins Here</h1>
-    <p style="max-width: 600px; margin: 1rem auto;">
-      A sanctuary of spiritual wisdom, astrological insight, and divine awakening. Let your journey begin.
-    </p>
-  </section>  <!-- Section blocks will follow... -->  <div class="copyright notranslate" translate="no">
-    © Creative rights by Anuruddha Dilip. Protected by AI Buddhi & Copilot. Unauthorized use is prohibited.
-  </div></body>
+<body>
+  <div class="container">
+    <h1 class="text-2xl text-center font-bold mb-4">Generate Horoscope</h1>
+    <input type="text" id="fullname" placeholder="Full Name" />
+    <input type="text" id="dob" placeholder="Date of Birth" />
+    <select id="year">
+      <option disabled selected>Select Year</option>
+    </select>
+    <input type="text" id="pob" placeholder="Place of Birth" />
+    <button class="btn">🔮 Generate Horoscope</button>
+  </div>
+  <script>
+    flatpickr("#dob", {
+      dateFormat: "Y-m-d",
+      defaultDate: "2000-01-01",
+      locale: 'si'
+    });const yearSelect = document.getElementById('year');
+for (let y = 1950; y <= 2025; y++) {
+  const opt = document.createElement("option");
+  opt.value = y;
+  opt.innerText = y;
+  yearSelect.appendChild(opt);
+}
+
+  </script>
+</body>
 </html>
