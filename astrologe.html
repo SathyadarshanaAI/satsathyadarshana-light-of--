@@ -2,118 +2,65 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Astrology Engine | Sathyadarshana</title>
-  <link rel="icon" href="/favicon.ico" />
+  <title>Astrology | Sathyadarshana</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(120deg, #0f172a, #1e293b);
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #0f172a, #1e293b);
       color: #f1f5f9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
     }
     header {
-      background: #0f172a;
-      padding: 1.5rem;
-      text-align: center;
-      color: #fff;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    }
-    main {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 1rem;
-      background: rgba(255,255,255,0.05);
-      border-radius: 1rem;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-    }
-    input, select, button {
       width: 100%;
-      padding: 0.7rem;
-      margin: 0.6rem 0;
-      border-radius: 10px;
-      border: none;
-      font-size: 1rem;
+      background-color: #0f172a;
+      padding: 1rem;
+      text-align: center;
     }
-    .neon-btn {
+    header h1 {
+      color: #38bdf8;
+      margin: 0;
+    }
+    .astro-banner {
+      margin-top: 1rem;
+      max-width: 90%;
+      border-radius: 1rem;
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.6);
+    }
+    .content {
+      padding: 2rem;
+      text-align: center;
+    }
+    .btn-back {
+      margin-top: 2rem;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
       background: linear-gradient(90deg, #38bdf8, #0ea5e9);
-      color: white;
-      font-weight: bold;
       border: none;
       border-radius: 9999px;
-      padding: 0.8rem;
+      color: white;
+      font-weight: bold;
       cursor: pointer;
-      box-shadow: 0 0 12px #38bdf8, 0 0 24px #0ea5e9;
-      transition: transform 0.2s;
+      box-shadow: 0 0 15px #0ea5e9;
+      transition: background 0.3s ease;
     }
-    .neon-btn:hover {
-      transform: scale(1.05);
-    }
-    .result-box {
-      margin-top: 2rem;
-      padding: 1rem;
-      background: rgba(255,255,255,0.08);
-      border-radius: 1rem;
-    }
-    #google_translate_element {
-      position: absolute;
-      top: 10px;
-      right: 20px;
+    .btn-back:hover {
+      background: #0284c7;
     }
   </style>
 </head>
 <body>
-  <div id="google_translate_element"></div>
   <header>
-    <h1>🔭 Astrology Engine</h1>
-    <p>Enter your birth details to receive insights</p>
+    <h1>🔭 Explore Your Cosmic Path</h1>
   </header>
-  <main>
-    <form id="astroForm">
-      <input type="text" id="name" placeholder="Full Name" required />
-      <input type="date" id="dob" required />
-      <input type="time" id="tob" required />
-      <input type="text" id="place" placeholder="Place of Birth" required />
-      <button type="button" class="neon-btn" onclick="generateAstrology()">🔮 Generate Horoscope</button>
-    </form>
-    <div class="result-box" id="astroResult">
-      <h2>Your Prediction Will Appear Here</h2>
-      <p>Awaiting input...</p>
-    </div>
-  </main>
-  <footer style="text-align:center; padding: 1rem; color: #94a3b8;">
-    © 2025 Sathyadarshana | Astrological Wisdom
-  </footer>
-  <!-- Google Translate Script -->
-  <script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({
-        pageLanguage: 'en',
-        includedLanguages: 'en,si,ta',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-      }, 'google_translate_element');
-    }
-  </script>
-  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-  <script>
-    function generateAstrology() {
-      const name = document.getElementById('name').value;
-      const dob = document.getElementById('dob').value;
-      const tob = document.getElementById('tob').value;
-      const place = document.getElementById('place').value;
-      const resultBox = document.getElementById('astroResult');
-      if (!name || !dob || !tob || !place) {
-        resultBox.innerHTML = '<h2>Please fill all fields.</h2>';
-        return;
-      }
-      resultBox.innerHTML = `
-        <h2>🌟 Hello, ${name}</h2>
-        <p><strong>Birth Date:</strong> ${dob}</p>
-        <p><strong>Time of Birth:</strong> ${tob}</p>
-        <p><strong>Place:</strong> ${place}</p>
-        <p>🔭 Analysis: (This is a placeholder. Actual KP/NASA logic will be integrated.)</p>
-        <p>🧠 Powered by Buddhi AI | Cosmic Intelligence</p>
-      `;
-    }
-  </script>
+  <img src="/mnt/data/astrologe_page.jpg" alt="Astrology Illustration" class="astro-banner" />
+  <div class="content">
+    <p>Discover your celestial chart and decode your life's planetary story through our advanced astrology tools. Powered by NASA data, KP & Vedic astrology methods.</p>
+    <button class="btn-back" onclick="window.location.href='index.html'">← Back to Home</button>
+  </div>
 </body>
 </html>
