@@ -1,0 +1,50 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sathyadarshana Astrology Entry</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #0f172a, #1e293b);
+      color: #f1f5f9;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+  </style>
+  <script>
+    // Disable right-click
+    document.addEventListener('contextmenu', e => e.preventDefault());// Disable keyboard shortcuts (Ctrl+S, Ctrl+U, Ctrl+Shift+I, F12)
+document.onkeydown = function(e) {
+  if (e.ctrlKey && (e.key === 's' || e.key === 'u' || e.key === 'c' || e.key === 'x' || e.key === 'v')) {
+    return false;
+  }
+  if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && ['I', 'J'].includes(e.key))) {
+    return false;
+  }
+};
+
+// Disable text selection
+document.addEventListener('selectstart', e => e.preventDefault());
+document.addEventListener('copy', e => {
+  e.preventDefault();
+  alert("🚫 Copy not allowed. Protected by AI Buddhi.");
+});
+
+  </script>
+</head>
+<body>
+  <h1 style="text-align: center; padding: 2rem;">🔭 Explore Your Cosmic Path</h1>
+  <div style="max-width: 800px; margin: auto; padding: 1rem; text-align: center;">
+    <img src="assets/images/astrology-banner.jpg" alt="Astrology Illustration" style="width: 100%; border-radius: 12px;">
+    <p style="margin-top: 1rem; font-size: 1.2rem;">
+      Discover your celestial chart and decode your life's planetary story through our advanced astrology tools.<br/>
+      Powered by NASA data, KP & Vedic astrology methods.
+    </p>
+    <a href="index.html" style="display: inline-block; margin-top: 1rem; background: #0ea5e9; color: white; padding: 0.6rem 1.2rem; border-radius: 8px; text-decoration: none; font-weight: bold;">← Back to Home</a>
+  </div>
+</body>
+</html>
