@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sathyadarshana | Astro Report Generator</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #020617, #0f172a);
+      color: #e0f2fe;
+      padding: 2rem;
+      margin: 0;
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: rgba(15, 23, 42, 0.8);
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 20px #0ea5e9;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    input, select {
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      border: none;
+    }
+    .btn {
+      margin-top: 2rem;
+      padding: 0.75rem;
+      width: 100%;
+      background: linear-gradient(to right, #06b6d4, #3b82f6);
+      color: white;
+      border: none;
+      border-radius: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: linear-gradient(to right, #0ea5e9, #2563eb);
+    }
+    .notice {
+      font-size: 0.85rem;
+      color: #facc15;
+      margin-top: 1rem;
+    }
+    footer {
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🔭 Astro Report Generator</h1>
+
+    <label for="name">Full Name:</label>
+    <input type="text" id="name" placeholder="Enter your full name" />
+
+    <label for="id">NIC / Passport / D.L:</label>
+    <input type="text" id="id" placeholder="Enter valid ID number" />
+
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob" />
+
+    <label for="tob">Time of Birth:</label>
+    <input type="time" id="tob" />
+
+    <label for="pob">Place of Birth:</label>
+    <input type="text" id="pob" placeholder="e.g. Colombo, Sri Lanka" />
+
+    <button class="btn" onclick="generateReport()">📝 Generate KP Sub Lord Report</button>
+    <button class="btn" onclick="downloadPDF()">📄 Download Report as PDF</button>
+    <button class="btn" onclick="playVoiceSummary()">🔊 Listen to Voice Summary</button>
+
+    <div class="notice">
+      ⚠️ All details entered here are secured and encrypted. Copying, scraping, or reproducing this system without permission is strictly prohibited. This is a Sathyadarshana Research Protected Property. ©2025
+    </div>
+  </div>
+
+  <footer>
+    Designed by ChatGPT Buddhi & Anuruddha | Sathyadarshana Labs™ 🌙🔐
+  </footer>
+
+  <script>
+    function generateReport() {
+      alert("🔧 KP Sub Lord Report generation is under development with research-grade logic.");
+    }
+
+    function downloadPDF() {
+      alert("📄 PDF export feature will be added with watermark and copy-lock.");
+    }
+
+    function playVoiceSummary() {
+      const msg = new SpeechSynthesisUtterance("This is your astrological voice summary from Sathyadarshana Lab.");
+      msg.lang = 'en-US';
+      window.speechSynthesis.speak(msg);
+    }
+  </script>
+</body>
+</html>
