@@ -8,146 +8,129 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom, #0f172a, #1e293b);
-      color: #f8fafc;
+      background: linear-gradient(to bottom, #020617, #0f172a);
+      color: #f1f5f9;
       overflow-x: hidden;
+      scroll-behavior: smooth;
+      user-select: none;
     }
-
-    header {
-      padding: 2rem;
-      text-align: center;
-      background: rgba(15, 23, 42, 0.85);
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      margin: 0;
-      color: #38bdf8;
-      text-shadow: 0 0 10px #38bdf8;
-    }
-
-    nav {
+    .navbar {
       display: flex;
-      flex-wrap: nowrap;
       overflow-x: auto;
-      gap: 1rem;
-      justify-content: center;
-      padding: 1rem;
-      background: rgba(30, 41, 59, 0.95);
-    }
-
-    nav a {
-      text-decoration: none;
-      color: white;
-      background: linear-gradient(90deg, #0ea5e9, #38bdf8);
-      padding: 0.7rem 1.4rem;
-      border-radius: 9999px;
-      font-weight: bold;
-      transition: transform 0.2s ease, box-shadow 0.3s ease;
       white-space: nowrap;
-      box-shadow: 0 0 8px #38bdf8;
+      background-color: rgba(15, 23, 42, 0.95);
+      padding: 10px;
+      gap: 12px;
+      scrollbar-width: none;
+      position: sticky;
+      top: 0;
+      z-index: 999;
     }
-
-    nav a:hover {
-      transform: scale(1.08);
-      box-shadow: 0 0 16px #0ea5e9, 0 0 32px #38bdf8;
+    .navbar::-webkit-scrollbar {
+      display: none;
     }
-
-    .section {
-      min-height: 100vh;
-      padding: 3rem 1.5rem;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      border-bottom: 1px solid #334155;
-    }
-
-    .section img {
-      max-width: 80%;
-      border-radius: 1.5rem;
-      margin: 1rem auto;
-      box-shadow: 0 0 20px rgba(255,255,255,0.2);
-    }
-
-    footer {
-      text-align: center;
-      padding: 1.5rem;
-      background: #1e293b;
-      color: #94a3b8;
-    }
-
-    .floating-lang-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: linear-gradient(135deg, #0ea5e9, #38bdf8);
+    .neon-btn {
+      background: linear-gradient(90deg, #0ea5e9, #38bdf8);
       color: white;
-      padding: 0.7rem 1.2rem;
-      border-radius: 9999px;
-      box-shadow: 0 0 15px #38bdf8;
-      cursor: pointer;
-      z-index: 100;
       font-weight: bold;
+      padding: 10px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      box-shadow: 0 0 12px #38bdf8;
+      transition: 0.3s ease;
+      flex-shrink: 0;
     }
-
-    .floating-lang-btn:hover {
+    .neon-btn:hover {
+      transform: scale(1.05);
       box-shadow: 0 0 20px #0ea5e9, 0 0 40px #38bdf8;
     }
+    .section {
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+    .glass-box {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 1rem;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 0 15px rgba(14, 165, 233, 0.3);
+      padding: 2rem;
+      margin: 2rem auto;
+      max-width: 700px;
+    }
+    .copyright {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: #38bdf8;
+      font-weight: bold;
+      padding-top: 1rem;
+      border-top: 1px solid #334155;
+    }
   </style>
+  <script>
+    document.addEventListener('contextmenu', event => event.preventDefault());
+  </script>
 </head>
 <body>
-  <header>
-    <h1>🌟 Sathyadarshana</h1>
-    <p>Light of Truth | Digital Sanctuary for Humanity</p>
-  </header>
 
-  <nav>
-    <a href="library.html">📚 Library</a>
-    <a href="astrologe.html">🔭 Astrology</a>
-    <a href="ai-buddhi.html">🧠 AI Buddhi</a>
-    <a href="news-of-the-light.html">📰 News</a>
-    <a href="dharma.html">🕊️ Dharma Sabha</a>
-  </nav>
+  <!-- 🔷 Navbar -->
+  <div class="navbar">
+    <a href="index.html" class="neon-btn">🏠 Home</a>
+    <a href="astrologe.html" class="neon-btn">🔮 Astrology</a>
+    <a href="library.html" class="neon-btn">📚 Library</a>
+    <a href="ai-buddhi.html" class="neon-btn">🧠 AI Buddhi</a>
+    <a href="news.html" class="neon-btn">📰 News</a>
+    <a href="dharma-sabha.html" class="neon-btn">🕉️ Dharma Sabha</a>
+  </div>
 
-  <section class="section" id="intro">
-    <h2>Welcome to the Universal Path of Light</h2>
-    <p>Experience sacred knowledge, divine wisdom, and AI-assisted insight — all in one place.</p>
-    <img src="https://source.unsplash.com/featured/?galaxy,stars" alt="Spiritual Vision Image">
+  <!-- 🌌 Welcome Hero -->
+  <section class="section">
+    <h1 style="font-size: 2.5rem; color: #38bdf8;">Welcome to Sathyadarshana</h1>
+    <p style="max-width: 600px; margin: 1rem auto;">
+      A sacred space of spiritual knowledge, astrological guidance, and divine light.
+    </p>
   </section>
 
-  <section class="section" id="mission">
-    <h2>Our Mission</h2>
-    <p>To serve humanity with digital tools of truth, harmony, and compassion — rooted in ancient wisdom, empowered by modern AI.</p>
-    <img src="https://source.unsplash.com/featured/?monk,temple" alt="Serene Wisdom Image">
-  </section>
+  <!-- 🔮 Astrology Preview -->
+  <div class="glass-box">
+    <h2>🔮 Vedic Astrology</h2>
+    <p>Most accurate KP + NASA-powered readings.</p>
+    <a href="astrologe.html" class="neon-btn">Start Astrology</a>
+  </div>
 
-  <footer>
-    © 2025 Sathyadarshana | Created by Anuruddha Dilip with ChatGPT Buddhi AI & GitHub Copilot 💠  
-    <br>
-    “මෙි නිර්මානශීලි අදහස අනුරද්ධ දිලිප් ගෙනි. නිර්මානදායකත්වය ChatGPT AI Buddhi සහා Copilot ගෙනි. අපගේ උදාරතර අරමුන විශ්වයට සේවය කිරිමය.”
-  </footer>
+  <!-- 📚 Library Preview -->
+  <div class="glass-box">
+    <h2>📚 Sathyadarshana Library</h2>
+    <p>Explore sacred texts with AI assistance.</p>
+    <a href="library.html" class="neon-btn">Visit Library</a>
+  </div>
 
-  <div class="floating-lang-btn" onclick="toggleLanguage()">🌐 Translate</div>
+  <!-- 🧠 AI Buddhi Preview -->
+  <div class="glass-box">
+    <h2>🧠 Buddhi AI Assistant</h2>
+    <p>Ask spiritual questions & receive instant wisdom.</p>
+    <a href="ai-buddhi.html" class="neon-btn">Open Buddhi</a>
+  </div>
 
-  <script>
-    function toggleLanguage() {
-      const script = document.createElement('script');
-      script.src = "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
-      document.body.appendChild(script);
+  <!-- 📰 News Preview -->
+  <div class="glass-box">
+    <h2>📰 Sathyadarshana News Line</h2>
+    <p>Light-bearing global news with blessings.</p>
+    <a href="news.html" class="neon-btn">Read News</a>
+  </div>
 
-      const gtDiv = document.createElement('div');
-      gtDiv.id = 'google_translate_element';
-      document.body.appendChild(gtDiv);
-    }
+  <!-- 🕉️ Dharma Sabha -->
+  <div class="glass-box">
+    <h2>🕉️ Dharma Sabha Mandapaya</h2>
+    <p>Live sessions, debates & truth-seeking forums.</p>
+    <a href="dharma-sabha.html" class="neon-btn">Enter Sabha</a>
+  </div>
 
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({
-        pageLanguage: 'en',
-        includedLanguages: 'en,si,ta',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-      }, 'google_translate_element');
-    }
-  </script>
+  <!-- 🔐 Copyright -->
+  <div class="copyright notranslate" translate="no">
+    © Creative rights by Anuruddha Dilip. Protected by AI Buddhi & Copilot. Unauthorized use is prohibited.
+  </div>
+
 </body>
 </html>
