@@ -1,58 +1,84 @@
-<!-- 🌍 Birth Details Form -->
-<form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-6" onsubmit="event.preventDefault(); alert('This is a demo! Chart generation not implemented.');">
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-    <div>
-      <label for="fullname" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-      <input id="fullname" class="shadow border rounded w-full py-2 px-3 text-gray-700" type="text" placeholder="Full Name" required>
-    </div>
-    <div>
-      <label for="dob" class="block text-sm font-medium text-gray-700 mb-1">Date of Birth</label>
-      <input id="dob" class="shadow border rounded w-full py-2 px-3 text-gray-700" type="date" required>
-    </div>
-    <div>
-      <label for="tob" class="block text-sm font-medium text-gray-700 mb-1">Time of Birth</label>
-      <input id="tob" class="shadow border rounded w-full py-2 px-3 text-gray-700" type="time" required>
-    </div>
-    <div class="relative">
-      <label for="location" class="block text-sm font-medium text-gray-700 mb-1">Location (City, Country)</label>
-      <input id="location" class="shadow border rounded w-full py-2 px-3 text-gray-700" type="text" placeholder="Colombo, Sri Lanka" oninput="fetchLocationSuggestions(this.value)" autocomplete="off" required>
-      <ul id="suggestions" class="absolute z-10 bg-white border mt-1 w-full rounded shadow max-h-40 overflow-y-auto"></ul>
-    </div>
-    <div>
-      <label for="nid" class="block text-sm font-medium text-gray-700 mb-1">National ID or Passport No.</label>
-      <input id="nid" class="shadow border rounded w-full py-2 px-3 text-gray-700" type="text" placeholder="National ID or Passport No." required>
-    </div>
-    <input type="hidden" id="latitude" name="latitude">
-    <input type="hidden" id="longitude" name="longitude">
+.<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sathyadarshana Astrology Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #0f172a, #1e293b);
+      color: #f1f5f9;
+    }
+    header {
+      background: #1e293b;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #38bdf8;
+      border-bottom: 2px solid #38bdf8;
+    }
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid #38bdf8;
+      border-radius: 1rem;
+      padding: 1rem;
+      text-align: center;
+      transition: 0.3s ease;
+    }
+    .card:hover {
+      background: #0ea5e9;
+      color: white;
+      transform: scale(1.05);
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #64748b;
+      margin-bottom: 1rem;
+    }
+    .protection {
+      display: none;
+    }
+  </style>
+  <script>
+    // High-Level Copyright Protection
+    document.addEventListener('contextmenu', event => event.preventDefault());
+    document.onkeydown = function(e) {
+      if (e.ctrlKey && (e.key === 'u' || e.key === 's' || e.key === 'c')) {
+        return false;
+      }
+    };
+    document.addEventListener('copy', (e) => {
+      e.clipboardData.setData('text/plain', 'Copying is disabled on this site.');
+      e.preventDefault();
+    });
+  </script>
+</head>
+<body>
+  <header>Sathyadarshana Astrology Hub</header>
+  <div class="dashboard">
+    <div class="card"><a href="astrology-engine.html">🔭 Full Astrology Engine</a></div>
+    <div class="card"><a href="birth-finder.html">📍 Birth Finder Tool</a></div>
+    <div class="card"><a href="chandrika-3d-vision.html">🌌 Planetary 3D Vision</a></div>
+    <div class="card"><a href="cosmic-vision.html">🪐 Cosmic Vision Analysis</a></div>
   </div>
-  <button class="mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded" type="submit">
-    Generate Chart
-  </button>
-</form>
-
-<!-- 🔮 Insight of the Day -->
-<div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-4 rounded">
-  <p class="text-yellow-700 font-medium">Today's Insight:</p>
-  <p class="text-gray-700">Jupiter’s energy favors wisdom. Avoid impulsive actions. Choose inner stillness.</p>
-</div>
-
-<!-- 📅 Planetary Display -->
-<div class="bg-white shadow p-4 rounded">
-  <h2 class="text-xl font-semibold text-indigo-600 mb-2">📅 Planetary Positions (Demo)</h2>
-  <ul class="list-disc list-inside text-gray-700">
-    <li>Sun – Gemini</li>
-    <li>Moon – Libra</li>
-    <li>Mercury – Taurus</li>
-    <li>Venus – Cancer</li>
-    <li>Mars – Aries</li>
-    <li>Jupiter – Pisces</li>
-    <li>Saturn – Aquarius</li>
-    <li>Rahu – Pisces</li>
-    <li>Ketu – Virgo</li>
-  </ul>
-</div>
-
-<p class="text-center text-xs text-gray-400 mt-6">
-  Secured & Powered by Buddhi • Sathyadarshana Jyotishya Engine <br>
-  All astrological code & data are protected under © 2025 Sathyadarshana Global Spiritual Network.
-</p>
+  <footer>
+    Protected &copy; 2025 Sathyadarshana. All rights reserved. Unauthorized reproduction prohibited.<br/>
+    Created by Anuruddha Dilip & ChatGPT AI Buddhi for global spiritual research.
+  </footer>
+</body>
+</html>
