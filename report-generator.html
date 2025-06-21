@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Astrology Report Generator | Sathyadarshana</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #0f172a, #1e293b);
+      color: #f8fafc;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 2rem;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    form {
+      background: rgba(30, 41, 59, 0.9);
+      padding: 1.5rem;
+      border-radius: 1rem;
+      max-width: 600px;
+      margin: 0 auto;
+      box-shadow: 0 0 15px #38bdf8;
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    input {
+      width: 100%;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      border: none;
+      margin-top: 0.3rem;
+    }
+    button {
+      margin-top: 1.5rem;
+      width: 100%;
+      padding: 0.75rem;
+      background: linear-gradient(90deg, #0ea5e9, #38bdf8);
+      border: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: linear-gradient(90deg, #0284c7, #0ea5e9);
+    }
+    footer {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      color: #cbd5e1;
+    }
+  </style>
+</head>
+<body>
+  <h1>Astrology Report Generator</h1>
+  <form id="astroForm">
+    <label for="fullName">Full Name:</label>
+    <input type="text" id="fullName" required />
+
+    <label for="birthDate">Date of Birth:</label>
+    <input type="date" id="birthDate" required />
+
+    <label for="birthTime">Time of Birth:</label>
+    <input type="time" id="birthTime" required />
+
+    <label for="birthPlace">Place of Birth:</label>
+    <input type="text" id="birthPlace" required />
+
+    <label for="nic">NIC / Passport / D.L Number:</label>
+    <input type="text" id="nic" required />
+
+    <button type="submit">Generate Report</button>
+  </form>
+
+  <footer>
+    © 2025 Sathyadarshana. Protected under high-level copyright & anti-copying policy.
+  </footer>
+
+  <script>
+    document.getElementById("astroForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      alert("📄 Report generation logic will be added here. PDF will be generated.");
+      // Future feature: Generate secured PDF with watermark and AI voice summary.
+    });
+  </script>
+</body>
+</html>
