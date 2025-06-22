@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Palm & Finger Split Scanner | Sathyadarshana Lab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #000;
+      color: #0ff;
+      text-align: center;
+    }
+    h1 {
+      margin-top: 1rem;
+    }
+    video, canvas {
+      margin: 1rem auto;
+      border: 2px solid #0ff;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 400px;
+    }
+    button {
+      background: #0ff;
+      color: #000;
+      font-weight: bold;
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .step-label {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      color: #ff0;
+    }
+  </style>
+</head>
+<body oncontextmenu="return false" onselectstart="return false" onkeydown="return false">
+  <h1>Sathyadarshana: Split Hand Scan</h1>
+
+  <div class="step-label">Step 1: Scan Fingers</div>
+  <video id="video1" autoplay></video><br>
+  <button onclick="capture('fingers')">Capture Fingers</button>
+
+  <div class="step-label">Step 2: Scan Palm</div>
+  <video id="video2" autoplay></video><br>
+  <button onclick="capture('palm')">Capture Palm</button>
+
+  <canvas id="canvas" style="display:none;"></canvas>
+
+  <script>
+    let currentStep = 1;
+
+    async function startCamera(videoId) {
+      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+      const video = document.getElementById(videoId);
+      video.srcObject = stream;
+    }
+
+    function capture(part) {
+      const video = document.getElementById(part === 'fingers' ? 'video1' : 'video2');
+      const canvas = document.getElementById('canvas');
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(video, 0, 0);
+
+      const imageData = canvas.toDataURL('image/png');
+      alert(`${part.toUpperCase()} captured successfully! (AI analysis coming soon)`);
+      // Optional: send imageData to server
+    }
+
+    startCamera('video1');
+    startCamera('video2');
+  </script>
+</body>
+</html>
