@@ -1,0 +1,95 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sub-Lord Calculator | Sathyadarshana Astrology</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #0f172a, #1e293b);
+      color: #f8fafc;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    h1 {
+      margin-bottom: 20px;
+      color: #38bdf8;
+      text-shadow: 1px 1px 4px #000;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 300px;
+      gap: 10px;
+    }
+    input, select, button {
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    button {
+      background: #38bdf8;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #0ea5e9;
+    }
+    #result {
+      margin-top: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #38bdf8;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <h1>KP Sub-Lord Calculator</h1>
+  <form id="subLordForm">
+    <input type="text" placeholder="Name" id="name" required />
+    <input type="date" id="dob" required />
+    <input type="time" id="tob" required />
+    <input type="text" placeholder="Birthplace (City)" id="location" required />
+    <button type="submit">Calculate Sub-Lords</button>
+  </form>
+  <div id="result"></div>  <script>
+    document.getElementById('subLordForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const dob = document.getElementById('dob').value;
+      const tob = document.getElementById('tob').value;
+      const location = document.getElementById('location').value;
+
+      const resultDiv = document.getElementById('result');
+      resultDiv.innerHTML = "Calculating...";
+
+      // Simulated API call — Replace with real planetary engine
+      setTimeout(() => {
+        const simulated = {
+          Sun: 'Leo - Sublord: Venus',
+          Moon: 'Cancer - Sublord: Mercury',
+          Mars: 'Gemini - Sublord: Ketu',
+          Mercury: 'Virgo - Sublord: Saturn',
+          Jupiter: 'Libra - Sublord: Moon',
+        };
+
+        let output = `Sub-Lord Results for ${name} (DOB: ${dob} / ${tob})\n\n`;
+        for (const planet in simulated) {
+          output += `${planet}: ${simulated[planet]}\n`;
+        }
+
+        resultDiv.innerHTML = output;
+      }, 1200);
+    });
+  </script></body>
+</html>
