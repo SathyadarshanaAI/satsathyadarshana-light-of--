@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Sathyadarshana | Light of Truth</title>
   <link rel="icon" href="/assets/sathyadarshana-icon.png"/>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"/>
   <style>
     :root {
       --neon: #00fff7; --alt: #008cff; --bg: #161622;
@@ -30,7 +29,6 @@
       cursor: pointer; font-size: 1em; text-decoration: none;
       display: flex; align-items: center; gap: 0.5em;
     }
-    .neon-btn img { width: 1.5em; height: 1.5em; border-radius: 50%; }
     .neon-btn:hover, .neon-btn:active {
       transform: scale(1.07); box-shadow: 0 0 24px var(--neon), 0 0 36px var(--alt)99;
       background: #101026;
@@ -44,48 +42,342 @@
     }
     .section-title { display: flex; align-items: center; gap: 0.8em; font-size: 1.7em; margin-bottom: 0.5em;}
     .section-title img { width: 2em; height: 2em;}
+    /* Magic Mode Styles */
+    body.magic-mode {
+      background: radial-gradient(circle at 50% 30%, #00fff7 10%, #2c5364 80%, #131b2c 100%);
+      animation: bgMove 15s infinite alternate;
+    }
+    @keyframes bgMove { to { background-position: 100% 100%; } }
+    .floating-orb {
+      position: fixed; border-radius: 50%; pointer-events: none; opacity: 0.17;
+      animation: floatOrb 18s linear infinite alternate;
+      z-index: 0;
+    }
+    @keyframes floatOrb { to { transform: translateY(-120vh) scale(1.2); } }
+    .magic-btn { position: fixed; bottom: 18px; right: 18px; z-index: 99; background: #00fff7; color:#19194a; border-radius:50%; border:none; width:64px; height:64px; font-size:2em; box-shadow:0 0 22px #00fff7, 0 0 44px #008cff33; cursor:pointer;}
+    .wisdom-popup { position:fixed; top:70px; right:30px; background:#282c44f0; color:#fff; border-radius:1em; box-shadow:0 0 22px #00fff7; padding:1em 1.5em; z-index:100; display:none;}
+    .blessing-rain {
+      position: fixed; top: -2em; color: #ffd9fa; opacity: 0.83; z-index: 10;
+      pointer-events: none; user-select: none; animation: blessing-rain-fall linear forwards;
+    }
+    @keyframes blessing-rain-fall { to { transform: translateY(110vh); opacity: 0.2;}}
+    /* Search Bar */
+    .search-bar { display: flex; gap: 0.5em; margin: 1.5em 0 2em 0; justify-content: center;}
+    .search-bar input {
+      font-size: 1.08em; padding: 0.32em 1em; border-radius:1.3em; border:1.5px solid #00fff7bb;
+      outline:none; background:#181b30; color:#fff; transition: border 0.15s;
+      width: 220px; max-width: 66vw;
+    }
+    .search-bar input:focus { border:2px solid #00fff7; background:#19194a;}
+    .search-bar button {
+      background:#00fff7; color:#161622; border:none; border-radius:1.3em;
+      padding:0.33em 1.2em; font-weight:600; font-size:1.05em; cursor:pointer; box-shadow:0 0 10px #00fff7bb;
+    }
+    /* Q&A Wall */
+    .qawall { background:#16182a; border-radius:1em; padding:1em 1.2em; margin-bottom:2em;}
+    .qawall h3 { color:#00fff7; }
+    .qa-list { list-style:none; padding:0; margin:0;}
+    .qa-list li {margin-bottom:1.1em; background:#23253c; padding:0.7em 1em; border-radius:0.7em;}
+    .qa-q { font-weight: 600; color: #00fff7;}
+    .qa-a { color: #fff; margin-top: .2em;}
+    .qa-form {display:flex;gap:0.5em;margin-top:1em;}
+    .qa-form input {flex:1; padding:0.33em 1em;border-radius:1.2em; border:1.2px solid #00fff7;}
+    .qa-form button {background:#00fff7; border:none; border-radius:1.2em; padding:0.3em 1.2em; font-weight:600; cursor:pointer;}
+    /* AI Assistant */
+    .ai-box {background:#15172a;border-radius:1em;padding:1em 1.2em;margin-bottom:2em;}
+    .ai-box h3 {color:#00fff7;}
+    .ai-chat-history {max-height:160px;overflow-y:auto;margin-bottom:0.6em;}
+    .ai-msg {margin-bottom:0.5em;}
+    .ai-user {color:#00fff7;}
+    .ai-bot {color:#fff;}
+    .ai-input-row {display:flex;gap:0.5em;}
+    .ai-input-row input {flex:1;padding:0.32em 1em;border-radius:1.2em; border:1.2px solid #00fff7;}
+    .ai-input-row button {background:#00fff7; border:none; border-radius:1.2em; padding:0.3em 1.2em; font-weight:600; cursor:pointer;}
+    /* Music Player */
+    .musicbox {background:#19214a;border-radius:1.2em; padding:1em 1.2em; margin-bottom:2em;}
+    .musicbox h3 {color:#00fff7;}
+    .music-list {display:flex; flex-wrap:wrap; gap:0.7em;}
+    .music-item {background:#23253c; border-radius:0.7em; padding:0.5em 1em; display:flex;align-items:center;gap:0.7em;}
+    .music-item button {background:#00fff7; border:none; border-radius:50%; width:2.2em; height:2.2em; font-size:1.1em; cursor:pointer;}
+    /* Account Modal */
+    #accountModal {display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:999;background:rgba(14,15,23,0.94);}
+    #accountModal .accbox {max-width:340px;margin:8vh auto 0 auto;background:#23253c;padding:2em 1.5em;border-radius:1.3em;box-shadow:0 0 24px #00fff7;}
+    #accountModal h3 {color:#00fff7;}
+    #accountModal input {width:100%;margin-bottom:0.7em;padding:0.5em;border-radius:0.7em;border:1.2px solid #00fff7;}
+    #accountModal button {width:100%;padding:0.45em 0;font-size:1.1em;background:#00fff7;color:#161622;border:none;border-radius:0.7em;font-weight:600;box-shadow:0 0 10px #00fff7bb;}
+    #accProfile button {margin-bottom:0.7em;}
     @media (max-width: 700px) {
       .navbar-main, .navbar-sub, .main-section { max-width: 99vw;}
       .main-section { padding: 0.5em;}
+      .magic-btn { width:48px; height:48px; font-size:1.3em;}
+      .wisdom-popup { right: 4vw; min-width: 44vw;}
+      #accountModal .accbox {max-width:90vw;}
     }
+    body.magic-mode { cursor: url("https://cur.cursors-4u.net/cursors/cur-9/cur812.cur"), auto; }
   </style>
 </head>
 <body>
-  <!-- Main navigation bar (split in two) -->
+  <!-- Navbars -->
   <nav class="navbar-main" aria-label="Main navigation">
     <a href="#home" class="neon-btn"><img src="/assets/sathyadarshana-icon.png" alt="Home Icon"/>Home</a>
     <a href="#library" class="neon-btn">Library</a>
     <a href="astrology.html" class="neon-btn">Astrology</a>
     <a href="#ai-buddhi" class="neon-btn">AI Buddhi</a>
     <a href="#musiclab" class="neon-btn">Music Lab</a>
+    <a href="#" class="neon-btn" onclick="showAccountModal(event)"><img src="/assets/user-icon.png" style="width:1.3em;height:1.3em;"> Account</a>
   </nav>
   <nav class="navbar-sub" aria-label="Secondary navigation">
     <a href="#newsline" class="neon-btn">News</a>
     <a href="#writers" class="neon-btn">Writers</a>
     <a href="#donate" class="neon-btn">Donate</a>
   </nav>
+
+  <!-- Search Bar -->
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search wisdom, articles, music..."/>
+    <button onclick="searchSite()">Search</button>
+  </div>
+
   <main class="main-section">
+    <!-- Q&A Wall -->
+    <section class="qawall">
+      <h3>Q&A Wall</h3>
+      <ul class="qa-list" id="qaList"></ul>
+      <form class="qa-form" onsubmit="return addQA()">
+        <input type="text" id="qaInput" placeholder="Ask a question..." autocomplete="off"/>
+        <button type="submit">Ask</button>
+      </form>
+    </section>
+    <!-- AI Assistant -->
+    <section class="ai-box">
+      <h3>AI Assistant</h3>
+      <div class="ai-chat-history" id="aiChat"></div>
+      <div class="ai-input-row">
+        <input type="text" id="aiInput" placeholder="Ask anything spiritual..." autocomplete="off"/>
+        <button onclick="aiAsk()">Ask</button>
+      </div>
+    </section>
+    <!-- Music Player -->
+    <section class="musicbox">
+      <h3>Music Player</h3>
+      <div class="music-list" id="musicList"></div>
+      <audio id="audioPlayer" controls style="width:98%;margin-top:1em;display:none;"></audio>
+    </section>
+    <!-- Main Content (keep as before) -->
     <section id="home" class="page-section">
       <img src="/assets/home-bg.jpg" class="img-modern" alt="Welcome"/>
       <div class="section-title"><img src="/assets/sathyadarshana-icon.png" alt="Logo"/> Light of Truth</div>
       <p>Your journey to wisdom and truth begins here...</p>
     </section>
-    <section id="library" class="page-section">
-      <img src="/assets/library-modern.jpg" class="img-modern" alt="Library"/>
-      <div class="section-title"><img src="/assets/library-icon.png" alt="Library Icon"/> Library</div>
-      <p>Explore wisdom of all faiths, beautifully organized.</p>
-    </section>
-    <section id="ai-buddhi" class="page-section">
-      <img src="/assets/ai-modern.jpg" class="img-modern" alt="AI Buddhi"/>
-      <div class="section-title"><img src="/assets/ai-icon.png" alt="AI Icon"/> AI Buddhi</div>
-      <p>Ask, Seek, and Realize with your Spiritual AI Guide.</p>
-    </section>
-    <section id="musiclab" class="page-section">
-      <img src="/assets/music-modern.jpg" class="img-modern" alt="Music Lab"/>
-      <div class="section-title"><img src="/assets/music-icon.png" alt="Music Icon"/> Music Lab</div>
-      <p>Voice of Dharma – Spiritual Songs and Resonance.</p>
-    </section>
-    <!-- ...etc... -->
+    <!-- ... add your other sections ... -->
   </main>
+
+  <!-- Account Modal -->
+  <div id="accountModal">
+    <div class="accbox">
+      <h3>Account</h3>
+      <div id="accForm">
+        <input id="accName" placeholder="Your name">
+        <input id="accEmail" placeholder="Email">
+        <input id="accPass" type="password" placeholder="Password">
+        <button onclick="accountLogin()">Log In / Sign Up</button>
+        <div style="text-align:right;margin-top:0.7em;"><a href="#" onclick="hideAccountModal(event)" style="color:#00fff7;">Cancel</a></div>
+      </div>
+      <div id="accProfile" style="display:none;">
+        <div style="font-size:1.2em;margin-bottom:0.8em;">Welcome, <span id="accUser"></span>!</div>
+        <button onclick="logoutAccount()">Logout</button>
+        <div style="text-align:right;margin-top:0.7em;"><a href="#" onclick="hideAccountModal(event)" style="color:#00fff7;">Close</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Magic Mode Button + Wisdom Popup -->
+  <button class="magic-btn" id="magicBtn" title="Activate Digital Magic ✨">✨</button>
+  <div class="wisdom-popup" id="wisdomPopup"></div>
+  <script>
+    // MAGIC MODE
+    let magicActive = false;
+    const wisdoms = [
+      "May your journey be filled with light! 🌟",
+      "Peace within, peace without.",
+      "Let your mind blossom like the lotus.",
+      "Every breath is a new beginning.",
+      "Be the lamp of truth!",
+      "May blessings rain upon you."
+    ];
+    document.getElementById('magicBtn').onclick = () => {
+      magicActive = !magicActive;
+      document.body.classList.toggle('magic-mode', magicActive);
+      if (magicActive) {
+        playChime();
+        showWisdom();
+        spawnOrbs(8);
+        startBlessingRain();
+      } else {
+        stopMagic();
+      }
+    };
+    function showWisdom() {
+      const pop = document.getElementById('wisdomPopup');
+      pop.textContent = wisdoms[Math.floor(Math.random()*wisdoms.length)];
+      pop.style.display = 'block';
+      setTimeout(()=>pop.style.display='none', 6000);
+    }
+    function spawnOrbs(n) {
+      document.querySelectorAll('.floating-orb').forEach(e=>e.remove());
+      for(let i=0;i<n;i++){
+        let orb=document.createElement('div');
+        orb.className='floating-orb';
+        orb.style.width=orb.style.height=(40+Math.random()*110)+'px';
+        orb.style.left=(Math.random()*92)+'vw';
+        orb.style.bottom=(-20+Math.random()*60)+'vh';
+        orb.style.background='radial-gradient(circle, #00fff7 40%, #fff0 80%)';
+        orb.style.opacity='0.17';
+        orb.style.position='fixed';
+        orb.style.borderRadius='50%';
+        orb.style.zIndex=0;
+        orb.style.pointerEvents='none';
+        orb.style.animation=`floatOrb ${14+Math.random()*10}s linear infinite alternate`;
+        document.body.appendChild(orb);
+      }
+    }
+    function startBlessingRain() {
+      for(let i=0;i<18;i++){
+        setTimeout(()=>rainDrop(), i*250);
+      }
+    }
+    function rainDrop() {
+      let drop = document.createElement('div');
+      const emojis = ['🌸','🪷','☸️','💎','✨'];
+      drop.textContent = emojis[Math.floor(Math.random()*emojis.length)];
+      drop.className = 'blessing-rain';
+      drop.style.left = Math.random()*96+'vw';
+      drop.style.fontSize = (1+Math.random()*2)+'em';
+      drop.style.animationDuration = (4+Math.random()*2)+'s';
+      document.body.appendChild(drop);
+      setTimeout(()=>drop.remove(), 7000);
+    }
+    function playChime() {
+      let audio = new Audio('https://cdn.pixabay.com/audio/2022/12/19/audio_12c0b94e8b.mp3');
+      audio.volume=0.28; audio.play();
+    }
+    function stopMagic() {
+      document.querySelectorAll('.floating-orb,.blessing-rain').forEach(e=>e.remove());
+      document.getElementById('wisdomPopup').style.display = 'none';
+    }
+
+    // SEARCH BAR MOCKUP
+    function searchSite(){
+      let txt = document.getElementById('searchInput').value.trim().toLowerCase();
+      if(txt.length<2){alert('Enter a search keyword!');return;}
+      alert("Searching for: "+txt+"\n(This is a demo. You can connect this to real search.)");
+    }
+
+    // Q&A WALL (Local, Demo)
+    let qaList = [
+      {q:"What is Dharma?",a:"Dharma is the path of truth, virtue, and universal law."},
+      {q:"How to start meditation?",a:"Begin by sitting calmly, focusing on your breath, and letting thoughts pass like clouds."}
+    ];
+    function renderQA(){
+      let out = '';
+      qaList.forEach(item=>{
+        out += `<li><div class="qa-q">Q: ${item.q}</div><div class="qa-a">A: ${item.a}</div></li>`;
+      });
+      document.getElementById('qaList').innerHTML = out;
+    }
+    function addQA(){
+      let inp = document.getElementById('qaInput');
+      let q = inp.value.trim();
+      if(q.length<2) return false;
+      qaList.push({q:q,a:"Awaiting answer by community or admin..."});
+      renderQA();
+      inp.value='';
+      return false;
+    }
+    renderQA();
+
+    // AI ASSISTANT (Mockup)
+    let aiHistory = [];
+    function aiAsk(){
+      let inp = document.getElementById('aiInput');
+      let msg = inp.value.trim();
+      if(msg.length<2) return;
+      aiHistory.push({who:'user',text:msg});
+      renderAI();
+      setTimeout(()=> {
+        aiHistory.push({who:'bot',text:aiBotReply(msg)});
+        renderAI();
+      }, 900);
+      inp.value='';
+    }
+    function aiBotReply(q){
+      // Simple canned responses for demo
+      q = q.toLowerCase();
+      if(q.includes('meditation')) return "Meditation is the practice of calmly focusing your mind.";
+      if(q.includes('dharma')) return "Dharma is the eternal law and the path of righteousness.";
+      if(q.includes('music')) return "You can listen to spiritual music in our Music Lab section!";
+      return "Sorry, I am a demo AI. For advanced help, contact our team!";
+    }
+    function renderAI(){
+      let out = '';
+      aiHistory.forEach(msg=>{
+        out += `<div class="ai-msg"><span class="ai-${msg.who}">${msg.who==='user'?'You':'AI'}:</span> ${msg.text}</div>`;
+      });
+      document.getElementById('aiChat').innerHTML = out;
+      document.getElementById('aiChat').scrollTop = 1e9;
+    }
+
+    // MUSIC PLAYER
+    let tracks = [
+      {title:"Dharma Song 1", file:"/assets/music/song1.mp3"},
+      {title:"Meditation Bell", file:"/assets/music/bell.mp3"},
+      {title:"Peaceful Flute", file:"/assets/music/flute.mp3"}
+    ];
+    function renderMusic(){
+      let out = '';
+      tracks.forEach((t,i)=>{
+        out += `<div class="music-item"><button onclick="playTrack(${i})">&#9658;</button> ${t.title}</div>`;
+      });
+      document.getElementById('musicList').innerHTML = out;
+    }
+    function playTrack(i){
+      let audio = document.getElementById('audioPlayer');
+      audio.src = tracks[i].file;
+      audio.style.display = 'block';
+      audio.play();
+    }
+    renderMusic();
+
+    // ACCOUNT FEATURE
+    function showAccountModal(e){ e.preventDefault(); document.getElementById('accountModal').style.display='block'; }
+    function hideAccountModal(e){ e.preventDefault(); document.getElementById('accountModal').style.display='none'; }
+    function accountLogin(){
+      // DEMO ONLY: Store fake login in localStorage
+      let name = document.getElementById('accName').value.trim();
+      let email = document.getElementById('accEmail').value.trim();
+      let pass = document.getElementById('accPass').value.trim();
+      if(name.length<2||!email.includes('@')||pass.length<2){alert('Fill all fields!');return;}
+      localStorage.setItem('account',JSON.stringify({name,email}));
+      document.getElementById('accUser').innerText = name;
+      document.getElementById('accForm').style.display='none';
+      document.getElementById('accProfile').style.display='block';
+    }
+    function logoutAccount(){
+      localStorage.removeItem('account');
+      document.getElementById('accForm').style.display='block';
+      document.getElementById('accProfile').style.display='none';
+      document.getElementById('accountModal').style.display='none';
+    }
+    // On page load, show profile if logged in
+    window.addEventListener('DOMContentLoaded',()=>{
+      let acc = localStorage.getItem('account');
+      if(acc){
+        let {name} = JSON.parse(acc);
+        document.getElementById('accUser').innerText = name;
+        document.getElementById('accForm').style.display='none';
+        document.getElementById('accProfile').style.display='block';
+      }
+    });
+  </script>
 </body>
 </html>
