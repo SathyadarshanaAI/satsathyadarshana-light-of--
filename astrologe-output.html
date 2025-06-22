@@ -1,0 +1,75 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sathyadarshana | Astrologe Output Final</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #020617, #0f172a);
+      color: #f8fafc;
+      text-align: center;
+      padding: 2rem;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .section {
+      background: rgba(15, 23, 42, 0.8);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin: 1rem auto;
+      max-width: 800px;
+      box-shadow: 0 0 10px #38bdf8;
+    }
+    .btn {
+      background: linear-gradient(to right, #0ea5e9, #38bdf8);
+      color: white;
+      padding: 0.7rem 1.5rem;
+      border-radius: 999px;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+    .btn:hover {
+      background: linear-gradient(to right, #38bdf8, #0ea5e9);
+    }
+    iframe {
+      width: 100%;
+      height: 500px;
+      border: none;
+      border-radius: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>🌠 Astrological Insight Report</h1>
+  <div class="section">
+    <h2>🔮 View Your Full Birth Report</h2>
+    <iframe src="/pdfs/sample-birth-report.pdf"></iframe>
+    <button class="btn" onclick="downloadReport()">📥 Download Report (PDF)</button>
+  </div>  <div class="section">
+    <h2>📊 KP Sub-Lord Analysis</h2>
+    <p>Sub-lord planetary logic and house alignment displayed here.</p>
+    <button class="btn" onclick="window.location.href='kp-sub-lord.html'">View Sub-Lord Calculator</button>
+  </div>  <div class="section">
+    <h2>🧬 Time Twin AI Match</h2>
+    <p>Discover global personality matches with exact birth time.</p>
+    <button class="btn" onclick="window.location.href='time-twin.html'">Find Your Time Twin</button>
+  </div>  <div class="section">
+    <h2>🖐️ Palmistry & Numerology Report</h2>
+    <p>Deep character analysis based on palm lines and birth numbers.</p>
+    <button class="btn" onclick="window.location.href='palm-num-analysis.html'">Explore Now</button>
+  </div>  <div class="section">
+    <h2>🔏 Fingerprint Scanner (Prototype)</h2>
+    <p>Experimental biometric match system via mobile scan.</p>
+    <button class="btn" onclick="window.location.href='finger-scan.html'">Try Finger Scan</button>
+  </div>  <script>
+    function downloadReport() {
+      window.open("/pdfs/sample-birth-report.pdf", "_blank");
+    }
+  </script></body>
+</html>
