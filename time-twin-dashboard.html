@@ -1,0 +1,59 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time Twin Analyzer | Sathyadarshana</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #0f172a, #1e293b);
+      color: #e2e8f0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .neon-box {
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid #38bdf8;
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 0 20px rgba(14, 165, 233, 0.6);
+    }
+    .neon-btn {
+      background: linear-gradient(to right, #0ea5e9, #38bdf8);
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 9999px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .neon-btn:hover {
+      background: #38bdf8;
+    }
+  </style>
+</head>
+<body>
+  <div class="min-h-screen flex flex-col justify-center items-center px-4">
+    <div class="neon-box max-w-xl w-full">
+      <h1 class="text-2xl font-bold mb-4 text-center">🔮 Time Twin Analyzer</h1><form id="twinForm" class="space-y-4">
+    <input type="text" placeholder="Full Name" class="w-full p-2 rounded bg-gray-800 text-white" required>
+    <input type="datetime-local" placeholder="Date & Time of Birth" class="w-full p-2 rounded bg-gray-800 text-white" required>
+    <input type="text" placeholder="Place of Birth" class="w-full p-2 rounded bg-gray-800 text-white" required>
+    <input type="text" placeholder="NIC Number (optional)" class="w-full p-2 rounded bg-gray-800 text-white">
+    <button type="submit" class="neon-btn w-full">Analyze Time Twin</button>
+  </form>
+
+  <div id="results" class="mt-6 hidden">
+    <h2 class="text-xl font-semibold mb-2">🧠 Analysis Result:</h2>
+    <p><strong>Similarity Cluster:</strong> 92.4%</p>
+    <p><strong>Sub-Lord Match:</strong> ✔️</p>
+    <p><strong>Twin Group ID:</strong> #KP_0429_A</p>
+    <p><strong>Suggested Path:</strong> Meditation, Bhava Analysis, Daily Dasa Reflection</p>
+  </div>
+</div>
+
+  </div>  <script>
+    document.getElementById("twinForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      document.getElementById("results").classList.remove("hidden");
+    });
+  </script></body>
+</html>
