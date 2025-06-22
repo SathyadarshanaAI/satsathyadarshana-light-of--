@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Sathyadarshana | Light of Truth</title>
-  <link rel="icon" href="/assets/sathyadarshana-icon.png"/>
+  <title>Home | Sathyadarshana</title>
+  <link rel="icon" href="/assets/logo-round.png"/>
   <style>
     :root {
-      --neon: #00fff7; --alt: #008cff; --bg: #161622;
-      --radius: 16px;
+      --neon: #00fff7; --alt: #008cff; --bg: #161622; --radius: 16px;
     }
     html { scroll-behavior: smooth; }
     body { margin: 0; background: linear-gradient(135deg, #131b2c, #2c5364 80%); color: #f8f8ff; font-family: 'Segoe UI', Arial, sans-serif;}
@@ -16,7 +15,7 @@
       display: flex; justify-content: center; align-items: center;
       gap: 1.4em; background: rgba(30,32,60,0.92);
       box-shadow: 0 2px 15px #00fff733; border-radius: var(--radius);
-      margin: 1em auto 0 auto; padding: 0.7em 1em 0.7em 1em; max-width: 700px;
+      margin: 1em auto 0 auto; padding: 0.7em 1em; max-width: 700px;
       flex-wrap: wrap;
     }
     .navbar-sub { background: rgba(34,38,62,0.85); margin-top: 0.5em; box-shadow: 0 1px 8px #008cff33;}
@@ -42,25 +41,8 @@
     }
     .section-title { display: flex; align-items: center; gap: 0.8em; font-size: 1.7em; margin-bottom: 0.5em;}
     .section-title img { width: 2em; height: 2em;}
-    /* Magic Mode Styles */
-    body.magic-mode {
-      background: radial-gradient(circle at 50% 30%, #00fff7 10%, #2c5364 80%, #131b2c 100%);
-      animation: bgMove 15s infinite alternate;
-    }
-    @keyframes bgMove { to { background-position: 100% 100%; } }
-    .floating-orb {
-      position: fixed; border-radius: 50%; pointer-events: none; opacity: 0.17;
-      animation: floatOrb 18s linear infinite alternate;
-      z-index: 0;
-    }
-    @keyframes floatOrb { to { transform: translateY(-120vh) scale(1.2); } }
     .magic-btn { position: fixed; bottom: 18px; right: 18px; z-index: 99; background: #00fff7; color:#19194a; border-radius:50%; border:none; width:64px; height:64px; font-size:2em; box-shadow:0 0 22px #00fff7, 0 0 44px #008cff33; cursor:pointer;}
     .wisdom-popup { position:fixed; top:70px; right:30px; background:#282c44f0; color:#fff; border-radius:1em; box-shadow:0 0 22px #00fff7; padding:1em 1.5em; z-index:100; display:none;}
-    .blessing-rain {
-      position: fixed; top: -2em; color: #ffd9fa; opacity: 0.83; z-index: 10;
-      pointer-events: none; user-select: none; animation: blessing-rain-fall linear forwards;
-    }
-    @keyframes blessing-rain-fall { to { transform: translateY(110vh); opacity: 0.2;}}
     /* Search Bar */
     .search-bar { display: flex; gap: 0.5em; margin: 1.5em 0 2em 0; justify-content: center;}
     .search-bar input {
@@ -106,68 +88,97 @@
     #accountModal input {width:100%;margin-bottom:0.7em;padding:0.5em;border-radius:0.7em;border:1.2px solid #00fff7;}
     #accountModal button {width:100%;padding:0.45em 0;font-size:1.1em;background:#00fff7;color:#161622;border:none;border-radius:0.7em;font-weight:600;box-shadow:0 0 10px #00fff7bb;}
     #accProfile button {margin-bottom:0.7em;}
+    /* Back to Home */
+    #backHomeBtn {
+      position:fixed;top:20px;left:20px;z-index:1000;
+      background:#00fff7;color:#161622;padding:0.6em 1.4em;
+      border-radius:2em;font-weight:600;text-decoration:none;
+      box-shadow:0 0 18px #00fff7;font-size:1.05em;
+      display:none;
+    }
     @media (max-width: 700px) {
       .navbar-main, .navbar-sub, .main-section { max-width: 99vw;}
       .main-section { padding: 0.5em;}
       .magic-btn { width:48px; height:48px; font-size:1.3em;}
       .wisdom-popup { right: 4vw; min-width: 44vw;}
       #accountModal .accbox {max-width:90vw;}
+      #backHomeBtn { top:10px;left:5px;padding:0.4em 0.8em; font-size:0.97em;}
     }
-    body.magic-mode { cursor: url("https://cur.cursors-4u.net/cursors/cur-9/cur812.cur"), auto; }
   </style>
 </head>
 <body>
+  <!-- Back to Home Button -->
+  <a href="#home" id="backHomeBtn"><span data-i18n="back_home">← Home</span></a>
+
   <!-- Navbars -->
   <nav class="navbar-main" aria-label="Main navigation">
-    <a href="#home" class="neon-btn"><img src="/assets/sathyadarshana-icon.png" alt="Home Icon"/>Home</a>
-    <a href="#library" class="neon-btn">Library</a>
-    <a href="astrology.html" class="neon-btn">Astrology</a>
-    <a href="#ai-buddhi" class="neon-btn">AI Buddhi</a>
-    <a href="#musiclab" class="neon-btn">Music Lab</a>
-    <a href="#" class="neon-btn" onclick="showAccountModal(event)"><img src="/assets/user-icon.png" style="width:1.3em;height:1.3em;"> Account</a>
+    <a href="#home" class="neon-btn">
+      <img src="/assets/logo-round.png" alt="Logo" style="width:2em;height:2em;border-radius:50%;background:#fff;">
+      <span data-i18n="home">Home</span>
+    </a>
+    <a href="#library" class="neon-btn"><span data-i18n="library">Library</span></a>
+    <a href="astrology.html" class="neon-btn"><span data-i18n="astrology">Astrology</span></a>
+    <a href="#ai-buddhi" class="neon-btn"><span data-i18n="ai_buddhi">AI Buddhi</span></a>
+    <a href="#musiclab" class="neon-btn"><span data-i18n="music_lab">Music Lab</span></a>
+    <a href="#" class="neon-btn" onclick="showAccountModal(event)">
+      <img src="/assets/user-icon.png" style="width:1.3em;height:1.3em;">
+      <span data-i18n="account">Account</span>
+    </a>
+    <!-- Language Switcher -->
+    <a href="#" class="neon-btn" onclick="showLangMenu(event)">
+      🌐 <span data-i18n="language">Language</span>
+    </a>
+    <div id="langMenu" style="display:none;position:fixed;top:66px;right:24px;z-index:1200;
+      background:#23253c;border-radius:1em;box-shadow:0 0 18px #00fff7;padding:0.5em 1em;">
+      <button onclick="setLang('si')" style="background:none;border:none;color:#00fff7;font-size:1em;cursor:pointer;">සිංහල</button><br>
+      <button onclick="setLang('en')" style="background:none;border:none;color:#00fff7;font-size:1em;cursor:pointer;">English</button>
+    </div>
   </nav>
   <nav class="navbar-sub" aria-label="Secondary navigation">
-    <a href="#newsline" class="neon-btn">News</a>
-    <a href="#writers" class="neon-btn">Writers</a>
-    <a href="#donate" class="neon-btn">Donate</a>
+    <a href="#newsline" class="neon-btn"><span data-i18n="news">News</span></a>
+    <a href="#writers" class="neon-btn"><span data-i18n="writers">Writers</span></a>
+    <a href="#donate" class="neon-btn"><span data-i18n="donate">Donate</span></a>
   </nav>
 
   <!-- Search Bar -->
   <div class="search-bar">
-    <input type="text" id="searchInput" placeholder="Search wisdom, articles, music..."/>
-    <button onclick="searchSite()">Search</button>
+    <input type="text" id="searchInput" data-i18n-ph="search_placeholder" placeholder="Search wisdom, articles, music..."/>
+    <button onclick="searchSite()"><span data-i18n="ask">Ask</span></button>
   </div>
 
   <main class="main-section">
     <!-- Q&A Wall -->
     <section class="qawall">
-      <h3>Q&A Wall</h3>
+      <h3 data-i18n="qawall">Q&A Wall</h3>
       <ul class="qa-list" id="qaList"></ul>
       <form class="qa-form" onsubmit="return addQA()">
         <input type="text" id="qaInput" placeholder="Ask a question..." autocomplete="off"/>
-        <button type="submit">Ask</button>
+        <button type="submit" data-i18n="ask">Ask</button>
       </form>
     </section>
     <!-- AI Assistant -->
     <section class="ai-box">
-      <h3>AI Assistant</h3>
+      <h3 data-i18n="aibot">AI Assistant</h3>
       <div class="ai-chat-history" id="aiChat"></div>
       <div class="ai-input-row">
         <input type="text" id="aiInput" placeholder="Ask anything spiritual..." autocomplete="off"/>
-        <button onclick="aiAsk()">Ask</button>
+        <button onclick="aiAsk()" data-i18n="ask">Ask</button>
       </div>
     </section>
     <!-- Music Player -->
     <section class="musicbox">
-      <h3>Music Player</h3>
+      <h3 data-i18n="musicplayer">Music Player</h3>
       <div class="music-list" id="musicList"></div>
       <audio id="audioPlayer" controls style="width:98%;margin-top:1em;display:none;"></audio>
     </section>
     <!-- Main Content (keep as before) -->
     <section id="home" class="page-section">
       <img src="/assets/home-bg.jpg" class="img-modern" alt="Welcome"/>
-      <div class="section-title"><img src="/assets/sathyadarshana-icon.png" alt="Logo"/> Light of Truth</div>
-      <p>Your journey to wisdom and truth begins here...</p>
+      <div class="section-title">
+        <img src="/assets/logo-round.png" alt="Logo"/>
+        <span data-i18n="home">Home</span>
+      </div>
+      <p data-i18n="welcome">Your journey to wisdom and truth begins here...</p>
     </section>
     <!-- ... add your other sections ... -->
   </main>
@@ -175,18 +186,20 @@
   <!-- Account Modal -->
   <div id="accountModal">
     <div class="accbox">
-      <h3>Account</h3>
+      <h3 data-i18n="account">Account</h3>
       <div id="accForm">
         <input id="accName" placeholder="Your name">
         <input id="accEmail" placeholder="Email">
         <input id="accPass" type="password" placeholder="Password">
-        <button onclick="accountLogin()">Log In / Sign Up</button>
-        <div style="text-align:right;margin-top:0.7em;"><a href="#" onclick="hideAccountModal(event)" style="color:#00fff7;">Cancel</a></div>
+        <button onclick="accountLogin()" data-i18n="login_signup">Log In / Sign Up</button>
+        <div style="text-align:right;margin-top:0.7em;"><a href="#" onclick="hideAccountModal(event)" style="color:#00fff7;" data-i18n="close">Close</a></div>
       </div>
       <div id="accProfile" style="display:none;">
-        <div style="font-size:1.2em;margin-bottom:0.8em;">Welcome, <span id="accUser"></span>!</div>
-        <button onclick="logoutAccount()">Logout</button>
-        <div style="text-align:right;margin-top:0.7em;"><a href="#" onclick="hideAccountModal(event)" style="color:#00fff7;">Close</a></div>
+        <div style="font-size:1.2em;margin-bottom:0.8em;">
+          <span data-i18n="welcome">Welcome</span>, <span id="accUser"></span>!
+        </div>
+        <button onclick="logoutAccount()" data-i18n="logout">Logout</button>
+        <div style="text-align:right;margin-top:0.7em;"><a href="#" onclick="hideAccountModal(event)" style="color:#00fff7;" data-i18n="close">Close</a></div>
       </div>
     </div>
   </div>
@@ -194,6 +207,101 @@
   <!-- Magic Mode Button + Wisdom Popup -->
   <button class="magic-btn" id="magicBtn" title="Activate Digital Magic ✨">✨</button>
   <div class="wisdom-popup" id="wisdomPopup"></div>
+
+  <!-- i18n Translations and Logic -->
+  <script>
+const translations = {
+  en: {
+    home: "Home",
+    library: "Library",
+    astrology: "Astrology",
+    ai_buddhi: "AI Buddhi",
+    music_lab: "Music Lab",
+    news: "News",
+    writers: "Writers",
+    donate: "Donate",
+    search_placeholder: "Search wisdom, articles, music...",
+    welcome: "Your journey to wisdom and truth begins here...",
+    qawall: "Q&A Wall",
+    aibot: "AI Assistant",
+    musicplayer: "Music Player",
+    account: "Account",
+    back_home: "← Home",
+    language: "Language",
+    ask: "Ask",
+    login_signup: "Log In / Sign Up",
+    logout: "Logout",
+    close: "Close",
+  },
+  si: {
+    home: "මුල් පිටුව",
+    library: "පුස්තකාලය",
+    astrology: "ජ්‍යොතිෂය",
+    ai_buddhi: "AI බුද්ධිය",
+    music_lab: "සංගීත ශාලාව",
+    news: "ප්‍රවෘත්ති",
+    writers: "ලේඛකයෝ",
+    donate: "පරිත්යාග කරන්න",
+    search_placeholder: "දැනුම, ලිපි, සංගීතය සොයන්න...",
+    welcome: "ඔබේ දැනුම හා සත්‍යය සෙවීම මෙහි ආරම්භ වේ...",
+    qawall: "ප්‍රශ්න සහ පිළිතුරු බිත්ති",
+    aibot: "AI උපදේශකයා",
+    musicplayer: "සංගීත වාදකයා",
+    account: "ගිණුම",
+    back_home: "← මුල් පිටුව",
+    language: "භාෂාව",
+    ask: "අසන්න",
+    login_signup: "පිවිසෙන්න/ලියාපදිංචි වන්න",
+    logout: "පිටවීම",
+    close: "වසන්න",
+  }
+};
+let currentLang = localStorage.getItem("lang") || "en";
+function t(key) {
+  return (translations[currentLang] && translations[currentLang][key]) || translations.en[key] || key;
+}
+function showLangMenu(e){
+  e.preventDefault();
+  let m = document.getElementById('langMenu');
+  m.style.display = (m.style.display=='block'?'none':'block');
+  setTimeout(()=>{document.body.addEventListener('click', langMenuHide, {once:true});}, 100);
+}
+function langMenuHide(){ document.getElementById('langMenu').style.display='none'; }
+function setLang(l){
+  currentLang = l; localStorage.setItem("lang",l);
+  applyTranslations();
+  document.getElementById('langMenu').style.display='none';
+}
+function applyTranslations(){
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    let key=el.getAttribute('data-i18n');
+    el.textContent = t(key);
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el=>{
+    let key=el.getAttribute('data-i18n-ph');
+    el.setAttribute('placeholder', t(key));
+  });
+  document.title = t("home")+" | Sathyadarshana";
+}
+window.addEventListener('DOMContentLoaded',()=>{
+  // Auto-detect browser language (first visit)
+  if(!localStorage.getItem("lang")){
+    let lang = (navigator.language||"").toLowerCase();
+    if(lang.startsWith("si")) setLang("si");
+    else setLang("en");
+  } else {
+    applyTranslations();
+  }
+});
+// Back to home button logic
+function showBackHomeBtn(){
+  let h = window.location.hash;
+  document.getElementById('backHomeBtn').style.display = (h && h!="#home" && h!="" ? "block":"none");
+}
+window.addEventListener('hashchange', showBackHomeBtn);
+window.addEventListener('DOMContentLoaded', showBackHomeBtn);
+  </script>
+  <!-- Main Logic (Magic Mode, QA, AI, Music, Account) -->
   <script>
     // MAGIC MODE
     let magicActive = false;
@@ -269,8 +377,8 @@
     // SEARCH BAR MOCKUP
     function searchSite(){
       let txt = document.getElementById('searchInput').value.trim().toLowerCase();
-      if(txt.length<2){alert('Enter a search keyword!');return;}
-      alert("Searching for: "+txt+"\n(This is a demo. You can connect this to real search.)");
+      if(txt.length<2){alert(t('search_placeholder'));return;}
+      alert(t("ask")+": "+txt+"\n(This is a demo. You can connect this to real search.)");
     }
 
     // Q&A WALL (Local, Demo)
