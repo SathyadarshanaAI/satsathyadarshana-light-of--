@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aura Scanner | Sathyadarshana Lab</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #020617, #0f172a);
+      font-family: 'Segoe UI', sans-serif;
+      color: #f8fafc;
+      text-align: center;
+    }
+    h1 {
+      margin-top: 2rem;
+      font-size: 2rem;
+      color: #38bdf8;
+    }
+    video, canvas {
+      margin-top: 1rem;
+      border-radius: 12px;
+      max-width: 90%;
+    }
+    .neon {
+      color: #0ff;
+      text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+    }
+  </style>
+  <script>
+    // 🔒 Disable right-click
+    document.addEventListener('contextmenu', e => e.preventDefault());
+
+    // 🔒 Disable shortcut keys
+    document.onkeydown = function(e) {
+      if (e.ctrlKey && ['u','s','c','v'].includes(e.key.toLowerCase()) || e.key === 'F12') {
+        return false;
+      }
+    };
+  </script>
+</head>
+<body>
+  <h1 class="neon">Aura Energy Scanner</h1>
+  <video id="video" autoplay playsinline width="300" height="220"></video>
+  <canvas id="canvas" width="300" height="220" style="display:none;"></canvas>
+  <p>Place your face gently in front of your camera.<br/>Scanning aura field...</p>
+
+  <script>
+    const video = document.getElementById('video');
+    const canvas = document.getElementById('canvas');
+    const context = canvas.getContext('2d');
+
+    // Start camera
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then(stream => video.srcObject = stream)
+      .catch(err => alert("Camera access denied or unavailable."));
+
+    // Basic aura simulation
+    setInterval(() => {
+      context.drawImage(video, 0, 0, canvas.width, canvas.height);
+      // In real version: AI analysis from canvas image here
+    }, 1000);
+  </script>
+
+  <!-- 🔒 Legal copyright footer -->
+  <footer style="margin-top: 2rem; font-size: 0.8rem;">
+    <p>© 2025 Sathyadarshana Research AI Project. All rights reserved. Unauthorized duplication is strictly prohibited.</p>
+  </footer>
+</body>
+</html>
