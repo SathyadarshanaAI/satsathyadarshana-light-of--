@@ -131,7 +131,8 @@
     <div id="langMenu" style="display:none;position:fixed;top:66px;right:24px;z-index:1200;
       background:#23253c;border-radius:1em;box-shadow:0 0 18px #00fff7;padding:0.5em 1em;">
       <button onclick="setLang('si')" style="background:none;border:none;color:#00fff7;font-size:1em;cursor:pointer;">සිංහල</button><br>
-      <button onclick="setLang('en')" style="background:none;border:none;color:#00fff7;font-size:1em;cursor:pointer;">English</button>
+      <button onclick="setLang('en')" style="background:none;border:none;color:#00fff7;font-size:1em;cursor:pointer;">English</button><br>
+      <button onclick="setLang('ta')" style="background:none;border:none;color:#00fff7;font-size:1em;cursor:pointer;">தமிழ்</button>
     </div>
   </nav>
   <nav class="navbar-sub" aria-label="Secondary navigation">
@@ -254,6 +255,28 @@ const translations = {
     login_signup: "පිවිසෙන්න/ලියාපදිංචි වන්න",
     logout: "පිටවීම",
     close: "වසන්න",
+  },
+  ta: {
+    home: "முகப்பு",
+    library: "நூலகம்",
+    astrology: "ஜோதிடம்",
+    ai_buddhi: "ஏஐ புத்தி",
+    music_lab: "இசை ஆய்வகம்",
+    news: "செய்திகள்",
+    writers: "எழுத்தாளர்கள்",
+    donate: "தொகு",
+    search_placeholder: "அறிவு, கட்டுரைகள், இசை தேடுங்கள்...",
+    welcome: "உங்கள் ஞான மற்றும் உண்மை பயணம் இங்கே துவங்குகிறது...",
+    qawall: "கேள்வி & பதில் சுவர்",
+    aibot: "ஏஐ உதவியாளர்",
+    musicplayer: "இசை இயங்கு",
+    account: "கணக்கு",
+    back_home: "← முகப்பு",
+    language: "மொழி",
+    ask: "கேளுங்கள்",
+    login_signup: "உள்நுழைய/பதிவு செய்ய",
+    logout: "வெளியேறு",
+    close: "மூடு"
   }
 };
 let currentLang = localStorage.getItem("lang") || "en";
@@ -288,6 +311,7 @@ window.addEventListener('DOMContentLoaded',()=>{
   if(!localStorage.getItem("lang")){
     let lang = (navigator.language||"").toLowerCase();
     if(lang.startsWith("si")) setLang("si");
+    else if(lang.startsWith("ta")) setLang("ta");
     else setLang("en");
   } else {
     applyTranslations();
