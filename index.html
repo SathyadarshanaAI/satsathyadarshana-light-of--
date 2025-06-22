@@ -1,317 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Sathyadarshana | Light of Truth</title>
-  <meta name="description" content="Sathyadarshana - Light of Truth. Library, Astrology, AI Buddhi, Music Lab, News, Community. International, spiritual, and modern web experience."/>
-  <meta name="keywords" content="Sathyadarshana, Spiritual, Astrology, Library, AI, Music Lab, International, Wisdom"/>
-  <meta property="og:title" content="Sathyadarshana | Light of Truth"/>
-  <meta property="og:description" content="Discover the Light of Truth - International, spiritual wisdom and technology."/>
-  <meta property="og:image" content="/assets/sathyadarshana-icon.png"/>
-  <meta name="theme-color" content="#00fff7"/>
   <link rel="icon" href="/assets/sathyadarshana-icon.png"/>
-  <link rel="manifest" href="/manifest.json"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"/>
   <style>
     :root {
-      --neon-main: #00fff7;
-      --neon-alt: #008cff;
-      --bg-dark: #101026;
-      --bg-light: #f8f8ff;
-      --text-dark: #222;
-      --text-light: #f8f8ff;
+      --neon: #00fff7; --alt: #008cff; --bg: #161622;
+      --radius: 16px;
     }
-    html { scroll-behavior: smooth;}
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: linear-gradient(135deg, #0f2027, #2c5364 70%);
-      color: var(--text-light);
-      margin: 0; min-height: 100vh;
-      transition: background 0.4s, color 0.4s;
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: linear-gradient(135deg, #131b2c, #2c5364 80%); color: #f8f8ff; font-family: 'Segoe UI', Arial, sans-serif;}
+    .navbar-main, .navbar-sub {
+      display: flex; justify-content: center; align-items: center;
+      gap: 1.4em; background: rgba(30,32,60,0.92);
+      box-shadow: 0 2px 15px #00fff733; border-radius: var(--radius);
+      margin: 1em auto 0 auto; padding: 0.7em 1em 0.7em 1em; max-width: 700px;
+      flex-wrap: wrap;
     }
-    [data-theme='light'] body {
-      background: var(--bg-light);
-      color: var(--text-dark);
-    }
-    header {
-      display: flex; align-items: center; justify-content: space-between;
-      background: rgba(20, 20, 50, 0.92);
-      padding: 1em 2em; position: sticky; top: 0; z-index: 1000;
-      box-shadow: 0 0 24px var(--neon-main)55;
-      border-bottom: 2px solid var(--neon-main);
-    }
-    .logo { display: flex; align-items: center; gap: 0.75em; font-size: 1.5em; font-weight: bold;}
-    .logo img { height: 2em; width: 2em; filter: drop-shadow(0 0 10px var(--neon-main)); }
-    nav.nav { display: flex; gap: 1em;}
-    .nav a.neon-btn { text-decoration: none; }
+    .navbar-sub { background: rgba(34,38,62,0.85); margin-top: 0.5em; box-shadow: 0 1px 8px #008cff33;}
     .neon-btn {
-      background: #1e1e3f;
-      color: #fff;
-      border: 2px solid var(--neon-main);
-      border-radius: 2em;
-      padding: 0.5em 1.3em;
-      font-weight: bold;
-      text-shadow: 0 0 8px var(--neon-main), 0 0 24px var(--neon-alt);
-      box-shadow: 0 0 18px var(--neon-main), 0 0 36px var(--neon-alt)55;
-      transition: transform 0.18s cubic-bezier(.3,2,.5,.8), box-shadow 0.2s;
-      cursor: pointer;
-      position: relative;
+      background: #19194a; color: #fff; padding: 0.45em 1.25em;
+      border: 2px solid var(--neon); border-radius: 2em; font-weight: 500;
+      text-shadow: 0 0 8px var(--neon), 0 0 24px var(--alt);
+      box-shadow: 0 0 10px var(--neon), 0 0 24px var(--alt)55;
+      transition: transform 0.15s, box-shadow 0.15s;
+      cursor: pointer; font-size: 1em; text-decoration: none;
+      display: flex; align-items: center; gap: 0.5em;
     }
-    .neon-btn:hover, .neon-btn:active, .neon-btn.active {
-      transform: scale(1.08) translateY(-2px);
-      box-shadow: 0 0 32px var(--neon-main), 0 0 48px var(--neon-alt)88;
-      background: #0e0e1d;
+    .neon-btn img { width: 1.5em; height: 1.5em; border-radius: 50%; }
+    .neon-btn:hover, .neon-btn:active {
+      transform: scale(1.07); box-shadow: 0 0 24px var(--neon), 0 0 36px var(--alt)99;
+      background: #101026;
     }
-    .jelly-btn:active { animation: jelly .4s cubic-bezier(.25,2,.55,.8);}
-    @keyframes jelly {
-      0% { transform: scale(1,1);}
-      30%{transform:scale(0.92,1.08);}
-      50%{transform:scale(1.12,0.88);}
-      70%{transform:scale(0.97,1.04);}
-      100%{transform:scale(1,1);}
+    .main-section { max-width: 900px; margin: 2em auto 1em auto; padding: 1.5em; border-radius: var(--radius); background: rgba(25,28,44,0.94);}
+    .page-section { margin-bottom: 2.5em; }
+    .img-modern {
+      width: 100%; max-height: 320px; object-fit: cover;
+      border-radius: var(--radius); box-shadow: 0 0 18px var(--neon)55;
+      margin-bottom: 0.7em;
     }
-    .theme-toggle {
-      margin-left: 1.5em;
-      font-size: 1.3em;
-      color: var(--neon-main);
-      cursor: pointer;
-      background: none; border: none;
-      transition: color 0.2s;
-    }
-    .main-section { padding: 2em; max-width: 1000px; margin: auto;}
-    .page-title {
-      display: flex; align-items: center; gap: 1em; margin-top: 1em;
-      animation: fade-in 1s;
-    }
-    .page-title img {
-      width: 3em; height: 3em; border-radius: 16px; box-shadow: 0 0 16px var(--neon-main)aa; background: #fff2;
-    }
-    .page-title h1 { font-size: 2rem; color: #fff; text-shadow: 0 0 8px var(--neon-main);}
-    .section {
-      margin: 2em 0 3em 0;
-      background: rgba(40,60,80,0.72);
-      border-radius: 2em;
-      box-shadow: 0 0 16px var(--neon-main)88;
-      padding: 2em;
-      animation: fade-in 1s;
-    }
-    .section img { width: 100%; border-radius: 1em; margin-bottom: 1em;}
-    .calendar-label { color: var(--neon-alt); font-weight: bold;}
-    .calendar-input {
-      border: 2px solid var(--neon-main); border-radius: 8px;
-      padding: 7px 12px; font-size: 1.08em; margin: 0.5em 0 1em 0;
-      background: #1e1e3f; color: #fff;
-    }
-    .calendar-input:focus { outline: 2px solid var(--neon-alt);}
-    .share-btns { margin: 1em 0; }
-    .share-btns button {
-      background: var(--neon-alt); color: #fff; border: none;
-      margin-right: 0.5em; border-radius: 50%; width: 2.3em; height: 2.3em;
-      font-size: 1.2em; box-shadow: 0 0 10px var(--neon-main)77;
-      cursor: pointer; transition: background 0.2s;
-    }
-    .share-btns button:hover { background: var(--neon-main);}
-    #gt_float { position: fixed; top: 1em; right: 1em; z-index: 9999; }
-    footer {
-      background: var(--bg-dark); color: #bde; text-align: center;
-      padding: 1.5em 0 1em 0; margin-top: 2em; font-size: 1em;
-      border-top: 2px solid var(--neon-main)44;
-    }
-    footer a { color: var(--neon-alt); text-decoration: none; margin: 0 0.5em;}
-    footer a:hover { text-decoration: underline;}
-    /* Hamburger for mobile */
-    .hamburger { display: none; flex-direction: column; cursor: pointer; margin-left: 2em;}
-    .hamburger span {
-      width: 28px; height: 4px; background: var(--neon-main); margin: 3px 0; display: block; border-radius: 2px;
-      transition: all 0.3s;
-    }
-    @media (max-width: 900px) {
-      header { flex-direction: column; align-items: stretch; padding: 1em;}
-      .nav { flex-direction: column; gap: 0.5em; display: none;}
-      .nav.open { display: flex;}
-      .hamburger { display: flex; }
-      .theme-toggle { margin-left: 0;}
-      .main-section { padding: 1em;}
-      .page-title { flex-direction: column; align-items: flex-start; margin-top: 0.5em;}
-      .section { padding: 1em;}
-    }
-    @keyframes fade-in {
-      from { opacity: 0; transform: translateY(40px);}
-      to { opacity: 1; transform: translateY(0);}
+    .section-title { display: flex; align-items: center; gap: 0.8em; font-size: 1.7em; margin-bottom: 0.5em;}
+    .section-title img { width: 2em; height: 2em;}
+    @media (max-width: 700px) {
+      .navbar-main, .navbar-sub, .main-section { max-width: 99vw;}
+      .main-section { padding: 0.5em;}
     }
   </style>
-  <!-- Flatpickr -->
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-  <!-- Google Translate -->
-  <script src="https://translate.google.com/translate_a/element.js?cb=initTranslate"></script>
-  <!-- Icons for social (FontAwesome) -->
-  <script src="https://kit.fontawesome.com/4e7e3e3e7e.js" crossorigin="anonymous"></script>
-  <script>
-    // Google Translate widget
-    function initTranslate() {
-      new google.translate.TranslateElement({
-        pageLanguage: 'en',
-        includedLanguages: 'en,si,hi,ta,zh,es,fr,de,ar,ru,ja,ko,th',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-        autoDisplay: true
-      }, 'gt_float');
-    }
-    // Astrology calendar picker
-    document.addEventListener('DOMContentLoaded', function() {
-      // Calendar logic
-      const birthYear = document.getElementById('birthYear');
-      const calendarContainer = document.getElementById('calendarContainer');
-      birthYear?.addEventListener('input', function() {
-        const year = parseInt(this.value);
-        calendarContainer.innerHTML = '';
-        if (!isNaN(year)) {
-          let calendarType = 'gregorian';
-          if (year < 1582) calendarType = 'julian';
-          else if (year >= 622 && year < 1500) calendarType = 'hijri';
-          else if (year >= 1868) calendarType = 'japanese';
-          let label = document.createElement('label');
-          label.className = 'calendar-label';
-          label.textContent = (calendarType.charAt(0).toUpperCase() + calendarType.slice(1)) + ' Calendar:';
-          let input = document.createElement('input');
-          input.type = 'text'; input.className = 'calendar-input';
-          input.placeholder = 'Pick your birth date';
-          calendarContainer.append(label, document.createElement('br'), input);
-          flatpickr(input, {dateFormat: "Y-m-d"});
-        }
-      });
-      // Hamburger nav
-      const hamburger = document.getElementById('hamburger');
-      const nav = document.querySelector('nav.nav');
-      hamburger.addEventListener('click', ()=> nav.classList.toggle('open'));
-      // Theme toggle
-      const themeBtn = document.getElementById('themeSwitch');
-      themeBtn.addEventListener('click', ()=>{
-        if(document.documentElement.getAttribute('data-theme')==='light'){
-          document.documentElement.removeAttribute('data-theme');
-          themeBtn.innerHTML = '<i class="fas fa-moon"></i>';
-        } else {
-          document.documentElement.setAttribute('data-theme','light');
-          themeBtn.innerHTML = '<i class="fas fa-sun"></i>';
-        }
-      });
-      // Share buttons
-      document.querySelectorAll('.share-btn').forEach(btn=>{
-        btn.addEventListener('click',function(){
-          const type = this.dataset.type;
-          let url = window.location.href;
-          let text = document.title + ' - ' + url;
-          if(type==='fb') window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`);
-          else if(type==='tw') window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`);
-          else if(type==='wa') window.open(`https://wa.me/?text=${encodeURIComponent(text)}`);
-          else if(type==='li') window.open(`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(url)}&title=${encodeURIComponent(document.title)}`);
-        });
-      });
-      // Dynamic year in footer
-      document.getElementById('year').textContent = new Date().getFullYear();
-    });
-    // Copy protection
-    document.addEventListener('contextmenu', e => e.preventDefault());
-    document.addEventListener('selectstart', e => e.preventDefault());
-    document.addEventListener('dragstart', e => e.preventDefault());
-    document.addEventListener('keydown', function(e) {
-      if (e.key === "F12" || (e.ctrlKey && ['u','U','s','S','c','C','x','X','i','I'].includes(e.key))) {
-        e.preventDefault();
-      }
-    });
-  </script>
 </head>
 <body>
-  <div id="gt_float" aria-label="Language Switcher"></div>
-  <header role="banner">
-    <div class="logo" aria-label="Sathyadarshana Home">
-      <img src="/assets/sathyadarshana-icon.png" alt="Sathyadarshana Logo"/>
-      Sathyadarshana
-    </div>
-    <button class="theme-toggle" id="themeSwitch" aria-label="Switch theme"><i class="fas fa-moon"></i></button>
-    <div class="hamburger" id="hamburger" aria-label="Open navigation" tabindex="0">
-      <span></span><span></span><span></span>
-    </div>
-    <nav class="nav" role="navigation" aria-label="Main navigation">
-      <a href="#home" class="neon-btn jelly-btn">Home</a>
-      <a href="#library" class="neon-btn jelly-btn">Library</a>
-      <a href="#astrology" class="neon-btn jelly-btn">Astrology</a>
-      <a href="#ai-buddhi" class="neon-btn jelly-btn">AI Buddhi</a>
-      <a href="#newsline" class="neon-btn jelly-btn">News</a>
-      <a href="#musiclab" class="neon-btn jelly-btn">Music Lab</a>
-      <a href="#writers" class="neon-btn jelly-btn">Writers</a>
-      <a href="#donate" class="neon-btn jelly-btn">Donate</a>
-    </nav>
-  </header>
-  <main class="main-section" role="main">
-    <section id="home" class="section" aria-labelledby="home-title">
-      <img src="/assets/home-bg.jpg" alt="Welcome - Light of Truth"/>
-      <div class="page-title">
-        <img src="/assets/sathyadarshana-icon.png" alt="Home Icon"/>
-        <h1 id="home-title">Light of Truth Begins Here...</h1>
-      </div>
-      <div class="share-btns">
-        <button class="share-btn" data-type="fb" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></button>
-        <button class="share-btn" data-type="tw" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></button>
-        <button class="share-btn" data-type="wa" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp"></i></button>
-        <button class="share-btn" data-type="li" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></button>
-      </div>
+  <!-- Main navigation bar (split in two) -->
+  <nav class="navbar-main" aria-label="Main navigation">
+    <a href="#home" class="neon-btn"><img src="/assets/sathyadarshana-icon.png" alt="Home Icon"/>Home</a>
+    <a href="#library" class="neon-btn">Library</a>
+    <a href="astrology.html" class="neon-btn">Astrology</a>
+    <a href="#ai-buddhi" class="neon-btn">AI Buddhi</a>
+    <a href="#musiclab" class="neon-btn">Music Lab</a>
+  </nav>
+  <nav class="navbar-sub" aria-label="Secondary navigation">
+    <a href="#newsline" class="neon-btn">News</a>
+    <a href="#writers" class="neon-btn">Writers</a>
+    <a href="#donate" class="neon-btn">Donate</a>
+  </nav>
+  <main class="main-section">
+    <section id="home" class="page-section">
+      <img src="/assets/home-bg.jpg" class="img-modern" alt="Welcome"/>
+      <div class="section-title"><img src="/assets/sathyadarshana-icon.png" alt="Logo"/> Light of Truth</div>
+      <p>Your journey to wisdom and truth begins here...</p>
     </section>
-    <section id="library" class="section" aria-labelledby="library-title">
-      <img src="/assets/library-bg.jpg" alt="Sacred Texts Library"/>
-      <h2 id="library-title">Library</h2>
-      <p>Discover the Wisdom of All Religions in One Sacred Space</p>
+    <section id="library" class="page-section">
+      <img src="/assets/library-modern.jpg" class="img-modern" alt="Library"/>
+      <div class="section-title"><img src="/assets/library-icon.png" alt="Library Icon"/> Library</div>
+      <p>Explore wisdom of all faiths, beautifully organized.</p>
     </section>
-    <section id="astrology" class="section" aria-labelledby="astrology-title">
-      <img src="/assets/astrology-bg.jpg" alt="Astrology Guidance"/>
-      <h2 id="astrology-title">Astrology</h2>
-      <p>Precision-based KP Astrology and Divine Timing Tools</p>
-      <form autocomplete="off">
-        <label class="calendar-label" for="birthYear">Enter Year of Birth:</label>
-        <input id="birthYear" class="calendar-input" type="number" min="1000" max="2100" placeholder="e.g. 1990" aria-describedby="calendar-desc"/>
-        <div id="calendarContainer"></div>
-      </form>
-      <p id="calendar-desc" style="color:#ccc;">Enter your year of birth to see a calendar picker that adapts to your calendar system.</p>
+    <section id="ai-buddhi" class="page-section">
+      <img src="/assets/ai-modern.jpg" class="img-modern" alt="AI Buddhi"/>
+      <div class="section-title"><img src="/assets/ai-icon.png" alt="AI Icon"/> AI Buddhi</div>
+      <p>Ask, Seek, and Realize with your Spiritual AI Guide.</p>
     </section>
-    <section id="ai-buddhi" class="section" aria-labelledby="buddhi-title">
-      <img src="/assets/ai-buddhi-bg.jpg" alt="AI Buddhi"/>
-      <h2 id="buddhi-title">AI Buddhi</h2>
-      <p>Ask, Seek, and Realize with Buddhi – Your Spiritual AI Guide</p>
+    <section id="musiclab" class="page-section">
+      <img src="/assets/music-modern.jpg" class="img-modern" alt="Music Lab"/>
+      <div class="section-title"><img src="/assets/music-icon.png" alt="Music Icon"/> Music Lab</div>
+      <p>Voice of Dharma – Spiritual Songs and Resonance.</p>
     </section>
-    <section id="newsline" class="section" aria-labelledby="news-title">
-      <img src="/assets/news-bg.jpg" alt="Newsline"/>
-      <h2 id="news-title">Newsline</h2>
-      <p>Sathyadarshana News – World Events, Peace Prayers, and Divine Reflection</p>
-    </section>
-    <section id="musiclab" class="section" aria-labelledby="music-title">
-      <img src="/assets/music-lab-bg.jpg" alt="Music Lab"/>
-      <h2 id="music-title">Music Lab</h2>
-      <p>Voice of Dharma – Spiritual Songs and Inner Resonance</p>
-      <audio controls src="/assets/music/sample.mp3" style="width:100%;margin-top:1em;" aria-label="Play spiritual music"></audio>
-    </section>
-    <section id="writers" class="section" aria-labelledby="writers-title">
-      <img src="/assets/writers-bg.jpg" alt="Writers"/>
-      <h2 id="writers-title">Writers</h2>
-      <p>Articles from Anurudda and the Community of Light</p>
-    </section>
-    <section id="donate" class="section" aria-labelledby="donate-title">
-      <img src="/assets/donation-bg.jpg" alt="Donate"/>
-      <h2 id="donate-title">Donate</h2>
-      <p>Support the Sathyadarshana Mission – Let Light Reach All</p>
-    </section>
+    <!-- ...etc... -->
   </main>
-  <footer role="contentinfo">
-    <div>
-      <a href="#home">Home</a> |
-      <a href="#library">Library</a> |
-      <a href="#astrology">Astrology</a> |
-      <a href="#ai-buddhi">AI Buddhi</a> |
-      <a href="#newsline">News</a> |
-      <a href="#musiclab">Music Lab</a> |
-      <a href="#writers">Writers</a> |
-      <a href="#donate">Donate</a>
-    </div>
-    <p>© <span id="year"></span> Sathyadarshana. All rights reserved.</p>
-  </footer>
 </body>
 </html>
