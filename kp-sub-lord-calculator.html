@@ -1,95 +1,97 @@
 <!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sub-Lord Calculator | Sathyadarshana Astrology</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KP Sub-Lord Calculator | Sathyadarshana</title>
   <style>
     body {
-      margin: 0;
-      padding: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #0f172a, #1e293b);
+      background: linear-gradient(to bottom, #0f172a, #1e293b);
       color: #f8fafc;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
+      margin: 0;
+      padding: 2rem;
     }
     h1 {
-      margin-bottom: 20px;
       color: #38bdf8;
-      text-shadow: 1px 1px 4px #000;
     }
-    form {
-      display: flex;
-      flex-direction: column;
-      width: 300px;
-      gap: 10px;
+    label, input, select {
+      display: block;
+      margin: 0.5rem 0;
     }
-    input, select, button {
-      padding: 10px;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
+    .container {
+      max-width: 600px;
+      margin: auto;
+      padding: 1.5rem;
+      background: rgba(30, 41, 59, 0.9);
+      border-radius: 1rem;
+      box-shadow: 0 0 20px #0ea5e9;
     }
     button {
-      background: #38bdf8;
-      color: #fff;
-      font-weight: bold;
+      background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+      border: none;
+      padding: 0.5rem 1rem;
+      color: white;
+      border-radius: 1rem;
       cursor: pointer;
-      transition: background 0.3s;
+      margin-top: 1rem;
     }
-    button:hover {
-      background: #0ea5e9;
+    table {
+      margin-top: 2rem;
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #1e293b;
     }
-    #result {
-      margin-top: 20px;
-      background: rgba(255, 255, 255, 0.1);
-      padding: 15px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px #38bdf8;
-      white-space: pre-wrap;
+    th, td {
+      border: 1px solid #334155;
+      padding: 0.5rem;
+      text-align: center;
+    }
+    th {
+      background: #0f172a;
     }
   </style>
 </head>
 <body>
-  <h1>KP Sub-Lord Calculator</h1>
-  <form id="subLordForm">
-    <input type="text" placeholder="Name" id="name" required />
-    <input type="date" id="dob" required />
-    <input type="time" id="tob" required />
-    <input type="text" placeholder="Birthplace (City)" id="location" required />
-    <button type="submit">Calculate Sub-Lords</button>
-  </form>
-  <div id="result"></div>  <script>
-    document.getElementById('subLordForm').addEventListener('submit', async function (e) {
-      e.preventDefault();
-      const name = document.getElementById('name').value;
-      const dob = document.getElementById('dob').value;
-      const tob = document.getElementById('tob').value;
-      const location = document.getElementById('location').value;
+  <div class="container">
+    <h1>KP Sub-Lord Calculator</h1>
+    <form id="kpForm">
+      <label>Date of Birth:</label>
+      <input type="date" id="dob" required><label>Time of Birth:</label>
+  <input type="time" id="tob" required>
 
-      const resultDiv = document.getElementById('result');
-      resultDiv.innerHTML = "Calculating...";
+  <label>Latitude:</label>
+  <input type="text" id="lat" placeholder="e.g., 7.8731" required>
 
-      // Simulated API call — Replace with real planetary engine
-      setTimeout(() => {
-        const simulated = {
-          Sun: 'Leo - Sublord: Venus',
-          Moon: 'Cancer - Sublord: Mercury',
-          Mars: 'Gemini - Sublord: Ketu',
-          Mercury: 'Virgo - Sublord: Saturn',
-          Jupiter: 'Libra - Sublord: Moon',
-        };
+  <label>Longitude:</label>
+  <input type="text" id="lon" placeholder="e.g., 80.7718" required>
 
-        let output = `Sub-Lord Results for ${name} (DOB: ${dob} / ${tob})\n\n`;
-        for (const planet in simulated) {
-          output += `${planet}: ${simulated[planet]}\n`;
-        }
+  <button type="button" onclick="generateSubLord()">Calculate</button>
+</form>
 
-        resultDiv.innerHTML = output;
-      }, 1200);
-    });
+<table id="resultTable" style="display:none;">
+  <thead>
+    <tr><th>Planet</th><th>Sign</th><th>Nakshatra</th><th>Sub-Lord</th></tr>
+  </thead>
+  <tbody id="resultBody"></tbody>
+</table>
+
+  </div>  <script>
+    function generateSubLord() {
+      const table = document.getElementById("resultTable");
+      const body = document.getElementById("resultBody");
+      table.style.display = 'table';
+      body.innerHTML = '';
+
+      const mockData = [
+        { planet: "Sun", sign: "Gemini", star: "Ardra", sub: "Venus" },
+        { planet: "Moon", sign: "Cancer", star: "Pushya", sub: "Mercury" },
+        { planet: "Mars", sign: "Leo", star: "Magha", sub: "Saturn" }
+      ];
+
+      mockData.forEach(p => {
+        const row = `<tr><td>${p.planet}</td><td>${p.sign}</td><td>${p.star}</td><td>${p.sub}</td></tr>`;
+        body.innerHTML += row;
+      });
+    }
   </script></body>
 </html>
