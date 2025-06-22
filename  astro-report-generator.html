@@ -1,70 +1,72 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Astrology Report Generator</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Astrology Report Generator | Sathyadarshana</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(to bottom, #0f172a, #1e293b);
       color: #f8fafc;
-      margin: 0;
-      padding: 2rem;
+      font-family: 'Segoe UI', sans-serif;
     }
-    h1 {
-      color: #38bdf8;
-    }
-    label {
-      display: block;
-      margin-top: 1rem;
+    .glow-btn {
+      background: linear-gradient(to right, #38bdf8, #0ea5e9);
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
       font-weight: bold;
-    }
-    input, select, button {
-      margin-top: 0.5rem;
-      padding: 0.5rem;
-      width: 100%;
-      border-radius: 0.5rem;
-      border: none;
-      font-size: 1rem;
-    }
-    button {
-      background: #38bdf8;
       color: white;
-      cursor: pointer;
-      margin-top: 2rem;
-    }
-    button:hover {
-      background: #0ea5e9;
+      box-shadow: 0 0 10px #38bdf8;
     }
   </style>
 </head>
-<body>
-  <h1>Generate Your Birth Report</h1>
-  <form id="astroForm">
-    <label for="fullname">Full Name</label>
-    <input type="text" id="fullname" name="fullname" required />
+<body class="p-4">
+  <div class="max-w-3xl mx-auto bg-white bg-opacity-10 backdrop-blur rounded-xl p-6">
+    <h1 class="text-2xl font-bold text-center mb-4">🌠 Astrology Report Generator</h1><form id="astroForm" class="space-y-4">
+  <input type="text" id="fullName" placeholder="Full Name" class="w-full p-2 rounded">
+  <input type="date" id="birthDate" class="w-full p-2 rounded">
+  <input type="time" id="birthTime" class="w-full p-2 rounded">
+  <input type="text" id="birthPlace" placeholder="Place of Birth" class="w-full p-2 rounded">
+  <input type="text" id="nic" placeholder="NIC (optional)" class="w-full p-2 rounded">
+  <button type="submit" class="glow-btn">Generate Report</button>
+</form>
 
-    <label for="nic">NIC / Passport / D.L Number</label>
-    <input type="text" id="nic" name="nic" required />
+<div id="downloadArea" class="mt-6 text-center hidden">
+  <p class="mb-2">✅ Astrology Report is ready!</p>
+  <a id="downloadLink" href="#" download="astro_report.pdf" class="glow-btn">⬇️ Download PDF</a>
+</div>
 
-    <label for="dob">Date of Birth</label>
-    <input type="date" id="dob" name="dob" required />
+  </div>  <script>
+    const form = document.getElementById('astroForm');
+    const downloadArea = document.getElementById('downloadArea');
+    const downloadLink = document.getElementById('downloadLink');
 
-    <label for="tob">Time of Birth</label>
-    <input type="time" id="tob" name="tob" required />
-
-    <label for="pob">Place of Birth</label>
-    <input type="text" id="pob" name="pob" required />
-
-    <button type="submit">Generate PDF Report</button>
-  </form>
-
-  <script>
-    document.getElementById('astroForm').addEventListener('submit', function(e) {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      alert("PDF generation and secure logic will be implemented soon.");
+      const name = document.getElementById('fullName').value;
+      const date = document.getElementById('birthDate').value;
+      const time = document.getElementById('birthTime').value;
+      const place = document.getElementById('birthPlace').value;
+      const nic = document.getElementById('nic').value;
+
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+      doc.setFontSize(14);
+      doc.text("Sathyadarshana Astrology Report", 20, 20);
+      doc.setFontSize(12);
+      doc.text(`Name: ${name}`, 20, 35);
+      doc.text(`Birth Date: ${date}`, 20, 45);
+      doc.text(`Birth Time: ${time}`, 20, 55);
+      doc.text(`Birth Place: ${place}`, 20, 65);
+      if (nic) doc.text(`NIC: ${nic}`, 20, 75);
+      doc.text("\u2728 This is an auto-generated prediction report.\nMay this guide your path.", 20, 90);
+      doc.text("\u00A9 Sathyadarshana | Protected & Sealed", 20, 120);
+
+      const pdfBlob = doc.output('blob');
+      const pdfUrl = URL.createObjectURL(pdfBlob);
+      downloadLink.href = pdfUrl;
+      downloadArea.classList.remove('hidden');
     });
-  </script>
-</body>
+  </script></body>
 </html>
