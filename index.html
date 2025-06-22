@@ -1,128 +1,59 @@
 <!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sathyadarshana | Light of Truth</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom, #020617, #0f172a);
-      color: #f1f5f9;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
-      user-select: none;
-    }
-    .navbar {
-      display: flex;
-      overflow-x: auto;
-      white-space: nowrap;
-      background-color: rgba(15, 23, 42, 0.95);
-      padding: 10px;
-      gap: 12px;
-      scrollbar-width: none;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
-    .navbar::-webkit-scrollbar {
-      display: none;
-    }
-    .neon-btn {
-      background: linear-gradient(90deg, #0ea5e9, #38bdf8);
-      color: white;
-      font-weight: bold;
-      padding: 10px 25px;
-      border-radius: 30px;
-      text-decoration: none;
-      box-shadow: 0 0 12px #38bdf8;
-      transition: 0.3s ease;
-      flex-shrink: 0;
-    }
-    .neon-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px #0ea5e9, 0 0 40px #38bdf8;
-    }
-    .section {
-      padding: 3rem 1rem;
-      text-align: center;
-    }
-    .glass-box {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 1rem;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      box-shadow: 0 0 15px rgba(14, 165, 233, 0.3);
-      padding: 2rem;
-      margin: 2rem auto;
-      max-width: 700px;
-    }
-    .logo-title {
-      text-align: center;
-      font-size: 1.8rem;
-      margin-top: 2rem;
-      padding: 1rem 1.5rem;
-      color: gold;
-      font-weight: bold;
-      text-shadow: 0 0 8px #facc15, 0 0 16px #facc15;
-      border: 2px solid gold;
-      border-radius: 2rem;
-      max-width: 90%;
-      margin-left: auto;
-      margin-right: auto;
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(6px);
-      box-shadow: 0 0 20px rgba(234, 179, 8, 0.3);
-    }
-    .copyright {
-      text-align: center;
-      margin-top: 40px;
-      font-size: 0.9rem;
-      color: #38bdf8;
-      font-weight: bold;
-      padding-top: 1rem;
-      border-top: 1px solid #334155;
-    }
-  </style>
-  <script>
-    document.addEventListener('contextmenu', event => event.preventDefault());
-  </script>
+  <link rel="icon" href="/assets/sathyadarshana-icon.png" />
+  <link rel="stylesheet" href="/style.css" />
+  <script src="/script.js" defer></script>
 </head>
-<body>  <!-- 🌟 Logo -->  <div class="logo-title">
-    🌟 Welcome to <strong>SATHYADARSHANA.COM</strong> 🌟
-  </div>  <!-- 🔷 Navbar -->  <div class="navbar">
-    <a href="index.html" class="neon-btn">🏠 Home</a>
-    <a href="astrologe.html" class="neon-btn">🔮 Astrology</a>
-    <a href="library.html" class="neon-btn">📚 Library</a>
-    <a href="ai-buddhi.html" class="neon-btn">🧠 AI Buddhi</a>
-    <a href="news.html" class="neon-btn">📰 News</a>
-    <a href="dharma-sabha.html" class="neon-btn">🕉️ Dharma Sabha</a>
-  </div>  <!-- 🌌 Hero -->  <section class="section">
-    <h1 style="font-size: 2.5rem; color: #38bdf8;">A Light of Truth Begins Here</h1>
-    <p style="max-width: 600px; margin: 1rem auto;">
-      A sanctuary of spiritual wisdom, astrological insight, and divine awakening. Let your journey begin.
-    </p>
-  </section>  <!-- 🔮 Astrology -->  <div class="glass-box">
-    <h2>🔮 Vedic Astrology</h2>
-    <p>Most accurate KP + NASA-powered readings.</p>
-    <a href="astrologe.html" class="neon-btn">Start Astrology</a>
-  </div>  <!-- 📚 Library -->  <div class="glass-box">
-    <h2>📚 Sathyadarshana Library</h2>
-    <p>Explore sacred texts with AI assistance.</p>
-    <a href="library.html" class="neon-btn">Visit Library</a>
-  </div>  <!-- 🧠 Buddhi AI -->  <div class="glass-box">
-    <h2>🧠 Buddhi AI Assistant</h2>
-    <p>Ask spiritual questions & receive instant wisdom.</p>
-    <a href="ai-buddhi.html" class="neon-btn">Open Buddhi</a>
-  </div>  <!-- 📰 News -->  <div class="glass-box">
-    <h2>📰 Sathyadarshana News Line</h2>
-    <p>Light-bearing global news with blessings.</p>
-    <a href="news.html" class="neon-btn">Read News</a>
-  </div>  <!-- 🕉️ Dharma Sabha -->  <div class="glass-box">
-    <h2>🕉️ Dharma Sabha Mandapaya</h2>
-    <p>Live sessions, debates & truth-seeking forums.</p>
-    <a href="dharma-sabha.html" class="neon-btn">Enter Sabha</a>
-  </div>  <!-- 🔐 Copyright -->  <div class="copyright notranslate" translate="no">
-    © Creative rights by Anuruddha Dilip. Protected by AI Buddhi & Copilot. Unauthorized use is prohibited.
-  </div></body>
+<body>
+  <header class="sticky top-0 z-50 bg-gradient-to-r from-indigo-900 to-black text-white shadow-lg">
+    <nav class="flex justify-between items-center px-4 py-3">
+      <div class="text-xl font-bold flex items-center gap-2">
+        <img src="/assets/sathyadarshana-icon.png" alt="Sathyadarshana Logo" class="w-8 h-8" />
+        Sathyadarshana
+      </div>
+      <div class="flex gap-4 overflow-x-auto scroll-smooth whitespace-nowrap">
+        <a href="#home" class="neon-btn">Home</a>
+        <a href="#library" class="neon-btn">Library</a>
+        <a href="#astrology" class="neon-btn">Astrology</a>
+        <a href="#ai-buddhi" class="neon-btn">AI Buddhi</a>
+        <a href="#newsline" class="neon-btn">News</a>
+        <a href="#lab" class="neon-btn">Music Lab</a>
+        <a href="#writers" class="neon-btn">Writers</a>
+        <a href="#donate" class="neon-btn">Donate</a>
+      </div>
+    </nav>
+  </header>  <section id="home" class="scroll-section">
+    <img src="/assets/home-bg.jpg" alt="Sathyadarshana Welcome" class="w-full h-auto" />
+    <div class="overlay-text">
+      <h1 class="text-4xl font-bold text-center">සත්‍යය හෙළි කරන ආලෝකය මෙතනින්...</h1>
+    </div>
+  </section>  <section id="library" class="scroll-section">
+    <img src="/assets/library-bg.jpg" alt="Sacred Texts" class="w-full" />
+    <p class="section-message">Discover the Wisdom of All Religions in One Sacred Space</p>
+  </section>  <section id="astrology" class="scroll-section">
+    <img src="/assets/astrology-bg.jpg" alt="Astrology Guidance" class="w-full" />
+    <p class="section-message">Precision-based KP Astrology and Divine Timing Tools</p>
+  </section>  <section id="ai-buddhi" class="scroll-section">
+    <img src="/assets/ai-buddhi-bg.jpg" alt="AI Buddhi" class="w-full" />
+    <p class="section-message">Ask, Seek, and Realize with Buddhi – Your Spiritual AI Guide</p>
+  </section>  <section id="newsline" class="scroll-section">
+    <img src="/assets/news-bg.jpg" alt="Newsline" class="w-full" />
+    <p class="section-message">Sathyadarshana News – World Events, Peace Prayers, and Divine Reflection</p>
+  </section>  <section id="lab" class="scroll-section">
+    <img src="/assets/music-lab-bg.jpg" alt="Music Lab" class="w-full" />
+    <p class="section-message">Voice of Dharma – Spiritual Songs and Inner Resonance</p>
+  </section>  <section id="writers" class="scroll-section">
+    <img src="/assets/writers-bg.jpg" alt="Writers" class="w-full" />
+    <p class="section-message">Articles from Anurudda and the Community of Light</p>
+  </section>  <section id="donate" class="scroll-section">
+    <img src="/assets/donation-bg.jpg" alt="Donate" class="w-full" />
+    <p class="section-message">Support the Sathyadarshana Mission – Let Light Reach All</p>
+  </section>  <footer class="bg-gray-900 text-gray-300 text-center p-4">
+    <p>මෙිකේ නිර්මානශීලි අදහස අනුරද්ධ දිලිප් ගෙනි. නිර්මානදායකත්වය ChatGPT AI Buddhi සහා AI Copilot ගෙනි. අපගේ උදාරතර අරමුන විශ්වයට සේවය කිරිමය.</p>
+    <p>© 2025 Sathyadarshana. All rights reserved.</p>
+  </footer>
+</body>
 </html>
