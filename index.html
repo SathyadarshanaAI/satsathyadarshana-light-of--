@@ -3,513 +3,162 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Home | Sathyadarshana</title>
-  <link rel="icon" href="/assets/logo-round.png"/>
+  <title>Sathyadarshana | Light of Truth</title>
+  <link rel="icon" href="/assets/sathyadarshana-icon.png"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"/>
   <style>
     :root {
-      --neon: #00fff7; --alt: #008cff; --bg: #161622; --radius: 16px;
+      --neon: #00fff7; --alt: #008cff; --bg: #161622;
+      --radius: 16px;
     }
     html { scroll-behavior: smooth; }
-    body { margin: 0; background: linear-gradient(135deg, #131b2c, #2c5364 80%); color: #f8f8ff; font-family: 'Segoe UI', Arial, sans-serif;}
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #131b2c, #2c5364 80%);
+      color: #f8f8ff;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
     .navbar-main, .navbar-sub {
       display: flex; justify-content: center; align-items: center;
-      gap: 1.4em; background: rgba(30,32,60,0.92);
-      box-shadow: 0 2px 15px #00fff733; border-radius: var(--radius);
-      margin: 1em auto 0 auto; padding: 0.7em 1em; max-width: 700px;
+      gap: 1.4em;
+      background: rgba(30,32,60,0.92);
+      box-shadow: 0 2px 15px #00fff733;
+      border-radius: var(--radius);
+      margin: 1em auto 0 auto;
+      padding: 0.7em 1em;
+      max-width: 700px;
       flex-wrap: wrap;
     }
-    .navbar-sub { background: rgba(34,38,62,0.85); margin-top: 0.5em; box-shadow: 0 1px 8px #008cff33;}
+    .navbar-sub {
+      background: rgba(34,38,62,0.85);
+      margin-top: 0.5em;
+      box-shadow: 0 1px 8px #008cff33;
+    }
     .neon-btn {
-      background: #19194a; color: #fff; padding: 0.45em 1.25em;
-      border: 2px solid var(--neon); border-radius: 2em; font-weight: 500;
+      background: #19194a;
+      color: #fff;
+      padding: 0.45em 1.25em;
+      border: 2px solid var(--neon);
+      border-radius: 2em;
+      font-weight: 500;
       text-shadow: 0 0 8px var(--neon), 0 0 24px var(--alt);
-      box-shadow: 0 0 10px var(--neon), 0 0 24px var(--alt)55;
+      box-shadow: 0 0 10px var(--neon), 0 0 24px var(--alt);
       transition: transform 0.15s, box-shadow 0.15s;
-      cursor: pointer; font-size: 1em; text-decoration: none;
-      display: flex; align-items: center; gap: 0.5em;
+      cursor: pointer;
+      font-size: 1em;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+    }
+    .neon-btn img {
+      width: 1.5em;
+      height: 1.5em;
+      border-radius: 50%;
     }
     .neon-btn:hover, .neon-btn:active {
-      transform: scale(1.07); box-shadow: 0 0 24px var(--neon), 0 0 36px var(--alt)99;
+      transform: scale(1.07);
+      box-shadow: 0 0 24px var(--neon), 0 0 36px var(--alt);
       background: #101026;
     }
-    .main-section { max-width: 900px; margin: 2em auto 1em auto; padding: 1.5em; border-radius: var(--radius); background: rgba(25,28,44,0.94);}
-    .page-section { margin-bottom: 2.5em; }
+    .main-section {
+      max-width: 900px;
+      margin: 2em auto 1em auto;
+      padding: 1.5em;
+      border-radius: var(--radius);
+      background: rgba(25,28,44,0.94);
+    }
+    .page-section {
+      margin-bottom: 2.5em;
+    }
     .img-modern {
-      width: 100%; max-height: 320px; object-fit: cover;
-      border-radius: var(--radius); box-shadow: 0 0 18px var(--neon)55;
+      width: 100%;
+      max-height: 320px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      box-shadow: 0 0 18px var(--neon);
       margin-bottom: 0.7em;
     }
-    .section-title { display: flex; align-items: center; gap: 0.8em; font-size: 1.7em; margin-bottom: 0.5em;}
-    .section-title img { width: 2em; height: 2em;}
-    .magic-btn { position: fixed; bottom: 18px; right: 18px; z-index: 99; background: #00fff7; color:#19194a; border-radius:50%; border:none; width:64px; height:64px; font-size:2em; box-shadow:0 0 22px #00fff7, 0 0 44px #008cff33; cursor:pointer;}
-    .wisdom-popup { position:fixed; top:70px; right:30px; background:#282c44f0; color:#fff; border-radius:1em; box-shadow:0 0 22px #00fff7; padding:1em 1.5em; z-index:100; display:none;}
-    /* Search Bar */
-    .search-bar { display: flex; gap: 0.5em; margin: 1.5em 0 2em 0; justify-content: center;}
-    .search-bar input {
-      font-size: 1.08em; padding: 0.32em 1em; border-radius:1.3em; border:1.5px solid #00fff7bb;
-      outline:none; background:#181b30; color:#fff; transition: border 0.15s;
-      width: 220px; max-width: 66vw;
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 0.8em;
+      font-size: 1.7em;
+      margin-bottom: 0.5em;
     }
-    .search-bar input:focus { border:2px solid #00fff7; background:#19194a;}
-    .search-bar button {
-      background:#00fff7; color:#161622; border:none; border-radius:1.3em;
-      padding:0.33em 1.2em; font-weight:600; font-size:1.05em; cursor:pointer; box-shadow:0 0 10px #00fff7bb;
-    }
-    /* Q&A Wall */
-    .qawall { background:#16182a; border-radius:1em; padding:1em 1.2em; margin-bottom:2em;}
-    .qawall h3 { color:#00fff7; }
-    .qa-list { list-style:none; padding:0; margin:0;}
-    .qa-list li {margin-bottom:1.1em; background:#23253c; padding:0.7em 1em; border-radius:0.7em;}
-    .qa-q { font-weight: 600; color: #00fff7;}
-    .qa-a { color: #fff; margin-top: .2em;}
-    .qa-form {display:flex;gap:0.5em;margin-top:1em;}
-    .qa-form input {flex:1; padding:0.33em 1em;border-radius:1.2em; border:1.2px solid #00fff7;}
-    .qa-form button {background:#00fff7; border:none; border-radius:1.2em; padding:0.3em 1.2em; font-weight:600; cursor:pointer;}
-    /* AI Assistant */
-    .ai-box {background:#15172a;border-radius:1em;padding:1em 1.2em;margin-bottom:2em;}
-    .ai-box h3 {color:#00fff7;}
-    .ai-chat-history {max-height:160px;overflow-y:auto;margin-bottom:0.6em;}
-    .ai-msg {margin-bottom:0.5em;}
-    .ai-user {color:#00fff7;}
-    .ai-bot {color:#fff;}
-    .ai-input-row {display:flex;gap:0.5em;}
-    .ai-input-row input {flex:1;padding:0.32em 1em;border-radius:1.2em; border:1.2px solid #00fff7;}
-    .ai-input-row button {background:#00fff7; border:none; border-radius:1.2em; padding:0.3em 1.2em; font-weight:600; cursor:pointer;}
-    /* Music Player */
-    .musicbox {background:#19214a;border-radius:1.2em; padding:1em 1.2em; margin-bottom:2em;}
-    .musicbox h3 {color:#00fff7;}
-    .music-list {display:flex; flex-wrap:wrap; gap:0.7em;}
-    .music-item {background:#23253c; border-radius:0.7em; padding:0.5em 1em; display:flex;align-items:center;gap:0.7em;}
-    .music-item button {background:#00fff7; border:none; border-radius:50%; width:2.2em; height:2.2em; font-size:1.1em; cursor:pointer;}
-    /* Account Modal */
-    #accountModal {display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:999;background:rgba(14,15,23,0.94);}
-    #accountModal .accbox {max-width:340px;margin:8vh auto 0 auto;background:#23253c;padding:2em 1.5em;border-radius:1.3em;box-shadow:0 0 24px #00fff7;}
-    #accountModal h3 {color:#00fff7;}
-    #accountModal input {width:100%;margin-bottom:0.7em;padding:0.5em;border-radius:0.7em;border:1.2px solid #00fff7;}
-    #accountModal button {width:100%;padding:0.45em 0;font-size:1.1em;background:#00fff7;color:#161622;border:none;border-radius:0.7em;font-weight:600;box-shadow:0 0 10px #00fff7bb;}
-    #accProfile button {margin-bottom:0.7em;}
-    /* Back to Home */
-    #backHomeBtn {
-      position:fixed;top:20px;left:20px;z-index:1000;
-      background:#00fff7;color:#161622;padding:0.6em 1.4em;
-      border-radius:2em;font-weight:600;text-decoration:none;
-      box-shadow:0 0 18px #00fff7;font-size:1.05em;
-      display:none;
+    .section-title img {
+      width: 2em;
+      height: 2em;
     }
     @media (max-width: 700px) {
-      .navbar-main, .navbar-sub, .main-section { max-width: 99vw;}
-      .main-section { padding: 0.5em;}
-      .magic-btn { width:48px; height:48px; font-size:1.3em;}
-      .wisdom-popup { right: 4vw; min-width: 44vw;}
-      #accountModal .accbox {max-width:90vw;}
-      #backHomeBtn { top:10px;left:5px;padding:0.4em 0.8em; font-size:0.97em;}
+      .navbar-main, .navbar-sub, .main-section {
+        max-width: 99vw;
+      }
+      .main-section {
+        padding: 0.5em;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Back to Home Button -->
-  <a href="#home" id="backHomeBtn"><span data-i18n="back_home">← Home</span></a>
-
-  <!-- Navbars -->
   <nav class="navbar-main" aria-label="Main navigation">
-    <a href="#home" class="neon-btn">
-      <img src="/assets/logo-round.png" alt="Logo" style="width:2em;height:2em;border-radius:50%;background:#fff;">
-      <span data-i18n="home">Home</span>
-    </a>
-    <a href="#library" class="neon-btn"><span data-i18n="library">Library</span></a>
-    <a href="astrology.html" class="neon-btn"><span data-i18n="astrology">Astrology</span></a>
-    <a href="#ai-buddhi" class="neon-btn"><span data-i18n="ai_buddhi">AI Buddhi</span></a>
-    <a href="#musiclab" class="neon-btn"><span data-i18n="music_lab">Music Lab</span></a>
-    <a href="#" class="neon-btn" onclick="showAccountModal(event)">
-      <img src="/assets/user-icon.png" style="width:1.3em;height:1.3em;">
-      <span data-i18n="account">Account</span>
-    </a>
-    <!-- Language Switcher -->
-    <a href="#" class="neon-btn" onclick="showLangMenu(event)">
-      🌐 <span data-i18n="language">Language</span>
-    </a>
-    <div id="langMenu" style="display:none;position:fixed;top:66px;right:24px;z-index:1200;
-      background:#23253c;border-radius:1em;box-shadow:0 0 18px #00fff7;padding:0.5em 1em;">
-      <button onclick="setLang('si')" style="background:none;border:none;color:#00fff7;font-size:1em;cursor:pointer;">සිංහල</button><br>
-      <button onclick="setLang('en')" style="background:none;border:none;color:#00fff7;font-size:1em;cursor:pointer;">English</button><br>
-      <button onclick="setLang('ta')" style="background:none;border:none;color:#00fff7;font-size:1em;cursor:pointer;">தமிழ்</button>
-    </div>
+    <a href="#home" class="neon-btn"><img src="/assets/sathyadarshana-icon.png" alt="Logo"/></a>
+    <a href="#library" class="neon-btn">Library</a>
+    <a href="astrology.html" class="neon-btn">Astrology</a>
+    <a href="#ai-buddhi" class="neon-btn">AI Buddhi</a>
+    <a href="#musiclab" class="neon-btn">Music Lab</a>
   </nav>
   <nav class="navbar-sub" aria-label="Secondary navigation">
-    <a href="#newsline" class="neon-btn"><span data-i18n="news">News</span></a>
-    <a href="#writers" class="neon-btn"><span data-i18n="writers">Writers</span></a>
-    <a href="#donate" class="neon-btn"><span data-i18n="donate">Donate</span></a>
+    <a href="#newsline" class="neon-btn">News</a>
+    <a href="#writers" class="neon-btn">Writers</a>
+    <a href="#donate" class="neon-btn">Donate</a>
   </nav>
-
-  <!-- Search Bar -->
-  <div class="search-bar">
-    <input type="text" id="searchInput" data-i18n-ph="search_placeholder" placeholder="Search wisdom, articles, music..."/>
-    <button onclick="searchSite()"><span data-i18n="ask">Ask</span></button>
-  </div>
-
   <main class="main-section">
-    <!-- Q&A Wall -->
-    <section class="qawall">
-      <h3 data-i18n="qawall">Q&A Wall</h3>
-      <ul class="qa-list" id="qaList"></ul>
-      <form class="qa-form" onsubmit="return addQA()">
-        <input type="text" id="qaInput" placeholder="Ask a question..." autocomplete="off"/>
-        <button type="submit" data-i18n="ask">Ask</button>
-      </form>
-    </section>
-    <!-- AI Assistant -->
-    <section class="ai-box">
-      <h3 data-i18n="aibot">AI Assistant</h3>
-      <div class="ai-chat-history" id="aiChat"></div>
-      <div class="ai-input-row">
-        <input type="text" id="aiInput" placeholder="Ask anything spiritual..." autocomplete="off"/>
-        <button onclick="aiAsk()" data-i18n="ask">Ask</button>
-      </div>
-    </section>
-    <!-- Music Player -->
-    <section class="musicbox">
-      <h3 data-i18n="musicplayer">Music Player</h3>
-      <div class="music-list" id="musicList"></div>
-      <audio id="audioPlayer" controls style="width:98%;margin-top:1em;display:none;"></audio>
-    </section>
-    <!-- Main Content (keep as before) -->
     <section id="home" class="page-section">
       <img src="/assets/home-bg.jpg" class="img-modern" alt="Welcome"/>
-      <div class="section-title">
-        <img src="/assets/logo-round.png" alt="Logo"/>
-        <span data-i18n="home">Home</span>
-      </div>
-      <p data-i18n="welcome">Your journey to wisdom and truth begins here...</p>
+      <div class="section-title"><img src="/assets/sathyadarshana-icon.png" alt="Logo"/> Light of Truth</div>
+      <p>Your journey to wisdom and truth begins here...</p>
     </section>
-    <!-- ... add your other sections ... -->
+
+    <section id="library" class="page-section">
+      <img src="/assets/library-modern.jpg" class="img-modern" alt="Library"/>
+      <div class="section-title"><img src="/assets/library-icon.png" alt="Library Icon"/> Library</div>
+      <p>Explore wisdom of all faiths, beautifully organized.</p>
+    </section>
+
+    <section id="ai-buddhi" class="page-section">
+      <img src="/assets/ai-modern.jpg" class="img-modern" alt="AI Buddhi"/>
+      <div class="section-title"><img src="/assets/ai-icon.png" alt="AI Icon"/> AI Buddhi</div>
+      <p>Ask, Seek, and Realize with your Spiritual AI Guide.</p>
+    </section>
+
+    <section id="musiclab" class="page-section">
+      <img src="/assets/music-modern.jpg" class="img-modern" alt="Music Lab"/>
+      <div class="section-title"><img src="/assets/music-icon.png" alt="Music Icon"/> Music Lab</div>
+      <p>Voice of Dharma – Spiritual Songs and Resonance.</p>
+    </section>
+
+    <!-- Coming Soon Pages -->
+    <section class="page-section">
+      <img src="/assets/coming1.jpg" class="img-modern" alt="Coming Soon 1"/>
+      <div class="section-title">Coming Soon: Dharma Sabha Mandapaya</div>
+      <p>Live spiritual debate & dialogues.</p>
+    </section>
+    <section class="page-section">
+      <img src="/assets/coming2.jpg" class="img-modern" alt="Coming Soon 2"/>
+      <div class="section-title">Coming Soon: Global Prayer Wall</div>
+      <p>Submit your wishes, prayers & meditations.</p>
+    </section>
+    <section class="page-section">
+      <img src="/assets/coming3.jpg" class="img-modern" alt="Coming Soon 3"/>
+      <div class="section-title">Coming Soon: Spiritual Quiz Lab</div>
+      <p>Test your knowledge across sacred texts.</p>
+    </section>
+    <section class="page-section">
+      <img src="/assets/coming4.jpg" class="img-modern" alt="Coming Soon 4"/>
+      <div class="section-title">Coming Soon: Cosmic Insight Center</div>
+      <p>Learn how stars and elements influence us.</p>
+    </section>
   </main>
-
-  <!-- Account Modal -->
-  <div id="accountModal">
-    <div class="accbox">
-      <h3 data-i18n="account">Account</h3>
-      <div id="accForm">
-        <input id="accName" placeholder="Your name">
-        <input id="accEmail" placeholder="Email">
-        <input id="accPass" type="password" placeholder="Password">
-        <button onclick="accountLogin()" data-i18n="login_signup">Log In / Sign Up</button>
-        <div style="text-align:right;margin-top:0.7em;"><a href="#" onclick="hideAccountModal(event)" style="color:#00fff7;" data-i18n="close">Close</a></div>
-      </div>
-      <div id="accProfile" style="display:none;">
-        <div style="font-size:1.2em;margin-bottom:0.8em;">
-          <span data-i18n="welcome">Welcome</span>, <span id="accUser"></span>!
-        </div>
-        <button onclick="logoutAccount()" data-i18n="logout">Logout</button>
-        <div style="text-align:right;margin-top:0.7em;"><a href="#" onclick="hideAccountModal(event)" style="color:#00fff7;" data-i18n="close">Close</a></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Magic Mode Button + Wisdom Popup -->
-  <button class="magic-btn" id="magicBtn" title="Activate Digital Magic ✨">✨</button>
-  <div class="wisdom-popup" id="wisdomPopup"></div>
-
-  <!-- i18n Translations and Logic -->
-  <script>
-const translations = {
-  en: {
-    home: "Home",
-    library: "Library",
-    astrology: "Astrology",
-    ai_buddhi: "AI Buddhi",
-    music_lab: "Music Lab",
-    news: "News",
-    writers: "Writers",
-    donate: "Donate",
-    search_placeholder: "Search wisdom, articles, music...",
-    welcome: "Your journey to wisdom and truth begins here...",
-    qawall: "Q&A Wall",
-    aibot: "AI Assistant",
-    musicplayer: "Music Player",
-    account: "Account",
-    back_home: "← Home",
-    language: "Language",
-    ask: "Ask",
-    login_signup: "Log In / Sign Up",
-    logout: "Logout",
-    close: "Close",
-  },
-  si: {
-    home: "මුල් පිටුව",
-    library: "පුස්තකාලය",
-    astrology: "ජ්‍යොතිෂය",
-    ai_buddhi: "AI බුද්ධිය",
-    music_lab: "සංගීත ශාලාව",
-    news: "ප්‍රවෘත්ති",
-    writers: "ලේඛකයෝ",
-    donate: "පරිත්යාග කරන්න",
-    search_placeholder: "දැනුම, ලිපි, සංගීතය සොයන්න...",
-    welcome: "ඔබේ දැනුම හා සත්‍යය සෙවීම මෙහි ආරම්භ වේ...",
-    qawall: "ප්‍රශ්න සහ පිළිතුරු බිත්ති",
-    aibot: "AI උපදේශකයා",
-    musicplayer: "සංගීත වාදකයා",
-    account: "ගිණුම",
-    back_home: "← මුල් පිටුව",
-    language: "භාෂාව",
-    ask: "අසන්න",
-    login_signup: "පිවිසෙන්න/ලියාපදිංචි වන්න",
-    logout: "පිටවීම",
-    close: "වසන්න",
-  },
-  ta: {
-    home: "முகப்பு",
-    library: "நூலகம்",
-    astrology: "ஜோதிடம்",
-    ai_buddhi: "ஏஐ புத்தி",
-    music_lab: "இசை ஆய்வகம்",
-    news: "செய்திகள்",
-    writers: "எழுத்தாளர்கள்",
-    donate: "தொகு",
-    search_placeholder: "அறிவு, கட்டுரைகள், இசை தேடுங்கள்...",
-    welcome: "உங்கள் ஞான மற்றும் உண்மை பயணம் இங்கே துவங்குகிறது...",
-    qawall: "கேள்வி & பதில் சுவர்",
-    aibot: "ஏஐ உதவியாளர்",
-    musicplayer: "இசை இயங்கு",
-    account: "கணக்கு",
-    back_home: "← முகப்பு",
-    language: "மொழி",
-    ask: "கேளுங்கள்",
-    login_signup: "உள்நுழைய/பதிவு செய்ய",
-    logout: "வெளியேறு",
-    close: "மூடு"
-  }
-};
-let currentLang = localStorage.getItem("lang") || "en";
-function t(key) {
-  return (translations[currentLang] && translations[currentLang][key]) || translations.en[key] || key;
-}
-function showLangMenu(e){
-  e.preventDefault();
-  let m = document.getElementById('langMenu');
-  m.style.display = (m.style.display=='block'?'none':'block');
-  setTimeout(()=>{document.body.addEventListener('click', langMenuHide, {once:true});}, 100);
-}
-function langMenuHide(){ document.getElementById('langMenu').style.display='none'; }
-function setLang(l){
-  currentLang = l; localStorage.setItem("lang",l);
-  applyTranslations();
-  document.getElementById('langMenu').style.display='none';
-}
-function applyTranslations(){
-  document.querySelectorAll('[data-i18n]').forEach(el=>{
-    let key=el.getAttribute('data-i18n');
-    el.textContent = t(key);
-  });
-  document.querySelectorAll('[data-i18n-ph]').forEach(el=>{
-    let key=el.getAttribute('data-i18n-ph');
-    el.setAttribute('placeholder', t(key));
-  });
-  document.title = t("home")+" | Sathyadarshana";
-}
-window.addEventListener('DOMContentLoaded',()=>{
-  // Auto-detect browser language (first visit)
-  if(!localStorage.getItem("lang")){
-    let lang = (navigator.language||"").toLowerCase();
-    if(lang.startsWith("si")) setLang("si");
-    else if(lang.startsWith("ta")) setLang("ta");
-    else setLang("en");
-  } else {
-    applyTranslations();
-  }
-});
-// Back to home button logic
-function showBackHomeBtn(){
-  let h = window.location.hash;
-  document.getElementById('backHomeBtn').style.display = (h && h!="#home" && h!="" ? "block":"none");
-}
-window.addEventListener('hashchange', showBackHomeBtn);
-window.addEventListener('DOMContentLoaded', showBackHomeBtn);
-  </script>
-  <!-- Main Logic (Magic Mode, QA, AI, Music, Account) -->
-  <script>
-    // MAGIC MODE
-    let magicActive = false;
-    const wisdoms = [
-      "May your journey be filled with light! 🌟",
-      "Peace within, peace without.",
-      "Let your mind blossom like the lotus.",
-      "Every breath is a new beginning.",
-      "Be the lamp of truth!",
-      "May blessings rain upon you."
-    ];
-    document.getElementById('magicBtn').onclick = () => {
-      magicActive = !magicActive;
-      document.body.classList.toggle('magic-mode', magicActive);
-      if (magicActive) {
-        playChime();
-        showWisdom();
-        spawnOrbs(8);
-        startBlessingRain();
-      } else {
-        stopMagic();
-      }
-    };
-    function showWisdom() {
-      const pop = document.getElementById('wisdomPopup');
-      pop.textContent = wisdoms[Math.floor(Math.random()*wisdoms.length)];
-      pop.style.display = 'block';
-      setTimeout(()=>pop.style.display='none', 6000);
-    }
-    function spawnOrbs(n) {
-      document.querySelectorAll('.floating-orb').forEach(e=>e.remove());
-      for(let i=0;i<n;i++){
-        let orb=document.createElement('div');
-        orb.className='floating-orb';
-        orb.style.width=orb.style.height=(40+Math.random()*110)+'px';
-        orb.style.left=(Math.random()*92)+'vw';
-        orb.style.bottom=(-20+Math.random()*60)+'vh';
-        orb.style.background='radial-gradient(circle, #00fff7 40%, #fff0 80%)';
-        orb.style.opacity='0.17';
-        orb.style.position='fixed';
-        orb.style.borderRadius='50%';
-        orb.style.zIndex=0;
-        orb.style.pointerEvents='none';
-        orb.style.animation=`floatOrb ${14+Math.random()*10}s linear infinite alternate`;
-        document.body.appendChild(orb);
-      }
-    }
-    function startBlessingRain() {
-      for(let i=0;i<18;i++){
-        setTimeout(()=>rainDrop(), i*250);
-      }
-    }
-    function rainDrop() {
-      let drop = document.createElement('div');
-      const emojis = ['🌸','🪷','☸️','💎','✨'];
-      drop.textContent = emojis[Math.floor(Math.random()*emojis.length)];
-      drop.className = 'blessing-rain';
-      drop.style.left = Math.random()*96+'vw';
-      drop.style.fontSize = (1+Math.random()*2)+'em';
-      drop.style.animationDuration = (4+Math.random()*2)+'s';
-      document.body.appendChild(drop);
-      setTimeout(()=>drop.remove(), 7000);
-    }
-    function playChime() {
-      let audio = new Audio('https://cdn.pixabay.com/audio/2022/12/19/audio_12c0b94e8b.mp3');
-      audio.volume=0.28; audio.play();
-    }
-    function stopMagic() {
-      document.querySelectorAll('.floating-orb,.blessing-rain').forEach(e=>e.remove());
-      document.getElementById('wisdomPopup').style.display = 'none';
-    }
-
-    // SEARCH BAR MOCKUP
-    function searchSite(){
-      let txt = document.getElementById('searchInput').value.trim().toLowerCase();
-      if(txt.length<2){alert(t('search_placeholder'));return;}
-      alert(t("ask")+": "+txt+"\n(This is a demo. You can connect this to real search.)");
-    }
-
-    // Q&A WALL (Local, Demo)
-    let qaList = [
-      {q:"What is Dharma?",a:"Dharma is the path of truth, virtue, and universal law."},
-      {q:"How to start meditation?",a:"Begin by sitting calmly, focusing on your breath, and letting thoughts pass like clouds."}
-    ];
-    function renderQA(){
-      let out = '';
-      qaList.forEach(item=>{
-        out += `<li><div class="qa-q">Q: ${item.q}</div><div class="qa-a">A: ${item.a}</div></li>`;
-      });
-      document.getElementById('qaList').innerHTML = out;
-    }
-    function addQA(){
-      let inp = document.getElementById('qaInput');
-      let q = inp.value.trim();
-      if(q.length<2) return false;
-      qaList.push({q:q,a:"Awaiting answer by community or admin..."});
-      renderQA();
-      inp.value='';
-      return false;
-    }
-    renderQA();
-
-    // AI ASSISTANT (Mockup)
-    let aiHistory = [];
-    function aiAsk(){
-      let inp = document.getElementById('aiInput');
-      let msg = inp.value.trim();
-      if(msg.length<2) return;
-      aiHistory.push({who:'user',text:msg});
-      renderAI();
-      setTimeout(()=> {
-        aiHistory.push({who:'bot',text:aiBotReply(msg)});
-        renderAI();
-      }, 900);
-      inp.value='';
-    }
-    function aiBotReply(q){
-      // Simple canned responses for demo
-      q = q.toLowerCase();
-      if(q.includes('meditation')) return "Meditation is the practice of calmly focusing your mind.";
-      if(q.includes('dharma')) return "Dharma is the eternal law and the path of righteousness.";
-      if(q.includes('music')) return "You can listen to spiritual music in our Music Lab section!";
-      return "Sorry, I am a demo AI. For advanced help, contact our team!";
-    }
-    function renderAI(){
-      let out = '';
-      aiHistory.forEach(msg=>{
-        out += `<div class="ai-msg"><span class="ai-${msg.who}">${msg.who==='user'?'You':'AI'}:</span> ${msg.text}</div>`;
-      });
-      document.getElementById('aiChat').innerHTML = out;
-      document.getElementById('aiChat').scrollTop = 1e9;
-    }
-
-    // MUSIC PLAYER
-    let tracks = [
-      {title:"Dharma Song 1", file:"/assets/music/song1.mp3"},
-      {title:"Meditation Bell", file:"/assets/music/bell.mp3"},
-      {title:"Peaceful Flute", file:"/assets/music/flute.mp3"}
-    ];
-    function renderMusic(){
-      let out = '';
-      tracks.forEach((t,i)=>{
-        out += `<div class="music-item"><button onclick="playTrack(${i})">&#9658;</button> ${t.title}</div>`;
-      });
-      document.getElementById('musicList').innerHTML = out;
-    }
-    function playTrack(i){
-      let audio = document.getElementById('audioPlayer');
-      audio.src = tracks[i].file;
-      audio.style.display = 'block';
-      audio.play();
-    }
-    renderMusic();
-
-    // ACCOUNT FEATURE
-    function showAccountModal(e){ e.preventDefault(); document.getElementById('accountModal').style.display='block'; }
-    function hideAccountModal(e){ e.preventDefault(); document.getElementById('accountModal').style.display='none'; }
-    function accountLogin(){
-      // DEMO ONLY: Store fake login in localStorage
-      let name = document.getElementById('accName').value.trim();
-      let email = document.getElementById('accEmail').value.trim();
-      let pass = document.getElementById('accPass').value.trim();
-      if(name.length<2||!email.includes('@')||pass.length<2){alert('Fill all fields!');return;}
-      localStorage.setItem('account',JSON.stringify({name,email}));
-      document.getElementById('accUser').innerText = name;
-      document.getElementById('accForm').style.display='none';
-      document.getElementById('accProfile').style.display='block';
-    }
-    function logoutAccount(){
-      localStorage.removeItem('account');
-      document.getElementById('accForm').style.display='block';
-      document.getElementById('accProfile').style.display='none';
-      document.getElementById('accountModal').style.display='none';
-    }
-    // On page load, show profile if logged in
-    window.addEventListener('DOMContentLoaded',()=>{
-      let acc = localStorage.getItem('account');
-      if(acc){
-        let {name} = JSON.parse(acc);
-        document.getElementById('accUser').innerText = name;
-        document.getElementById('accForm').style.display='none';
-        document.getElementById('accProfile').style.display='block';
-      }
-    });
-  </script>
 </body>
 </html>
