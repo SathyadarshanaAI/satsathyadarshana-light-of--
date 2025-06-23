@@ -1,158 +1,87 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Home | Sathyadarshana</title>
-  <!-- LOGO as favicon (jpg) -->
-  <link rel="icon" href="polder/logo.jpg"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sathyadarshana | Light of Truth</title>
+  <link rel="icon" href="logo.png" type="image/png">
   <style>
-    :root {
-      --neon: #00fff7; --alt: #008cff; --bg: #161622; --radius: 16px;
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #020617, #0f172a);
+      color: #f8fafc;
     }
-    html { scroll-behavior: smooth; }
-    body { margin: 0; background: linear-gradient(135deg, #131b2c, #2c5364 80%); color: #f8f8ff; font-family: 'Segoe UI', Arial, sans-serif;}
-    .navbar-main, .navbar-sub {
-      display: flex; justify-content: center; align-items: center;
-      gap: 1.4em; background: rgba(30,32,60,0.92);
-      box-shadow: 0 2px 15px #00fff733; border-radius: var(--radius);
-      margin: 1em auto 0 auto; padding: 0.7em 1em; max-width: 700px;
-      flex-wrap: wrap;
+    header {
+      background: rgba(15, 23, 42, 0.95);
+      padding: 1rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
-    .navbar-sub { background: rgba(34,38,62,0.85); margin-top: 0.5em; box-shadow: 0 1px 8px #008cff33;}
+    header h1 {
+      margin: 0;
+      font-size: 1.75rem;
+      color: #38bdf8;
+    }
+    .scroll-section {
+      padding: 4rem 2rem;
+      text-align: center;
+      background: linear-gradient(to right, #0f172a, #1e293b);
+      color: #f8fafc;
+    }
+    .scroll-section h2 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    .scroll-section p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 1.5rem;
+    }
     .neon-btn {
-      background: #19194a; color: #fff; padding: 0.45em 1.25em;
-      border: 2px solid var(--neon); border-radius: 2em; font-weight: 500;
-      text-shadow: 0 0 8px var(--neon), 0 0 24px var(--alt);
-      box-shadow: 0 0 10px var(--neon), 0 0 24px var(--alt)55;
-      transition: transform 0.15s, box-shadow 0.15s;
-      cursor: pointer; font-size: 1em; text-decoration: none;
-      display: flex; align-items: center; gap: 0.5em;
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      font-size: 1.1rem;
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+      box-shadow: 0 0 10px #0ea5e9, 0 0 20px #38bdf8;
+      text-decoration: none;
+      transition: transform 0.2s ease;
     }
-    .neon-btn:hover, .neon-btn:active {
-      transform: scale(1.07); box-shadow: 0 0 24px var(--neon), 0 0 36px var(--alt)99;
-      background: #101026;
+    .neon-btn:hover {
+      transform: scale(1.05);
     }
-    .main-section { max-width: 900px; margin: 2em auto 1em auto; padding: 1.5em; border-radius: var(--radius); background: rgba(25,28,44,0.94);}
-    .page-section { margin-bottom: 2.5em; }
-    .img-modern {
-      width: 100%; max-height: 320px; object-fit: cover;
-      border-radius: var(--radius); box-shadow: 0 0 18px var(--neon)55;
-      margin-bottom: 0.7em;
-    }
-    .section-title { display: flex; align-items: center; gap: 0.8em; font-size: 1.7em; margin-bottom: 0.5em;}
-    .section-title img { width: 2em; height: 2em;}
-    /* ...rest of your CSS unchanged... */
   </style>
 </head>
 <body>
-  <!-- Back to Home Button -->
-  <a href="#home" id="backHomeBtn"><span data-i18n="back_home">← Home</span></a>
-
-  <!-- Navbars -->
-  <nav class="navbar-main" aria-label="Main navigation">
-    <a href="#home" class="neon-btn">
-      <!-- LOGO jpg version -->
-      <img src="polder/logo.jpg" alt="Logo" style="width:2em;height:2em;border-radius:50%;background:#fff;">
-      <span data-i18n="home">Home</span>
-    </a>
-    <a href="#library" class="neon-btn"><span data-i18n="library">Library</span></a>
-    <a href="astrology.html" class="neon-btn"><span data-i18n="astrology">Astrology</span></a>
-    <a href="#ai-buddhi" class="neon-btn"><span data-i18n="ai_buddhi">AI Buddhi</span></a>
-    <a href="#musiclab" class="neon-btn"><span data-i18n="music_lab">Music Lab</span></a>
-    <a href="#" class="neon-btn" onclick="showAccountModal(event)">
-      <img src="polder/logo.jpg" style="width:1.3em;height:1.3em;">
-      <span data-i18n="account">Account</span>
-    </a>
-    <!-- Language Switcher -->
-    <a href="#" class="neon-btn" onclick="showLangMenu(event)">
-      🌐 <span data-i18n="language">Language</span>
-    </a>
-    <div id="langMenu" style="display:none;position:fixed;top:66px;right:24px;z-index:1200;
-      background:#23253c;border-radius:1em;box-shadow:0 0 18px #00fff7;padding:0.5em 1em;">
-      <button onclick="setLang('si')" style="background:none;border:none;color:#00fff7;font-size:1em;cursor:pointer;">සිංහල</button><br>
-      <button onclick="setLang('en')" style="background:none;border:none;color:#00fff7;font-size:1em;cursor:pointer;">English</button><br>
-      <button onclick="setLang('ta')" style="background:none;border:none;color:#00fff7;font-size:1em;cursor:pointer;">தமிழ்</button>
-    </div>
-  </nav>
-  <nav class="navbar-sub" aria-label="Secondary navigation">
-    <a href="#newsline" class="neon-btn"><span data-i18n="news">News</span></a>
-    <a href="#writers" class="neon-btn"><span data-i18n="writers">Writers</span></a>
-    <a href="#donate" class="neon-btn"><span data-i18n="donate">Donate</span></a>
-  </nav>
-
-  <!-- Search Bar -->
-  <div class="search-bar">
-    <input type="text" id="searchInput" data-i18n-ph="search_placeholder" placeholder="Search wisdom, articles, music..."/>
-    <button onclick="searchSite()"><span data-i18n="ask">Ask</span></button>
-  </div>
-
-  <main class="main-section">
-    <!-- Q&A Wall -->
-    <section class="qawall">
-      <h3 data-i18n="qawall">Q&A Wall</h3>
-      <ul class="qa-list" id="qaList"></ul>
-      <form class="qa-form" onsubmit="return addQA()">
-        <input type="text" id="qaInput" placeholder="Ask a question..." autocomplete="off"/>
-        <button type="submit" data-i18n="ask">Ask</button>
-      </form>
-    </section>
-    <!-- AI Assistant -->
-    <section class="ai-box">
-      <h3 data-i18n="aibot">AI Assistant</h3>
-      <div class="ai-chat-history" id="aiChat"></div>
-      <div class="ai-input-row">
-        <input type="text" id="aiInput" placeholder="Ask anything spiritual..." autocomplete="off"/>
-        <button onclick="aiAsk()" data-i18n="ask">Ask</button>
-      </div>
-    </section>
-    <!-- Music Player -->
-    <section class="musicbox">
-      <h3 data-i18n="musicplayer">Music Player</h3>
-      <div class="music-list" id="musicList"></div>
-      <audio id="audioPlayer" controls style="width:98%;margin-top:1em;display:none;"></audio>
-    </section>
-    <!-- Main Content (keep as before) -->
-    <section id="home" class="page-section">
-      <!-- Main banner image (jpg) -->
-      <img src="polder/logo.jpg" class="img-modern" alt="Welcome"/>
-      <div class="section-title">
-        <img src="polder/logo.jpg" alt="Logo"/>
-        <span data-i18n="home">Home</span>
-      </div>
-      <p data-i18n="welcome">Your journey to wisdom and truth begins here...</p>
-    </section>
-    <!-- ... add your other sections ... -->
-  </main>
-
-  <!-- Account Modal -->
-  <div id="accountModal">
-    <div class="accbox">
-      <h3 data-i18n="account">Account</h3>
-      <div id="accForm">
-        <input id="accName" placeholder="Your name">
-        <input id="accEmail" placeholder="Email">
-        <input id="accPass" type="password" placeholder="Password">
-        <button onclick="accountLogin()" data-i18n="login_signup">Log In / Sign Up</button>
-        <div style="text-align:right;margin-top:0.7em;"><a href="#" onclick="hideAccountModal(event)" style="color:#00fff7;" data-i18n="close">Close</a></div>
-      </div>
-      <div id="accProfile" style="display:none;">
-        <div style="font-size:1.2em;margin-bottom:0.8em;">
-          <span data-i18n="welcome">Welcome</span>, <span id="accUser"></span>!
-        </div>
-        <button onclick="logoutAccount()" data-i18n="logout">Logout</button>
-        <div style="text-align:right;margin-top:0.7em;"><a href="#" onclick="hideAccountModal(event)" style="color:#00fff7;" data-i18n="close">Close</a></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Magic Mode Button + Wisdom Popup -->
-  <button class="magic-btn" id="magicBtn" title="Activate Digital Magic ✨">✨</button>
-  <div class="wisdom-popup" id="wisdomPopup"></div>
-
-  <!-- i18n Translations and Logic -->
-  <!-- ...your existing scripts remain unchanged... -->
-  <!-- (You can keep the rest of your <script> blocks as-is for i18n/logic/QA/AI/Music/Account features) -->
-
+  <header>
+    <h1>Sathyadarshana: Light of Truth</h1>
+  </header>  <section class="scroll-section">
+    <h2>Welcome to Sathyadarshana</h2>
+    <p>Explore spiritual technologies, sacred wisdom, and AI-powered insight.</p>
+    <a href="library.html" class="neon-btn">📚 Visit Library</a>
+  </section>  <section class="scroll-section">
+    <h2>The Seed: Human Origin Scanner</h2>
+    <p>A spark beyond DNA – the spiritual origin signature. Scan to reveal what science can't see.</p>
+    <a href="seed-engine.html" class="neon-btn">🌱 Explore The Seed Engine</a>
+  </section>  <section class="scroll-section">
+    <h2>Astrology & KP Dashboard</h2>
+    <p>Generate precise KP charts, Sub-Lord predictions, and voice reports.</p>
+    <a href="astrology.html" class="neon-btn">🔭 Astrology Panel</a>
+  </section>  <section class="scroll-section">
+    <h2>AI Buddhi Assistant</h2>
+    <p>Ask Buddhi for guidance in spiritual, medical, or cosmic matters. Always at your side.</p>
+    <a href="ai-buddhi.html" class="neon-btn">🤖 Talk to Buddhi</a>
+  </section>  <section class="scroll-section">
+    <h2>Sathyadarshana Lab</h2>
+    <p>Discover Smule voice recordings, music lab, and spiritual sound projects.</p>
+    <a href="sathyadarshana-lab.html" class="neon-btn">🎙️ Music Lab</a>
+  </section>  <footer class="scroll-section">
+    <p style="font-size: 0.9rem; color: #94a3b8;">© 2025 Sathyadarshana | Designed by Anurudda & AI Buddhi</p>
+  </footer>
 </body>
 </html>
