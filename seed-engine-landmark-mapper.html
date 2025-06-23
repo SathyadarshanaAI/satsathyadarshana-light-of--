@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Seed Engine | Hand Scan Mapping</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #020617, #0f172a);
+      color: #f1f5f9;
+      padding: 1rem;
+    }
+    h1 {
+      text-align: center;
+      color: #38bdf8;
+    }
+    .scanner {
+      max-width: 800px;
+      margin: auto;
+      background: #1e293b;
+      padding: 1rem;
+      border-radius: 1rem;
+      text-align: center;
+    }
+    input[type="file"] {
+      display: block;
+      margin: 1rem auto;
+      background: #334155;
+      color: white;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+    }
+    canvas {
+      border-radius: 1rem;
+      border: 2px solid #0ea5e9;
+      max-width: 100%;
+      margin-top: 1rem;
+    }
+    #sectionMarkers {
+      margin-top: 1rem;
+      color: #fbbf24;
+    }
+  </style>
+</head>
+<body>
+  <h1>🌱 The Seed Engine - Hand Landmark Mapping</h1>
+  <div class="scanner">
+    <input type="file" accept="image/*" onchange="loadImage(event)" />
+    <canvas id="handCanvas" width="600" height="600"></canvas>
+    <div id="sectionMarkers">
+      <strong>Landmarks:</strong> Top (Fingers), Middle (Palm Center), Bottom (Wrist)
+    </div>
+  </div>
+
+  <script>
+    const canvas = document.getElementById("handCanvas");
+    const ctx = canvas.getContext("2d");
+
+    function loadImage(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const img = new Image();
+        img.onload = function() {
+          // Resize canvas to match image
+          canvas.width = img.width;
+          canvas.height = img.height;
+          ctx.drawImage(img, 0, 0);
+
+          drawMarkers(img.width, img.height);
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function drawMarkers(width, height) {
+      const topY = height * 0.25;
+      const midY = height * 0.55;
+      const botY = height * 0.85;
+
+      ctx.strokeStyle = "#22d3ee";
+      ctx.lineWidth = 2;
+
+      ctx.beginPath();
+      ctx.moveTo(0, topY);
+      ctx.lineTo(width, topY);
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.moveTo(0, midY);
+      ctx.lineTo(width, midY);
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.moveTo(0, botY);
+      ctx.lineTo(width, botY);
+      ctx.stroke();
+
+      ctx.font = "16px Segoe UI";
+      ctx.fillStyle = "#a5f3fc";
+      ctx.fillText("Top (Finger Tips)", 10, topY - 5);
+      ctx.fillText("Middle (Palm)", 10, midY - 5);
+      ctx.fillText("Bottom (Wrist)", 10, botY - 5);
+    }
+  </script>
+</body>
+</html>
