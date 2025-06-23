@@ -1,0 +1,110 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KP Sub-Lord Calculator | Sathyadarshana</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #020617, #0f172a);
+      color: #f1f5f9;
+      padding: 2rem;
+    }
+    h1, h2 {
+      text-align: center;
+      color: #60a5fa;
+    }
+    .form-group, .results {
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      background: #1e293b;
+      border-radius: 1rem;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 0.6rem;
+      margin-top: 0.8rem;
+      border-radius: 0.5rem;
+      border: none;
+    }
+    button {
+      background-color: #1e40af;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .chart-box {
+      margin-top: 2rem;
+      padding: 1rem;
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 0.8rem;
+    }
+    .planet-line {
+      margin-bottom: 0.8rem;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔭 KP Sub-Lord Calculator</h1>
+  <div class="form-group">
+    <label>Full Name:</label>
+    <input type="text" id="fullName" placeholder="e.g., John Doe" /><label>Birth Date:</label>
+<input type="date" id="birthDate" />
+
+<label>Birth Time:</label>
+<input type="time" id="birthTime" />
+
+<label>Country:</label>
+<select id="birthCountry">
+  <option value="">Select Country</option>
+  <option value="Sri Lanka">Sri Lanka</option>
+  <option value="India">India</option>
+  <option value="USA">USA</option>
+  <option value="UK">UK</option>
+  <option value="Other">Other</option>
+</select>
+
+<label>Latitude:</label>
+<input type="text" id="latitude" placeholder="e.g., 7.8731" />
+
+<label>Longitude:</label>
+<input type="text" id="longitude" placeholder="e.g., 80.7718" />
+
+<button onclick="generateKPReport()">🧠 Calculate Sub-Lords</button>
+
+  </div>  <div class="results" id="kpResults" style="display:none;">
+    <h2>📜 Sub-Lord Chart</h2>
+    <div class="chart-box" id="subLordChart"></div>
+  </div>  <script>
+    function generateKPReport() {
+      const chart = document.getElementById("subLordChart");
+      const resultBox = document.getElementById("kpResults");
+      const name = document.getElementById("fullName").value;
+      chart.innerHTML = '';
+
+      // Sample Static Chart for now
+      const planets = [
+        { name: 'Sun', starLord: 'Ketu', subLord: 'Venus' },
+        { name: 'Moon', starLord: 'Saturn', subLord: 'Mercury' },
+        { name: 'Mars', starLord: 'Mercury', subLord: 'Moon' },
+        { name: 'Mercury', starLord: 'Sun', subLord: 'Ketu' },
+        { name: 'Jupiter', starLord: 'Venus', subLord: 'Saturn' },
+        { name: 'Venus', starLord: 'Moon', subLord: 'Rahu' },
+        { name: 'Saturn', starLord: 'Mars', subLord: 'Sun' },
+        { name: 'Rahu', starLord: 'Jupiter', subLord: 'Mars' },
+        { name: 'Ketu', starLord: 'Rahu', subLord: 'Jupiter' },
+      ];
+
+      chart.innerHTML += `<h3>🧬 Name: ${name}</h3>`;
+      planets.forEach(p => {
+        chart.innerHTML += `<div class='planet-line'>🌌 ${p.name} → Star Lord: <b>${p.starLord}</b>, Sub Lord: <b>${p.subLord}</b></div>`;
+      });
+
+      resultBox.style.display = 'block';
+    }
+  </script></body>
+</html>
