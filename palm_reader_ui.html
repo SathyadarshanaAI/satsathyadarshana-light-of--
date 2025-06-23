@@ -1,0 +1,94 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Seed | Palm Region Mapper</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f172a;
+      color: #f8fafc;
+      padding: 1rem;
+    }
+    h1 {
+      text-align: center;
+      color: #38bdf8;
+    }
+    canvas {
+      display: block;
+      margin: 2rem auto;
+      border: 2px solid #38bdf8;
+      border-radius: 1rem;
+    }
+    #controls {
+      text-align: center;
+      margin-top: 1rem;
+    }
+    button {
+      padding: 0.6rem 1.2rem;
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 0.6rem;
+      margin: 0.5rem;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    input[type="file"] {
+      color: white;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>✋ Palm Region Mapping</h1>
+  <div id="controls">
+    <input type="file" id="uploadPalm" accept="image/*" />
+    <br />
+    <button onclick="highlightLines('heart')">Highlight Heart Line</button>
+    <button onclick="highlightLines('head')">Highlight Head Line</button>
+    <button onclick="highlightLines('life')">Highlight Life Line</button>
+    <button onclick="highlightLines('fate')">Highlight Fate Line</button>
+  </div>
+  <canvas id="palmCanvas" width="600" height="800"></canvas>  <script>
+    const canvas = document.getElementById('palmCanvas');
+    const ctx = canvas.getContext('2d');
+    let img = new Image();
+
+    document.getElementById('uploadPalm').addEventListener('change', (event) => {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          img.onload = function() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+          }
+          img.src = e.target.result;
+        }
+        reader.readAsDataURL(file);
+      }
+    });
+
+    function highlightLines(line) {
+      ctx.lineWidth = 3;
+      ctx.strokeStyle = '#38bdf8';
+      ctx.beginPath();
+      if (line === 'heart') {
+        ctx.moveTo(100, 200);
+        ctx.bezierCurveTo(250, 180, 400, 220, 500, 200);
+      } else if (line === 'head') {
+        ctx.moveTo(100, 300);
+        ctx.bezierCurveTo(250, 280, 400, 320, 500, 300);
+      } else if (line === 'life') {
+        ctx.moveTo(150, 400);
+        ctx.bezierCurveTo(100, 550, 200, 650, 300, 750);
+      } else if (line === 'fate') {
+        ctx.moveTo(300, 750);
+        ctx.bezierCurveTo(320, 600, 320, 400, 320, 200);
+      }
+      ctx.stroke();
+    }
+  </script></body>
+</html>
