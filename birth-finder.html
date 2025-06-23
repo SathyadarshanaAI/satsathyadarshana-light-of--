@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Birth Finder | Sathyadarshana Astrology Lab</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <style>
     body {
       margin: 0;
@@ -69,7 +70,7 @@
     <input type="text" id="fullName" placeholder="e.g., John Doe"/>
 
     <label>Birth Date:</label>
-    <input type="date" id="birthDate"/>
+    <input type="text" id="birthDate" placeholder="Select your birth date"/>
 
     <label>Birth Time:</label>
     <input type="time" id="birthTime"/>
@@ -131,6 +132,15 @@
       document.getElementById("summaryText").innerHTML = summary;
       document.getElementById("summaryBox").style.display = "block";
     }
+
+    // Initialize flatpickr calendar for 1980 and beyond
+    flatpickr("#birthDate", {
+      dateFormat: "Y-m-d",
+      defaultDate: "1980-01-01",
+      maxDate: "today",
+      altInput: true,
+      altFormat: "F j, Y"
+    });
   </script>
 
   <!-- Google Maps API -->
