@@ -1,0 +1,76 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Seed | Palm Reader Upload</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #0f172a, #1e293b);
+      color: #f8fafc;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .upload-box {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+      text-align: center;
+    }
+    input[type="file"] {
+      margin-top: 1rem;
+    }
+    #preview {
+      margin-top: 1rem;
+      max-width: 300px;
+      border-radius: 0.5rem;
+    }
+    button {
+      margin-top: 1rem;
+      background: #38bdf8;
+      color: #000;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 9999px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="upload-box">
+    <h1>🌱 The Seed: Upload Your Palm</h1>
+    <input type="file" id="palmUpload" accept="image/*">
+    <br>
+    <img id="preview" style="display:none;">
+    <br>
+    <button onclick="analyzePalm()">Analyze Now</button>
+    <div id="result" style="margin-top:1rem;"></div>
+  </div>  <script>
+    const upload = document.getElementById('palmUpload');
+    const preview = document.getElementById('preview');
+    const result = document.getElementById('result');
+
+    upload.addEventListener('change', () => {
+      const file = upload.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = () => {
+          preview.src = reader.result;
+          preview.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    function analyzePalm() {
+      result.innerHTML = "🧠 Analyzing your palm lines... (AI Module in progress)";
+      // Future: Send image to server or run AI script locally
+    }
+  </script></body>
+</html>
