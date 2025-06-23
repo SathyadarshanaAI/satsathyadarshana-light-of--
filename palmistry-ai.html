@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sathyadarshana | Palmistry AI</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #0f172a, #1e293b);
+      color: #e0f2fe;
+      padding: 1rem;
+    }
+    h1 {
+      text-align: center;
+      color: #38bdf8;
+    }
+    .upload-section {
+      background: #1e293b;
+      border-radius: 1rem;
+      padding: 1rem;
+      margin: 1rem auto;
+      max-width: 500px;
+      box-shadow: 0 0 12px #38bdf8;
+    }
+    label {
+      font-weight: bold;
+      margin-top: 1rem;
+      display: block;
+    }
+    input[type="file"] {
+      background: #334155;
+      color: white;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      width: 100%;
+    }
+    img {
+      margin-top: 1rem;
+      max-width: 100%;
+      border-radius: 1rem;
+      border: 2px solid #0ea5e9;
+    }
+    .note {
+      font-size: 0.85rem;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔍 Sathyadarshana Palmistry AI</h1>
+
+  <div class="upload-section">
+    <label for="leftPalm">Left Palm Image:</label>
+    <input type="file" id="leftPalm" accept="image/*" onchange="previewImage(this, 'leftPreview')" />
+    <p class="note">Make sure lines are clearly visible under bright light.</p>
+    <img id="leftPreview" src="#" alt="Left Palm Preview" style="display:none;" />
+  </div>
+
+  <div class="upload-section">
+    <label for="rightPalm">Right Palm Image:</label>
+    <input type="file" id="rightPalm" accept="image/*" onchange="previewImage(this, 'rightPreview')" />
+    <p class="note">Capture full palm or relevant section.</p>
+    <img id="rightPreview" src="#" alt="Right Palm Preview" style="display:none;" />
+  </div>
+
+  <div class="upload-section">
+    <label for="thumb">Thumb / Manikanda Region:</label>
+    <input type="file" id="thumb" accept="image/*" onchange="previewImage(this, 'thumbPreview')" />
+    <p class="note">Prefer close-up of thumb base (Manikanda zone).</p>
+    <img id="thumbPreview" src="#" alt="Thumb Preview" style="display:none;" />
+  </div>
+
+  <script>
+    function previewImage(input, targetId) {
+      const preview = document.getElementById(targetId);
+      const file = input.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          preview.src = e.target.result;
+          preview.style.display = "block";
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+  </script>
+</body>
+</html>
