@@ -1,0 +1,85 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Palmistry Upload | Sathyadarshana Lab</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #0f172a, #1e293b);
+      color: #f1f5f9;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 2rem;
+    }
+    h1 {
+      color: #60a5fa;
+    }
+    .upload-section {
+      background: #1e293b;
+      padding: 2rem;
+      border-radius: 1rem;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 0 15px #0ea5e9;
+    }
+    input[type="file"] {
+      padding: 1rem;
+      border-radius: 0.6rem;
+      background: #0f172a;
+      color: #fff;
+      border: 1px solid #334155;
+      margin-bottom: 1rem;
+    }
+    img {
+      max-width: 100%;
+      margin-top: 1rem;
+      border-radius: 1rem;
+    }
+    button {
+      background: #1d4ed8;
+      color: white;
+      padding: 0.8rem 2rem;
+      border: none;
+      border-radius: 0.6rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>🖐 Palm Scan Upload</h1>
+  <p>Please upload three clear images:</p>
+  <ol style="text-align:left; display:inline-block;">
+    <li>📸 Full Palm (center of the hand)</li>
+    <li>📸 Fingers only</li>
+    <li>📸 Wrist and Manikanda lines</li>
+  </ol>
+  <div class="upload-section">
+    <input type="file" accept="image/*" id="uploadPalm" />
+    <input type="file" accept="image/*" id="uploadFingers" />
+    <input type="file" accept="image/*" id="uploadWrist" />
+    <br/><br/>
+    <button onclick="previewImages()">📥 Preview Upload</button>
+    <div id="previewBox"></div>
+  </div>  <script>
+    function previewImages() {
+      const palm = document.getElementById("uploadPalm").files[0];
+      const fingers = document.getElementById("uploadFingers").files[0];
+      const wrist = document.getElementById("uploadWrist").files[0];
+      const preview = document.getElementById("previewBox");
+
+      preview.innerHTML = '';
+
+      [palm, fingers, wrist].forEach((file, index) => {
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function(e) {
+            const img = document.createElement("img");
+            img.src = e.target.result;
+            preview.appendChild(img);
+          }
+          reader.readAsDataURL(file);
+        }
+      });
+    }
+  </script></body>
+</html>
