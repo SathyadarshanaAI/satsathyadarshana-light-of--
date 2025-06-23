@@ -1,0 +1,109 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Seed Engine | Palm Overlay AI</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f172a;
+      color: #f8fafc;
+      margin: 0;
+      padding: 2rem;
+    }
+    h1 {
+      text-align: center;
+      color: #38bdf8;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #1e293b;
+      padding: 2rem;
+      border-radius: 1rem;
+    }
+    .upload-area {
+      border: 2px dashed #38bdf8;
+      padding: 1rem;
+      text-align: center;
+      border-radius: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    input[type="file"] {
+      display: none;
+    }
+    .custom-upload {
+      background: #38bdf8;
+      color: white;
+      padding: 0.6rem 1rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+    }
+    canvas {
+      max-width: 100%;
+      margin-top: 1rem;
+      border-radius: 1rem;
+    }
+    #saveBtn {
+      background: #0ea5e9;
+      color: white;
+      border: none;
+      padding: 0.7rem;
+      border-radius: 0.5rem;
+      margin-top: 1.5rem;
+      display: block;
+      width: 100%;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>🌱 The Seed Engine - Palm Overlay</h1>
+  <div class="container">
+    <div class="upload-area" onclick="document.getElementById('uploadPalm').click()">
+      <span class="custom-upload">📸 Upload Palm Image</span>
+      <input type="file" id="uploadPalm" accept="image/*" onchange="previewPalm(event)" />
+    </div>
+    <canvas id="palmCanvas"></canvas>
+    <button id="saveBtn" onclick="saveOverlay()">💾 Save Analysis & Continue</button>
+  </div>  <script>
+    const canvas = document.getElementById("palmCanvas");
+    const ctx = canvas.getContext("2d");
+
+    function previewPalm(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const img = new Image();
+        img.onload = function () {
+          canvas.width = img.width;
+          canvas.height = img.height;
+          ctx.drawImage(img, 0, 0);
+
+          // Overlay zones (example markers)
+          ctx.strokeStyle = "#38bdf8";
+          ctx.lineWidth = 3;
+          ctx.strokeRect(img.width * 0.3, img.height * 0.2, 150, 50); // Head Line
+          ctx.strokeRect(img.width * 0.3, img.height * 0.4, 160, 50); // Heart Line
+          ctx.strokeRect(img.width * 0.3, img.height * 0.6, 160, 50); // Life Line
+
+          ctx.font = "16px Segoe UI";
+          ctx.fillStyle = "#38bdf8";
+          ctx.fillText("Head", img.width * 0.3, img.height * 0.2 - 5);
+          ctx.fillText("Heart", img.width * 0.3, img.height * 0.4 - 5);
+          ctx.fillText("Life", img.width * 0.3, img.height * 0.6 - 5);
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function saveOverlay() {
+      const dataURL = canvas.toDataURL();
+      alert("Palm overlay captured. Analysis ready for next module.");
+      // Future: Upload to DB or next API step
+    }
+  </script></body>
+</html>
