@@ -1,6 +1,6 @@
-9// pdf-generator.js
+// pdf-generator.js
 
-import { analyzeMoonPosition } from './kp-sublord-engine.js'; import { getMoonDegree } from './moon-position.js';
+import { analyzeMoonPosition } from './kp-sublord-engine.js';
 
 document.getElementById('birthForm').addEventListener('submit', function (e) { e.preventDefault();
 
@@ -8,11 +8,11 @@ const name = e.target.name.value; const dob = e.target.dob.value; const tob = e.
 
 const today = new Date().toLocaleDateString();
 
-// 🌕 Calculate Moon Degree const moonDeg = getMoonDegree(dob, tob, pob); const kpResult = analyzeMoonPosition(moonDeg);
+// 🔮 Sample Moon Degree (placeholder — to be calculated in future) const moonDeg = 125.5; const kpResult = analyzeMoonPosition(moonDeg);
 
 const doc = new jspdf.jsPDF();
 
-// 🌌 Cover Page doc.setFontSize(22); doc.text('🪷 Divyajnana Chakra Report', 20, 30); doc.setFontSize(14); doc.text(Cosmic Insight for ${name}, 20, 40); doc.text(Generated on: ${today}, 20, 50); doc.text('This sacred report is a gift from the Light of Truth.', 20, 70);
+// 🌌 Cover Page doc.setFontSize(22); doc.text('🩇 Divyajnana Chakra Report', 20, 30); doc.setFontSize(14); doc.text(Cosmic Insight for ${name}, 20, 40); doc.text(Generated on: ${today}, 20, 50); doc.text('This sacred report is a gift from the Light of Truth.', 20, 70);
 
 doc.addPage();
 
@@ -24,9 +24,17 @@ doc.addPage();
 
 doc.addPage();
 
-// 🕊️ Final Blessing Page doc.setFontSize(14); doc.text('🕊️ Final Blessing', 20, 30); doc.setFontSize(12); doc.text(May this wisdom bring serenity and truth to your path., 20, 50); doc.text(May light guide you., 20, 60); doc.text(— Divyajnana Chakra | Sathyadarshana, 20, 80);
+// 🙊 Final Blessing Page doc.setFontSize(14); doc.text('🙊 Final Blessing', 20, 30); doc.setFontSize(12); doc.text(May this wisdom bring serenity and truth to your path., 20, 50); doc.text(May light guide you., 20, 60); doc.text(— Divyajnana Chakra | Sathyadarshana, 20, 80);
 
-// 🖋️ Watermark on all pages const pageCount = doc.internal.getNumberOfPages(); for (let i = 1; i <= pageCount; i++) { doc.setPage(i); doc.setTextColor(220); doc.setFontSize(10); doc.text('Protected by Sathyadarshana.com – All Rights Reserved', 60, 290, { angle: 0 }); }
+// 🔋 Watermark on all pages const pageCount = doc.internal.getNumberOfPages(); for (let i = 1; i <= pageCount; i++) { doc.setPage(i); doc.setTextColor(220); doc.setFontSize(10); doc.text('Protected by Sathyadarshana.com – All Rights Reserved', 60, 290, { angle: 0 }); }
 
-// 💾 Save doc.save(Divyajnana_Chakra_Report_${name}.pdf); });
+// 📀 Save doc.save(Divyajnana_Chakra_Report_${name}.pdf); });
+
+// 🗓️ Calendar Setup with Language Toggle import flatpickr from 'flatpickr'; import 'flatpickr/dist/flatpickr.min.css'; import { Sinhala } from 'flatpickr/dist/l10n/si.js'; import { Hindi } from 'flatpickr/dist/l10n/hi.js'; import { Tamil } from 'flatpickr/dist/l10n/ta.js';
+
+const calendarLangs = { default: 'en', si: Sinhala, hi: Hindi, ta: Tamil };
+
+const fp = flatpickr("#birthDate", { dateFormat: "Y-m-d", altInput: true, altFormat: "F j, Y", maxDate: "today", locale: 'en' });
+
+document.getElementById('calendarLang').addEventListener('change', function () { const selectedLang = this.value; fp.set('locale', calendarLangs[selectedLang] || 'en'); });
 
