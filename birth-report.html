@@ -3,7 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sathyadarshana | Birth Report</title>
+  <title>Divyajnana Chakra | Birth Report</title>
+
+  <!-- Flatpickr CSS + JS + Locales -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/si.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/hi.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ta.js"></script>
+
   <style>
     body {
       background: linear-gradient(to bottom, #0f172a, #1e293b);
@@ -79,7 +87,7 @@
   </style>
 </head>
 <body>
-  <h1>🪷 Sathyadarshana Birth Report</h1>
+  <h1>🪷 Divyajnana Chakra Birth Report</h1>
 
   <div class="lang-switch">
     <button onclick="setLang('en')">English</button>
@@ -92,7 +100,13 @@
     <input type="text" name="name" required />
 
     <label>Date of Birth</label>
-    <input type="date" name="dob" required />
+    <select id="calendarLang" style="margin-bottom:10px;">
+      <option value="default">English</option>
+      <option value="si">සිංහල</option>
+      <option value="hi">हिन्दी</option>
+      <option value="ta">தமிழ்</option>
+    </select>
+    <input id="birthDate" name="dob" placeholder="Select Birth Date" required />
 
     <label>Time of Birth</label>
     <input type="time" name="tob" required />
@@ -120,14 +134,29 @@
     <button type="submit">Generate Report</button>
   </form>
 
+  <!-- PDF Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <!-- PDF Generator -->
+  <script src="script/pdf-generator.js"></script>
+
+  <!-- Language Switcher -->
   <script>
     function setLang(lang) {
       alert('Language set to: ' + lang + ' (translation coming soon)');
     }
 
-    document.getElementById('birthForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert('🧬 Generating Report... (PDF & AI logic coming next)');
+    // Flatpickr localization
+    let fp = flatpickr("#birthDate", {
+      dateFormat: "Y-m-d",
+      altInput: true,
+      altFormat: "F j, Y",
+      maxDate: "today",
+      locale: "default"
+    });
+
+    document.getElementById('calendarLang').addEventListener('change', function() {
+      const lang = this.value;
+      fp.set('locale', lang === "default" ? "en" : lang);
     });
   </script>
 </body>
