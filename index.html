@@ -1,66 +1,188 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sathyadarshana Astrological Calendar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sathyadarshana | Light of Truth</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/si.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ta.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/hi.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
   <style>
-    body {
-      background: radial-gradient(ellipse at center, #0f172a 0%, #000 100%);
-      color: #f1f5f9;
-      font-family: 'Segoe UI', sans-serif;
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: radial-gradient(ellipse at 60% 10%, #f1f5f9 0%, #ffffff 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
     }
     .glow-text {
-      text-shadow: 0 0 10px rgba(255,255,255,0.6);
+      color: #475569;
+      text-shadow: 0 0 8px #38bdf8, 0 0 30px #bae6fd;
+      letter-spacing: 0.03em;
     }
-    .floating {
-      animation: float 6s ease-in-out infinite;
+    .neon-button {
+      display: inline-block;
+      padding: 0.6rem 1.3rem;
+      border: 2px solid #0ea5e9;
+      color: #0ea5e9;
+      background: #fff;
+      border-radius: 9999px;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: all 0.2s cubic-bezier(.4,0,.2,1);
+      margin: 0.25rem 0.15rem;
+      box-shadow: 0 0 8px #bae6fd44;
+      outline: none;
+      text-shadow: none;
     }
-    @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-12px); }
-      100% { transform: translateY(0px); }
+    .neon-button:hover, .neon-button:focus {
+      background-color: #0ea5e9;
+      color: #fff;
+      box-shadow: 0 0 24px #38bdf8, 0 0 40px #bae6fd;
+      border: 2px solid #fff;
+      outline: none;
     }
+    .card {
+      background: rgba(255,255,255, 0.90);
+      border-radius: 1rem;
+      box-shadow: 0 4px 24px 0 #bae6fd33;
+      padding: 2.5rem 2rem;
+      margin: 1rem 0;
+      color: #334155;
+      border: 1px solid #e0e7ef;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover {
+      transform: scale(1.018);
+      box-shadow: 0 8px 36px 0 #38bdf888, 0 0 30px #bae6fd88;
+    }
+    .fadein {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeinUp 1.2s cubic-bezier(.4,0,.2,1) 0.2s forwards;
+    }
+    @keyframes fadeinUp {
+      100% {
+        opacity: 1;
+        transform: none;
+      }
+    }
+    /* Hide Google Translate UI */
+    .goog-te-banner-frame.skiptranslate,
+    .goog-logo-link,
+    .goog-te-gadget,
+    #goog-gt-tt,
+    .goog-te-balloon-frame,
+    .goog-te-menu-frame,
+    .goog-te-menu-value {
+      display: none !important;
+    }
+    body { top: 0px !important; }
   </style>
-</head>
-<body class="min-h-screen flex items-center justify-center px-4">
-  <div>
-    <h1 class="text-4xl md:text-5xl font-bold text-indigo-400 glow-text mb-4 floating text-center">📅 Astrological Calendar</h1>
-    <div class="text-center mb-4">
-      <select id="calendarLang" class="mb-4 px-4 py-2 rounded text-black">
-        <option value="default">English</option>
-        <option value="si">සිංහල</option>
-        <option value="ta">தமிழ்</option>
-        <option value="hi">हिन्दी</option>
-      </select><br>
-      <input id="birthDate" class="px-4 py-2 rounded text-black text-center" placeholder="Select Birth Date" />
-      <button onclick="generateCalendar()" class="ml-2 mt-2 px-4 py-2 bg-blue-600 text-white rounded">Show Calendar</button>
-    </div>
-    <div id="calendarOutput" class="text-center mt-6 text-lg"></div>
-    <footer class="mt-10 text-xs text-gray-500 text-center">
-      © 2025 Sathyadarshana | Designed by Buddhi for Awakening Minds
-    </footer>
-  </div>  <script>
-    let fp = flatpickr("#birthDate", {
-      dateFormat: "Y-m-d",
-      altInput: true,
-      altFormat: "F j, Y",
-      maxDate: "today",
-      locale: "default"
-    });
-
-    document.getElementById('calendarLang').addEventListener('change', function () {
-      const lang = this.value;
-      fp.set('locale', lang === 'default' ? 'en' : lang);
-    });
-
-    function generateCalendar() {
-      const date = document.getElementById("birthDate").value;
-      document.getElementById("calendarOutput").innerHTML = `🌕 Your selected date is: <strong>${date}</strong>`;
+  <!-- Google Translate -->
+  <div id="google_translate_element" style="display:none"></div>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,si,ta',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
     }
-  </script></body>
+    document.addEventListener("DOMContentLoaded", function() {
+      var style = document.createElement('style');
+      style.innerHTML = `
+        .goog-te-banner-frame.skiptranslate,
+        .goog-logo-link,
+        .goog-te-gadget,
+        #goog-gt-tt,
+        .goog-te-balloon-frame,
+        .goog-te-menu-frame,
+        .goog-te-menu-value {
+          display: none !important;
+        }
+        body { top: 0px !important; }
+      `;
+      document.head.appendChild(style);
+    });
+    function setLanguage(lang) {
+      document.cookie = "googtrans=/en/" + lang + ";path=/;";
+      location.reload();
+    }
+    (function autoDetectLang() {
+      if(!document.cookie.match(/googtrans/)) {
+        var userLang = navigator.language || navigator.userLanguage;
+        if (userLang.startsWith("si")) {
+          setLanguage('si');
+        } else if (userLang.startsWith("ta")) {
+          setLanguage('ta');
+        } else {
+          setLanguage('en');
+        }
+      }
+    })();
+    // Shortcut key: H for Home
+    document.addEventListener('keydown', function(e) {
+      if ((e.ctrlKey && e.key === 'h') || (e.key === 'h' && !e.ctrlKey && document.activeElement.tagName !== 'INPUT')) {
+        window.location.href = 'index.html';
+      }
+    });
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+<body class="text-slate-900 min-h-screen flex flex-col">
+  <!-- Language Switcher (Fixed, all pages) -->
+  <div class="fixed bottom-5 right-5 z-50 flex flex-col gap-2">
+    <button onclick="setLanguage('en')" class="neon-button">English</button>
+    <button onclick="setLanguage('si')" class="neon-button">සිංහල</button>
+    <button onclick="setLanguage('ta')" class="neon-button">தமிழ்</button>
+  </div>
+  <!-- Universal Navbar (sticky, all pages, shortcut navigation) -->
+  <nav class="sticky top-0 z-40 bg-white/95 shadow-md backdrop-blur px-2 py-2 flex flex-wrap items-center justify-center gap-2 w-full">
+    <a href="index.html" class="neon-button">Home</a>
+    <a href="sathyadarshana-lab.html" class="neon-button">Lab</a>
+    <a href="voice-of-dharma.html" class="neon-button">Voice of Dharma</a>
+    <a href="news-of-the-light.html" class="neon-button">News</a>
+    <a href="buddhi-ai.html" class="neon-button">Buddhi AI</a>
+    <a href="library.html" class="neon-button">Library</a>
+    <a href="astrology.html" class="neon-button">Astrology</a>
+    <a href="dharma-sabha.html" class="neon-button">Mandapaya</a>
+  </nav>
+  <!-- Hero Section -->
+  <section class="flex flex-col items-center text-center justify-center min-h-[60vh] py-14 fadein">
+    <h1 class="text-5xl md:text-7xl font-bold glow-text mb-4 tracking-tight">
+      <span class="inline-block align-middle animate-pulse">🌌</span>
+      Sathyadarshana
+    </h1>
+    <div class="mx-auto max-w-lg">
+      <p class="text-xl md:text-2xl text-slate-700 font-light mb-6">
+        <span class="glow-text">ආලෝකයේ පණිවිඩය</span> <br>
+        <span class="text-sky-500">Light of Truth, Harmony, and Wisdom</span> <br>
+        <span class="text-slate-600">A sanctuary for your mind and soul.<br>AI-powered compassion meets ancient serenity.</span>
+      </p>
+      <a href="#explore" class="neon-button text-lg">Explore the Light</a>
+    </div>
+  </section>
+  <!-- Section Cards: Digital Serenity Experience -->
+  <section id="explore" class="max-w-5xl w-full mx-auto grid md:grid-cols-3 gap-8 py-8 px-4 fadein">
+    <div class="card">
+      <h2 class="text-2xl font-bold mb-2 glow-text">Buddhi AI</h2>
+      <p class="text-slate-700 font-light">Meet your AI guide – wise, compassionate, and always ready to help you find answers with clarity and calm.</p>
+    </div>
+    <div class="card">
+      <h2 class="text-2xl font-bold mb-2 glow-text">Voice of Dharma</h2>
+      <p class="text-slate-700 font-light">Listen to the timeless wisdom of Dharma, echoing through the digital night, inviting you to peace and awakening.</p>
+    </div>
+    <div class="card">
+      <h2 class="text-2xl font-bold mb-2 glow-text">Library of Light</h2>
+      <p class="text-slate-700 font-light">Discover a curated collection of sacred texts, meditations, and insights to illuminate your inner journey.</p>
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer class="mt-auto text-center text-sm text-slate-500 py-6 fadein">
+    © 2025 Sathyadarshana • Powered by Buddhi • Designed for Serenity
+  </footer>
+</body>
 </html>
