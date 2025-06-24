@@ -1,52 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sathyadarshana | Light of Truth</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <title>Sathyadarshana | Entrance</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
   <style>
     body {
-      background: radial-gradient(circle at 50% 30%, #e0e7ff, #1e293b);
+      background: radial-gradient(ellipse at top, #e0f2fe, #0f172a);
       font-family: 'Segoe UI', sans-serif;
-      color: #f1f5f9;
-      margin: 0;
-      padding: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
       scroll-behavior: smooth;
     }
-    .glow {
-      text-shadow: 0 0 10px #38bdf8, 0 0 20px #38bdf8;
-    }
-    .neon-btn {
-      background-color: transparent;
-      border: 2px solid #38bdf8;
-      color: #38bdf8;
-      padding: 0.7rem 1.5rem;
+    .neon-button {
+      padding: 0.75rem 2rem;
       border-radius: 9999px;
       font-weight: bold;
-      transition: 0.3s ease-in-out;
-      box-shadow: 0 0 5px #38bdf8;
+      border: 2px solid #38bdf8;
+      color: #38bdf8;
+      background: rgba(255,255,255,0.05);
+      box-shadow: 0 0 10px #38bdf8;
+      transition: 0.3s;
     }
-    .neon-btn:hover {
-      background-color: #38bdf8;
+    .neon-button:hover {
+      background: #38bdf8;
       color: #0f172a;
-      box-shadow: 0 0 25px #38bdf8, 0 0 60px #38bdf8;
-    }
-    footer {
-      font-size: 0.85rem;
-      color: #94a3b8;
+      box-shadow: 0 0 30px #38bdf8;
     }
   </style>
 </head>
-<body class="flex flex-col min-h-screen items-center justify-center px-4 text-center">
-  <main>
-    <h1 class="text-5xl md:text-6xl font-bold mb-6 glow">🌟 Sathyadarshana</h1>
-    <p class="text-xl mb-4">Light of Truth, Harmony & Wisdom</p>
-    <p class="mb-6 text-slate-300">Your journey to digital serenity begins here.</p>
-    <a href="library.html" class="neon-btn">Enter the Platform</a>
-  </main>
-  <footer class="mt-auto pt-12">
-    © 2025 Sathyadarshana | Designed with 🧘‍♂️ by Buddhi
+<body class="flex flex-col justify-center items-center text-center px-4 py-10">
+
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Star_icon.svg/120px-Star_icon.svg.png" class="w-16 mb-4" alt="Logo">
+  
+  <h1 class="text-4xl md:text-5xl font-bold text-blue-200 mb-2">Sathyadarshana</h1>
+  <h2 class="text-xl text-blue-100 mb-2">Light of Truth, Harmony & Wisdom</h2>
+  <p class="text-sm text-slate-300 mb-6">Your journey to digital serenity begins here.</p>
+
+  <a href="library.html" class="neon-button">Enter the Platform</a>
+
+  <footer class="mt-16 text-xs text-slate-400">
+    © 2025 Sathyadarshana | Designed by Buddhi
   </footer>
+
 </body>
 </html>
