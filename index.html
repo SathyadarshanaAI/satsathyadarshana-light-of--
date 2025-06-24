@@ -2,53 +2,103 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sathyadarshana | Light of Truth</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-  <link rel="stylesheet" href="style.css" />
-  <script src="translate.js" defer></script>
-  <script src="calendar.js" defer></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
     body {
-      background: radial-gradient(circle, #0f172a, #000000);
-      color: #f1f5f9;
+      background: linear-gradient(to bottom, #0f172a, #020617);
+      color: #f8fafc;
       font-family: 'Segoe UI', sans-serif;
+      scroll-behavior: smooth;
+    }
+    .glow {
+      text-shadow: 0 0 6px #38bdf8;
     }
     .neon-btn {
       background: linear-gradient(90deg, #38bdf8, #0ea5e9);
       color: white;
-      border: none;
       border-radius: 9999px;
       padding: 0.5rem 1.2rem;
-      font-weight: bold;
-      text-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
-      transition: transform 0.2s ease;
+      margin: 0.2rem;
+      transition: all 0.3s ease-in-out;
     }
     .neon-btn:hover {
+      box-shadow: 0 0 8px #38bdf8;
       transform: scale(1.05);
-      box-shadow: 0 0 15px #38bdf8;
     }
   </style>
 </head>
-<body class="text-center p-4">
-  <header class="mb-6">
-    <h1 class="text-3xl md:text-4xl font-bold text-indigo-400 mb-2">🌠 Sathyadarshana</h1>
-    <p class="text-gray-300 text-sm">Explore cosmic insight with clarity and light</p>
-  </header>
+<body>
 
-  <div class="mb-8">
-    <input id="yearInput" type="number" placeholder="Enter Year (e.g., 2025)" class="rounded p-2 text-black">
-    <button onclick="generateCalendar()" class="neon-btn ml-2">Generate Calendar</button>
-  </div>
+  <!-- Navigation Bar -->
+  <nav class="sticky top-0 bg-gray-900 bg-opacity-80 p-4 flex flex-wrap justify-between items-center z-50">
+    <div class="text-xl font-bold glow text-cyan-400">Sathyadarshana</div>
+    <div class="flex space-x-3">
+      <a href="index.html" class="neon-btn">Home</a>
+      <a href="library.html" class="neon-btn">Library</a>
+      <a href="astrology.html" class="neon-btn">Astrology</a>
+      <a href="ai-buddhi.html" class="neon-btn">AI Buddhi</a>
+    </div>
+    <select id="languageSelect" class="ml-4 p-2 rounded text-black">
+      <option value="en">🌐 English</option>
+      <option value="si">සිංහල</option>
+      <option value="ta">தமிழ்</option>
+    </select>
+  </nav>
 
-  <div id="calendarContainer" class="grid grid-cols-1 md:grid-cols-3 gap-4 justify-center"></div>
+  <!-- Hero Section -->
+  <section class="text-center mt-10">
+    <h1 class="text-4xl md:text-5xl font-bold text-indigo-400 glow mb-4">Welcome to Sathyadarshana</h1>
+    <p class="text-lg text-gray-300">A place where spiritual wisdom meets technology.</p>
+  </section>
 
-  <div class="fixed top-4 right-4 z-50">
-    <button id="languageButton" class="neon-btn">🌐 Language</button>
-  </div>
+  <!-- Calendar Section -->
+  <section class="text-center mt-10">
+    <h2 class="text-2xl font-bold mb-4">🗓️ Astrological Calendar</h2>
+    <input type="number" id="yearInput" value="2025" class="text-black px-4 py-2 rounded" />
+    <button onclick="generateCalendar()" class="neon-btn mt-2">Show Calendar</button>
+    <div id="calendarContainer" class="mt-6 text-gray-100"></div>
+  </section>
 
-  <footer class="mt-12 text-xs text-gray-500">
-    © 2025 Sathyadarshana | Designed by Buddhi for Awakening Minds
+  <!-- Footer -->
+  <footer class="mt-20 text-center text-xs text-gray-400">
+    © 2025 Sathyadarshana | Designed by Buddhi
   </footer>
+
+  <script>
+    function generateCalendar() {
+      const year = document.getElementById('yearInput').value;
+      let calendar = `<h3 class="text-xl mt-4">Calendar for ${year}</h3><table class="table-auto mx-auto mt-4 border border-gray-600"><thead><tr><th class="px-4 py-2">Month</th><th class="px-4 py-2">Days</th></tr></thead><tbody>`;
+      const months = ["January", "February", "March", "April", "May", "June",
+                      "July", "August", "September", "October", "November", "December"];
+      for (let i = 0; i < 12; i++) {
+        const days = new Date(year, i + 1, 0).getDate();
+        calendar += `<tr><td class="border px-4 py-2">${months[i]}</td><td class="border px-4 py-2">${days}</td></tr>`;
+      }
+      calendar += `</tbody></table>`;
+      document.getElementById('calendarContainer').innerHTML = calendar;
+    }
+
+    // Language Switch (Google Translate integration)
+    document.getElementById('languageSelect').addEventListener('change', function () {
+      const lang = this.value;
+      const googleTranslateScript = document.createElement('script');
+      googleTranslateScript.type = 'text/javascript';
+      googleTranslateScript.src = `//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit`;
+      document.body.appendChild(googleTranslateScript);
+
+      window.googleTranslateElementInit = function () {
+        new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,si,ta', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+      };
+
+      setTimeout(() => {
+        document.querySelector('#languageSelect').value = lang;
+        document.cookie = `googtrans=/en/${lang}; path=/; domain=.${location.hostname}`;
+        location.reload();
+      }, 500);
+    });
+  </script>
+
 </body>
 </html>
