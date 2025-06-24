@@ -1,48 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sathyadarshana | Entrance</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sathyadarshana | Digital Serenity</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
     body {
-      background: radial-gradient(ellipse at top, #e0f2fe, #0f172a);
       font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #cbd5e1, #1e293b);
+      color: #f8fafc;
       min-height: 100vh;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      text-align: center;
     }
-    .neon-button {
-      padding: 0.75rem 2rem;
+    .glow {
+      text-shadow: 0 0 10px #38bdf8, 0 0 20px #38bdf8;
+    }
+    .btn-glow {
+      background: #1e40af;
+      padding: 0.8rem 2rem;
       border-radius: 9999px;
-      font-weight: bold;
-      border: 2px solid #38bdf8;
-      color: #38bdf8;
-      background: rgba(255,255,255,0.05);
-      box-shadow: 0 0 10px #38bdf8;
-      transition: 0.3s;
+      color: #e0f2fe;
+      font-weight: 600;
+      box-shadow: 0 0 12px #0ea5e9;
+      transition: all 0.3s;
     }
-    .neon-button:hover {
-      background: #38bdf8;
+    .btn-glow:hover {
+      background: #0ea5e9;
       color: #0f172a;
-      box-shadow: 0 0 30px #38bdf8;
+      box-shadow: 0 0 24px #38bdf8;
+    }
+    .nav {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+    }
+    .nav a {
+      background: #334155;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .nav a:hover {
+      background: #64748b;
     }
   </style>
 </head>
-<body class="flex flex-col justify-center items-center text-center px-4 py-10">
+<body>
+  <div class="nav">
+    <a href="index.html">🏠 Home</a>
+  </div>  <img src="sathyadarshana-logo.png" alt="Logo" class="w-32 mb-6">  <h1 class="text-4xl md:text-6xl font-bold text-blue-100 glow mb-4">Welcome to SATHYADARSHANA.COM</h1>
+  <p class="text-lg md:text-xl text-blue-200 mb-6">Light of Truth, Harmony & Wisdom</p>
+  <p class="text-md text-slate-100 mb-10">Your journey to digital serenity begins here.</p><a href="main.html" class="btn-glow">Enter the Platform</a>
 
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Star_icon.svg/120px-Star_icon.svg.png" class="w-16 mb-4" alt="Logo">
-  
-  <h1 class="text-4xl md:text-5xl font-bold text-blue-200 mb-2">Sathyadarshana</h1>
-  <h2 class="text-xl text-blue-100 mb-2">Light of Truth, Harmony & Wisdom</h2>
-  <p class="text-sm text-slate-300 mb-6">Your journey to digital serenity begins here.</p>
-
-  <a href="library.html" class="neon-button">Enter the Platform</a>
-
-  <footer class="mt-16 text-xs text-slate-400">
+  <footer class="mt-16 text-xs text-slate-300">
     © 2025 Sathyadarshana | Designed by Buddhi
   </footer>
-
 </body>
 </html>
