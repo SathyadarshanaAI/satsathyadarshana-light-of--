@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,21 +23,92 @@
       50% { transform: translateY(-12px); }
       100% { transform: translateY(0px); }
     }
+    #map {
+      height: 300px;
+      margin-top: 20px;
+      border: 2px solid #64748b;
+      border-radius: 10px;
+    }
   </style>
+  <!-- Google Maps -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
 </head>
-<body class="min-h-screen flex items-center justify-center text-center px-4">
-  <div>
+<body class="min-h-screen text-center px-4">
+  <div class="max-w-3xl mx-auto py-12">
     <h1 class="text-4xl md:text-5xl font-bold text-indigo-400 glow-text mb-4 floating">🌌 Chandrika 3D Vision</h1>
-    <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
+    <p class="text-lg md:text-xl text-gray-300 mb-8">
       Enter a space of meditative perception — where light, dimension, and consciousness unite.<br/>
       Soon you will visualize cosmic structures and inner energies with clarity and serenity.
     </p>
-    <div class="mt-10">
-      <p class="text-sm text-gray-500">This module will evolve with interactive 3D maps and real-time planetary animations (WebGL integration coming soon).</p>
+
+    <div class="text-left bg-gray-900 p-4 rounded-lg shadow-lg">
+      <label class="block text-sm mb-2">🌍 Search Birthplace:</label>
+      <input id="pobSearch" type="text" placeholder="Type place of birth..." class="w-full p-2 rounded text-black">
+      <div id="map"></div>
+      <input type="hidden" id="lat" name="lat">
+      <input type="hidden" id="lng" name="lng">
     </div>
+
+    <p class="mt-8 text-sm text-gray-400">Map & Birth Coordinates will power future cosmic animation.</p>
+
     <footer class="mt-16 text-xs text-gray-600">
       © 2025 Sathyadarshana | Designed by Buddhi for Awakening Minds
     </footer>
   </div>
+
+  <script>
+    let map, marker;
+    function initMap() {
+      const defaultLoc = { lat: 7.8731, lng: 80.7718 }; // Sri Lanka
+
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: defaultLoc,
+        zoom: 6,
+        disableDefaultUI: true,
+        styles: [
+          {
+            elementType: 'geometry',
+            stylers: [{ color: '#1d2c4d' }]
+          },
+          {
+            elementType: 'labels.text.fill',
+            stylers: [{ color: '#8ec1ff' }]
+          }
+        ]
+      });
+
+      const input = document.getElementById('pobSearch');
+      const autocomplete = new google.maps.places.Autocomplete(input);
+      autocomplete.bindTo('bounds', map);
+
+      autocomplete.addListener('place_changed', () => {
+        const place = autocomplete.getPlace();
+        if (!place.geometry) return;
+
+        const location = place.geometry.location;
+        map.setCenter(location);
+        map.setZoom(10);
+
+        if (marker) marker.setMap(null);
+        marker = new google.maps.Marker({
+          map: map,
+          position: location
+        });
+
+        document.getElementById('lat').value = location.lat();
+        document.getElementById('lng').value = location.lng();
+      });
+    }
+    window.initMap = initMap;
+  </script>
+
+  <!-- Call initMap on window load -->
+  <script>
+    window.addEventListener('load', () => {
+      if (typeof google === 'object' && typeof google.maps === 'object') {
+        initMap();
+      }
+    });
+  </script>
 </body>
 </html>
