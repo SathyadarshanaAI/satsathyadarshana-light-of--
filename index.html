@@ -4,142 +4,51 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sathyadarshana | Light of Truth</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css" />
+  <script src="translate.js" defer></script>
+  <script src="calendar.js" defer></script>
   <style>
     body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom, #020617, #0f172a);
+      background: radial-gradient(circle, #0f172a, #000000);
       color: #f1f5f9;
-      overflow-x: hidden;
-      /* overflow-y: auto; */ /* default browser scroll */
-      min-height: 100vh;
-    }
-    header {
-      background: rgba(15, 23, 42, 0.95);
-      padding: 1rem;
-      text-align: center;
+      font-family: 'Segoe UI', sans-serif;
     }
     .neon-btn {
       background: linear-gradient(90deg, #38bdf8, #0ea5e9);
       color: white;
-      padding: 0.6rem 1.2rem;
+      border: none;
       border-radius: 9999px;
+      padding: 0.5rem 1.2rem;
       font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 0 12px #0ea5e9;
-      margin: 0.5rem;
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
       transition: transform 0.2s ease;
-      border: none;
     }
-    .neon-btn:hover { transform: scale(1.05); }
-    .lang-bar { display: flex; justify-content: center; gap: 1rem; margin-top: 1rem; }
-    .section { padding: 2rem; text-align: center; }
-    footer { padding: 1rem; text-align: center; font-size: 0.75rem; color: #94a3b8; }
-    .fade-box {
-      background-color: rgba(255, 255, 255, 0.05);
-      border-radius: 1rem;
-      padding: 1rem;
-      margin: 1rem auto;
-      width: 90%;
-      max-width: 600px;
-      box-shadow: 0 0 10px #0ea5e9;
-    }
-    .input-box {
-      background-color: #1e293b;
-      border: none;
-      border-radius: 0.5rem;
-      padding: 0.7rem;
-      color: white;
-      width: 100%;
-      margin-top: 0.5rem;
-    }
-    .label {
-      text-align: left;
-      margin-bottom: 0.2rem;
-      display: block;
-      font-size: 0.85rem;
-      color: #cbd5e1;
-    }
-    .back-home-box {
-      display: flex;
-      justify-content: flex-start;
-      margin: 1rem 0 0 1rem;
+    .neon-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #38bdf8;
     }
   </style>
 </head>
-<body>
-  <header>
-    <h1 class="text-4xl glow-text">🌙 Sathyadarshana | Divyajnana Chakra</h1>
-    <div class="lang-bar">
-      <button class="neon-btn" onclick="changeLang('en')">English</button>
-      <button class="neon-btn" onclick="changeLang('si')">සිංහල</button>
-      <button class="neon-btn" onclick="changeLang('ta')">தமிழ்</button>
-    </div>
+<body class="text-center p-4">
+  <header class="mb-6">
+    <h1 class="text-3xl md:text-4xl font-bold text-indigo-400 mb-2">🌠 Sathyadarshana</h1>
+    <p class="text-gray-300 text-sm">Explore cosmic insight with clarity and light</p>
   </header>
 
-  <div class="back-home-box">
-    <button class="neon-btn" onclick="window.location.href='index.html'">← Back to Home</button>
+  <div class="mb-8">
+    <input id="yearInput" type="number" placeholder="Enter Year (e.g., 2025)" class="rounded p-2 text-black">
+    <button onclick="generateCalendar()" class="neon-btn ml-2">Generate Calendar</button>
   </div>
 
-  <div class="section">
-    <div class="fade-box">
-      <label class="label" for="nameInput">Name:</label>
-      <input id="nameInput" class="input-box" type="text" placeholder="Your full name" />
-      <label class="label" for="birthInput">Birth Date & Time:</label>
-      <input id="birthInput" class="input-box" type="text" placeholder="YYYY-MM-DD HH:mm" autocomplete="off" />
-      <label class="label" for="locationInput">Birth Location:</label>
-      <input id="locationInput" class="input-box" type="text" placeholder="City or Coordinates" />
-      <button class="neon-btn" onclick="generatePDF()">🪐 Generate Horoscope Report</button>
-    </div>
+  <div id="calendarContainer" class="grid grid-cols-1 md:grid-cols-3 gap-4 justify-center"></div>
+
+  <div class="fixed top-4 right-4 z-50">
+    <button id="languageButton" class="neon-btn">🌐 Language</button>
   </div>
 
-  <footer>
-    © 2025 Sathyadarshana | Designed by Buddhi AI for Awakening Humanity
+  <footer class="mt-12 text-xs text-gray-500">
+    © 2025 Sathyadarshana | Designed by Buddhi for Awakening Minds
   </footer>
-
-  <script>
-    flatpickr("#birthInput", {
-      enableTime: true,
-      dateFormat: "Y-m-d H:i",
-      allowInput: true,
-      altInput: true,
-      altFormat: "F j, Y H:i"
-    });
-
-    async function generatePDF() {
-      const { jsPDF } = window.jspdf;
-      const doc = new jsPDF();
-      const name = document.getElementById("nameInput").value.trim();
-      const birth = document.getElementById("birthInput").value.trim();
-      const loc = document.getElementById("locationInput").value.trim();
-
-      if (!name || !birth || !loc) {
-        alert("කරුණාකර සියළුම තොරතුරු ඇතුලත් කරන්න.");
-        return;
-      }
-
-      doc.setFont("helvetica", "bold");
-      doc.setFontSize(18);
-      doc.text("Sathyadarshana Horoscope Report", 20, 20);
-
-      doc.setFontSize(12);
-      doc.setFont("helvetica", "normal");
-      doc.text(`Name: ${name}`, 20, 40);
-      doc.text(`Birth Date & Time: ${birth}`, 20, 50);
-      doc.text(`Location: ${loc}`, 20, 60);
-      doc.text(`Sub-Lord Analysis:`, 20, 80);
-      doc.text(`Coming Soon... 🧘‍♂️`, 30, 90);
-
-      doc.save("Sathyadarshana_Horoscope.pdf");
-    }
-
-    function changeLang(lang) {
-      alert(`🌐 Language switched to: ${lang}`);
-      // Future: dynamic translation code
-    }
-  </script>
 </body>
 </html>
