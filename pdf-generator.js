@@ -1,18 +1,32 @@
-// kp-sublord-engine.js
+// pdf-generator.js
 
-// Simplified KP Sub Lord system — base Nakshatra + Sub Lord table
+import { analyzeMoonPosition } from './kp-sublord-engine.js'; import { getMoonDegree } from './moon-position.js';
 
-const nakshatraTable = [ { name: "Ashwini", lord: "Ketu", startDeg: 0 }, { name: "Bharani", lord: "Venus", startDeg: 13.333 }, { name: "Krittika", lord: "Sun", startDeg: 26.666 }, // ... (insert all 27 Nakshatras with start degrees and lords) { name: "Revati", lord: "Mercury", startDeg: 346.66 } ];
+document.getElementById('birthForm').addEventListener('submit', function (e) { e.preventDefault();
 
-const subLordPattern = [ "Ketu", "Venus", "Sun", "Moon", "Mars", "Rahu", "Jupiter", "Saturn", "Mercury" ];
+const name = e.target.name.value; const dob = e.target.dob.value; const tob = e.target.tob.value; const pob = e.target.pob.value; const nic = e.target.nic.value; const gender = e.target.gender.value; const language = e.target.language.value;
 
-function getNakshatra(deg) { const nakDeg = deg % 360; for (let i = nakshatraTable.length - 1; i >= 0; i--) { if (nakDeg >= nakshatraTable[i].startDeg) { return nakshatraTable[i]; } } return nakshatraTable[0]; }
+const today = new Date().toLocaleDateString();
 
-function getSubLord(deg) { // For simplicity, assume 13.333 deg per nakshatra, and divide further const offsetInNakshatra = (deg % 13.333); const segment = Math.floor((offsetInNakshatra / 13.333) * 9); // 9 segments for 9 sublords return subLordPattern[segment]; }
+// 🌕 Calculate Moon Degree const moonDeg = getMoonDegree(dob, tob, pob); const kpResult = analyzeMoonPosition(moonDeg);
 
-export function analyzeMoonPosition(deg) { const nak = getNakshatra(deg); const sub = getSubLord(deg);
+const doc = new jspdf.jsPDF();
 
-return { nakshatra: nak.name, starLord: nak.lord, subLord: sub }; }
+// 🌌 Cover Page doc.setFontSize(22); doc.text('🪷 Divyajnana Chakra Report', 20, 30); doc.setFontSize(14); doc.text(Cosmic Insight for ${name}, 20, 40); doc.text(Generated on: ${today}, 20, 50); doc.text('This sacred report is a gift from the Light of Truth.', 20, 70);
 
-// Example: // const result = analyzeMoonPosition(125.5); // console.log(result);
+doc.addPage();
+
+// 📖 Personal Details Page doc.setFontSize(18); doc.text('📜 Birth Information', 20, 20); doc.setFontSize(12); doc.text(Full Name: ${name}, 20, 35); doc.text(Date of Birth: ${dob}, 20, 45); doc.text(Time of Birth: ${tob}, 20, 55); doc.text(Place of Birth: ${pob}, 20, 65); doc.text(NIC (optional): ${nic}, 20, 75); doc.text(Gender: ${gender}, 20, 85); doc.text(Preferred Language: ${language}, 20, 95);
+
+doc.addPage();
+
+// 🔮 KP Astrology Insights doc.setFontSize(16); doc.text('🔮 KP Sub Lord Analysis', 20, 30); doc.setFontSize(12); doc.text(Moon Position (°): ${moonDeg}, 20, 45); doc.text(Nakshatra: ${kpResult.nakshatra}, 20, 55); doc.text(Star Lord: ${kpResult.starLord}, 20, 65); doc.text(Sub Lord: ${kpResult.subLord}, 20, 75);
+
+doc.addPage();
+
+// 🕊️ Final Blessing Page doc.setFontSize(14); doc.text('🕊️ Final Blessing', 20, 30); doc.setFontSize(12); doc.text(May this wisdom bring serenity and truth to your path., 20, 50); doc.text(May light guide you., 20, 60); doc.text(— Divyajnana Chakra | Sathyadarshana, 20, 80);
+
+// 🖋️ Watermark on all pages const pageCount = doc.internal.getNumberOfPages(); for (let i = 1; i <= pageCount; i++) { doc.setPage(i); doc.setTextColor(220); doc.setFontSize(10); doc.text('Protected by Sathyadarshana.com – All Rights Reserved', 60, 290, { angle: 0 }); }
+
+// 💾 Save doc.save(Divyajnana_Chakra_Report_${name}.pdf); });
 
