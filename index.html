@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sathyadarshana | Astrology Service</title>
+  <title>Sathyadarshana | Astrology & Library</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
   <style>
     body { background: linear-gradient(to bottom, #0f172a, #1e293b); color: #fff; }
@@ -17,58 +17,113 @@
       background: transparent;
     }
     .neon-button:hover { background-color: #00f6ff33; }
+    .input-dark { background: #e0f2fe; color: #0f172a; }
   </style>
 </head>
 <body class="p-6">
-  <div class="text-center mb-8">
-    <h1 class="text-4xl font-bold mb-2">Vedic Astrology Calculator</h1>
-    <p class="text-xl text-gray-300">Find your birth chart (KP + NASA)</p>
+  <div class="text-center mb-10">
+    <h1 class="text-4xl font-bold mb-2">Sathyadarshana</h1>
+    <p class="text-xl text-gray-300">The Spiritual Light of Truth for All Humanity</p>
   </div>
-  <div class="max-w-md mx-auto bg-gray-800 rounded-xl p-6 shadow-xl">
-    <form id="astroForm">
-      <div class="mb-4">
-        <label class="block mb-1">Name:</label>
-        <input type="text" name="name" class="w-full rounded p-2 text-black" required>
-      </div>
-      <div class="mb-4">
-        <label class="block mb-1">Date of Birth:</label>
-        <input type="date" name="dob" class="w-full rounded p-2 text-black" required>
-      </div>
-      <div class="mb-4">
-        <label class="block mb-1">Time of Birth:</label>
-        <input type="time" name="tob" class="w-full rounded p-2 text-black" required>
-      </div>
-      <div class="mb-4">
-        <label class="block mb-1">Place of Birth:</label>
-        <input type="text" name="pob" class="w-full rounded p-2 text-black" required>
-      </div>
-      <button type="submit" class="neon-button w-full">Generate Chart</button>
-    </form>
-    <div id="result" class="mt-6 text-center"></div>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <!-- Astrology Section -->
+    <div class="bg-gray-800 rounded-xl p-6 shadow-xl">
+      <h2 class="text-2xl font-semibold mb-2">🪐 Vedic Astrology (Demo)</h2>
+      <form id="astroForm" class="mb-4">
+        <div class="mb-2">
+          <label class="block mb-1">Name:</label>
+          <input type="text" name="name" class="w-full rounded p-2 input-dark" required>
+        </div>
+        <div class="mb-2">
+          <label class="block mb-1">Date of Birth:</label>
+          <input type="date" name="dob" class="w-full rounded p-2 input-dark" required>
+        </div>
+        <div class="mb-2">
+          <label class="block mb-1">Time of Birth:</label>
+          <input type="time" name="tob" class="w-full rounded p-2 input-dark" required>
+        </div>
+        <div class="mb-2">
+          <label class="block mb-1">Place of Birth:</label>
+          <input type="text" name="pob" class="w-full rounded p-2 input-dark" required>
+        </div>
+        <button type="submit" class="neon-button w-full mt-2">Get My Chart</button>
+      </form>
+      <div id="astroResult" class="mt-4"></div>
+    </div>
+    <!-- Library Section -->
+    <div class="bg-gray-800 rounded-xl p-6 shadow-xl">
+      <h2 class="text-2xl font-semibold mb-4">📚 Sathyadarshana Library</h2>
+      <input id="searchBook" class="w-full rounded p-2 mb-3 input-dark" placeholder="Search Books..."/>
+      <ul id="bookList" class="space-y-2"></ul>
+      <div id="bookDetails" class="mt-4"></div>
+    </div>
   </div>
   <div class="mt-12 text-center">
     <p class="text-gray-400 text-sm">© 2025 Sathyadarshana. All Rights Reserved.</p>
   </div>
   <script>
+    // Astrology Demo Functionality
     document.getElementById('astroForm').addEventListener('submit', function(e) {
       e.preventDefault();
       const name = e.target.name.value;
       const dob = e.target.dob.value;
       const tob = e.target.tob.value;
       const pob = e.target.pob.value;
-      // මෙහිදී ඔබට backend astrology API එකකට request එකක් යවන්න පුළුවන්.
-      // දැන් වත්මන් උදාහරණයට mock result එකක් පෙන්වයි:
-      document.getElementById('result').innerHTML = `
-        <div class="bg-gray-900 rounded-lg p-4 mt-4">
-          <h2 class="text-xl font-bold mb-2 text-green-400">Hello, ${name}!</h2>
-          <p>Your birth chart calculation is not yet connected.<br>
-          <span class="text-yellow-300">[Demo Only]</span><br>
-          DOB: <span class="text-blue-300">${dob}</span><br>
-          Time: <span class="text-blue-300">${tob}</span><br>
-          Place: <span class="text-blue-300">${pob}</span></p>
-          <p class="mt-2 text-gray-400">In production, this will display your full KP/NASA chart and predictions.</p>
+      // Demo chart output
+      document.getElementById('astroResult').innerHTML = `
+        <div class="bg-gray-900 rounded-lg p-4">
+          <h3 class="text-lg font-bold text-green-400 mb-1">Hello, ${name}!</h3>
+          <div class="mb-2 text-gray-300">
+            <b>DOB:</b> <span class="text-blue-200">${dob}</span><br>
+            <b>Time:</b> <span class="text-blue-200">${tob}</span><br>
+            <b>Place:</b> <span class="text-blue-200">${pob}</span>
+          </div>
+          <div class="text-sm text-gray-200">
+            <b>Sun Sign:</b> Aries<br>
+            <b>Moon Sign:</b> Taurus<br>
+            <b>Ascendant:</b> Gemini<br>
+            <span class="italic text-yellow-200">[Demo result: Real calculations will use an astrology API]</span>
+          </div>
         </div>
       `;
+    });
+
+    // Library Demo Functionality
+    const books = [
+      {title: "The Dhammapada", author: "Buddha", desc: "Ancient Buddhist verses on wisdom and ethics."},
+      {title: "Bhagavad Gita", author: "Vyasa", desc: "A spiritual classic of the Hindu tradition."},
+      {title: "Tirukkural", author: "Thiruvalluvar", desc: "Tamil text on virtue, wealth, and love."},
+      {title: "Heart Sutra", author: "Mahayana", desc: "A key Mahayana Buddhist scripture."},
+      {title: "Sigiri Graffiti", author: "Sri Lankan Ancients", desc: "Ancient poems from Sigiriya rock."}
+    ];
+    const list = document.getElementById('bookList');
+    const details = document.getElementById('bookDetails');
+    function renderBooks(filter="") {
+      list.innerHTML = "";
+      let filtered = books.filter(b => b.title.toLowerCase().includes(filter.toLowerCase()) || b.author.toLowerCase().includes(filter.toLowerCase()));
+      filtered.forEach((book, i) => {
+        let li = document.createElement('li');
+        li.className = "p-3 bg-gray-700 rounded flex justify-between items-center cursor-pointer hover:bg-sky-800";
+        li.innerHTML = `<span>${book.title} <span class="text-xs text-sky-300">by ${book.author}</span></span>`;
+        li.onclick = () => {
+          details.innerHTML = `
+            <div class="bg-gray-900 rounded-lg p-4 mt-2">
+              <div class="font-bold text-green-400">${book.title}</div>
+              <div class="text-gray-200 text-sm">Author: ${book.author}</div>
+              <div class="text-gray-300 mt-2">${book.desc}</div>
+            </div>
+          `;
+        }
+        list.appendChild(li);
+      });
+      if(filtered.length === 0) {
+        list.innerHTML = `<li class="text-gray-400">No books found.</li>`;
+        details.innerHTML = "";
+      }
+    }
+    renderBooks();
+    document.getElementById('searchBook').addEventListener('input', (e) => {
+      renderBooks(e.target.value);
     });
   </script>
 </body>
