@@ -2,141 +2,36 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sathyadarshana | Light of Truth</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom, #020617, #0f172a);
-      color: #f1f5f9;
-    }
-
-    header {
-      background: rgba(15, 23, 42, 0.95);
-      padding: 1rem;
-      text-align: center;
-      box-shadow: 0 0 10px #0ea5e9;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 1.8rem;
-      color: #38bdf8;
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      background: #0f172a;
-      padding: 0.5rem;
-      gap: 0.8rem;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      padding: 0.6rem 1rem;
-      border-radius: 9999px;
-      background: linear-gradient(90deg, #0ea5e9, #38bdf8);
-      transition: background 0.3s;
-    }
-
-    nav a:hover {
-      background: linear-gradient(90deg, #38bdf8, #0ea5e9);
-    }
-
-    section {
-      padding: 2rem;
-      max-width: 800px;
-      margin: auto;
-      line-height: 1.6;
-    }
-
-    .neon-btn {
-      display: inline-block;
-      padding: 1rem 2rem;
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: #fff;
-      background: linear-gradient(90deg, #38bdf8, #0ea5e9);
-      border-radius: 9999px;
-      text-decoration: none;
-      box-shadow: 0 0 15px #0ea5e9;
-      transition: box-shadow 0.3s ease;
-    }
-
-    .neon-btn:hover {
-      box-shadow: 0 0 25px #0ea5e9;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: #94a3b8;
-    }
-
-    .lang-switch {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-    }
-
-    .lang-switch select {
-      padding: 0.3rem;
-      border-radius: 9999px;
-      background-color: #1e3a8a;
-      color: white;
-      border: none;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Divyajnana Chakra | KP Report</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
-<body>
-  <header>
-    <h1>🪷 Sathyadarshana</h1>
-  </header>
-
-  <nav>
-    <a href="library.html">Library</a>
-    <a href="astrology.html">Astrology</a>
-    <a href="ai-buddhi.html">AI Buddhi</a>
-    <a href="news.html">News</a>
-    <a href="smule-lab.html">Music Lab</a>
-  </nav>
-
-  <div class="lang-switch">
-    <select onchange="switchLang(this.value)">
-      <option value="en">🌐 English</option>
-      <option value="si">සිංහල</option>
-      <option value="ta">தமிழ்</option>
-    </select>
+<body class="bg-gray-900 text-white min-h-screen flex items-center justify-center px-4">
+  <div class="max-w-2xl w-full bg-gray-800 p-8 rounded-xl shadow-lg">
+    <h1 class="text-3xl font-bold text-indigo-400 mb-6 text-center">🪷 Divyajnana Chakra</h1>
+    <form id="birthForm" class="space-y-4">
+      <input type="text" name="name" placeholder="Full Name" required class="w-full p-2 rounded bg-gray-700 text-white" />
+      <input type="date" name="dob" required class="w-full p-2 rounded bg-gray-700 text-white" />
+      <input type="time" name="tob" required class="w-full p-2 rounded bg-gray-700 text-white" />
+      <input type="text" name="pob" placeholder="Place of Birth" required class="w-full p-2 rounded bg-gray-700 text-white" />
+      <input type="text" name="nic" placeholder="NIC (optional)" class="w-full p-2 rounded bg-gray-700 text-white" />
+      <select name="gender" required class="w-full p-2 rounded bg-gray-700 text-white">
+        <option value="">Select Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+      </select>
+      <select name="language" required class="w-full p-2 rounded bg-gray-700 text-white">
+        <option value="English">English</option>
+        <option value="Sinhala">Sinhala</option>
+        <option value="Tamil">Tamil</option>
+      </select>
+      <button type="submit" class="w-full py-2 mt-4 bg-indigo-500 hover:bg-indigo-600 rounded text-white font-semibold">Generate Sacred PDF</button>
+    </form>
+    <p class="text-xs text-center text-gray-400 mt-6">© 2025 Sathyadarshana | All Rights Reserved</p>
   </div>
 
-  <section>
-    <h2>Welcome to the Light of Truth</h2>
-    <p>
-      Explore sacred knowledge, astrology, AI wisdom, and spiritual guidance.
-    </p>
-
-    <!-- 🔮 Divyajnana Chakra Button -->
-    <div style="text-align: center; margin-top: 2rem;">
-      <a href="birth-report.html" class="neon-btn">
-        🔮 Generate Divyajnana Chakra Report
-      </a>
-    </div>
-  </section>
-
-  <footer>
-    &copy; 2025 Sathyadarshana.com | Created with ❤️ by Anuruddha & AI Buddhi
-  </footer>
-
-  <script>
-    function switchLang(lang) {
-      alert("Language switched to: " + lang);
-      // TODO: Load localized content based on `lang`
-    }
-  </script>
+  <script type="module" src="./scripts/pdf-generator.js"></script>
 </body>
 </html>
