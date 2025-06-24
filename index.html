@@ -14,14 +14,14 @@
       background: linear-gradient(to bottom, #020617, #0f172a);
       color: #f1f5f9;
       overflow-x: hidden;
+      /* overflow-y: auto; */ /* default browser scroll */
+      min-height: 100vh;
     }
-
     header {
       background: rgba(15, 23, 42, 0.95);
       padding: 1rem;
       text-align: center;
     }
-
     .neon-btn {
       background: linear-gradient(90deg, #38bdf8, #0ea5e9);
       color: white;
@@ -34,35 +34,10 @@
       transition: transform 0.2s ease;
       border: none;
     }
-
-    .neon-btn:hover {
-      transform: scale(1.05);
-    }
-
-    .lang-bar {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    #calendar {
-      margin: 2rem auto;
-      width: max-content;
-    }
-
-    .section {
-      padding: 2rem;
-      text-align: center;
-    }
-
-    footer {
-      padding: 1rem;
-      text-align: center;
-      font-size: 0.75rem;
-      color: #94a3b8;
-    }
-
+    .neon-btn:hover { transform: scale(1.05); }
+    .lang-bar { display: flex; justify-content: center; gap: 1rem; margin-top: 1rem; }
+    .section { padding: 2rem; text-align: center; }
+    footer { padding: 1rem; text-align: center; font-size: 0.75rem; color: #94a3b8; }
     .fade-box {
       background-color: rgba(255, 255, 255, 0.05);
       border-radius: 1rem;
@@ -72,7 +47,6 @@
       max-width: 600px;
       box-shadow: 0 0 10px #0ea5e9;
     }
-
     .input-box {
       background-color: #1e293b;
       border: none;
@@ -82,7 +56,6 @@
       width: 100%;
       margin-top: 0.5rem;
     }
-
     .label {
       text-align: left;
       margin-bottom: 0.2rem;
@@ -90,7 +63,6 @@
       font-size: 0.85rem;
       color: #cbd5e1;
     }
-
     .back-home-box {
       display: flex;
       justify-content: flex-start;
@@ -113,15 +85,11 @@
   </div>
 
   <div class="section">
-    <div id="calendar" class="fade-box">
-      <input type="text" id="datepicker" class="input-box" placeholder="Select a date" autocomplete="off" />
-    </div>
-
     <div class="fade-box">
       <label class="label" for="nameInput">Name:</label>
       <input id="nameInput" class="input-box" type="text" placeholder="Your full name" />
       <label class="label" for="birthInput">Birth Date & Time:</label>
-      <input id="birthInput" class="input-box" type="datetime-local" />
+      <input id="birthInput" class="input-box" type="text" placeholder="YYYY-MM-DD HH:mm" autocomplete="off" />
       <label class="label" for="locationInput">Birth Location:</label>
       <input id="locationInput" class="input-box" type="text" placeholder="City or Coordinates" />
       <button class="neon-btn" onclick="generatePDF()">🪐 Generate Horoscope Report</button>
@@ -133,13 +101,12 @@
   </footer>
 
   <script>
-    flatpickr("#datepicker", {
-      dateFormat: "Y-m-d",
-      defaultDate: "today",
+    flatpickr("#birthInput", {
+      enableTime: true,
+      dateFormat: "Y-m-d H:i",
       allowInput: true,
       altInput: true,
-      altFormat: "F j, Y"
-      // User can select year easily and type year as well
+      altFormat: "F j, Y H:i"
     });
 
     async function generatePDF() {
