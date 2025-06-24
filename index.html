@@ -1,85 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sathyadarshana Astrology Service</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sathyadarshana Astrological Calendar</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/si.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ta.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/hi.js"></script>
   <style>
-    body { background: linear-gradient(to bottom, #0f172a, #1e293b); color: #f1f5f9; }
-    .glow-btn { transition: all 0.3s ease-in-out; }
-    .glow-btn:hover { box-shadow: 0 0 20px #38bdf8; background-color: #38bdf8; color: black; }
-    .prediction-box { background: #0e1829; border-radius: 1rem; padding: 1.5rem; margin-top: 1.5rem; box-shadow: 0 0 20px #0ea5e9 inset; }
-    .section-title { color: #22d3ee; font-weight: 700; margin-bottom: 0.5rem; }
-    .key-point { color: #a5f3fc; margin-bottom: 0.25rem; }
+    body {
+      background: radial-gradient(ellipse at center, #0f172a 0%, #000 100%);
+      color: #f1f5f9;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .glow-text {
+      text-shadow: 0 0 10px rgba(255,255,255,0.6);
+    }
+    .floating {
+      animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-12px); }
+      100% { transform: translateY(0px); }
+    }
   </style>
 </head>
-<body class="min-h-screen flex flex-col items-center justify-center px-4">
-  <header class="text-center mb-10">
-    <h1 class="text-4xl font-bold mb-4">🪐 Sathyadarshana Astrology Service</h1>
-    <p class="text-lg text-gray-300">Generate your Vedic Birth Chart<br>with Detailed Predictions</p>
-  </header>
-  <section class="w-full max-w-xl bg-white text-gray-800 rounded-xl shadow-lg p-6">
-    <form id="birthChartForm" class="space-y-4">
-      <div>
-        <label for="name" class="block font-semibold">Full Name</label>
-        <input type="text" id="name" name="name" class="w-full mt-1 p-2 rounded-md border border-gray-300" required>
-      </div>
-      <div>
-        <label for="birthDate" class="block font-semibold">Date of Birth</label>
-        <input type="date" id="birthDate" name="birthDate" class="w-full mt-1 p-2 rounded-md border border-gray-300" required>
-      </div>
-      <div>
-        <label for="birthTime" class="block font-semibold">Time of Birth</label>
-        <input type="time" id="birthTime" name="birthTime" class="w-full mt-1 p-2 rounded-md border border-gray-300" required>
-      </div>
-      <div>
-        <label for="birthPlace" class="block font-semibold">Place of Birth</label>
-        <input type="text" id="birthPlace" name="birthPlace" class="w-full mt-1 p-2 rounded-md border border-gray-300" required>
-      </div>
-      <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded-md glow-btn">Generate Birth Chart & Prediction</button>
-    </form>
-    <div id="result" class="mt-8 hidden"></div>
-  </section>
-  <footer class="mt-10">
-    <a href="index.html" class="text-blue-400 underline">← Back to Home</a>
-  </footer>
-  <script>
-    document.getElementById('birthChartForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const name = document.getElementById('name').value;
-      const birthDate = document.getElementById('birthDate').value;
-      const birthTime = document.getElementById('birthTime').value;
-      const birthPlace = document.getElementById('birthPlace').value;
-      // Demo chart & prediction - You can later connect to API or backend
-      document.getElementById('result').classList.remove('hidden');
-      document.getElementById('result').innerHTML = `
-        <div class="prediction-box">
-          <div class="mb-4">
-            <h2 class="text-2xl font-bold mb-1 section-title">🔭 Birth Chart Overview</h2>
-            <div><b>Name:</b> ${name}</div>
-            <div><b>Date:</b> ${birthDate}</div>
-            <div><b>Time:</b> ${birthTime}</div>
-            <div><b>Place:</b> ${birthPlace}</div>
-            <div class="mt-2"><span class="key-point">🌞 Sun Sign: Aries</span> | <span class="key-point">🌙 Moon Sign: Taurus</span> | <span class="key-point">↑ Ascendant: Gemini</span></div>
-          </div>
-          <div class="mb-4">
-            <h3 class="text-xl font-semibold section-title">📜 Long Prediction (Demo)</h3>
-            <p class="text-gray-200 mb-1">Dear ${name}, based on your birth details, here is your astrological prediction:</p>
-            <ul class="list-disc ml-6 text-cyan-100">
-              <li class="mb-2">🔹 <b>Career:</b> This year brings new opportunities for career growth. Embrace changes and be open to learning.</li>
-              <li class="mb-2">🔹 <b>Finance:</b> Financial stability will improve in the coming months. Avoid risky ventures.</li>
-              <li class="mb-2">🔹 <b>Relationships:</b> Harmony in relationships is highlighted. Express your feelings with kindness.</li>
-              <li class="mb-2">🔹 <b>Health:</b> Pay attention to mental well-being. Practice mindfulness and meditation.</li>
-              <li class="mb-2">🔹 <b>Spiritual:</b> This is a favorable period for spiritual growth. Engage in self-reflection and seek inner peace.</li>
-            </ul>
-            <p class="text-yellow-200 mt-3 italic">* This is a sample prediction. In the full system, personalized FDF (Final Detailed Forecast) will be generated automatically using real astrological calculations.</p>
-          </div>
-        </div>
-      `;
-      // Optionally, scroll to result
-      document.getElementById('result').scrollIntoView({behavior: "smooth"});
+<body class="min-h-screen flex items-center justify-center px-4">
+  <div>
+    <h1 class="text-4xl md:text-5xl font-bold text-indigo-400 glow-text mb-4 floating text-center">📅 Astrological Calendar</h1>
+    <div class="text-center mb-4">
+      <select id="calendarLang" class="mb-4 px-4 py-2 rounded text-black">
+        <option value="default">English</option>
+        <option value="si">සිංහල</option>
+        <option value="ta">தமிழ்</option>
+        <option value="hi">हिन्दी</option>
+      </select><br>
+      <input id="birthDate" class="px-4 py-2 rounded text-black text-center" placeholder="Select Birth Date" />
+      <button onclick="generateCalendar()" class="ml-2 mt-2 px-4 py-2 bg-blue-600 text-white rounded">Show Calendar</button>
+    </div>
+    <div id="calendarOutput" class="text-center mt-6 text-lg"></div>
+    <footer class="mt-10 text-xs text-gray-500 text-center">
+      © 2025 Sathyadarshana | Designed by Buddhi for Awakening Minds
+    </footer>
+  </div>  <script>
+    let fp = flatpickr("#birthDate", {
+      dateFormat: "Y-m-d",
+      altInput: true,
+      altFormat: "F j, Y",
+      maxDate: "today",
+      locale: "default"
     });
-  </script>
-</body>
+
+    document.getElementById('calendarLang').addEventListener('change', function () {
+      const lang = this.value;
+      fp.set('locale', lang === 'default' ? 'en' : lang);
+    });
+
+    function generateCalendar() {
+      const date = document.getElementById("birthDate").value;
+      document.getElementById("calendarOutput").innerHTML = `🌕 Your selected date is: <strong>${date}</strong>`;
+    }
+  </script></body>
 </html>
