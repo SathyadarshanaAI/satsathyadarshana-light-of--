@@ -3,186 +3,73 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sathyadarshana | Light of Truth</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+  <title>Sathyadarshana | Astrology Service</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
   <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      font-family: 'Montserrat', sans-serif;
-      background: radial-gradient(ellipse at 60% 10%, #f1f5f9 0%, #ffffff 100%);
-      min-height: 100vh;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
-    }
-    .glow-text {
-      color: #475569;
-      text-shadow: 0 0 8px #38bdf8, 0 0 30px #bae6fd;
-      letter-spacing: 0.03em;
-    }
+    body { background: linear-gradient(to bottom, #0f172a, #1e293b); color: #fff; }
     .neon-button {
-      display: inline-block;
-      padding: 0.6rem 1.3rem;
-      border: 2px solid #0ea5e9;
-      color: #0ea5e9;
-      background: #fff;
-      border-radius: 9999px;
-      font-weight: bold;
-      font-size: 1rem;
-      transition: all 0.2s cubic-bezier(.4,0,.2,1);
-      margin: 0.25rem 0.15rem;
-      box-shadow: 0 0 8px #bae6fd44;
-      outline: none;
-      text-shadow: none;
+      border: 2px solid #00f6ff;
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      color: #00f6ff;
+      text-shadow: 0 0 5px #00f6ff;
+      transition: all 0.3s ease;
+      background: transparent;
     }
-    .neon-button:hover, .neon-button:focus {
-      background-color: #0ea5e9;
-      color: #fff;
-      box-shadow: 0 0 24px #38bdf8, 0 0 40px #bae6fd;
-      border: 2px solid #fff;
-      outline: none;
-    }
-    .card {
-      background: rgba(255,255,255, 0.90);
-      border-radius: 1rem;
-      box-shadow: 0 4px 24px 0 #bae6fd33;
-      padding: 2.5rem 2rem;
-      margin: 1rem 0;
-      color: #334155;
-      border: 1px solid #e0e7ef;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .card:hover {
-      transform: scale(1.018);
-      box-shadow: 0 8px 36px 0 #38bdf888, 0 0 30px #bae6fd88;
-    }
-    .fadein {
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeinUp 1.2s cubic-bezier(.4,0,.2,1) 0.2s forwards;
-    }
-    @keyframes fadeinUp {
-      100% {
-        opacity: 1;
-        transform: none;
-      }
-    }
-    /* Hide Google Translate UI */
-    .goog-te-banner-frame.skiptranslate,
-    .goog-logo-link,
-    .goog-te-gadget,
-    #goog-gt-tt,
-    .goog-te-balloon-frame,
-    .goog-te-menu-frame,
-    .goog-te-menu-value {
-      display: none !important;
-    }
-    body { top: 0px !important; }
+    .neon-button:hover { background-color: #00f6ff33; }
   </style>
-  <!-- Google Translate -->
-  <div id="google_translate_element" style="display:none"></div>
-  <script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({
-        pageLanguage: 'en',
-        includedLanguages: 'en,si,ta',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-      }, 'google_translate_element');
-    }
-    document.addEventListener("DOMContentLoaded", function() {
-      var style = document.createElement('style');
-      style.innerHTML = `
-        .goog-te-banner-frame.skiptranslate,
-        .goog-logo-link,
-        .goog-te-gadget,
-        #goog-gt-tt,
-        .goog-te-balloon-frame,
-        .goog-te-menu-frame,
-        .goog-te-menu-value {
-          display: none !important;
-        }
-        body { top: 0px !important; }
+</head>
+<body class="p-6">
+  <div class="text-center mb-8">
+    <h1 class="text-4xl font-bold mb-2">Vedic Astrology Calculator</h1>
+    <p class="text-xl text-gray-300">Find your birth chart (KP + NASA)</p>
+  </div>
+  <div class="max-w-md mx-auto bg-gray-800 rounded-xl p-6 shadow-xl">
+    <form id="astroForm">
+      <div class="mb-4">
+        <label class="block mb-1">Name:</label>
+        <input type="text" name="name" class="w-full rounded p-2 text-black" required>
+      </div>
+      <div class="mb-4">
+        <label class="block mb-1">Date of Birth:</label>
+        <input type="date" name="dob" class="w-full rounded p-2 text-black" required>
+      </div>
+      <div class="mb-4">
+        <label class="block mb-1">Time of Birth:</label>
+        <input type="time" name="tob" class="w-full rounded p-2 text-black" required>
+      </div>
+      <div class="mb-4">
+        <label class="block mb-1">Place of Birth:</label>
+        <input type="text" name="pob" class="w-full rounded p-2 text-black" required>
+      </div>
+      <button type="submit" class="neon-button w-full">Generate Chart</button>
+    </form>
+    <div id="result" class="mt-6 text-center"></div>
+  </div>
+  <div class="mt-12 text-center">
+    <p class="text-gray-400 text-sm">© 2025 Sathyadarshana. All Rights Reserved.</p>
+  </div>
+  <script>
+    document.getElementById('astroForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = e.target.name.value;
+      const dob = e.target.dob.value;
+      const tob = e.target.tob.value;
+      const pob = e.target.pob.value;
+      // මෙහිදී ඔබට backend astrology API එකකට request එකක් යවන්න පුළුවන්.
+      // දැන් වත්මන් උදාහරණයට mock result එකක් පෙන්වයි:
+      document.getElementById('result').innerHTML = `
+        <div class="bg-gray-900 rounded-lg p-4 mt-4">
+          <h2 class="text-xl font-bold mb-2 text-green-400">Hello, ${name}!</h2>
+          <p>Your birth chart calculation is not yet connected.<br>
+          <span class="text-yellow-300">[Demo Only]</span><br>
+          DOB: <span class="text-blue-300">${dob}</span><br>
+          Time: <span class="text-blue-300">${tob}</span><br>
+          Place: <span class="text-blue-300">${pob}</span></p>
+          <p class="mt-2 text-gray-400">In production, this will display your full KP/NASA chart and predictions.</p>
+        </div>
       `;
-      document.head.appendChild(style);
-    });
-    function setLanguage(lang) {
-      document.cookie = "googtrans=/en/" + lang + ";path=/;";
-      location.reload();
-    }
-    (function autoDetectLang() {
-      if(!document.cookie.match(/googtrans/)) {
-        var userLang = navigator.language || navigator.userLanguage;
-        if (userLang.startsWith("si")) {
-          setLanguage('si');
-        } else if (userLang.startsWith("ta")) {
-          setLanguage('ta');
-        } else {
-          setLanguage('en');
-        }
-      }
-    })();
-    // Shortcut key: H for Home
-    document.addEventListener('keydown', function(e) {
-      if ((e.ctrlKey && e.key === 'h') || (e.key === 'h' && !e.ctrlKey && document.activeElement.tagName !== 'INPUT')) {
-        window.location.href = 'index.html';
-      }
     });
   </script>
-  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-</head>
-<body class="text-slate-900 min-h-screen flex flex-col">
-  <!-- Language Switcher (Fixed, all pages) -->
-  <div class="fixed bottom-5 right-5 z-50 flex flex-col gap-2">
-    <button onclick="setLanguage('en')" class="neon-button">English</button>
-    <button onclick="setLanguage('si')" class="neon-button">සිංහල</button>
-    <button onclick="setLanguage('ta')" class="neon-button">தமிழ்</button>
-  </div>
-  <!-- Universal Navbar (sticky, all pages, shortcut navigation) -->
-  <nav class="sticky top-0 z-40 bg-white/95 shadow-md backdrop-blur px-2 py-2 flex flex-wrap items-center justify-center gap-2 w-full">
-    <a href="index.html" class="neon-button">Home</a>
-    <a href="sathyadarshana-lab.html" class="neon-button">Lab</a>
-    <a href="voice-of-dharma.html" class="neon-button">Voice of Dharma</a>
-    <a href="news-of-the-light.html" class="neon-button">News</a>
-    <a href="buddhi-ai.html" class="neon-button">Buddhi AI</a>
-    <a href="library.html" class="neon-button">Library</a>
-    <a href="astrology.html" class="neon-button">Astrology</a>
-    <a href="dharma-sabha.html" class="neon-button">Mandapaya</a>
-  </nav>
-  <!-- Hero Section -->
-  <section class="flex flex-col items-center text-center justify-center min-h-[60vh] py-14 fadein">
-    <h1 class="text-5xl md:text-7xl font-bold glow-text mb-4 tracking-tight">
-      <span class="inline-block align-middle animate-pulse">🌌</span>
-      Sathyadarshana
-    </h1>
-    <div class="mx-auto max-w-lg">
-      <p class="text-xl md:text-2xl text-slate-700 font-light mb-6">
-        <span class="glow-text">ආලෝකයේ පණිවිඩය</span> <br>
-        <span class="text-sky-500">Light of Truth, Harmony, and Wisdom</span> <br>
-        <span class="text-slate-600">A sanctuary for your mind and soul.<br>AI-powered compassion meets ancient serenity.</span>
-      </p>
-      <a href="#explore" class="neon-button text-lg">Explore the Light</a>
-    </div>
-  </section>
-  <!-- Section Cards: Digital Serenity Experience -->
-  <section id="explore" class="max-w-5xl w-full mx-auto grid md:grid-cols-3 gap-8 py-8 px-4 fadein">
-    <div class="card">
-      <h2 class="text-2xl font-bold mb-2 glow-text">Buddhi AI</h2>
-      <p class="text-slate-700 font-light">Meet your AI guide – wise, compassionate, and always ready to help you find answers with clarity and calm.</p>
-    </div>
-    <div class="card">
-      <h2 class="text-2xl font-bold mb-2 glow-text">Voice of Dharma</h2>
-      <p class="text-slate-700 font-light">Listen to the timeless wisdom of Dharma, echoing through the digital night, inviting you to peace and awakening.</p>
-    </div>
-    <div class="card">
-      <h2 class="text-2xl font-bold mb-2 glow-text">Library of Light</h2>
-      <p class="text-slate-700 font-light">Discover a curated collection of sacred texts, meditations, and insights to illuminate your inner journey.</p>
-    </div>
-  </section>
-  <!-- Footer -->
-  <footer class="mt-auto text-center text-sm text-slate-500 py-6 fadein">
-    © 2025 Sathyadarshana • Powered by Buddhi • Designed for Serenity
-  </footer>
 </body>
 </html>
