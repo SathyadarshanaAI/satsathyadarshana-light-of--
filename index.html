@@ -1,66 +1,95 @@
 <!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sathyadarshana | Digital Serenity</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sathyadarshana | Enter Light</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@500;800&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom, #cbd5e1, #1e293b);
-      color: #f8fafc;
-      min-height: 100vh;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(180deg, #dbeafe 0%, #cbd5e1 40%, #94a3b8 100%);
+      color: #1e293b;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 2rem;
-      text-align: center;
+      flex-direction: column;
+      overflow-y: auto;
+      scroll-behavior: smooth;
     }
-    .glow {
-      text-shadow: 0 0 10px #38bdf8, 0 0 20px #38bdf8;
-    }
-    .btn-glow {
-      background: #1e40af;
-      padding: 0.8rem 2rem;
-      border-radius: 9999px;
-      color: #e0f2fe;
-      font-weight: 600;
-      box-shadow: 0 0 12px #0ea5e9;
-      transition: all 0.3s;
-    }
-    .btn-glow:hover {
-      background: #0ea5e9;
-      color: #0f172a;
-      box-shadow: 0 0 24px #38bdf8;
-    }
-    .nav {
+    .home-btn {
       position: absolute;
-      top: 1rem;
-      left: 1rem;
-    }
-    .nav a {
-      background: #334155;
+      top: 20px;
+      left: 20px;
+      background-color: #0f172a;
       color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 9999px;
-      font-size: 0.9rem;
+      border-radius: 30px;
+      padding: 10px 20px;
       font-weight: bold;
       text-decoration: none;
+      box-shadow: 0 0 12px #38bdf8;
     }
-    .nav a:hover {
-      background: #64748b;
+    .logo {
+      font-size: 16px;
+      margin-bottom: 10px;
+      font-weight: 500;
+      color: #475569;
+    }
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: #1e3a8a;
+      text-shadow: 0 0 5px #60a5fa;
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-size: 1.2rem;
+      color: #334155;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    p {
+      font-size: 1rem;
+      color: #1e293b;
+      margin-bottom: 30px;
+    }
+    .btn {
+      font-size: 1rem;
+      padding: 14px 32px;
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 40px;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 0 15px #60a5fa;
+      transition: all 0.3s ease;
+    }
+    .btn:hover {
+      background: #1e40af;
+      box-shadow: 0 0 30px #60a5fa;
+    }
+    footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 0.8rem;
+      color: #334155;
     }
   </style>
 </head>
 <body>
-  <div class="nav">
-    <a href="index.html">🏠 Home</a>
-  </div>  <img src="sathyadarshana-logo.png" alt="Logo" class="w-32 mb-6">  <h1 class="text-4xl md:text-6xl font-bold text-blue-100 glow mb-4">Welcome to SATHYADARSHANA.COM</h1>
-  <p class="text-lg md:text-xl text-blue-200 mb-6">Light of Truth, Harmony & Wisdom</p>
-  <p class="text-md text-slate-100 mb-10">Your journey to digital serenity begins here.</p><a href="main.html" class="btn-glow">Enter the Platform</a>
-
-  <footer class="mt-16 text-xs text-slate-300">
+  <a href="index.html" class="home-btn">🏠 Home</a>
+  <div class="logo">SATHYADARSHANA.COM</div>
+  <h1>Welcome to Sathyadarshana</h1>
+  <h2>Light of Truth, Harmony & Wisdom</h2>
+  <p>Your journey to digital serenity begins here.</p>
+  <button class="btn" onclick="location.href='platform.html'">Enter the Platform</button>
+  <footer>
     © 2025 Sathyadarshana | Designed by Buddhi
   </footer>
 </body>
