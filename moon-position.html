@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -52,6 +51,14 @@
       background: #38bdf8;
       color: white;
       font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      padding: 0.4rem 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .lang-btns button:hover {
+      background: #0ea5e9;
     }
   </style>
 </head>
@@ -66,19 +73,16 @@
     <input type="number" id="lat" placeholder="e.g. 6.9271"><br>
     <label>Longitude:</label><br>
     <input type="number" id="lon" placeholder="e.g. 79.8612"><br>
-    <button onclick="calculateMoon()">Find Moon Position</button>
-    
-    <div id="result"></div>
-    <div id="map"></div>
+    <button onclick="calculateMoon()">Find Moon Position</button><div id="result"></div>
+<div id="map"></div>
 
-    <div class="lang-btns">
-      <button onclick="translatePage('en')">English</button>
-      <button onclick="translatePage('si')">සිංහල</button>
-      <button onclick="translatePage('ta')">தமிழ்</button>
-    </div>
-  </div>
+<div class="lang-btns">
+  <button onclick="translatePage('en')">English</button>
+  <button onclick="translatePage('si')">සිංහල</button>
+  <button onclick="translatePage('ta')">தமிழ்</button>
+</div>
 
-  <script>
+  </div>  <script>
     function calculateMoon() {
       const date = document.getElementById("date").value;
       const time = document.getElementById("time").value;
@@ -90,7 +94,6 @@
         return;
       }
 
-      // Simple moon position placeholder
       const message = `On ${date} at ${time}, the moon is visible from Lat: ${lat}, Lon: ${lon}.`;
       document.getElementById("result").innerText = message;
 
@@ -107,12 +110,9 @@
     }
 
     function translatePage(lang) {
-      alert("Translation feature pending full integration for: " + lang);
-      // Integration with Google Translate API can be added here.
+      alert("Translation feature pending for: " + lang);
     }
-  </script>
-  <script async
+  </script>  <script async
     src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap">
-  </script>
-</body>
+  </script></body>
 </html>
