@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Moon Position Calculator</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #020617, #0f172a);
+      color: #f8fafc;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+    header {
+      background: #1e293b;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      border-bottom: 2px solid #38bdf8;
+    }
+    .container {
+      padding: 2rem;
+    }
+    input, select, button {
+      margin: 0.5rem 0;
+      padding: 0.5rem;
+      border-radius: 8px;
+      border: none;
+      font-size: 1rem;
+    }
+    #result {
+      margin-top: 1rem;
+      background: #0f172a;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #38bdf8;
+    }
+    #map {
+      height: 300px;
+      margin-top: 2rem;
+      border: 2px solid #38bdf8;
+      border-radius: 12px;
+    }
+    .lang-btns {
+      margin-top: 2rem;
+    }
+    .lang-btns button {
+      margin-right: 1rem;
+      background: #38bdf8;
+      color: white;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>Moon Position Calculator 🌙</header>
+  <div class="container">
+    <label>Date:</label><br>
+    <input type="date" id="date"><br>
+    <label>Time (UTC):</label><br>
+    <input type="time" id="time"><br>
+    <label>Latitude:</label><br>
+    <input type="number" id="lat" placeholder="e.g. 6.9271"><br>
+    <label>Longitude:</label><br>
+    <input type="number" id="lon" placeholder="e.g. 79.8612"><br>
+    <button onclick="calculateMoon()">Find Moon Position</button>
+    
+    <div id="result"></div>
+    <div id="map"></div>
+
+    <div class="lang-btns">
+      <button onclick="translatePage('en')">English</button>
+      <button onclick="translatePage('si')">සිංහල</button>
+      <button onclick="translatePage('ta')">தமிழ்</button>
+    </div>
+  </div>
+
+  <script>
+    function calculateMoon() {
+      const date = document.getElementById("date").value;
+      const time = document.getElementById("time").value;
+      const lat = parseFloat(document.getElementById("lat").value);
+      const lon = parseFloat(document.getElementById("lon").value);
+
+      if (!date || !time || isNaN(lat) || isNaN(lon)) {
+        alert("Please fill all fields.");
+        return;
+      }
+
+      // Simple moon position placeholder
+      const message = `On ${date} at ${time}, the moon is visible from Lat: ${lat}, Lon: ${lon}.`;
+      document.getElementById("result").innerText = message;
+
+      const map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: lat, lng: lon },
+        zoom: 5,
+      });
+
+      new google.maps.Marker({
+        position: { lat: lat, lng: lon },
+        map: map,
+        title: "Observation Location",
+      });
+    }
+
+    function translatePage(lang) {
+      alert("Translation feature pending full integration for: " + lang);
+      // Integration with Google Translate API can be added here.
+    }
+  </script>
+  <script async
+    src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap">
+  </script>
+</body>
+</html>
