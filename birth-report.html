@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sathyadarshana | Birth Report</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #0f172a, #1e293b);
+      color: #f1f5f9;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 2rem;
+    }
+
+    h1 {
+      text-align: center;
+      color: #38bdf8;
+      margin-bottom: 1rem;
+    }
+
+    form {
+      max-width: 500px;
+      margin: auto;
+      background: rgba(15, 23, 42, 0.9);
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 15px #0ea5e9;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.3rem;
+      margin-top: 1rem;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 0.6rem;
+      border-radius: 0.5rem;
+      border: none;
+      background-color: #1e293b;
+      color: #f1f5f9;
+      font-size: 1rem;
+    }
+
+    button {
+      margin-top: 2rem;
+      width: 100%;
+      padding: 0.8rem;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: box-shadow 0.3s ease;
+    }
+
+    button:hover {
+      box-shadow: 0 0 20px #0ea5e9;
+    }
+
+    .lang-switch {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .lang-switch button {
+      margin: 0 0.3rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 9999px;
+      background: #1e40af;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>🪷 Sathyadarshana Birth Report</h1>
+
+  <div class="lang-switch">
+    <button onclick="setLang('en')">English</button>
+    <button onclick="setLang('si')">සිංහල</button>
+    <button onclick="setLang('ta')">தமிழ்</button>
+  </div>
+
+  <form id="birthForm">
+    <label>Full Name</label>
+    <input type="text" name="name" required />
+
+    <label>Date of Birth</label>
+    <input type="date" name="dob" required />
+
+    <label>Time of Birth</label>
+    <input type="time" name="tob" required />
+
+    <label>Place of Birth</label>
+    <input type="text" name="pob" required />
+
+    <label>NIC Number (Optional)</label>
+    <input type="text" name="nic" />
+
+    <label>Gender</label>
+    <select name="gender">
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="other">Other</option>
+    </select>
+
+    <label>Preferred Language</label>
+    <select name="language">
+      <option value="en">English</option>
+      <option value="si">සිංහල</option>
+      <option value="ta">தமிழ்</option>
+    </select>
+
+    <button type="submit">Generate Report</button>
+  </form>
+
+  <script>
+    function setLang(lang) {
+      alert('Language set to: ' + lang + ' (translation coming soon)');
+    }
+
+    document.getElementById('birthForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('🧬 Generating Report... (PDF & AI logic coming next)');
+    });
+  </script>
+</body>
+</html>
