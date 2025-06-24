@@ -3,53 +3,83 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sathyadarshana – Light of Truth</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <script>
-    if (
-      localStorage.getItem('theme') === 'dark' ||
-      (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)
-    ) {
-      document.documentElement.classList.add('dark');
-    }
-  </script>
+  <title>Sathyadarshana Astrology Service</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
   <style>
-    .no-copy {
-      user-select: none;
-    }
+    body { background: linear-gradient(to bottom, #0f172a, #1e293b); color: #f1f5f9; }
+    .glow-btn { transition: all 0.3s ease-in-out; }
+    .glow-btn:hover { box-shadow: 0 0 20px #38bdf8; background-color: #38bdf8; color: black; }
+    .prediction-box { background: #0e1829; border-radius: 1rem; padding: 1.5rem; margin-top: 1.5rem; box-shadow: 0 0 20px #0ea5e9 inset; }
+    .section-title { color: #22d3ee; font-weight: 700; margin-bottom: 0.5rem; }
+    .key-point { color: #a5f3fc; margin-bottom: 0.25rem; }
   </style>
 </head>
-<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 no-copy transition-colors duration-500">
-  <div class="max-w-5xl mx-auto px-4 py-8">
-    <h1 class="text-4xl font-bold text-center text-indigo-700 dark:text-indigo-300 mb-4">🌏 Sathyadarshana</h1>
-    <p class="text-center text-gray-600 dark:text-gray-300 text-lg mb-8">One Humanity • One Light • All Faiths Respected Equally</p>
-    
-    <nav class="flex flex-wrap justify-center gap-4 mb-10">
-      <a href="Library.html" class="bg-indigo-100 dark:bg-indigo-800 hover:bg-indigo-200 dark:hover:bg-indigo-700 text-indigo-800 dark:text-white px-4 py-2 rounded-lg">📚 Library</a>
-      <a href="vedic-astrology.html" class="bg-yellow-100 dark:bg-yellow-800 hover:bg-yellow-200 dark:hover:bg-yellow-700 text-yellow-800 dark:text-white px-4 py-2 rounded-lg">🔭 Astrology</a>
-      <a href="News-html" class="bg-green-100 dark:bg-green-800 hover:bg-green-200 dark:hover:bg-green-700 text-green-800 dark:text-white px-4 py-2 rounded-lg">📰 News Line</a>
-      <!-- studio.html සහ buddhi.html files තියෙනවා නම් මෙහි link එකක් යොදන්න. නැත්නම් ඉවත් කරන්න -->
-    </nav>
-
-    <div class="text-center mb-10">
-      <p class="mb-2">🌐 Now supporting all major languages with AI auto-translation</p>
-      <p class="text-sm text-gray-500 dark:text-gray-400">
-        Sinhala • Tamil • English • Hindi • Arabic • French • Spanish • Russian • Japanese
-      </p>
-    </div>
-
-    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 text-center">
-      <h2 class="text-2xl font-semibold text-indigo-600 dark:text-indigo-300 mb-3">"Let the Light of Wisdom Shine Upon All"</h2>
-      <p class="text-gray-700 dark:text-gray-300">
-        No religion, race, caste or nation is superior to another.
-        Only the purity of one’s heart and thoughts elevate a being.
-        Sathyadarshana stands as a global bridge of unity and spiritual truth.
-      </p>
-    </div>
-
-    <footer class="mt-12 text-center text-xs text-gray-400 dark:text-gray-500">
-      © 2025 Sathyadarshana Global Spiritual Network — All Rights Reserved. Powered by Buddhi.
-    </footer>
-  </div>
+<body class="min-h-screen flex flex-col items-center justify-center px-4">
+  <header class="text-center mb-10">
+    <h1 class="text-4xl font-bold mb-4">🪐 Sathyadarshana Astrology Service</h1>
+    <p class="text-lg text-gray-300">Generate your Vedic Birth Chart<br>with Detailed Predictions</p>
+  </header>
+  <section class="w-full max-w-xl bg-white text-gray-800 rounded-xl shadow-lg p-6">
+    <form id="birthChartForm" class="space-y-4">
+      <div>
+        <label for="name" class="block font-semibold">Full Name</label>
+        <input type="text" id="name" name="name" class="w-full mt-1 p-2 rounded-md border border-gray-300" required>
+      </div>
+      <div>
+        <label for="birthDate" class="block font-semibold">Date of Birth</label>
+        <input type="date" id="birthDate" name="birthDate" class="w-full mt-1 p-2 rounded-md border border-gray-300" required>
+      </div>
+      <div>
+        <label for="birthTime" class="block font-semibold">Time of Birth</label>
+        <input type="time" id="birthTime" name="birthTime" class="w-full mt-1 p-2 rounded-md border border-gray-300" required>
+      </div>
+      <div>
+        <label for="birthPlace" class="block font-semibold">Place of Birth</label>
+        <input type="text" id="birthPlace" name="birthPlace" class="w-full mt-1 p-2 rounded-md border border-gray-300" required>
+      </div>
+      <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded-md glow-btn">Generate Birth Chart & Prediction</button>
+    </form>
+    <div id="result" class="mt-8 hidden"></div>
+  </section>
+  <footer class="mt-10">
+    <a href="index.html" class="text-blue-400 underline">← Back to Home</a>
+  </footer>
+  <script>
+    document.getElementById('birthChartForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const birthDate = document.getElementById('birthDate').value;
+      const birthTime = document.getElementById('birthTime').value;
+      const birthPlace = document.getElementById('birthPlace').value;
+      // Demo chart & prediction - You can later connect to API or backend
+      document.getElementById('result').classList.remove('hidden');
+      document.getElementById('result').innerHTML = `
+        <div class="prediction-box">
+          <div class="mb-4">
+            <h2 class="text-2xl font-bold mb-1 section-title">🔭 Birth Chart Overview</h2>
+            <div><b>Name:</b> ${name}</div>
+            <div><b>Date:</b> ${birthDate}</div>
+            <div><b>Time:</b> ${birthTime}</div>
+            <div><b>Place:</b> ${birthPlace}</div>
+            <div class="mt-2"><span class="key-point">🌞 Sun Sign: Aries</span> | <span class="key-point">🌙 Moon Sign: Taurus</span> | <span class="key-point">↑ Ascendant: Gemini</span></div>
+          </div>
+          <div class="mb-4">
+            <h3 class="text-xl font-semibold section-title">📜 Long Prediction (Demo)</h3>
+            <p class="text-gray-200 mb-1">Dear ${name}, based on your birth details, here is your astrological prediction:</p>
+            <ul class="list-disc ml-6 text-cyan-100">
+              <li class="mb-2">🔹 <b>Career:</b> This year brings new opportunities for career growth. Embrace changes and be open to learning.</li>
+              <li class="mb-2">🔹 <b>Finance:</b> Financial stability will improve in the coming months. Avoid risky ventures.</li>
+              <li class="mb-2">🔹 <b>Relationships:</b> Harmony in relationships is highlighted. Express your feelings with kindness.</li>
+              <li class="mb-2">🔹 <b>Health:</b> Pay attention to mental well-being. Practice mindfulness and meditation.</li>
+              <li class="mb-2">🔹 <b>Spiritual:</b> This is a favorable period for spiritual growth. Engage in self-reflection and seek inner peace.</li>
+            </ul>
+            <p class="text-yellow-200 mt-3 italic">* This is a sample prediction. In the full system, personalized FDF (Final Detailed Forecast) will be generated automatically using real astrological calculations.</p>
+          </div>
+        </div>
+      `;
+      // Optionally, scroll to result
+      document.getElementById('result').scrollIntoView({behavior: "smooth"});
+    });
+  </script>
 </body>
 </html>
