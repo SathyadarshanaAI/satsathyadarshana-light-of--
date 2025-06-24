@@ -1,87 +1,142 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sathyadarshana | Light of Truth</title>
-  <link rel="icon" href="logo.png" type="image/png">
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(to bottom, #020617, #0f172a);
-      color: #f8fafc;
+      color: #f1f5f9;
     }
+
     header {
       background: rgba(15, 23, 42, 0.95);
       padding: 1rem;
       text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 10;
+      box-shadow: 0 0 10px #0ea5e9;
     }
+
     header h1 {
       margin: 0;
-      font-size: 1.75rem;
+      font-size: 1.8rem;
       color: #38bdf8;
     }
-    .scroll-section {
-      padding: 4rem 2rem;
-      text-align: center;
-      background: linear-gradient(to right, #0f172a, #1e293b);
-      color: #f8fafc;
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      background: #0f172a;
+      padding: 0.5rem;
+      gap: 0.8rem;
     }
-    .scroll-section h2 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 0.6rem 1rem;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, #0ea5e9, #38bdf8);
+      transition: background 0.3s;
     }
-    .scroll-section p {
-      font-size: 1.1rem;
-      max-width: 600px;
-      margin: 0 auto 1.5rem;
+
+    nav a:hover {
+      background: linear-gradient(90deg, #38bdf8, #0ea5e9);
     }
+
+    section {
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+      line-height: 1.6;
+    }
+
     .neon-btn {
       display: inline-block;
-      margin-top: 1rem;
-      padding: 0.75rem 1.5rem;
-      font-size: 1.1rem;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      font-weight: bold;
       color: #fff;
-      border: none;
-      border-radius: 999px;
       background: linear-gradient(90deg, #38bdf8, #0ea5e9);
-      box-shadow: 0 0 10px #0ea5e9, 0 0 20px #38bdf8;
+      border-radius: 9999px;
       text-decoration: none;
-      transition: transform 0.2s ease;
+      box-shadow: 0 0 15px #0ea5e9;
+      transition: box-shadow 0.3s ease;
     }
+
     .neon-btn:hover {
-      transform: scale(1.05);
+      box-shadow: 0 0 25px #0ea5e9;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #94a3b8;
+    }
+
+    .lang-switch {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+    }
+
+    .lang-switch select {
+      padding: 0.3rem;
+      border-radius: 9999px;
+      background-color: #1e3a8a;
+      color: white;
+      border: none;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Sathyadarshana: Light of Truth</h1>
-  </header>  <section class="scroll-section">
-    <h2>Welcome to Sathyadarshana</h2>
-    <p>Explore spiritual technologies, sacred wisdom, and AI-powered insight.</p>
-    <a href="library.html" class="neon-btn">📚 Visit Library</a>
-  </section>  <section class="scroll-section">
-    <h2>The Seed: Human Origin Scanner</h2>
-    <p>A spark beyond DNA – the spiritual origin signature. Scan to reveal what science can't see.</p>
-    <a href="seed-engine.html" class="neon-btn">🌱 Explore The Seed Engine</a>
-  </section>  <section class="scroll-section">
-    <h2>Astrology & KP Dashboard</h2>
-    <p>Generate precise KP charts, Sub-Lord predictions, and voice reports.</p>
-    <a href="astrology.html" class="neon-btn">🔭 Astrology Panel</a>
-  </section>  <section class="scroll-section">
-    <h2>AI Buddhi Assistant</h2>
-    <p>Ask Buddhi for guidance in spiritual, medical, or cosmic matters. Always at your side.</p>
-    <a href="ai-buddhi.html" class="neon-btn">🤖 Talk to Buddhi</a>
-  </section>  <section class="scroll-section">
-    <h2>Sathyadarshana Lab</h2>
-    <p>Discover Smule voice recordings, music lab, and spiritual sound projects.</p>
-    <a href="sathyadarshana-lab.html" class="neon-btn">🎙️ Music Lab</a>
-  </section>  <footer class="scroll-section">
-    <p style="font-size: 0.9rem; color: #94a3b8;">© 2025 Sathyadarshana | Designed by Anurudda & AI Buddhi</p>
+    <h1>🪷 Sathyadarshana</h1>
+  </header>
+
+  <nav>
+    <a href="library.html">Library</a>
+    <a href="astrology.html">Astrology</a>
+    <a href="ai-buddhi.html">AI Buddhi</a>
+    <a href="news.html">News</a>
+    <a href="smule-lab.html">Music Lab</a>
+  </nav>
+
+  <div class="lang-switch">
+    <select onchange="switchLang(this.value)">
+      <option value="en">🌐 English</option>
+      <option value="si">සිංහල</option>
+      <option value="ta">தமிழ்</option>
+    </select>
+  </div>
+
+  <section>
+    <h2>Welcome to the Light of Truth</h2>
+    <p>
+      Explore sacred knowledge, astrology, AI wisdom, and spiritual guidance.
+    </p>
+
+    <!-- 🔮 Divyajnana Chakra Button -->
+    <div style="text-align: center; margin-top: 2rem;">
+      <a href="birth-report.html" class="neon-btn">
+        🔮 Generate Divyajnana Chakra Report
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Sathyadarshana.com | Created with ❤️ by Anuruddha & AI Buddhi
   </footer>
+
+  <script>
+    function switchLang(lang) {
+      alert("Language switched to: " + lang);
+      // TODO: Load localized content based on `lang`
+    }
+  </script>
 </body>
 </html>
