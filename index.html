@@ -1,99 +1,100 @@
 <!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sathyadarshana | Light of Truth</title>
   <style>
-    * {
+    html, body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(180deg, #0f172a, #1e293b);
-      color: #f1f5f9;
-      overflow-y: auto;
+      height: 100%;
+      overflow-x: hidden;
       scroll-behavior: smooth;
-      padding-bottom: 3rem;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #0f172a, #1e293b);
+      color: #f8fafc;
     }
-    nav {
+    .nav {
       position: sticky;
       top: 0;
-      background-color: rgba(15, 23, 42, 0.95);
+      z-index: 100;
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 1rem;
-      z-index: 1000;
-    }
-    nav a {
-      color: gold;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      background-color: #0f172a;
-      padding: 0.5rem 1rem;
-      border-radius: 999px;
-    }
-    nav a:hover {
-      background-color: #1e40af;
-    }
-    .section {
-      width: 90%;
-      max-width: 600px;
-      margin: 4rem auto;
-      padding: 2rem;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 1rem;
-      box-shadow: 0 0 20px rgba(0,0,0,0.3);
-    }
-    h1 {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-    p {
-      text-align: center;
-      font-size: 1.1rem;
-      margin-bottom: 1.5rem;
+      background: rgba(15, 23, 42, 0.95);
     }
     .btn {
-      display: block;
-      margin: 0 auto;
-      padding: 0.7rem 1.5rem;
-      background: linear-gradient(90deg, #facc15, #f43f5e);
-      border: none;
-      border-radius: 999px;
-      color: #fff;
-      font-weight: bold;
+      padding: 0.6rem 1.2rem;
+      border-radius: 2rem;
       font-size: 1rem;
+      font-weight: bold;
+      border: none;
       cursor: pointer;
+      transition: 0.3s;
     }
-    .btn:hover {
-      background: linear-gradient(90deg, #f59e0b, #ef4444);
-    }
-    .section-title {
-      text-align: center;
-      margin-top: 2rem;
-      font-size: 1.2rem;
+    .home-btn {
+      background-color: #0f172a;
       color: gold;
+    }
+    .lang-btn {
+      background-color: royalblue;
+      color: yellow;
+    }
+    .section {
+      max-width: 600px;
+      margin: 5rem auto;
+      padding: 2rem;
+      border-radius: 1.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.08);
+      text-align: center;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    .enter-btn {
+      background: linear-gradient(to right, #facc15, #f43f5e);
+      color: white;
+      margin-top: 1.5rem;
+    }
+    .vision-title {
+      color: gold;
+      font-size: 1.2rem;
+      margin-top: 2rem;
     }
   </style>
 </head>
 <body>
-  <nav>
-    <a href="#"><span>🏠</span> Home</a>
-    <a href="#"><span>🌐</span> Language</a>
-  </nav>  <div class="section">
-    <h1>Welcome to Sathyadarshana.com</h1>
+  <div class="nav">
+    <button class="btn home-btn">🏠 Home</button>
+    <button class="btn lang-btn">🌐 Language</button>
+  </div>  <div class="section">
+    <h1>Welcome to <br> Sathyadarshana.com</h1>
     <p>Touch the Light, Walk the Path.</p>
-    <button class="btn">Enter the Platform</button>
-    <h2 class="section-title">Our Vision</h2>
+    <button class="btn enter-btn">Enter the Platform</button>
+    <p class="vision-title">Our Vision</p>
     <p>“Let us plant the Seed of Insight – for the world to awaken in wisdom.”</p>
-  </div>
+  </div>  <div id="google_translate_element" style="display:none;"></div>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,si,ta',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script>
+    document.querySelector(".lang-btn").addEventListener("click", () => {
+      const iframe = document.querySelector('iframe');
+      if (iframe) {
+        iframe.contentWindow.document.querySelectorAll('a').forEach(a => a.click());
+      }
+    });
+  </script>
 </body>
 </html>
