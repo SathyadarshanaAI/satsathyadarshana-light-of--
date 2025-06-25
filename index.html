@@ -1,20 +1,22 @@
- <!DOCTYPE html><html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sathyadarshana | Scroll Journey</title>
+  <title>Sathyadarshana | Welcome</title>
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    body, html {
+    html, body {
+      height: 100%;
+      overflow-y: auto;
       scroll-behavior: smooth;
-      font-family: sans-serif;
-      background: black;
+      font-family: Arial, sans-serif;
+      background-color: #000;
     }
-    section {
+    .section {
       height: 100vh;
       width: 100vw;
       background-size: cover;
@@ -22,15 +24,60 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-direction: column;
+      color: white;
+      text-align: center;
+    }
+    .logo-btn {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      padding: 10px 18px;
+      background-color: #111;
+      color: white;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      z-index: 999;
+    }
+    .overlay {
+      background: rgba(0,0,0,0.5);
+      padding: 1rem;
+      border-radius: 8px;
     }
   </style>
 </head>
 <body>
-  <section style="background-image: url('scroll_images/scroll1.jpg');"></section>
-  <section style="background-image: url('scroll_images/scroll2.jpg');"></section>
-  <section style="background-image: url('scroll_images/scroll3.jpg');"></section>
-  <section style="background-image: url('scroll_images/scroll4.jpg');"></section>
-  <section style="background-image: url('scroll_images/scroll5.jpg');"></section>
-  <section style="background-image: url('scroll_images/scroll6.jpg');"></section>
+  <a href="index.html" class="logo-btn">🏠 Home</a>  <div class="section" style="background-image: url('image1.jpg');">
+    <div class="overlay">
+      <h1>Welcome to Sathyadarshana.com</h1>
+      <p>Touch the Light, Walk the Path.</p>
+    </div>
+  </div>  <div class="section" style="background-image: url('image2.jpg');">
+    <div class="overlay">
+      <h2>📖 Library</h2>
+      <p>Explore sacred scriptures and digital archives</p>
+    </div>
+  </div>  <div class="section" style="background-image: url('image3.jpg');">
+    <div class="overlay">
+      <h2>🧠 AI Buddhi</h2>
+      <p>Ask deep questions, receive divine insight</p>
+    </div>
+  </div>  <div class="section" style="background-image: url('image4.jpg');">
+    <div class="overlay">
+      <h2>🌌 Astrology</h2>
+      <p>Readings powered by KP + NASA Data</p>
+    </div>
+  </div>  <div class="section" style="background-image: url('image5.jpg');">
+    <div class="overlay">
+      <h2>🎵 Music Lab</h2>
+      <p>Spiritual sounds that awaken the heart</p>
+    </div>
+  </div>  <div class="section" style="background-image: url('image6.jpg');">
+    <div class="overlay">
+      <h2>✨ Infinite Light</h2>
+      <p>Enter the timeless serenity of wisdom</p>
+    </div>
+  </div>
 </body>
 </html>
