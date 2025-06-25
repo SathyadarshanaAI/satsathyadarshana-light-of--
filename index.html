@@ -3,155 +3,132 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sathyadarshana | Light Within</title>
+  <title>Sathyadarshana | Light of Truth</title>
   <style>
-    body {
+    @import url('https://fonts.googleapis.com/css2?family=Philosopher:wght@700&display=swap');
+
+    * {
       margin: 0;
       padding: 0;
-      background: linear-gradient(to bottom, #0f172a, #1e293b);
-      font-family: 'Segoe UI', sans-serif;
-      color: #ffffff;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Philosopher', sans-serif;
+      background: linear-gradient(to bottom right, #020617, #0f172a);
+      color: #f8fafc;
+      overflow: hidden;
     }
 
     .glass {
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.08);
       border-radius: 1rem;
-      box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       padding: 2rem;
-      margin: 2rem;
-      max-width: 90%;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .section {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      max-width: 700px;
+      margin: 8vh auto;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
     }
 
     h1 {
-      font-size: 2.5rem;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      font-size: 2rem;
+      color: #e0f2fe;
       margin-bottom: 1rem;
     }
 
+    h2 {
+      font-size: 1.4rem;
+      color: #facc15;
+      margin-top: 1rem;
+    }
+
     p {
-      font-size: 1.2rem;
-      text-align: center;
-      max-width: 90%;
+      font-size: 1.1rem;
+      color: #e2e8f0;
+      margin-top: 1rem;
     }
 
-    .btn {
-      margin: 1rem;
-      padding: 0.8rem 1.5rem;
-      font-size: 1rem;
+    button {
+      margin-top: 1.5rem;
+      padding: 0.6rem 1.5rem;
       border: none;
-      border-radius: 2rem;
-      background: linear-gradient(45deg, #facc15, #fb7185);
+      border-radius: 9999px;
+      background: linear-gradient(90deg, #0ea5e9, #38bdf8);
       color: white;
-      font-weight: bold;
+      font-size: 1rem;
       cursor: pointer;
-      transition: transform 0.3s ease;
-      box-shadow: 0 0 15px rgba(255,255,255,0.2);
+      transition: 0.3s;
     }
 
-    .btn:hover {
+    button:hover {
       transform: scale(1.05);
+      background: linear-gradient(90deg, #38bdf8, #0ea5e9);
     }
 
-    .home-btn {
+    .topbar {
       position: fixed;
-      top: 1rem;
-      left: 1rem;
-      background-color: #111827;
-      padding: 0.5rem 1rem;
-      border-radius: 2rem;
-      color: white;
-      z-index: 1000;
+      top: 0;
+      width: 100%;
+      background: rgba(15, 23, 42, 0.8);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      z-index: 10;
+    }
+
+    .topbar span {
+      color: #facc15;
+      font-size: 1.1rem;
     }
 
     .lang-btn {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      background-color: #111827;
-      padding: 0.5rem 1rem;
-      border-radius: 2rem;
-      color: white;
-      z-index: 1000;
+      background: #1e3a8a;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      color: #fff;
+      font-size: 0.9rem;
+      border: none;
+      cursor: pointer;
     }
 
-    .background-img {
-      background-size: cover;
-      background-position: center;
-      width: 100%;
-      height: 100vh;
-    }
-
-    .img-overlay {
-      background: rgba(0,0,0,0.4);
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
+    @media (max-width: 768px) {
+      .glass {
+        margin: 20vh 5vw;
+      }
+      h1 { font-size: 1.6rem; }
+      h2 { font-size: 1.2rem; }
     }
   </style>
-</head>
-<body>
-  <a href="#" class="home-btn">🏠 Home</a>
-  <a href="#" class="lang-btn">🌐 Language</a>
 
-  <div class="section background-img" style="background-image: url('bg1.jpg');">
-    <div class="img-overlay">
-      <h1>Welcome to Sathyadarshana.com</h1>
-      <p>Touch the Light, Walk the Path.</p>
-      <button class="btn">Enter the Platform</button>
-    </div>
-  </div>
-
-  <div class="section background-img" style="background-image: url('bg2.jpg');">
-    <div class="img-overlay">
-      <div class="glass">
-        <h1>Our Vision</h1>
-        <p>“Let us plant the Seed of Insight – for the world to awaken in wisdom.”</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="section background-img" style="background-image: url('bg3.jpg');">
-    <div class="img-overlay">
-      <div class="glass">
-        <h1>The Light Within</h1>
-        <p>Your inner journey begins when you reflect deeply, in stillness.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="section background-img" style="background-image: url('bg4.jpg');">
-    <div class="img-overlay">
-      <button class="btn">News Line</button>
-      <button class="btn">Buddhi AI</button>
-    </div>
-  </div>
-
+  <!-- Auto Language Script -->
   <script>
-    // Auto language detection (basic sample)
-    const userLang = navigator.language || navigator.userLanguage;
-    if (userLang.startsWith("si")) {
-      document.body.classList.add("lang-si");
-    } else if (userLang.startsWith("ta")) {
-      document.body.classList.add("lang-ta");
-    } else {
-      document.body.classList.add("lang-en");
+    window.onload = function () {
+      const userLang = navigator.language || navigator.userLanguage;
+      if (userLang.includes("si")) {
+        window.location.href = "/si/index.html";
+      } else if (userLang.includes("ta")) {
+        window.location.href = "/ta/index.html";
+      }
     }
   </script>
+</head>
+
+<body>
+  <div class="topbar">
+    <span>🏠 Home</span>
+    <button class="lang-btn" onclick="alert('Language switcher coming soon!')">🌐 Language</button>
+  </div>
+
+  <div class="glass">
+    <h1>Welcome to Sathyadarshana.com</h1>
+    <p>Touch the Light, Walk the Path.</p>
+    <button>Enter the Platform</button>
+    <h2>Our Vision</h2>
+    <p>“Let us plant the Seed of Insight – for the world to awaken in wisdom.”</p>
+  </div>
 </body>
 </html>
