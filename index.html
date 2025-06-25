@@ -1,104 +1,157 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sathyadarshana | Light of Truth</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sathyadarshana | Light Within</title>
   <style>
-    html, body {
+    body {
       margin: 0;
       padding: 0;
-      min-height: 100vh;
+      background: linear-gradient(to bottom, #0f172a, #1e293b);
+      font-family: 'Segoe UI', sans-serif;
+      color: #ffffff;
       overflow-x: hidden;
       scroll-behavior: smooth;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom, #0f172a, #1e293b);
-      color: #f8fafc;
     }
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem;
-      background: rgba(15, 23, 42, 0.95);
-    }
-    .btn {
-      padding: 0.6rem 1.2rem;
-      border-radius: 2rem;
-      font-size: 1rem;
-      font-weight: bold;
-      border: none;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .home-btn {
-      background-color: #0f172a;
-      color: gold;
-    }
-    .lang-btn {
-      background-color: royalblue;
-      color: yellow;
-    }
-    .section {
-      max-width: 600px;
-      margin: 5rem auto;
+
+    .glass {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 1rem;
+      box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
       padding: 2rem;
-      border-radius: 1.5rem;
-      background: rgba(255, 255, 255, 0.05);
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.08);
-      text-align: center;
+      margin: 2rem;
+      max-width: 90%;
+      margin-left: auto;
+      margin-right: auto;
     }
+
+    .section {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
     h1 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
+      font-size: 2.5rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      margin-bottom: 1rem;
     }
-    .enter-btn {
-      background: linear-gradient(to right, #facc15, #f43f5e);
-      color: white;
-      margin-top: 1.5rem;
-    }
-    .vision-title {
-      color: gold;
+
+    p {
       font-size: 1.2rem;
-      margin-top: 2rem;
+      text-align: center;
+      max-width: 90%;
+    }
+
+    .btn {
+      margin: 1rem;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 2rem;
+      background: linear-gradient(45deg, #facc15, #fb7185);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      box-shadow: 0 0 15px rgba(255,255,255,0.2);
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    .home-btn {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      background-color: #111827;
+      padding: 0.5rem 1rem;
+      border-radius: 2rem;
+      color: white;
+      z-index: 1000;
+    }
+
+    .lang-btn {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background-color: #111827;
+      padding: 0.5rem 1rem;
+      border-radius: 2rem;
+      color: white;
+      z-index: 1000;
+    }
+
+    .background-img {
+      background-size: cover;
+      background-position: center;
+      width: 100%;
+      height: 100vh;
+    }
+
+    .img-overlay {
+      background: rgba(0,0,0,0.4);
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
     }
   </style>
 </head>
 <body>
-  <div class="nav">
-    <button class="btn home-btn">🏠 Home</button>
-    <button class="btn lang-btn">🌐 Language</button>
-  </div>  <div class="section">
-    <h1>Welcome to <br> Sathyadarshana.com</h1>
-    <p>Touch the Light, Walk the Path.</p>
-    <button class="btn enter-btn">Enter the Platform</button>
-    <p class="vision-title">Our Vision</p>
-    <p>“Let us plant the Seed of Insight – for the world to awaken in wisdom.”</p>
-  </div>  <div id="google_translate_element" style="display:none;"></div>
-  <script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({
-        pageLanguage: 'en',
-        includedLanguages: 'en,si,ta',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-        autoDisplay: false
-      }, 'google_translate_element');
-    }
-  </script>
-  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <a href="#" class="home-btn">🏠 Home</a>
+  <a href="#" class="lang-btn">🌐 Language</a>
+
+  <div class="section background-img" style="background-image: url('bg1.jpg');">
+    <div class="img-overlay">
+      <h1>Welcome to Sathyadarshana.com</h1>
+      <p>Touch the Light, Walk the Path.</p>
+      <button class="btn">Enter the Platform</button>
+    </div>
+  </div>
+
+  <div class="section background-img" style="background-image: url('bg2.jpg');">
+    <div class="img-overlay">
+      <div class="glass">
+        <h1>Our Vision</h1>
+        <p>“Let us plant the Seed of Insight – for the world to awaken in wisdom.”</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section background-img" style="background-image: url('bg3.jpg');">
+    <div class="img-overlay">
+      <div class="glass">
+        <h1>The Light Within</h1>
+        <p>Your inner journey begins when you reflect deeply, in stillness.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section background-img" style="background-image: url('bg4.jpg');">
+    <div class="img-overlay">
+      <button class="btn">News Line</button>
+      <button class="btn">Buddhi AI</button>
+    </div>
+  </div>
+
   <script>
-    document.querySelector(".lang-btn").addEventListener("click", () => {
-      const frame = document.querySelector('iframe');
-      if (!frame) return;
-      const doc = frame.contentDocument || frame.contentWindow.document;
-      const langLinks = doc.querySelectorAll('.goog-te-menu2-item span.text');
-      const preferredLang = navigator.language.startsWith('si') ? 'Sinhala' : navigator.language.startsWith('ta') ? 'Tamil' : 'English';
-      langLinks.forEach(link => {
-        if (link.textContent.trim() === preferredLang) link.click();
-      });
-    });
+    // Auto language detection (basic sample)
+    const userLang = navigator.language || navigator.userLanguage;
+    if (userLang.startsWith("si")) {
+      document.body.classList.add("lang-si");
+    } else if (userLang.startsWith("ta")) {
+      document.body.classList.add("lang-ta");
+    } else {
+      document.body.classList.add("lang-en");
+    }
   </script>
 </body>
 </html>
