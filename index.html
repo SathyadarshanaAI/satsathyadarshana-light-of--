@@ -103,6 +103,14 @@
       align-items: center;
       flex-direction: column;
     }
+
+    #google_translate_element {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      z-index: 9999;
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -142,8 +150,29 @@
     </div>
   </div>
 
+  <!-- Google Translate Element -->
+  <div id="google_translate_element"></div>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,si,ta',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
   <script>
-    // Auto language detection (basic sample)
+    document.querySelector('.lang-btn').addEventListener('click', () => {
+      const iframe = document.querySelector('iframe');
+      if (iframe) {
+        const innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+        const dropdown = innerDoc.querySelector('.goog-te-menu-value span');
+        if (dropdown) dropdown.click();
+      }
+    });
+
     const userLang = navigator.language || navigator.userLanguage;
     if (userLang.startsWith("si")) {
       document.body.classList.add("lang-si");
