@@ -1,200 +1,98 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sathyadarshana | Light Within</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sathyadarshana | Light of Truth</title>
+  <link rel="stylesheet" href="style.css">
   <style>
-    html, body {
+    body {
       margin: 0;
-      padding: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom, #0f172a, #1e293b);
-      color: #ffffff;
-      scroll-behavior: smooth;
+      background: linear-gradient(to bottom, #020617, #0f172a);
+      color: #f8fafc;
       overflow-x: hidden;
     }
-
-    .glass {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 1rem;
-      box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(10px);
-      padding: 2rem;
-      margin: 2rem;
-      max-width: 90%;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .section {
-      height: 100vh;
+    section {
+      min-height: 100vh;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-      margin-bottom: 1rem;
-    }
-
-    p {
-      font-size: 1.2rem;
+      justify-content: center;
       text-align: center;
-      max-width: 90%;
-    }
-
-    .btn {
+      padding: 2rem;
+      backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 1rem;
       margin: 1rem;
-      padding: 0.8rem 1.5rem;
-      font-size: 1rem;
-      border: none;
-      border-radius: 2rem;
-      background: linear-gradient(45deg, #facc15, #fb7185);
-      color: white;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    }
+    h1, h2 {
       font-weight: bold;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-      box-shadow: 0 0 15px rgba(255,255,255,0.2);
     }
-
-    .btn:hover {
-      transform: scale(1.05);
-    }
-
-    .home-btn {
-      position: fixed;
-      top: 1rem;
-      left: 1rem;
-      background-color: #111827;
-      padding: 0.5rem 1rem;
-      border-radius: 2rem;
-      color: white;
-      z-index: 1000;
-      text-decoration: none;
-    }
-
-    .lang-btn {
+    .nav {
       position: fixed;
       top: 1rem;
       right: 1rem;
-      background-color: #111827;
+      z-index: 999;
+    }
+    .lang-btn {
+      background: rgba(255, 255, 255, 0.15);
+      border: none;
+      border-radius: 10px;
       padding: 0.5rem 1rem;
-      border-radius: 2rem;
-      color: white;
-      z-index: 1000;
+      margin: 0.25rem;
+      color: #fff;
+      font-weight: bold;
       cursor: pointer;
+      backdrop-filter: blur(10px);
     }
-
-    .background-img {
-      background-size: cover;
-      background-position: center;
+    img.bg {
       width: 100%;
-      height: 100vh;
+      max-height: 40vh;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 1rem;
     }
-
-    .img-overlay {
-      background: rgba(0,0,0,0.4);
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    }
-
-    #google_translate_element {
-      position: fixed;
-      bottom: 10px;
-      right: 10px;
-      z-index: 9999;
-      display: none;
-    }
-
   </style>
 </head>
 <body>
-  <!-- Anchor for Home scroll -->
-  <div id="top"></div>
-
-  <!-- Buttons -->
-  <a href="#top" class="home-btn">🏠 Home</a>
-  <div class="lang-btn" onclick="toggleTranslate()">🌐 Language</div>
-
-  <!-- Section 1 -->
-  <div class="section background-img" style="background-image: url('bg1.jpg');">
-    <div class="img-overlay">
-      <h1>Welcome to Sathyadarshana.com</h1>
-      <p>Touch the Light, Walk the Path.</p>
-      <button class="btn">Enter the Platform</button>
+  <div class="nav">
+    <button class="lang-btn" onclick="translatePage('en')">EN</button>
+    <button class="lang-btn" onclick="translatePage('si')">සිං</button>
+    <button class="lang-btn" onclick="translatePage('ta')">தமிழ்</button>
+  </div>  <section id="home">
+    <div>
+      <img src="images/home.jpg" alt="Home Image" class="bg">
+      <h1>Welcome to Sathyadarshana</h1>
+      <p>Touch the Light, Walk the Path</p>
     </div>
-  </div>
-
-  <!-- Section 2 -->
-  <div class="section background-img" style="background-image: url('bg2.jpg');">
-    <div class="img-overlay">
-      <div class="glass">
-        <h1>Our Vision</h1>
-        <p>“Let us plant the Seed of Insight – for the world to awaken in wisdom.”</p>
-      </div>
+  </section>  <section id="library">
+    <div>
+      <img src="images/library.jpg" alt="Library" class="bg">
+      <h2>📖 Library</h2>
+      <p>Explore sacred scriptures and ancient wisdom</p>
     </div>
-  </div>
-
-  <!-- Section 3 -->
-  <div class="section background-img" style="background-image: url('bg3.jpg');">
-    <div class="img-overlay">
-      <div class="glass">
-        <h1>The Light Within</h1>
-        <p>Your inner journey begins when you reflect deeply, in stillness.</p>
-      </div>
+  </section>  <section id="ai">
+    <div>
+      <img src="images/ai.jpg" alt="AI Assistant" class="bg">
+      <h2>🧠 Buddhi AI</h2>
+      <p>Ask deep questions, receive divine guidance</p>
     </div>
-  </div>
-
-  <!-- Section 4 -->
-  <div class="section background-img" style="background-image: url('bg4.jpg');">
-    <div class="img-overlay">
-      <button class="btn">News Line</button>
-      <button class="btn">Buddhi AI</button>
+  </section>  <section id="astrology">
+    <div>
+      <img src="images/astrology.jpg" alt="Astrology" class="bg">
+      <h2>🌌 Astrology</h2>
+      <p>Explore KP + NASA insights on your cosmic path</p>
     </div>
-  </div>
-
-  <!-- Google Translate -->
-  <div id="google_translate_element"></div>
-  <script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({
-        pageLanguage: 'en',
-        includedLanguages: 'en,si,ta',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-      }, 'google_translate_element');
+  </section>  <section id="music">
+    <div>
+      <img src="images/music.jpg" alt="Music" class="bg">
+      <h2>🎵 Music Lab</h2>
+      <p>Spiritual sounds that awaken the soul</p>
+    </div>
+  </section>  <script>
+    function translatePage(lang) {
+      // Placeholder for multilingual support
+      alert('Language switch to: ' + lang);
     }
-
-    function toggleTranslate() {
-      const iframe = document.querySelector('iframe');
-      if (iframe) {
-        const innerDoc = iframe.contentDocument || iframe.contentWindow.document;
-        const menu = innerDoc.querySelector('.goog-te-menu-value span');
-        if (menu) {
-          menu.click();
-        }
-      }
-    }
-  </script>
-  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-  <!-- Language class auto detection -->
-  <script>
-    const userLang = navigator.language || navigator.userLanguage;
-    if (userLang.startsWith("si")) {
-      document.body.classList.add("lang-si");
-    } else if (userLang.startsWith("ta")) {
-      document.body.classList.add("lang-ta");
-    } else {
-      document.body.classList.add("lang-en");
-    }
-  </script>
-</body>
+  </script></body>
 </html>
