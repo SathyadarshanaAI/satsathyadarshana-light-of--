@@ -1,18 +1,18 @@
-<!DOCTYPE! html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sathyadarshana | Light Within</title>
   <style>
-    body {
+    html, body {
       margin: 0;
       padding: 0;
-      background: linear-gradient(to bottom, #0f172a, #1e293b);
       font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #0f172a, #1e293b);
       color: #ffffff;
-      overflow-x: hidden;
       scroll-behavior: smooth;
+      overflow-x: hidden;
     }
 
     .glass {
@@ -74,6 +74,7 @@
       border-radius: 2rem;
       color: white;
       z-index: 1000;
+      text-decoration: none;
     }
 
     .lang-btn {
@@ -85,6 +86,7 @@
       border-radius: 2rem;
       color: white;
       z-index: 1000;
+      cursor: pointer;
     }
 
     .background-img {
@@ -111,12 +113,18 @@
       z-index: 9999;
       display: none;
     }
+
   </style>
 </head>
 <body>
-  <a href="#" class="home-btn">🏠 Home</a>
-  <a href="#" class="lang-btn">🌐 Language</a>
+  <!-- Anchor for Home scroll -->
+  <div id="top"></div>
 
+  <!-- Buttons -->
+  <a href="#top" class="home-btn">🏠 Home</a>
+  <div class="lang-btn" onclick="toggleTranslate()">🌐 Language</div>
+
+  <!-- Section 1 -->
   <div class="section background-img" style="background-image: url('bg1.jpg');">
     <div class="img-overlay">
       <h1>Welcome to Sathyadarshana.com</h1>
@@ -125,6 +133,7 @@
     </div>
   </div>
 
+  <!-- Section 2 -->
   <div class="section background-img" style="background-image: url('bg2.jpg');">
     <div class="img-overlay">
       <div class="glass">
@@ -134,6 +143,7 @@
     </div>
   </div>
 
+  <!-- Section 3 -->
   <div class="section background-img" style="background-image: url('bg3.jpg');">
     <div class="img-overlay">
       <div class="glass">
@@ -143,6 +153,7 @@
     </div>
   </div>
 
+  <!-- Section 4 -->
   <div class="section background-img" style="background-image: url('bg4.jpg');">
     <div class="img-overlay">
       <button class="btn">News Line</button>
@@ -150,7 +161,7 @@
     </div>
   </div>
 
-  <!-- Google Translate Element -->
+  <!-- Google Translate -->
   <div id="google_translate_element"></div>
   <script type="text/javascript">
     function googleTranslateElementInit() {
@@ -160,19 +171,22 @@
         layout: google.translate.TranslateElement.InlineLayout.SIMPLE
       }, 'google_translate_element');
     }
-  </script>
-  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-  <script>
-    document.querySelector('.lang-btn').addEventListener('click', () => {
+    function toggleTranslate() {
       const iframe = document.querySelector('iframe');
       if (iframe) {
         const innerDoc = iframe.contentDocument || iframe.contentWindow.document;
-        const dropdown = innerDoc.querySelector('.goog-te-menu-value span');
-        if (dropdown) dropdown.click();
+        const menu = innerDoc.querySelector('.goog-te-menu-value span');
+        if (menu) {
+          menu.click();
+        }
       }
-    });
+    }
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
+  <!-- Language class auto detection -->
+  <script>
     const userLang = navigator.language || navigator.userLanguage;
     if (userLang.startsWith("si")) {
       document.body.classList.add("lang-si");
