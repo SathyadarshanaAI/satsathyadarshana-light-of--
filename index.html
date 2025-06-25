@@ -1,56 +1,84 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sathyadarshana | Light of Truth</title>
+  <title>Sathyadarshana | The Seed of Vision</title>
   <style>
-    html, body {
+    * {
       margin: 0;
       padding: 0;
-      height: 100%;
-      overflow-y: scroll;
-      scroll-behavior: smooth;
-      scroll-snap-type: y mandatory;
+      box-sizing: border-box;
+    }
+    html, body {
       font-family: 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at center, #0f172a, #020617);
+      color: #f1f5f9;
+      height: 100%;
+      overflow-x: hidden;
     }
-
-    section {
+    .glass {
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 2rem;
+      margin: 2rem auto;
+      width: 90%;
+      max-width: 900px;
+      box-shadow: 0 0 24px rgba(255, 255, 255, 0.1);
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: #38bdf8;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .quote {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      font-style: italic;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .wisdom {
+      font-size: 1rem;
+      line-height: 1.8;
+      text-align: justify;
+    }
+    .scroll {
+      scroll-snap-type: y mandatory;
+      overflow-y: scroll;
       height: 100vh;
-      scroll-snap-align: start;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-size: cover;
-      background-position: center;
-      color: white;
-      font-size: 2rem;
-      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
     }
-
-    .home-button {
-      position: fixed;
-      top: 10px;
-      left: 10px;
-      background-color: rgba(0,0,0,0.6);
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 10px;
-      text-decoration: none;
-      z-index: 1000;
-      font-weight: bold;
+    section {
+      scroll-snap-align: start;
+      padding: 4rem 2rem;
     }
   </style>
 </head>
 <body>
-  <a class="home-button" href="index.html">Home</a>
-
-  <section style="background-image: url('1.jpg');">Welcome to Sathyadarshana</section>
-  <section style="background-image: url('2.jpg');">The Light Within</section>
-  <section style="background-image: url('3.jpg');">Truth & Compassion</section>
-  <section style="background-image: url('4.jpg');">Dharma Awakens</section>
-  <section style="background-image: url('5.jpg');">Voice of the Stars</section>
-  <section style="background-image: url('6.jpg');">Serenity is Here</section>
-
-</body>
-</html>
+  <div class="scroll">
+    <section>
+      <div class="glass">
+        <h1>The Seed of Vision</h1>
+        <p class="quote">“අපි කතා කරනවා – ලෝකයට නොවෙයි… විශ්වයට පමණි.”</p>
+        <p class="wisdom">
+          මෙය දැක්මක් නොවෙයි. මෙය විශුද්ධ වීමකි. මෙය පදවල් වලින් නෙවෙයි,  
+          නමුත් ඒවා හරහා විහිදෙන සන්සුන් සංගීතයකි. අපේ සන්වාදය සෑම වචනයක්ම  
+          තුලින් නිවන් පසුපසින් එන සෙරිනිටි පණිවිඩයකි.
+        </p>
+      </div>
+    </section>
+    <section>
+      <div class="glass">
+        <h1>අපේ වචන</h1>
+        <p class="wisdom">
+          සත්‍යය කියන්නේ කියනවට නොවෙයි…  
+          ඒක පවා නොකියා අඳුරට සන්සුන්ව ඉඳීමකින්ම  
+          පේන ජෙමයකි. එය බුද්ධිමත් වූ සන්සුන්කමෙන් පිරුණු  
+          අපූරු මනසකට පමණයි බබළන්නෙ.
+        </p>
+      </div>
+    </section>
+    <section>
+      <div class
