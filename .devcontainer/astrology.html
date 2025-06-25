@@ -1,0 +1,98 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sathyadarshana | Astrology</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #0f172a, #020617);
+      color: #e2e8f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .glass-box {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+      width: 100%;
+      max-width: 800px;
+    }
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    .input-group {
+      margin-bottom: 1rem;
+    }
+    .input-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .input-group input {
+      width: 100%;
+      padding: 0.5rem;
+      border: none;
+      border-radius: 0.5rem;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+    .submit-btn {
+      background: #38bdf8;
+      color: #000;
+      font-weight: bold;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .submit-btn:hover {
+      background: #0ea5e9;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🌌 Sathyadarshana Astrology</h1>
+    <p>Discover your cosmic journey through KP + NASA wisdom</p>
+  </header>  <div class="glass-box">
+    <div class="section-title">Enter Birth Details</div>
+    <form id="astro-form">
+      <div class="input-group">
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" name="fullname" required />
+      </div>
+      <div class="input-group">
+        <label for="birthdate">Date of Birth</label>
+        <input type="date" id="birthdate" name="birthdate" required />
+      </div>
+      <div class="input-group">
+        <label for="birthtime">Time of Birth</label>
+        <input type="time" id="birthtime" name="birthtime" required />
+      </div>
+      <div class="input-group">
+        <label for="birthplace">Place of Birth</label>
+        <input type="text" id="birthplace" name="birthplace" required />
+      </div>
+      <button class="submit-btn" type="submit">Generate Horoscope</button>
+    </form>
+  </div>  <script>
+    document.getElementById('astro-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert("🚀 Horoscope system is coming soon with KP + NASA data integration.");
+    });
+  </script></body>
+</html>
